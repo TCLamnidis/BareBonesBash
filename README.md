@@ -7,35 +7,33 @@ A basic Bash tutorial by @jfy133 and @TCLamnidis.
 
 Some intro gubbins to go here
 
-Music is going to gonna help us..
-
 ## Logging in and moving around
 
-    * ssh
-    * cd (../)
+* ssh
+* cd (../)
 
 ## Downloading some data
 
-    * mkdir 
-    * wget ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz [217.2kb Mammoth mtCapture data]
+* mkdir 
+* wget ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz [217.2kb Mammoth mtCapture data]
 
 ## Manipulating and exploring files
 
-    * mv ERR2020601.fastq.gz JK2781_MT.fastq.gz
-    * zcat
-    * head
-    * wc -l
-    * grep
+* mv ERR2020601.fastq.gz JK2781_MT.fastq.gz
+* zcat
+* head
+* wc -l
+* grep
 
 ## "Help" - The Beatles
 
-   * whatis
-   * man
+* whatis
+* man
 
 ## DIE ZUKUNFT
 
-    * find
-    * awk
-    * sed
-    * parallel
-    * bash arithmetic "$((8*8))"
+* find
+* awk
+* sed
+* parallel
+* bash arithmetic "$((8*8))"
