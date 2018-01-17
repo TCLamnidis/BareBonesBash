@@ -129,7 +129,7 @@ you can normally only log into an institute's server being on the network of
 the institute and or via VPN, so make sure are on either of those.
 
 A typical `ssh` command consists of the `ssh`, with a user, '@' symbol and then 
-the address of the server. For example
+the address of the server. For example:
 
 ```bash
 ssh <user>@<my>.<address>.com
