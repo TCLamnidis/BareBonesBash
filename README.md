@@ -8,11 +8,14 @@ A basic Bash tutorial by @jfy133 and @TCLamnidis.
 The aim of this tutorial is to make you familiar with using bash everyday... 
 for the rest of your life. More specifically, we want to do this in the context
 of our work. We will start with how to navigate (Theseus' words...) around a 
-filesystem in the terminal, then download sequencing files and then to 
+filesystem in the terminal, download sequencing files, and then to 
 manipulate these. Within these sections we will also show you simple tips and 
-tricks to make your life generally easier. In fact, some of the commands we 
+tricks to make your life generally easier. In fact, some of these commands we 
 only just learnt last week (thanks Aida!) and we've been using the terminal 
 for more than 2 years.
+
+This tutorial is designed to be self sufficent using public data. Thus you
+can do this anywhere on any PC with a unix terminal.
 
 ## Logging in and moving around
 
