@@ -98,10 +98,18 @@ For example:
 cd /home/fellows/Documents
 ```
 
+Now for one last move, here is a less-known trick. When using `cd` you can use
+a dash (`-`), to indicate 'my previous location'. So, now, to escape from the 
+documents directory we can type:
+
+```bash
+cd -
+pwd
+```
+
+And voilá! We are back in our home directory.
 
 
-
-* cd (../)
 * ls
 * ssh
 * cd / pwd (recap)
