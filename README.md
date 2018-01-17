@@ -135,10 +135,11 @@ the address of the server. For example
 ssh <user>@<my>.<address>.com
 ```
 
+
 ---
 
 **MPI-SHH ONLY**
-For example we can log into SDAG with the following, replaceing <user> with 
+For example we can log into SDAG with the following, replacing <username> with 
 your username.
 
 ```bash
@@ -147,8 +148,10 @@ ssh <user>@mpi-sdag1.sdag.ppj.shh.mpg.de
 
 ---
 
-* ssh
-* cd / pwd (recap)
+Once we've logged in you can see how the `~` means something different here 
+than before as we are in a different machine. 
+
+
 
 * mkdir 
 * mv to rename directory
@@ -180,3 +183,4 @@ preserve original file, so make symlink in new directory
 * parallel
 * bash arithmetic "$((8*8))"
 * double and single quotes (or in grep and loops)
+ 
