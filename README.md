@@ -27,9 +27,7 @@ a directory path and ends with a dollar symbol. Like so.
 <username>@<device_name>:~$
 ```
 
-<p align="center">
-<img src="https://media.giphy.com/media/3o84U72tKO389H2lI4/giphy.gif" width="20%">
-</p>
+<img src="https://media.giphy.com/media/3o84U72tKO389H2lI4/giphy.gif" width="20%" align="center">
 
 Note that prompts _are_ customisable, so will not always be displayed as above 
 (look at Thiseas' magical prompt as an example. James keeps his vanilla as he 
@@ -68,8 +66,8 @@ started their journey) _\[haha, human history joke]_, or you could say "Take
 a left here, straight for 3 blocks, and you're there.". The latter set of 
 directions is relative to their current position, while the first one is not.
 
-<img src="https://media.giphy.com/media/3o6Ztk4xTVAnfqYPn2/source.gif" width="20%">
-<img src="https://media.giphy.com/media/QWXhaNjfwuNs4/giphy-tumblr.gif" width="20%">
+<img src="https://media.giphy.com/media/3o6Ztk4xTVAnfqYPn2/source.gif" width="20%" align="center">
+<img src="https://media.giphy.com/media/QWXhaNjfwuNs4/giphy-tumblr.gif" width="20%" align="center">
 
 
 Now let's look around at out current location and see what we can find withing 
@@ -111,7 +109,7 @@ We can also change directories using absolute paths. Lets do this using the
 absolute path we printed using `pwd` in the previous step. Type `cp`, but don't 
 press enter yet! 
 
-<img src="https://media.giphy.com/media/23BST5FQOc8k8/source.gif" width="20%">
+<img src="https://media.giphy.com/media/23BST5FQOc8k8/source.gif" width="20%" align="center">
 
 Copy and paste the output of the previous `pwd` command 
 (which you can see in your terminal does not have the command prompt), after 
@@ -179,7 +177,7 @@ You can now see your new and devoid-of-content directory. But don't celebrate
 yet! The directory has the wrong name! Who could have seen _this_ coming? If 
 you saw the typo and fixed it already, no brownies for you! 
 
-<img src="https://media.giphy.com/media/ieGdB2g5kDIkg/giphy.gif" width="20%">
+<img src="https://media.giphy.com/media/ieGdB2g5kDIkg/giphy.gif" width="20%" align="center">
 
 But don't lose hope, because we can rename things with the `mv` command, 
 shorthand for "move". 
@@ -198,7 +196,7 @@ the target location having a different name, essentially renaming it to
 
 But oh no! Not again! This is not a bash tutorial for ancient bear genomics! 
 
-<img src="https://media.giphy.com/media/IQ9KefLJHfJPq/giphy.gif" width="20%">
+<img src="https://media.giphy.com/media/IQ9KefLJHfJPq/giphy.gif" width="20%" align="center">
 
 Let's just delete that empty directory and start over, using the `rmdir` 
 command, short for "**r**e**m**ove **dir**ectory".
@@ -223,15 +221,15 @@ Lets change that.
 We ain't playing with bears today - that's dangeous (as we saw above), instead
 lets play with some Mammoths!
 
-<img src="https://media.giphy.com/media/kbuQOkATEo6VW/giphy.gif" width="20%">
-<img src="https://media.giphy.com/media/3o6Zte5Q11lxAu8Q5q/giphy.gif" width="20%">
+<img src="https://media.giphy.com/media/kbuQOkATEo6VW/giphy.gif" width="20%" align="center">
+<img src="https://media.giphy.com/media/3o6Zte5Q11lxAu8Q5q/giphy.gif" width="20%" align="center">
 
 We're going to use `wget` to download a FASTQ file from the ENA. So while in 
 our `BareBonesBash` directory, we will give `wget` the link to the file, and 
 we should see a loading bar. Once downloaded (it should be pretty quick),
 we can use `ls` to check the contents.
 
-<img src="https://media.giphy.com/media/lAIbbDbcXSZSU/giphy.gif" width="20%">
+<img src="https://media.giphy.com/media/lAIbbDbcXSZSU/giphy.gif" width="20%" align="center">
 
 ```bash
 wget ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
@@ -252,7 +250,7 @@ cat ERR2020601.fastq.gz
 
 Yay for auto-complete! But you probably had a bunch of junk printed to screen.
 
-<img src="https://media.giphy.com/media/kQbMO5X7UA1C8/giphy.gif" width="20%">
+<img src="https://media.giphy.com/media/kQbMO5X7UA1C8/giphy.gif" width="20%" align="center">
 
 That's because the FASTQ file, as ith almost all FASTQs, is compressed (as 
 indicated by the .gz). To then view the _real_ contents of the file, we can 
@@ -273,7 +271,7 @@ old gunk that was printed to your screen.
 We will now try out three semi-related commands to make viewing the contents 
 of a file, as well as introduce the concept of `|` or "pipe". 
 
-<img src="https://tinynin.files.wordpress.com/2012/01/warppipe-copy.gif" width="20%">
+<img src="https://tinynin.files.wordpress.com/2012/01/warppipe-copy.gif" width="20%" align="center">
 
 Pipe passes the output of one program and puts it into another. Head allows you 
 to view the first X number of lines, tail the same but with last. 
@@ -310,7 +308,7 @@ lines, and then the last 4 lines of the previous 20.
 
 But what if you wanted to view the whole file "at your own leisurely pace"
 
-<img src="https://media.giphy.com/media/82abB3W2DknkY/giphy.gif" width="20%">
+<img src="https://media.giphy.com/media/82abB3W2DknkY/giphy.gif" width="20%" align="center">
 
 We can use the tool `less`, which prints the file to screen, but allows you 
 to move up and down the output with your arrow keys.
@@ -329,7 +327,7 @@ sequence itself, a separator and a base quality line. So four lines represents
 one read. So if we could count the number of lines in a file, then divide by 
 four, we can work our how many reads are in our library. 
 
-<img src="https://media.giphy.com/media/l41YtZOb9EUABnuqA/giphy.gif" width="20%">
+<img src="https://media.giphy.com/media/l41YtZOb9EUABnuqA/giphy.gif" width="20%" align="center">
 
 For this we can use 'wc', which stands for "**w**ord **c**ount". However, we 
 don't want to count words, we want to count lines. We can thus use the flag 
@@ -346,7 +344,7 @@ Finally, maybe we want to know what the name of each read is. When we used
 less above, we saw each read header began with "@". Maybe we can use this
 to our advantage!
 
-<img src="https://media.giphy.com/media/3orieUe6ejxSFxYCXe/giphy.gif" width="20%">
+<img src="https://media.giphy.com/media/3orieUe6ejxSFxYCXe/giphy.gif" width="20%" align="center">
 
 The command `grep`, will only print lines in a file that match a certain 
 pattern. So for example, we want to search for every line in our FASTQ file 
@@ -377,7 +375,7 @@ zcat ERR2020601.fastq.gz | grep @ERR | wc -l
 ```
 
 
-<img src="https://media.giphy.com/media/11sBLVxNs7v6WA/giphy.gif" width="20%">
+<img src="https://media.giphy.com/media/11sBLVxNs7v6WA/giphy.gif" width="20%" align="center">
 
 preserve original file, so make symlink in new directory
 * mkdir
