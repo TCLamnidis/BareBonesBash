@@ -71,7 +71,7 @@ ls
 ```
 
 Your home directory should come equipped with multiple subdirectories like 
-"Documetns", "Pictures", etc. 
+"Documents", "Pictures", etc. 
 
 It is now time to start moving (navigating) towards "the Brandenburger Tor". 
 We can navigate through directories using the command `cd` which stands for 
