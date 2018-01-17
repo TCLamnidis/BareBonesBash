@@ -226,19 +226,156 @@ lets play with some Mammoths!
 
 We're going to use `wget` to download a FASTQ file from the ENA. So while in 
 our `BareBonesBash` directory, we will give `wget` the link to the file, and 
-we should see a loading bar.
+we should see a loading bar. Once downloaded (it should be pretty quick),
+we can use `ls` to check the contents.
+
+<img src="https://media.giphy.com/media/lAIbbDbcXSZSU/giphy.gif" width="20%">
 
 ```bash
 wget ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
+ls
+```
+
+Great! But maybe we want to check we downloaded the right thing. In bash,
+with text files you can normally use `cat`, which is used to print the 
+contents of a file to the screen. Lets try this with our newly downloaded file.
+
+If you're anything like Thiseas, who gets triggered at slow computer things, 
+and you can't be arsed to type out the whole file name - try typing a couple 
+of characters then press the "tab" key on your keyboard.
+
+```bash
+cat ERR2020601.fastq.gz
+```
+
+Yay for auto-complete! But you probably had a bunch of junk printed to screen.
+
+<img src="https://media.giphy.com/media/kQbMO5X7UA1C8/giphy.gif" width="20%">
+
+That's because the FASTQ file, as ith almost all FASTQs, is compressed (as 
+indicated by the .gz). To then view the _real_ contents of the file, we can 
+instead use `zcat`. Don't forget your auto-complete!
+
+```bash
+zcat ERR2020601.fastq.gz
+```
+
+That looks much better, we can now actually see some DNA sequences! But you 
+may have also noticed that a lot of stuff zipped past without you being able 
+to see it. You could try scrolling but likely you'll not be able to go back 
+far enough to see your previous commands. 
+
+Tip: try pressing `ctrl+l`, which will clear your terminal of all the 
+old gunk that was printed to your screen.
+
+We will now try out three semi-related commands to make viewing the contents 
+of a file, as well as introduce the concept of `|` or "pipe". 
+
+<img src="https://tinynin.files.wordpress.com/2012/01/warppipe-copy.gif" width="20%">
+
+Pipe passes the output of one program and puts it into another. Head allows you 
+to view the first X number of lines, tail the same but with last. 
+
+We will now print the file to screen with `zcat`, but rather than just let 
+the whole thing print, will "pipe" the output into head, which will allow us to 
+see the first 10 lines.
+
+```bash
+zcat ERR2020601.fastq.gz | head
+```
+
+We can also display more lines with the `-n` flag. For 20 lines
+
+```bash
+zcat ERR2020601.fastq.gz | head -n 20
+```
+
+The same goes for tail
+
+```bash
+zcat ERR2020601.fastq.gz | tail -n 4
+```
+
+And you can also chain them altogether (not unlike a human centipede... ;), no 
+gif here so I done get fired...).
+
+```bash
+zcat ERR2020601.fastq.gz | head -n 20 | tail -n 4
+```
+
+The above command will print the whole file, but capturing only the first 20 
+lines, and then the last 4 lines of the previous 20.
+
+But what if you wanted to view the whole file "at your own leisurely pace"
+
+<img src="https://media.giphy.com/media/82abB3W2DknkY/giphy.gif" width="20%">
+
+We can use the tool `less`, which prints the file to screen, but allows you 
+to move up and down the output with your arrow keys.
+
+```bash
+less ERR2020601.fastq.gz
+```
+
+You can quit by pressing "q" on your keyboard.
+
+Now we've had a look inside and checked that the file is a pretty normal FASTQ 
+file, lets start asking more bioinformatic questions about it. A pretty 
+standard question would be, how many reads do I have? We should all know by now
+that each "read" in a FASTQ file has four components - a header line, the 
+sequence itself, a separator and a base quality line. So four lines represents 
+one read. So if we could count the number of lines in a file, then divide by 
+four, we can work our how many reads are in our library. 
+
+<img src="https://media.giphy.com/media/l41YtZOb9EUABnuqA/giphy.gif" width="20%">
+
+For this we can use 'wc', which stands for "**w**ord **c**ount". However, we 
+don't want to count words, we want to count lines. We can thus use the flag 
+`-l` to do this. But remember we first have to decompress the whole file with 
+`zcat
+
+```bash
+zcat ERR2020601.fastq.gz | wc -l
+```
+
+This should give us 18880, which divide by four, is 4720 reads.
+
+Finally, maybe we want to know what the name of each read is. When we used
+less above, we saw each read header began with "@". Maybe we can use this
+to our advantage!
+
+<img src="https://media.giphy.com/media/3orieUe6ejxSFxYCXe/giphy.gif" width="20%">
+
+The command `grep`, will only print lines in a file that match a certain 
+pattern. So for example, we want to search for every line in our FASTQ file 
+that begins with '@'. Lets try it out again in combination with `zcat` and 
+our pipes.
+
+```zcat
+zcat ERR2020601.fastq.gz | grep @
+```
+
+Unfortunately we seem to have picked up some other stuff because of the 
+base quality line. We can make our "pattern", in this case "@" more specific by
+adding "ERR". For shits and giggles lets also pipe the output into less, so we 
+can look a bit more.
+
+```zcat
+zcat ERR2020601.fastq.gz | grep @ERR | less
+```
+
+Remember to press "q" to exit.
+
+And for one final recap, we previously calculated there to be 4720 reads in our 
+file. If we have just extracted the unqiue read _headers_ for every read, then 
+in principle we can also just count these with `wc`!
+
+```zcat
+zcat ERR2020601.fastq.gz | grep @ERR | wc -l
 ```
 
 
-* wget ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz [217.2kb Mammoth mtCapture data]
-* zcat
-* pipe
-* head/tail/less
-* wc -l
-* grep
+<img src="https://media.giphy.com/media/11sBLVxNs7v6WA/giphy.gif" width="20%">
 
 preserve original file, so make symlink in new directory
 * mkdir
@@ -247,6 +384,11 @@ preserve original file, so make symlink in new directory
 * ls -l (to see)
 * download more files from ENA with a provided list.
 * small for loop to copy and rename the rest of the fastq.gz with ln -s.
+* rev
+* cut 
+* variables
+* for/while loops
+* if statements
 
 ## "Help" - The Beatles
 
