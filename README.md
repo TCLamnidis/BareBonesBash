@@ -99,8 +99,8 @@ cd /home/fellows/Documents
 ```
 
 Now for one last move, here is a lesser-known trick. When using `cd` you can 
-use a dash (`-`), to indicate 'my previous location'. So, now, to escape from 
-the documents directory we can type:
+use a dash (`-`), to indicate 'my previous location'. So, now, to return to our 
+home directory from the documents directory we can type:
 
 ```bash
 cd -
