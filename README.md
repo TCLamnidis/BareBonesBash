@@ -148,8 +148,8 @@ ssh <user>@mpi-sdag1.sdag.ppj.shh.mpg.de
 
 ---
 
-Once we've logged in you can see how the `~` means something different here 
-than before as we are in a different machine. 
+Once we've logged in the `~` means something different, as we are on a different, 
+machine. 
 
 
 
