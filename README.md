@@ -7,7 +7,7 @@ A basic Bash tutorial by @jfy133 and @TCLamnidis.
 
 The aim of this tutorial is to make you familiar with using bash everyday... 
 for the rest of your life. More specifically, we want to do this in the context
-of our work. We will start with how to navigate (Theseus' words...) around a 
+of our work. We will start with how to navigate (Thiseas' words...) around a 
 filesystem in the terminal, download sequencing files, and then to 
 manipulate these. Within these sections we will also show you simple tips and 
 tricks to make your life generally easier. In fact, some of these commands we 
@@ -21,15 +21,29 @@ can do this anywhere on any PC with a unix terminal (no warranty provided).
 
 After opening the terminal what you will normally see is a blank screen with a
 'command prompt'. This typically consists of your username, device name a colon, 
-a directory path and ends with a dollar symbol.
+a directory path and ends with a dollar symbol. Like so.
 
 ```bash
 <username>@<device_name>:~$
 ```
 
+Note that prompts _are_ customisable, so will not always be displayed as above 
+(look at Thiseas' magical prompt as an example. James keeps his vanilla as he 
+is a barbarian).
+
+The prompt is never involved in any command itself, it is just to help know
+who and where you are. Therefore you must always make sure when copying a 
+command (see later) that you do **NOT** include the prompt.
+
 Here, the directory `~`, stands for your home directory. This shorthand can be 
 seen and used both on your machine and on the cluster. Note that this shorthand 
 will point to a different place, depending on the machine and the user.
+
+If you want to know what the shorthand means, (here comes your first command!)
+you can type in `pwd`, which is short for "**p**rint **w**orking **d**irectory". 
+The working directory stands for whichever directory you are currently in. 
+
+
 
 * pwd
 * cd (../)
