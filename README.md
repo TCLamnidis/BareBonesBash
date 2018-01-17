@@ -54,13 +54,13 @@ There are two types of filepaths:
 * Alternatively a relative path always begins from your working directory (i.e.
   your current directory). Often this type of path will begin with one (`./`) 
   or two (`../`) dots followed by a forward slash, **but not always**. In the 
-  syntax of relative pathways `.` means "The current directory" and `..` means 
+  syntax of relative pathways `.` means "the current directory" and `..` means 
   "the parent directory". 
 
 As a real life example, imagine you are walking down the street when a car 
 stops to ask for the way to the Brandenburger Tor. You could tell them how to 
 get to the Tor from Ethiopia (since that is the presumed root where all humans 
-started their journey) __\[haha, human history joke]__, or you could say "Take 
+started their journey) _\[haha, human history joke]_, or you could say "Take 
 a left here, straight for 3 blocks, and you're there.". The latter set of 
 directions is relative to their current position, while the first one is not.
 
