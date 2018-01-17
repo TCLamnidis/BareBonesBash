@@ -31,7 +31,7 @@ Note that prompts _are_ customisable, so will not always be displayed as above
 (look at Thiseas' magical prompt as an example. James keeps his vanilla as he 
 is a barbarian).
 
-The prompt is never involved in any command itself, it is just to help know
+The prompt is never involved in any command, it is just there to help you know
 who and where you are. Therefore you must always make sure when copying a 
 command (see later) that you do **NOT** include the prompt.
 
@@ -45,7 +45,6 @@ The working directory stands for whichever directory you are currently in.
 
 
 
-* pwd
 * cd (../)
 * ls
 * ssh
