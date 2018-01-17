@@ -5,25 +5,39 @@ A basic Bash tutorial by @jfy133 and @TCLamnidis.
 
 ## Introduction
 
-Some intro gubbins to go here
+The aim of this tutorial is to make you familiar with using bash everyday... 
+for the rest of your life. More specifically, we want to do this in the context
+of our work. We will start with how to navigate (Theseus' words...) around a 
+filesystem in the terminal, then download sequencing files and then to 
+manipulate these. Within these sections we will also show you simple tips and 
+tricks to make your life generally easier. In fact, some of the commands we 
+only just learnt last week (thanks Aida!) and we've been using the terminal 
+for more than 2 years.
 
 ## Logging in and moving around
 
-* ssh
+* pwd
 * cd (../)
-
-## Downloading some data
+* ls
+* ssh
+* cd / pwd (recap)
 
 * mkdir 
+* mv to rename directory
+* cd
 * wget ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz [217.2kb Mammoth mtCapture data]
-
-## Manipulating and exploring files
-
-* mv ERR2020601.fastq.gz JK2781_MT.fastq.gz
 * zcat
-* head
+* pipe
+* head/tail/less
 * wc -l
 * grep
+
+preserve original file, so make symlink in new directory
+* mkdir
+* ln -s 
+* mv (the symlink) ERR2020601.fastq.gz JK2781_MT.fastq.gz
+* ls -l (to see)
+
 
 ## "Help" - The Beatles
 
