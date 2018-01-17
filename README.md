@@ -122,9 +122,28 @@ pwd
 And voilá! We are back in our home directory.
 
 However, often when working in bioinformatics we will be working on a server. 
-The most typical way to log in via 'secure shell', known as `ssh`. note that 
+The most typical way to log in via "**s**ecure **sh**ell", known as `ssh`. note that 
 you can normally only log into an institute's server being on the network of 
 the institute and or via VPN, so make sure are on either of those.
+
+A typical `ssh` command consists of the `ssh`, with a user, '@' symbol and then 
+the address of the server. For example
+
+```bash
+ssh <user>@<my>.<address>.com
+```
+
+---
+
+**MPI-SHH ONLY**
+For example we can log into SDAG with the following, replaceing <user> with 
+your username.
+
+```bash
+ssh <user>@mpi-sdag1.sdag.ppj.shh.mpg.de
+```
+
+---
 
 * ssh
 * cd / pwd (recap)
@@ -158,3 +177,4 @@ preserve original file, so make symlink in new directory
 * sed
 * parallel
 * bash arithmetic "$((8*8))"
+* double and single quotes (or in grep and loops)
