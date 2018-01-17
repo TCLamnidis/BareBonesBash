@@ -53,7 +53,9 @@ There are two types of filepaths:
   command you just ran.
 * Alternatively a relative path always begins from your working directory (i.e.
   your current directory). Often this type of path will begin with one (`./`) 
-  or two (`../`) dots followed by a forward slash, **but not always**.
+  or two (`../`) dots followed by a forward slash, **but not always**. In the 
+  syntax of relative pathways `.` means "The current directory" and `..` means 
+  "the parent directory". 
 
 As a real life example, imagine you are walking down the street when a car 
 stops to ask for the way to the Brandenburger Tor. You could tell them how to 
@@ -73,7 +75,7 @@ ls
 Your home directory should come equipped with multiple subdirectories like 
 "Documents", "Pictures", etc. 
 
-It is now time to start moving (navigating) towards "the Brandenburger Tor". 
+It is now time to start moving (navigating) towards "the Brandenburger Tor" from the example above. 
 We can navigate through directories using the command `cd` which stands for 
 "**c**hange **d**irectory".
 
@@ -83,7 +85,7 @@ cd Documents/
 
 This command will move you from your home directory to its "Documents" 
 subdirectory. Note that `Documents/` above is indeed a relative path, since it 
-starts from the home directory. To find the absolute path of the "Documents" 
+starts from the home directory (the initial `./` is implied). To find the absolute path of the "Documents" 
 directory we will once again use `pwd`.
 
 ```bash
