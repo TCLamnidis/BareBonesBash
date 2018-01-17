@@ -149,7 +149,33 @@ ssh <user>@mpi-sdag1.sdag.ppj.shh.mpg.de
 ---
 
 Once we've logged in the `~` points to a different home directory, as you are on a different
-machine. 
+machine. However, all of the commands you've learned so far will still work the same. ;)
+
+It is important to keep your corner of the servers well organised, and the trick to doing that is making your own directories. Often _a lot_ of them. You can make a new empty directory using the command `mkdir`, shorthand for "**m**a**k**e **dir**ectory".
+
+```bash
+mkdir ~/BareBonesBosh
+ls ~
+```
+
+You can now see your new and devoid-of-content directory. But don't celebrate yet! The directory has the wrong name! Who could have seen _this_ coming? If you saw the typo and fixed it already, no brownies for you!. But don't lose hope, because we can rename things with the `mv` command, shorthand for "move". In fact move, as the name suggests, will move a file/folder into a new location, also renaming it in the process, if necessary. 
+
+```bash
+mv ~/BareBonesBosh ~/BearBonesBash
+```
+This will now move the directory into the same location, but with a different name, essentially renaming it to `BearBonesBash`. Oh no! Not again! This is not a bash tutorial for ancient bear genomics! Let's just delete that empty directory and start over, using the `rmdir` command, short for "**r**e**m**ove **dir**ectory".
+
+```bash
+rmdir ~/BearBonesBash
+ls ~
+```
+
+And now we can create our directory, properly named this time, and move into it.
+
+```bash
+mkdir ~/BareBonesBash
+cd ~/BareBonesBash
+```
 
 
 
