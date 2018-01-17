@@ -140,7 +140,7 @@ ssh <user>@<my>.<address>.com
 
 **MPI-SHH ONLY**
 For example we can log into SDAG with the following, replacing <username> with 
-your username.
+your username. Note that this will normally ask you for your password.
 
 ```bash
 ssh <user>@mpi-sdag1.sdag.ppj.shh.mpg.de
