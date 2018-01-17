@@ -107,7 +107,11 @@ cd ../
 
 We can also change directories using absolute paths. Lets do this using the 
 absolute path we printed using `pwd` in the previous step. Type `cp`, but don't 
-press enter yet! Copy and paste the output of the previous `pwd` command 
+press enter yet! 
+
+<img src="https://media.giphy.com/media/23BST5FQOc8k8/source.gif" width="50%">
+
+Copy and paste the output of the previous `pwd` command 
 (which you can see in your terminal does not have the command prompt), after 
 the `cd`, then press enter.
 
