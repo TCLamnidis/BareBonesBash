@@ -109,10 +109,11 @@ pwd
 
 And voilá! We are back in our home directory.
 
+However, often when working in bioinformatics we will be working on a server. 
+The most typical way to log in via 'secure shell', known as `ssh`. note that 
+you can normally only log into an institute's server being on the network of 
+the institute and or via VPN, so make sure are on either of those.
 
-
-
-* ls
 * ssh
 * cd / pwd (recap)
 
