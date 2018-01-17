@@ -15,7 +15,7 @@ only just learnt last week (thanks Aida!) and we've been using the terminal
 for more than 2 years.
 
 This tutorial is designed to be self sufficent using public data. Thus you
-can do this anywhere on any PC with a unix terminal.
+can do this anywhere on any PC with a unix terminal (no warranty provided).
 
 ## Logging in and moving around
 
