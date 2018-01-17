@@ -27,7 +27,7 @@ a directory path and ends with a dollar symbol. Like so.
 <username>@<device_name>:~$
 ```
 
-<img src="https://media.giphy.com/media/3o84U72tKO389H2lI4/giphy.gif" width="40%">
+<img src="https://media.giphy.com/media/3o84U72tKO389H2lI4/giphy.gif" width="20%">
 
 Note that prompts _are_ customisable, so will not always be displayed as above 
 (look at Thiseas' magical prompt as an example. James keeps his vanilla as he 
