@@ -194,7 +194,8 @@ preserve original file, so make symlink in new directory
 * ln -s 
 * mv (the symlink) ERR2020601.fastq.gz JK2781_MT.fastq.gz
 * ls -l (to see)
-
+* download more files from ENA with a provided list.
+* small for loop to copy and rename the rest of the fastq.gz with ln -s.
 
 ## "Help" - The Beatles
 
