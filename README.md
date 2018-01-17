@@ -58,9 +58,20 @@ There are two types of filepaths:
 As a real life example, imagine you are walking down the street when a car 
 stops to ask for the way to the Brandenburger Tor. You could tell them how to 
 get to the Tor from Ethiopia (since that is the presumed root where all humans 
-started their journey) __\[haha, human history joke]__, or you could say "Take a 
-left here, straight for 3 blocks, and you're there.". The latter set of 
+started their journey) __\[haha, human history joke]__, or you could say "Take 
+a left here, straight for 3 blocks, and you're there.". The latter set of 
 directions is relative to their current position, while the first one is not.
+
+Now let's look around at out current location and see what we can find withing 
+our home directories. We can use the command `ls`, shorthand for "list", which 
+will (surprise surprise) list the directory contents.
+
+```bash
+ls
+```
+
+Your home directory should come equipped with multiple subdirectories like 
+"Documetns", "Pictures", etc. 
 
 It is now time to start moving (navigating) towards "the Brandenburger Tor". 
 We can navigate through directories using the command `cd` which stands for 
