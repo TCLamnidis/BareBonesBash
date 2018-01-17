@@ -67,7 +67,7 @@ a left here, straight for 3 blocks, and you're there.". The latter set of
 directions is relative to their current position, while the first one is not.
 
 <img src="https://media.giphy.com/media/3o6Ztk4xTVAnfqYPn2/source.gif" width="20%">
-<img src="https://media.giphy.com/media/QWXhaNjfwuNs4/source.gif" width="20%">
+<img src="https://media.giphy.com/media/QWXhaNjfwuNs4/giphy.gif" width="20%">
 
 
 Now let's look around at out current location and see what we can find withing 
@@ -109,7 +109,7 @@ We can also change directories using absolute paths. Lets do this using the
 absolute path we printed using `pwd` in the previous step. Type `cp`, but don't 
 press enter yet! 
 
-<img src="https://media.giphy.com/media/23BST5FQOc8k8/source.gif" width="50%">
+<img src="https://media.giphy.com/media/23BST5FQOc8k8/source.gif" width="20%">
 
 Copy and paste the output of the previous `pwd` command 
 (which you can see in your terminal does not have the command prompt), after 
