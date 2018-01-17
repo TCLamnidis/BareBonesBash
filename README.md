@@ -123,8 +123,8 @@ pwd
 
 And voilá! We are back in our home directory.
 
-However, often when working in bioinformatics we will be working on a server. 
-The most typical way to log in via "**s**ecure **sh**ell", known as `ssh`. note that 
+However, often when working in bioinformatics we will be working remotely on a server. 
+The most typical way is to log in via "**s**ecure **sh**ell", known as `ssh`. Note that 
 you can normally only log into an institute's server being on the network of 
 the institute and or via VPN, so make sure are on either of those.
 
