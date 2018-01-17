@@ -27,6 +27,8 @@ a directory path and ends with a dollar symbol. Like so.
 <username>@<device_name>:~$
 ```
 
+![dollar](https://media.giphy.com/media/3o84U72tKO389H2lI4/giphy.gif)
+
 Note that prompts _are_ customisable, so will not always be displayed as above 
 (look at Thiseas' magical prompt as an example. James keeps his vanilla as he 
 is a barbarian).
@@ -75,9 +77,9 @@ ls
 Your home directory should come equipped with multiple subdirectories like 
 "Documents", "Pictures", etc. 
 
-It is now time to start moving (navigating) towards "the Brandenburger Tor" from the example above. 
-We can navigate through directories using the command `cd` which stands for 
-"**c**hange **d**irectory".
+It is now time to start moving (navigating) towards "the Brandenburger Tor" 
+from the example above. We can navigate through directories using the command 
+`cd` which stands for "**c**hange **d**irectory".
 
 ```bash
 cd Documents/
@@ -85,8 +87,8 @@ cd Documents/
 
 This command will move you from your home directory to its "Documents" 
 subdirectory. Note that `Documents/` above is indeed a relative path, since it 
-starts from the home directory (the initial `./` is implied). To find the absolute path of the "Documents" 
-directory we will once again use `pwd`.
+starts from the home directory (the initial `./` is implied). To find the 
+absolute path of the "Documents" directory we will once again use `pwd`.
 
 ```bash
 pwd
@@ -123,10 +125,11 @@ pwd
 
 And voilá! We are back in our home directory.
 
-However, often when working in bioinformatics we will be working remotely on a server. 
-The most typical way is to log in via "**s**ecure **sh**ell", known as `ssh`. Note that 
-you can normally only log into an institute's server being on the network of 
-the institute and or via VPN, so make sure are on either of those.
+However, often when working in bioinformatics we will be working remotely on a 
+server. The most typical way is to log in via "**s**ecure **sh**ell", known as 
+`ssh`. Note that you can normally only log into an institute's server being on 
+the network of the institute and or via VPN, so make sure are on either of 
+those.
 
 A typical `ssh` command consists of the `ssh`, with a user, '@' symbol and then 
 the address of the server. For example:
@@ -148,22 +151,40 @@ ssh <user>@mpi-sdag1.sdag.ppj.shh.mpg.de
 
 ---
 
-Once we've logged in the `~` points to a different home directory, as you are on a different
-machine. However, all of the commands you've learned so far will still work the same. ;)
+Once we've logged in the `~` points to a different home directory, as you are 
+on a different machine. However, all of the commands you've learned so far will 
+still work the same. ;)
 
-It is important to keep your corner of the servers well organised, and the trick to doing that is making your own directories. Often _a lot_ of them. You can make a new empty directory using the command `mkdir`, shorthand for "**m**a**k**e **dir**ectory".
+It is important to keep your corner of the servers well organised, and the 
+trick to doing that is making your own directories. Often _a lot_ of them. 
+You can make a new empty directory using the command `mkdir`, shorthand for 
+"**m**a**k**e **dir**ectory".
 
 ```bash
 mkdir ~/BareBonesBosh
 ls ~
 ```
 
-You can now see your new and devoid-of-content directory. But don't celebrate yet! The directory has the wrong name! Who could have seen _this_ coming? If you saw the typo and fixed it already, no brownies for you!. But don't lose hope, because we can rename things with the `mv` command, shorthand for "move". In fact move, as the name suggests, will move a file/folder into a new location, also renaming it in the process, if necessary. 
+You can now see your new and devoid-of-content directory. But don't celebrate 
+yet! The directory has the wrong name! Who could have seen _this_ coming? If 
+you saw the typo and fixed it already, no brownies for you! But don't lose 
+hope, because we can rename things with the `mv` command, shorthand for "move". 
+
+In fact move, as the name suggests, will move a file/folder into a new location, 
+also renaming it in the process, if necessary. It works by `mv`, the old 
+location and a target location.
 
 ```bash
 mv ~/BareBonesBosh ~/BearBonesBash
 ```
-This will now move the directory into the same location, but with a different name, essentially renaming it to `BearBonesBash`. Oh no! Not again! This is not a bash tutorial for ancient bear genomics! Let's just delete that empty directory and start over, using the `rmdir` command, short for "**r**e**m**ove **dir**ectory".
+
+The command above will now move the directory into the same location, but with
+the target location having a different name, essentially renaming it to 
+`BearBonesBash`. 
+
+But oh no! Not again! This is not a bash tutorial for ancient bear genomics! 
+Let's just delete that empty directory and start over, using the `rmdir` 
+command, short for "**r**e**m**ove **dir**ectory".
 
 ```bash
 rmdir ~/BearBonesBash
@@ -176,6 +197,9 @@ And now we can create our directory, properly named this time, and move into it.
 mkdir ~/BareBonesBash
 cd ~/BareBonesBash
 ```
+
+## Playing with files
+
 
 
 
