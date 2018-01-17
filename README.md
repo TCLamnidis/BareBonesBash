@@ -66,7 +66,7 @@ started their journey) _\[haha, human history joke]_, or you could say "Take
 a left here, straight for 3 blocks, and you're there.". The latter set of 
 directions is relative to their current position, while the first one is not.
 
-<p align="center"><img src="https://media.giphy.com/media/3o6Ztk4xTVAnfqYPn2/source.gif" width="20%"><img src="https://media.giphy.com/media/QWXhaNjfwuNs4/giphy-tumblr.gif" width="20%"></p>
+<p align="center"><img src="https://media.giphy.com/media/3o6Ztk4xTVAnfqYPn2/source.gif" width="20%"> <img src="https://media.giphy.com/media/QWXhaNjfwuNs4/giphy-tumblr.gif" width="20%"></p>
 
 
 Now let's look around at out current location and see what we can find withing 
