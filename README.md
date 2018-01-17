@@ -58,7 +58,7 @@ There are two types of filepaths:
 As a real life example, imagine you are walking down the street when a car 
 stops to ask for the way to the Brandenburger Tor. You could tell them how to 
 get to the Tor from Ethiopia (since that is the presumed root where all humans 
-started their journey) \[haha, human history joke], or you could say "Take a 
+started their journey) __\[haha, human history joke]__, or you could say "Take a 
 left here, straight for 3 blocks, and you're there.". The latter set of 
 directions is relative to their current position, while the first one is not.
 
@@ -99,7 +99,8 @@ cd /home/fellows/Documents
 ```
 
 Now for one last move, here is a lesser-known trick. When using `cd` you can 
-use a dash (`-`), to indicate 'my previous location'. So, now, to return to our 
+use a dash (`-`), to indicate 'my previous location'. This is useful since you
+ can move multiple directories with one `cd` command. So, now, to return to our 
 home directory from the documents directory we can type:
 
 ```bash
