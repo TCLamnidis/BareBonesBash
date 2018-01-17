@@ -175,8 +175,12 @@ ls ~
 
 You can now see your new and devoid-of-content directory. But don't celebrate 
 yet! The directory has the wrong name! Who could have seen _this_ coming? If 
-you saw the typo and fixed it already, no brownies for you! But don't lose 
-hope, because we can rename things with the `mv` command, shorthand for "move". 
+you saw the typo and fixed it already, no brownies for you! 
+
+<img src="https://media.giphy.com/media/ieGdB2g5kDIkg/giphy.gif" width="20%">
+
+But don't lose hope, because we can rename things with the `mv` command, 
+shorthand for "move". 
 
 In fact move, as the name suggests, will move a file/folder into a new location, 
 also renaming it in the process, if necessary. It works by `mv`, the old 
@@ -191,6 +195,9 @@ the target location having a different name, essentially renaming it to
 `BearBonesBash`. 
 
 But oh no! Not again! This is not a bash tutorial for ancient bear genomics! 
+
+<img src="https://media.giphy.com/media/IQ9KefLJHfJPq/giphy.gif" width="20%">
+
 Let's just delete that empty directory and start over, using the `rmdir` 
 command, short for "**r**e**m**ove **dir**ectory".
 
@@ -208,12 +215,24 @@ cd ~/BareBonesBash
 
 ## Playing with files
 
+So we have places to organise our files... buuut we don't have any files yet! 
+Lets change that.
+
+We ain't playing with bears today - that's dangeous (as we saw above), instead
+lets play with some Mammoths!
+
+<img src="https://media.giphy.com/media/kbuQOkATEo6VW/giphy.gif" width="20%">
+<img src="https://media.giphy.com/media/3o6Zte5Q11lxAu8Q5q/giphy.gif" width="20%">
+
+We're going to use `wget` to download a FASTQ file from the ENA. So while in 
+our `BareBonesBash` directory, we will give `wget` the link to the file, and 
+we should see a loading bar.
+
+```bash
+wget ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
+```
 
 
-
-* mkdir 
-* mv to rename directory
-* cd
 * wget ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz [217.2kb Mammoth mtCapture data]
 * zcat
 * pipe
