@@ -17,7 +17,19 @@ for more than 2 years.
 This tutorial is designed to be self sufficent using public data. Thus you
 can do this anywhere on any PC with a unix terminal (no warranty provided).
 
-## Logging in and moving around
+## Navigating the maze
+
+After opening the terminal what you will normally see is a blank screen with a
+'command prompt'. This typically consists of your username, device name a colon, 
+a directory path and ends with a dollar symbol.
+
+```bash
+<username>@<device_name>:~$
+```
+
+Here, the directory `~`, stands for your home directory. This shorthand can be 
+seen and used both on your machine and on the cluster. Note that this shorthand 
+will point to a different place, depending on the machine and the user.
 
 * pwd
 * cd (../)
