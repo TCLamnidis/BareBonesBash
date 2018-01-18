@@ -324,7 +324,6 @@ gzip -l ERR2020601.fastq.gz
 A compression factor of `74.9%` is pretty good. It means our compressed FASTQ file is 
 25.1% the size of the uncompressed file would.
 
------
 ## The Lord of the Pipes: One command to do them all.
 
 We will now try out three semi-related commands to make viewing the contents 
