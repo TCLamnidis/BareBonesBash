@@ -220,8 +220,7 @@ Lets change that.
 We ain't playing with bears today - that's dangeous (as we saw above), instead
 lets play with some Mammoths!
 
-<p align="center"><img src="https://media.giphy.com/media/kbuQOkATEo6VW/giphy.gif" width="20%"></p>
-<p align="center"><img src="https://media.giphy.com/media/3o6Zte5Q11lxAu8Q5q/giphy.gif" width="20%"></p>
+<p align="center"><img src="https://media.giphy.com/media/kbuQOkATEo6VW/giphy.gif" width="20%"> <img src="https://media.giphy.com/media/3o6Zte5Q11lxAu8Q5q/giphy.gif" width="20%"></p>
 
 We're going to use `wget` to download a FASTQ file from the ENA. So while in 
 our `BareBonesBash` directory, we will give `wget` the link to the file, and 
@@ -240,8 +239,8 @@ with text files you can normally use `cat`, which is used to print the
 contents of a file to the screen. Lets try this with our newly downloaded file.
 
 If you're anything like Thiseas, who gets triggered at slow computer things, 
-and you can't be arsed to type out the whole file name - try typing a couple 
-of characters then press the "tab" key on your keyboard.
+and prefer to have the computer do the work for you - try typing a couple of 
+characters then press the "TAB" key on your keyboard.
 
 ```bash
 cat ERR2020601.fastq.gz
@@ -265,15 +264,18 @@ to see it. You could try scrolling but likely you'll not be able to go back
 far enough to see your previous commands. 
 
 Tip: try pressing `ctrl+l`, which will clear your terminal of all the 
-old gunk that was printed to your screen.
+old gunk that was printed to your screen. This does NOT delete those lines, 
+it simply scrolls down for you. You can still find all your previous work if
+you scroll up.
 
 We will now try out three semi-related commands to make viewing the contents 
 of a file, as well as introduce the concept of `|` or "pipe". 
 
 <p align="center"><img src="https://tinynin.files.wordpress.com/2012/01/warppipe-copy.gif" width="20%"></p>
 
-Pipe passes the output of one program and puts it into another. Head allows you 
-to view the first X number of lines, tail the same but with last. 
+A pipe passes the output of one command and gives it as input to the next. `head` 
+allows you to view the first 10 lines of a file, while `tail` will show the last 
+10. 
 
 We will now print the file to screen with `zcat`, but rather than just let 
 the whole thing print, will "pipe" the output into head, which will allow us to 
