@@ -454,6 +454,59 @@ zcat ERR2020601.fastq.gz | grep "@ERR" | wc -l
 
 <p align="center"><img src="https://media.giphy.com/media/11sBLVxNs7v6WA/giphy.gif" width="20%"></p>
 
+## Now you're thinking with portals! Symlinks and their usefulness.
+
+The FASTQ we have been working with so far we downloaded from the ENA. It is 
+important to keep the file name intact, so we can easily identify this specific 
+FASTQ file in the ENA database in the future, if need be. But talking about 
+sample `ERR2020601` is simply not sexy enough, and makes things harder to work 
+with, especially when we are working on 15 different and similarly names samples.
+We need to come up with a better name for this sample. Something less arbitrary 
+and easier to remember. How about `JK2781_MT`? That sounds much less arbitrary 
+and confusing! :neutral_face:
+
+In order to retain the original file but also rename it for convenience we can 
+use a _symbolic link (**symlink**)_. You have doubtless seen these many times 
+right on your desktop, in the form of desktop shortcuts! They are small portals 
+that let you go to a remote location really fast, and take something from there. 
+Imagine if you could reach the TV remote from the sofa, although for some strange 
+reason you left it in the freezer when picking up the (now half-melted) ice cream. 
+_\[No, of course I have never done that!]_
+
+So let us make a new subdirectory to store our symlink to the FASTQ file we 
+already downloaded, and move to that directory.
+
+```bash
+mkdir ~/BareBonesBash/FastQ.Portals
+cd ~/BareBonesBash/FastQ.Portals
+```
+It is now time to make the symlink. We do this with the `ln` command (short for 
+"**l**i**n**k"), by providing the `-s` option, which specifies we want to create 
+a **s**ymbolic link (i.e. a shortcut).
+Tip: You should give absolute paths to the file your symlinks point to, or things 
+**will** break down.
+```bash
+ln -s ~/BareBonesBash/ERR2020601.fastq.gz .
+```
+Make sure you included that `.` in the command above. As discussed in the "Relative 
+Paths" section, that points to the current directory, thus telling the `ln` programme 
+that it should create the link in the current directory. You should now see the 
+symlink in the directory. To see where the link points to we can use `ls -l`, which
+provides exended information on the files shown with `ls`. (For more information you 
+can look at the `man` page for `ls`).
+
+```bash
+ls -l
+```
+We can now rename the symlink to give it its sexy new name. You already learned this 
+command, so try to work it out, or give either of us a shout. (Hint: It came before 
+the bears.)
+
+```bash
+for i in {1..15}; do echo -ne "I will not copy paste everything that is in a box mindlessly, but actually read the tutorial.\n"; echo -ne '\007'; done
+```
+
+
 preserve original file, so make symlink in new directory
 * mkdir
 * ln -s 
