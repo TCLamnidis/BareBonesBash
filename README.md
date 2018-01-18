@@ -212,7 +212,7 @@ mkdir ~/BareBonesBash
 cd ~/BareBonesBash
 ```
 
-## Playing with files
+## Playing with files, one bit at a time
 
 So we have places to organise our files... buuut we don't have any files yet! 
 Lets change that.
@@ -268,30 +268,94 @@ junk that was printed to your screen. This does NOT delete those lines,
 it simply scrolls down for you. You can still find all your previous work if
 you scroll up.
 
+## Asking the computer for help (it loves helping people)
+As we just learned, the FASTQ file we've been playing with is compressed. _Zipped_,
+if you will. We constantly compress files in multiple different ways (bams are 
+another example of a compressed file), but **why?** As the name suggests, 
+compression saves disk space, so we can have more files stored on our system. 
+
+An everyday example of the benefits of compression comes from music. To keep the 
+calculations smaller we'll take a time machiene back to 2001 when having one of 
+these things made you instantly popular and better geared than James Bond (tech-savvy 
+Pierce Brosnan, not the trigger-happy Daniel Craig):
+
+<p align="center"><img src="https://everymac.com/images/cpu_pictures/apple_ipod.jpg" width="20%"></p>
+
+That amazing piece of technology came with a storage space of 5GB, whie an 
+uncompressed music album takes up 640MB of space. **THAT IS 7.8125 ALBUMS!** 
+At 20 songs per album, that makes less than 160 songs total! "But my iPod had 
+800 songs in it, and still had space!" I hear you thinking. That's mp3 
+compression for you. Compression programmes you might be familiar with are, 
+for example, WinZip or WinRar. 
+
+Is there some way we could work out how much space we are saving by compressing
+this FASTQ file? Let's ask the computer to help us find a way! The first command 
+to use here is `whatis`, which will give a one line explanation of what a certain
+command does. The second command we need is `man`. Using `whatis` we can find out
+what `man` does.
+
+```bash
+whatis man
+```
+
+This will inform us that `man` is `an interface to the on-line reference manuals`. 
+Cool! Now try to get information on `zcat` using `man`.
+
+```bash
+man zcat
+```
+
+This will open the manual page for `zcat` in a separate screen, which you can exit 
+by pressing "q". You can scroll up or down with the arrow keys.
+At the top of the screen you will see the command the manual is for, in this case 
+it should read `gzip`. That is because `zcat` is part of the programme `gzip`. You 
+will see a long Description of the programme, followed by (scroll down) a section 
+with all the options available. 
+Isn't this lucky! The option `-l` lists the size of a file in both compressed and 
+uncompressed form, as well as the comprassion ratio (how effective the compression 
+was). **Most programmes you will use DO have a `man` page, making this command 
+extremely useful.**
+Now that we learned about the `-l` option of `gzip`, let's use it to see how efficient 
+the compression of this FASTQ file is. 
+
+```bash
+gzip -l ERR2020601.fastq.gz
+```
+A compression factor of `74.9%` is pretty good. It means our compressed FASTQ file is 
+25.1% the size of the uncompressed file would.
+
+-----
+## The Lord of the Pipes: One command to do them all.
+
 We will now try out three semi-related commands to make viewing the contents 
-of a file, as well as introduce the concept of `|` or "pipe". 
+of a file, and begin to familiarise with the most important functionality of 
+bash: the concept of `|` (i.e. the "pipe"). 
 
 <p align="center"><img src="https://tinynin.files.wordpress.com/2012/01/warppipe-copy.gif" width="20%"></p>
 
-A pipe passes the output of one command and gives it as input to the next. `head` 
-allows you to view the first 10 lines of a file, while `tail` will show the last 
-10. 
+A pipe passes the output of one command and gives it as input to the next. It 
+allows us to string commands together, one after the other, which means you can 
+do more complicated (and beautiful) things to your files "on the fly". The command
+`head` allows you to view the first 10 lines of a file, while `tail` will show 
+the last 10 lines. 
 
 We will now print the file to screen with `zcat`, but rather than just let 
-the whole thing print, will "pipe" the output into head, which will allow us to 
-see the first 10 lines.
+the whole thing print, we will "pipe" the output into `head`, which will 
+allow us to see just the first 10 lines.
 
 ```bash
 zcat ERR2020601.fastq.gz | head
 ```
 
-We can also display more lines with the `-n` flag (short for "**n**umber of lines"). To see the first 20 lines you would use 
+We can also display more lines with the `-n` flag (short for "**n**umber of 
+lines"). To see the first 20 lines you would use 
 
 ```bash
 zcat ERR2020601.fastq.gz | head -n 20
 ```
 
-The same option exists for tail (but options are not universal. not every programme will use the same options!)
+The same option exists for tail (but options are not universal. not every 
+programme will use the same options!)
 
 ```bash
 zcat ERR2020601.fastq.gz | tail -n 4
@@ -317,7 +381,7 @@ position on the read, encoded a certain way.
 We won't go into the specific encoding of base quality scores here, but it is easy 
 enough to find information about it online, if you want to know more. 
 
-But what if you wanted to view the whole file "at your own leisurely pace"?
+But what if you wanted to view the whole file "at your own leisurely pace"
 
 <p align="center"><img src="https://media.giphy.com/media/82abB3W2DknkY/giphy.gif" width="20%"></p>
 
