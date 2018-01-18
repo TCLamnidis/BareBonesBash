@@ -506,6 +506,19 @@ the bears.)
 for i in {1..15}; do echo -ne "I will not copy paste everything that is in a box mindlessly, but actually read the tutorial.\n"; echo -ne '\007'; done
 ```
 
+<details>
+  <summary> Check here if you need the answer.</summary>
+   <p>
+     <code>
+     mv ERR2020601.fastq.gz JK2781_MT.fastq.gz
+     </code>
+   </p>
+ </details>
+
+Now for a bit of honesty. A single sample will not get you a nature publication.
+_\[ok, maybe sometimes, but just go with it]._ We will need more data if we're 
+gonna make it there. 
+
 
 preserve original file, so make symlink in new directory
 * mkdir
