@@ -285,34 +285,41 @@ see the first 10 lines.
 zcat ERR2020601.fastq.gz | head
 ```
 
-We can also display more lines with the `-n` flag. For 20 lines
+We can also display more lines with the `-n` flag (short for "**n**umber of lines"). For 20 lines
 
 ```bash
 zcat ERR2020601.fastq.gz | head -n 20
 ```
 
-The same goes for tail
+The same option exists for tail (but options are not universal. not every programme will use the same options!)
 
 ```bash
 zcat ERR2020601.fastq.gz | tail -n 4
 ```
 
-And you can also chain them altogether (not unlike a human centipede... ;), no 
-gif here so I don't get fired...).
+And you can also chain them altogether (not unlike a human centipede...) _\[no 
+gif here so I don't get fired]_
 
 ```bash
 zcat ERR2020601.fastq.gz | head -n 20 | tail -n 4
 ```
 
-The above command will print the whole file, but capturing only the first 20 
-lines, and then the last 4 lines of the previous 20.
+The above command will print the whole file, but capture only the first 20 
+lines, before printing out the last 4 lines of these 20.
+
+In practice, what was just printed on your screen is the record of a single read, which spans 4 lines of the fastQ file. 
+* The record begins with the read ID, precceded by an `@`. 
+* The next line contains the sequence of the read. 
+* The third line is a separator line ('`+`'). 
+* Finally, the fourth line of this record contains the base quality score for each position on the read, encoded a certain way. 
+We won't go into the specific encoding here, but it is easy enough to find information about it online. 
 
 But what if you wanted to view the whole file "at your own leisurely pace"
 
 <p align="center"><img src="https://media.giphy.com/media/82abB3W2DknkY/giphy.gif" width="20%"></p>
 
 We can use the tool `less`, which prints the file to screen, but allows you 
-to move up and down the output with your arrow keys.
+to move up and down the output with your arrow keys. You can also move down a full screen with space.
 
 ```bash
 less ERR2020601.fastq.gz
@@ -321,7 +328,7 @@ less ERR2020601.fastq.gz
 You can quit by pressing "q" on your keyboard.
 
 Now we've had a look inside and checked that the file is a pretty normal FASTQ 
-file, lets start asking more bioinformatic questions about it. A pretty 
+file,lets start asking more bioinformatic questions about it. A pretty 
 standard question would be, how many reads do I have? We should all know by now
 that each "read" in a FASTQ file has four components - a header line, the 
 sequence itself, a separator and a base quality line. So four lines represents 
