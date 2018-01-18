@@ -317,7 +317,7 @@ position on the read, encoded a certain way.
 We won't go into the specific encoding of base quality scores here, but it is easy 
 enough to find information about it online, if you want to know more. 
 
-But what if you wanted to view the whole file "at your own leisurely pace"
+But what if you wanted to view the whole file "at your own leisurely pace"?
 
 <p align="center"><img src="https://media.giphy.com/media/82abB3W2DknkY/giphy.gif" width="20%"></p>
 
