@@ -330,7 +330,7 @@ We will now try out three semi-related commands to make viewing the contents
 of a file, and begin to familiarise with the most important functionality of 
 bash: the concept of `|` (i.e. the "pipe"). 
 
-<p align="center"><img src="https://tinynin.files.wordpress.com/2012/01/warppipe-copy.gif" width="20%"></p>
+<p align="center"><img src=".gifs/Boromir.gif" width="40%" height="10%"> <img src="https://tinynin.files.wordpress.com/2012/01/warppipe-copy.gif" width="20%"></p>
 
 A pipe passes the output of one command and gives it as input to the next. It 
 allows us to string commands together, one after the other, which means you can 
@@ -369,6 +369,8 @@ zcat ERR2020601.fastq.gz | head -n 20 | tail -n 4
 
 The above command will print the whole file, but capture only the first 20 
 lines, before printing out the last 4 lines of these 20.
+
+<p align="center"><img src=".gifs/frodo.gif" width="30%" height="20%"></p>
 
 In practice, what was just printed on your screen is the record of a single read, 
 which spans 4 lines of the FASTQ file. 
