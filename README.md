@@ -250,7 +250,7 @@ Yay for auto-complete! But you probably had a bunch of junk printed to screen.
 
 <p align="center"><img src="https://media.giphy.com/media/kQbMO5X7UA1C8/giphy.gif" width="20%"></p>
 
-That's because the FASTQ file, as ith almost all FASTQs, is compressed (as 
+That's because the FASTQ file, as with almost all FASTQs, is compressed (as 
 indicated by the .gz). To then view the _real_ contents of the file, we can 
 instead use `zcat`. Don't forget your auto-complete!
 
@@ -264,7 +264,7 @@ to see it. You could try scrolling but likely you'll not be able to go back
 far enough to see your previous commands. 
 
 Tip: try pressing `ctrl+l`, which will clear your terminal of all the 
-old gunk that was printed to your screen. This does NOT delete those lines, 
+junk that was printed to your screen. This does NOT delete those lines, 
 it simply scrolls down for you. You can still find all your previous work if
 you scroll up.
 
@@ -285,7 +285,7 @@ see the first 10 lines.
 zcat ERR2020601.fastq.gz | head
 ```
 
-We can also display more lines with the `-n` flag (short for "**n**umber of lines"). For 20 lines
+We can also display more lines with the `-n` flag (short for "**n**umber of lines"). To see the first 20 lines you would use 
 
 ```bash
 zcat ERR2020601.fastq.gz | head -n 20
@@ -307,19 +307,23 @@ zcat ERR2020601.fastq.gz | head -n 20 | tail -n 4
 The above command will print the whole file, but capture only the first 20 
 lines, before printing out the last 4 lines of these 20.
 
-In practice, what was just printed on your screen is the record of a single read, which spans 4 lines of the fastQ file. 
+In practice, what was just printed on your screen is the record of a single read, 
+which spans 4 lines of the FASTQ file. 
 * The record begins with the read ID, precceded by an `@`. 
 * The next line contains the sequence of the read. 
 * The third line is a separator line ('`+`'). 
-* Finally, the fourth line of this record contains the base quality score for each position on the read, encoded a certain way. 
-We won't go into the specific encoding here, but it is easy enough to find information about it online. 
+* Finally, the fourth line of this record contains the base quality score for each 
+position on the read, encoded a certain way. 
+We won't go into the specific encoding of base quality scores here, but it is easy 
+enough to find information about it online, if you want to know more. 
 
 But what if you wanted to view the whole file "at your own leisurely pace"
 
 <p align="center"><img src="https://media.giphy.com/media/82abB3W2DknkY/giphy.gif" width="20%"></p>
 
 We can use the tool `less`, which prints the file to screen, but allows you 
-to move up and down the output with your arrow keys. You can also move down a full screen with space.
+to move up and down the output with your arrow keys. You can also move down a full 
+screen with space.
 
 ```bash
 less ERR2020601.fastq.gz
@@ -328,25 +332,24 @@ less ERR2020601.fastq.gz
 You can quit by pressing "q" on your keyboard.
 
 Now we've had a look inside and checked that the file is a pretty normal FASTQ 
-file,lets start asking more bioinformatic questions about it. A pretty 
-standard question would be, how many reads do I have? We should all know by now
-that each "read" in a FASTQ file has four components - a header line, the 
-sequence itself, a separator and a base quality line. So four lines represents 
-one read. So if we could count the number of lines in a file, then divide by 
-four, we can work our how many reads are in our library. 
+file, lets start asking more informative bioinformatic questions about it. A pretty 
+standard question would be, **how many reads are in this FASTQ file?** We should all 
+know now that each read record in a FASTQ file has four components, and takes up 4 
+lines. So if we count the number of lines in a file, then divide by four, we can work
+out how many reads are in our file. 
 
 <p align="center"><img src="https://media.giphy.com/media/l41YtZOb9EUABnuqA/giphy.gif" width="20%"></p>
 
 For this we can use 'wc', which stands for "**w**ord **c**ount". However, we 
-don't want to count words, we want to count lines. We can thus use the flag 
-`-l` to do this. But remember we first have to decompress the whole file with 
-`zcat
+don't want to count words, we want to count the number of lines. We can therefore use 
+the flag `-l` to do this. But remember we first have to decompress the lines we are 
+reading from the file with `zcat`.
 
 ```bash
 zcat ERR2020601.fastq.gz | wc -l
 ```
 
-This should give us 18880, which divide by four, is 4720 reads.
+This should give us 18880, which divided by four (since there are four lines per read), is 4720 reads.
 
 Finally, maybe we want to know what the name of each read is. When we used
 less above, we saw each read header began with "@". Maybe we can use this
@@ -356,20 +359,21 @@ to our advantage!
 
 The command `grep`, will only print lines in a file that match a certain 
 pattern. So for example, we want to search for every line in our FASTQ file 
-that begins with '@'. Lets try it out again in combination with `zcat` and 
+that contains a '@'. Lets try it out again in combination with `zcat` and 
 our pipes.
 
 ```zcat
-zcat ERR2020601.fastq.gz | grep @
+zcat ERR2020601.fastq.gz | grep "@"
 ```
 
-Unfortunately we seem to have picked up some other stuff because of the 
-base quality line. We can make our "pattern", in this case "@" more specific by
-adding "ERR". For shits and giggles lets also pipe the output into less, so we 
-can look a bit more.
+Unfortunately we seem to have picked up some other stuff because of the @ 
+characters in the base quality lines. We can make our "pattern", in this 
+case `"@"` more specific by adding "ERR" to it. But let's also avoid flooding 
+your screen with 4720 lines of stuff, and pipe that output into `less`, so 
+we can look at it more carefully.
 
 ```zcat
-zcat ERR2020601.fastq.gz | grep @ERR | less
+zcat ERR2020601.fastq.gz | grep "@ERR" | less
 ```
 
 Remember to press "q" to exit.
@@ -379,7 +383,7 @@ file. If we have just extracted the unqiue read _headers_ for every read, then
 in principle we can also just count these with `wc`!
 
 ```zcat
-zcat ERR2020601.fastq.gz | grep @ERR | wc -l
+zcat ERR2020601.fastq.gz | grep "@ERR" | wc -l
 ```
 
 
