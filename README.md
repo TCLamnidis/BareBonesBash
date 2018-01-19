@@ -532,6 +532,7 @@ for i in {1..15}; do echo -ne "I will not copy paste everything that is in a box
    </p>
  </details>
 &nbsp; 
+
 We can now look at the original FASTQ file by pointing at our symlink, like so:
 ```bash
 zcat JK2781_MT.fastq.gz | head -n 20 | tail -n 4
@@ -552,7 +553,14 @@ file we want downloaded. Copy the text below, and save it as `~/BareBonesBash/
 Ftp.Links.txt`, using a text editor of your choice (e.g. `nano`).
 
 <pre>
-List of fastQ ftp links
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/009/ERR2020609/ERR2020609.fastq.gz
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020611/ERR2020611.fastq.gz
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/007/ERR2020567/ERR2020567.fastq.gz
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/005/ERR2020565/ERR2020565.fastq.gz
+#ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/003/ERR2020613/ERR2020613.fastq.gz
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/008/ERR2020618/ERR2020618.fastq.gz
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/007/ERR2020617/ERR2020617.fastq.gz
 </pre>
 
 And now that we have that file, it is time to actually download the files. You can 
@@ -560,6 +568,7 @@ provide a file with ftp links (like the one you just made) using the flag `-i`, 
 "**i**nput". 
 
 ```bash
+cd ~/BareBonesBash
 wget -i ~/BareBonesBash/Ftp.Links.txt
 ```
 
@@ -568,10 +577,41 @@ minimise our workload in making the symlinks! We can do this using a **for loop*
 one of the basic methods of all programming. 
 
 Imagine you have to order pizzas for a varying number of scientists every week. 
-_\[Just a random example]._ For every four people you will need an extra pizza.
-This is a sort of "for loop", where you go through the list of names of hungry 
-scientists, and you add one more pizza to the list for every four names. For the 
-sake of simplicity we will leave the people 
+_\[Just a random example]._ For every person you will need an extra pizza.This 
+is a sort of "for loop", where you go through the list of names of hungry 
+scientists, and you add one more pizza to the list for every name. Note that the 
+specific names of the scientists wouldn't really mattter here, only the number of 
+names. So in pseudocode (code-like writing that is human readable but a computer 
+will not understand it) the above loop would look like this:
+```
+for every scientist:
+  Order another pizza
+done
+```
+<p align="center"><img src="https://media1.tenor.com/images/5ef4336be26e478431f85b349ec6bd34/tenor.gif?itemid=4149888" width="20%"></p>
+
+Let's stop daydreaming of pizza now and return to the task at hand. For each FASTQ 
+file we want to make a symlink to that file. Following the above example, but this 
+time putting it into code directly, we get.
+
+```bash
+for FastQ in ERR2020609.fastq.gz ERR2020611.fastq.gz ERR2020567.fastq.gz ERR2020565.fastq.gz ERR2020613.fastq.gz ERR2020618.fastq.gz ERR2020617.fastq.gz; do 
+  ln -s ~/BareBonesBash/$FastQ ~/BareBonesBash/FastQ.Portals
+done
+```
+
+In the above example `FastQ` (case-sensitive) is **a variable**. A variable can be 
+"set" (i.e. telling the computer what that means) to a variety of things. In this 
+case it is set to a string of letters, corresponding to the name of the first FASTQ 
+file (`ERR2020617.fastq.gz`). At that point the command given within the loop (in 
+this case `ln -s`) is executed. Within that command we wish to read what is in the 
+`FastQ` variable, so we tell the computer we are looking for what is in the variable 
+using the character `$`. This means that when reading `~/BareBonesBash/$FastQ`, the 
+computer knows that `$FastQ` means "what is in the variable `FastQ`", thus seeing 
+`~/BareBonesBash/ERR2020609.fastq.gz`. In the second part of the command 
+(`~/BareBonesBash/FastQ.Portals`), there is no `$` in front of the sequence of letters
+`FastQ`, so the computer reads it as lettes and not the variable (which is what we 
+wanted to happen).
 
 preserve original file, so make symlink in new directory
 * mkdir
