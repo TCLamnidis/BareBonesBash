@@ -50,7 +50,7 @@ pwd
 ```
 
 There are two types of filepaths: 
-* An **absolute** path will start with the deepest directory in the machiene, 
+* An **absolute** path will start with the deepest directory in the machine, 
   shown as a `/`. That is the directory path you see in the output of the `pwd` 
   command you just ran.
 * Alternatively a **relative** path always begins from your working directory (i.e.
