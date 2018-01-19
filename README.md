@@ -517,6 +517,7 @@ for i in {1..15}; do echo -ne "I will not copy paste everything that is in a box
    </p>
  </details>
 &nbsp; 
+
 We can now look at the original FASTQ file by pointing at our symlink, like so:
 ```bash
 zcat JK2781_MT.fastq.gz | head -n 20 | tail -n 4
@@ -537,7 +538,14 @@ file we want downloaded. Copy the text below, and save it as `~/BareBonesBash/
 Ftp.Links.txt`, using a text editor of your choice (e.g. `nano`).
 
 <pre>
-List of fastQ ftp links
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/009/ERR2020609/ERR2020609.fastq.gz
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020611/ERR2020611.fastq.gz
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/007/ERR2020567/ERR2020567.fastq.gz
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/005/ERR2020565/ERR2020565.fastq.gz
+#ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/003/ERR2020613/ERR2020613.fastq.gz
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/008/ERR2020618/ERR2020618.fastq.gz
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/007/ERR2020617/ERR2020617.fastq.gz
 </pre>
 
 And now that we have that file, it is time to actually download the files. You can 
@@ -556,7 +564,8 @@ Imagine you have to order pizzas for a varying number of scientists every week.
 _\[Just a random example]._ For every four people you will need an extra pizza.
 This is a sort of "for loop", where you go through the list of names of hungry 
 scientists, and you add one more pizza to the list for every four names. For the 
-sake of simplicity we will leave the people 
+sake of simplicity if the number of people is not perfectly divisible with 4, we 
+will leave the last 1-3 people hungry.
 
 preserve original file, so make symlink in new directory
 * mkdir
