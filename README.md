@@ -50,10 +50,10 @@ pwd
 ```
 
 There are two types of filepaths: 
-* An **Absolute** path will start with the deepest directory in the machiene, 
+* An **absolute** path will start with the deepest directory in the machiene, 
   shown as a `/`. That is the directory path you see in the output of the `pwd` 
   command you just ran.
-* Alternatively a relative path always begins from your working directory (i.e.
+* Alternatively a **relative** path always begins from your working directory (i.e.
   your current directory). Often this type of path will begin with one (`./`) 
   or two (`../`) dots followed by a forward slash, **but not always**. In the 
   syntax of relative pathways `.` means "the current directory" and `..` means 
@@ -69,7 +69,7 @@ directions is relative to their current position, while the first one is not.
 <p align="center"><img src="https://media.giphy.com/media/3o6Ztk4xTVAnfqYPn2/source.gif" width="20%"> <img src="https://media.giphy.com/media/QWXhaNjfwuNs4/giphy-tumblr.gif" width="20%"></p>
 
 
-Now let's look around at out current location and see what we can find withing 
+Now let's look around at out current location and see what we can find within 
 our home directories. We can use the command `ls`, shorthand for "list", which 
 will (surprise surprise) list the directory contents.
 
@@ -105,7 +105,7 @@ cd ../
 ```
 
 We can also change directories using absolute paths. Lets do this using the 
-absolute path we printed using `pwd` in the previous step. Type `cp`, but don't 
+absolute path we printed using `pwd` in the previous step. Type `cd`, but don't 
 press enter yet! 
 
 <p align="center"><img src="https://media.giphy.com/media/23BST5FQOc8k8/source.gif" width="20%"></p>
@@ -121,12 +121,15 @@ cd /home/fellows/Documents
 ```
 
 Now for one last move, here is a lesser-known trick. When using `cd` you can 
-use a dash (`-`), to indicate 'my previous location'. This is useful since you
+use a dash (`-`) to indicate 'my previous location'. This is useful since you
  can move multiple directories with one `cd` command. So, now, to return to our 
 home directory from the documents directory we can type:
 
 ```bash
 cd -
+## And to see our new location <- btw, this is called a comment. 
+## In bash they always begin with a '#', but the character differs per programming language
+## A commented out line is a line that will not by read by the computer.
 pwd
 ```
 
@@ -160,7 +163,7 @@ ssh <user>@mpi-sdag1.sdag.ppj.shh.mpg.de
 
 Once we've logged in the `~` points to a different home directory, as you are 
 on a different machine. However, all of the commands you've learned so far will 
-still work the same. ;)
+still work the same. ;). You can double check both of these by typing `pwd`.
 
 It is important to keep your corner of the servers well organised, and the 
 trick to doing that is making your own directories. Often _a lot_ of them. 
@@ -179,10 +182,10 @@ you saw the typo and fixed it already, no brownies for you!
 <p align="center"><img src="https://media.giphy.com/media/ieGdB2g5kDIkg/giphy.gif" width="20%"></p>
 
 But don't lose hope, because we can rename things with the `mv` command, 
-shorthand for "move". 
+shorthand for "**m**o**v**e". 
 
 In fact move, as the name suggests, will move a file/folder into a new location, 
-also renaming it in the process, if necessary. It works by `mv`, the old 
+also renaming it in the process if necessary. It works by typing `mv`, the old 
 location and a target location.
 
 ```bash
@@ -190,8 +193,8 @@ mv ~/BareBonesBosh ~/BearBonesBash
 ```
 
 The command above will now move the directory into the same location, but with
-the target location having a different name, essentially renaming it to 
-`BearBonesBash`. 
+as the target location is spelt differently, the directory will now have a 
+different name, essentially renaming it to `BearBonesBash`. 
 
 But oh no! Not again! This is not a bash tutorial for ancient bear genomics! 
 
@@ -205,7 +208,8 @@ rmdir ~/BearBonesBash
 ls ~
 ```
 
-And now we can create our directory, properly named this time, and move into it.
+And now we can create our directory, properly named this time, and change 
+directory into it.
 
 ```bash
 mkdir ~/BareBonesBash
