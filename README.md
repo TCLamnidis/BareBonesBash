@@ -462,8 +462,8 @@ FASTQ file in the ENA database in the future, if need be. But talking about
 sample `ERR2020601` is simply not sexy enough, and makes things harder to work 
 with, especially when we are working on 15 different and similarly names samples.
 We need to come up with a better name for this sample. Something less arbitrary 
-and easier to remember. How about `JK2781_MT`? That sounds much less arbitrary 
-and confusing! :neutral_face:
+and easier to remember. How about `Sample_1`? That sounds much more easily 
+identifiable! :neutral_face:
 
 In order to retain the original file but also rename it for convenience we can 
 use a _symbolic link (**symlink**)_. You have doubtless seen these many times 
@@ -512,16 +512,51 @@ for i in {1..15}; do echo -ne "I will not copy paste everything that is in a box
   <summary> Check here if you need the answer.</summary>
    <p>
      <code>
-     mv ERR2020601.fastq.gz JK2781_MT.fastq.gz
+     mv ERR2020601.fastq.gz Sample_1.fastq.gz
      </code>
    </p>
  </details>
 &nbsp; 
+We can now look at the original FASTQ file by pointing at our symlink, like so:
+```bash
+zcat JK2781_MT.fastq.gz | head -n 20 | tail -n 4
+```
+Which should print out the same read as it did on the original FASTQ file.
+
+## Lazyness 101: Minimising our work by maximising the work of the computer
 
 Now for a bit of honesty. A single sample will not get you a nature publication.
 _\[ok, maybe sometimes]._ We will need more data if we're gonna make it to the
-most prestigious journals. 
+most prestigious journals. So let's download another XX samples from James' 
+Mammoth project to get us on our way to a nature cover page.
 
+It is a lot of work to run `wget` XX times while changing the command everytime. 
+Good thing we're here to learn how to be lazy! We can download multiple files 
+from an ftp server by giving `wget` a file that contains the ftp links for each 
+file we want downloaded. Copy the text below, and save it as `~/BareBonesBash/
+Ftp.Links.txt`, using a text editor of your choice (e.g. `nano`).
+
+<pre>
+List of fastQ ftp links
+</pre>
+
+And now that we have that file, it is time to actually download the files. You can 
+provide a file with ftp links (like the one you just made) using the flag `-i`, for 
+"**i**nput". 
+
+```bash
+wget -i ~/BareBonesBash/Ftp.Links.txt
+```
+
+Look at that! One command instead of 7! You're becoming a bash pro already! Now to 
+minimise our workload in making the symlinks! We can do this using a **for loop**, 
+one of the basic methods of all programming. 
+
+Imagine you have to order pizzas for a varying number of scientists every week. 
+_\[Just a random example]._ For every four people you will need an extra pizza.
+This is a sort of "for loop", where you go through the list of names of hungry 
+scientists, and you add one more pizza to the list for every four names. For the 
+sake of simplicity we will leave the people 
 
 preserve original file, so make symlink in new directory
 * mkdir
