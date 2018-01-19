@@ -120,10 +120,10 @@ For example:
 cd /home/fellows/Documents
 ```
 
-Now for one last move, here is a lesser-known trick. When using `cd` you can 
-use a dash (`-`) to indicate 'my previous location'. This is useful since you
- can move multiple directories with one `cd` command. So, now, to return to our 
-home directory from the documents directory we can type:
+**BONUS TIP TIME!** Now for one last move, here is a lesser-known trick. When 
+using `cd` you can use a dash (`-`) to indicate 'my previous location'. This is 
+useful since you can move multiple directories with one `cd` command. So, now, 
+to return to our home directory from the documents directory we can type:
 
 ```bash
 cd -
@@ -221,7 +221,7 @@ cd ~/BareBonesBash
 So we have places to organise our files... buuut we don't have any files yet! 
 Lets change that.
 
-We ain't playing with bears today - that's dangeous (as we saw above), instead
+We ain't playing with bears today - that's dangerous (as we saw above), instead
 lets play with some Mammoths!
 
 <p align="center"><img src="https://media.giphy.com/media/kbuQOkATEo6VW/giphy.gif" width="20%"> <img src="https://media.giphy.com/media/3o6Zte5Q11lxAu8Q5q/giphy.gif" width="20%"></p>
@@ -235,6 +235,7 @@ we can use `ls` to check the contents.
 
 ```bash
 wget ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
+## Then to check if the file is now in our working directory
 ls
 ```
 
@@ -242,9 +243,9 @@ Great! But maybe we want to check we downloaded the right thing. In bash,
 with text files you can normally use `cat`, which is used to print the 
 contents of a file to the screen. Lets try this with our newly downloaded file.
 
-If you're anything like Thiseas, who gets triggered at slow computer things, 
-and prefer to have the computer do the work for you - try typing a couple of 
-characters then press the "TAB" key on your keyboard.
+**BONUS TIP TIME!** If you're anything like Thiseas, who gets triggered at slow 
+computer things, and prefer to have the computer do the work for you - try 
+typing a couple of characters then press the "TAB" key on your keyboard.
 
 ```bash
 cat ERR2020601.fastq.gz
@@ -267,10 +268,13 @@ may have also noticed that a lot of stuff zipped past without you being able
 to see it. You could try scrolling but likely you'll not be able to go back 
 far enough to see your previous commands. 
 
-Tip: try pressing `ctrl+l`, which will clear your terminal of all the 
-junk that was printed to your screen. This does NOT delete those lines, 
+**BONUS TIP TIME!** try pressing `ctrl+l`, which will clear your terminal of 
+all the junk that was printed to your screen. This does NOT delete those lines, 
 it simply scrolls down for you. You can still find all your previous work if
 you scroll up.
+
+Now it's time for the inevitable tangent when your tutor thinks of a very 
+(un)funny metaphor to explain something!
 
 ## Asking the computer for help (it loves helping people)
 As we just learned, the FASTQ file we've been playing with is compressed. _Zipped_,
@@ -279,7 +283,7 @@ another example of a compressed file), but **why?** As the name suggests,
 compression saves disk space, so we can have more files stored on our system. 
 
 An everyday example of the benefits of compression comes from music. To keep the 
-calculations smaller we'll take a time machiene back to 2001 when having one of 
+calculations smaller we'll take a time machine back to 2001 when having one of 
 these things made you instantly popular and better geared than James Bond (tech-savvy 
 Pierce Brosnan, not the trigger-happy Daniel Craig):
 
