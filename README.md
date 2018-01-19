@@ -277,10 +277,11 @@ Now it's time for the inevitable tangent when your tutor thinks of a very
 (un)funny metaphor to explain something!
 
 ## Asking the computer for help (it loves helping people)
-As we just learned, the FASTQ file we've been playing with is compressed. _Zipped_,
-if you will. We constantly compress files in multiple different ways (bams are 
-another example of a compressed file), but **why?** As the name suggests, 
-compression saves disk space, so we can have more files stored on our system. 
+As we just learned, the FASTQ file we've been playing with is compressed, 
+_Zipped_, if you will. We constantly compress files in multiple different ways 
+(bams are another example of a compressed file), but **why?** As the name
+ suggests, compression saves disk space, so we can have more files stored on 
+ our system. 
 
 An everyday example of the benefits of compression comes from music. To keep the 
 calculations smaller we'll take a time machine back to 2001 when having one of 
@@ -313,26 +314,30 @@ Cool! Now try to get information on `zcat` using `man`.
 man zcat
 ```
 
-This will open the manual page for `zcat` in a separate screen, which you can exit 
-by pressing "q". You can scroll up or down with the arrow keys.
-At the top of the screen you will see the command the manual is for, in this case 
-it should read `gzip`. That is because `zcat` is part of the programme `gzip`. You 
-will see a long Description of the programme, followed by (scroll down) a section 
-with all the options available. 
-Isn't this lucky! The option `-l` lists the size of a file in both compressed and 
-uncompressed form, as well as the comprassion ratio (how effective the compression 
-was). **Most programmes you will use DO have a `man` page, making this command 
-extremely useful.**
-Now that we learned about the `-l` option of `gzip`, let's use it to see how efficient 
-the compression of this FASTQ file is. 
+This will open the manual page for `zcat` in a separate screen, which you can 
+exit by pressing "q". You can scroll up or down with the arrow keys. At the top 
+of the screen you will see the command the manual is for, in this case it 
+should read `gzip`. That is because `zcat` is part of the programme `gzip`. You 
+will see a long description of the programme, followed by (scroll down) a 
+section with all the options available. 
+
+Isn't this great! The option `-l` lists the size of a file in both compressed 
+and uncompressed form, as well as the comprassion ratio (how effective the 
+compression was). **Most programmes you will use DO have a `man` page, making 
+this command extremely useful.**. Now that we learned about the `-l` option of 
+`gzip`, let's use it to see how efficient the compression of this FASTQ file is. 
 
 ```bash
 gzip -l ERR2020601.fastq.gz
 ```
+
 A compression factor of `74.9%` is pretty good. It means our compressed FASTQ file is 
 25.1% the size of the uncompressed file would.
 
 ## The Lord of the Pipes: One command to do them all.
+
+After that tangent, lets get back to our back to our regularly scheduled 
+program(ming)!
 
 We will now try out three semi-related commands to make viewing the contents 
 of a file, and begin to familiarise with the most important functionality of 
@@ -361,8 +366,8 @@ lines"). To see the first 20 lines you would use
 zcat ERR2020601.fastq.gz | head -n 20
 ```
 
-The same option exists for tail (but options are not universal. not every 
-programme will use the same options!)
+The same option exists for tail, note that but options are not universal! Not 
+every programme will use the same options!)
 
 ```bash
 zcat ERR2020601.fastq.gz | tail -n 4
@@ -382,7 +387,7 @@ lines, before printing out the last 4 lines of these 20.
 
 In practice, what was just printed on your screen is the record of a single read, 
 which spans 4 lines of the FASTQ file. 
-* The record begins with the read ID, precceded by an `@`. 
+* The record begins with the read ID, preceded by an `@`. 
 * The next line contains the sequence of the read. 
 * The third line is a separator line ('`+`'). 
 * Finally, the fourth line of this record contains the base quality score for each 
@@ -406,23 +411,25 @@ You can quit by pressing "q" on your keyboard.
 
 Now we've had a look inside and checked that the file is a pretty normal FASTQ 
 file, lets start asking more informative bioinformatic questions about it. A pretty 
-standard question would be, **how many reads are in this FASTQ file?** We should all 
-know now that each read record in a FASTQ file has four components, and takes up 4 
-lines. So if we count the number of lines in a file, then divide by four, we can work
-out how many reads are in our file. 
+standard question would be, **how many reads are in this FASTQ file?** We know 
+now that each read record in a FASTQ file has four components, and takes up 4 
+lines. So if we count the number of lines in a file, then divide by four, we 
+can work out how many reads are in our file. 
 
 <p align="center"><img src="https://media.giphy.com/media/l41YtZOb9EUABnuqA/giphy.gif" width="20%"></p>
 
 For this we can use 'wc', which stands for "**w**ord **c**ount". However, we 
-don't want to count words, we want to count the number of lines. We can therefore use 
-the flag `-l` to do this. But remember we first have to decompress the lines we are 
-reading from the file with `zcat`.
+don't want to count words, we want to count the number of lines. We can 
+therefore use the flag `-l` to do this (try using what we learnt above how to 
+find lists of these flags!). But remember we first have to decompress the lines 
+we are reading from the file with `zcat`.
 
 ```bash
 zcat ERR2020601.fastq.gz | wc -l
 ```
 
-This should give us 18880, which divided by four (since there are four lines per read), is 4720 reads.
+This should give us 18880, which divided by four (since there are four lines 
+per read), is 4720 reads.
 
 Finally, maybe we want to know what the name of each read is. When we used
 less above, we saw each read header began with "@". Maybe we can use this
@@ -430,7 +437,7 @@ to our advantage!
 
 <p align="center"><img src="https://media.giphy.com/media/3orieUe6ejxSFxYCXe/giphy.gif" width="20%"></p>
 
-The command `grep`, will only print lines in a file that match a certain 
+The command `grep` will only print lines in a file that match a certain 
 pattern. So for example, we want to search for every line in our FASTQ file 
 that contains a '@'. Lets try it out again in combination with `zcat` and 
 our pipes.
@@ -441,7 +448,7 @@ zcat ERR2020601.fastq.gz | grep "@"
 
 Unfortunately we seem to have picked up some other stuff because of the @ 
 characters in the base quality lines. We can make our "pattern", in this 
-case `"@"` more specific by adding "ERR" to it. But let's also avoid flooding 
+case `"@"`, more specific by adding "ERR" to it. But let's also avoid flooding 
 your screen with 4720 lines of stuff, and pipe that output into `less`, so 
 we can look at it more carefully.
 
