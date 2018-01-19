@@ -322,7 +322,7 @@ will see a long description of the programme, followed by (scroll down) a
 section with all the options available. 
 
 Isn't this great! The option `-l` lists the size of a file in both compressed 
-and uncompressed form, as well as the comprassion ratio (how effective the 
+and uncompressed form, as well as the compression ratio (how effective the 
 compression was). **Most programmes you will use DO have a `man` page, making 
 this command extremely useful.**. Now that we learned about the `-l` option of 
 `gzip`, let's use it to see how efficient the compression of this FASTQ file is. 
