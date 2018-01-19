@@ -610,7 +610,7 @@ using the character `$`. This means that when reading `~/BareBonesBash/$FastQ`, 
 computer knows that `$FastQ` means "what is in the variable `FastQ`", thus seeing 
 `~/BareBonesBash/ERR2020609.fastq.gz`. In the second part of the command 
 (`~/BareBonesBash/FastQ.Portals`), there is no `$` in front of the sequence of letters
-`FastQ`, so the computer reads it as lettes and not the variable (which is what we 
+`FastQ`, so the computer reads it as letters and not the variable (which is what we 
 wanted to happen).
 
 preserve original file, so make symlink in new directory
