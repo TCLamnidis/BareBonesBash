@@ -473,6 +473,8 @@ Imagine if you could reach the TV remote from the sofa, although for some strang
 reason you left it in the freezer when picking up the (now half-melted) ice cream. 
 _\[No, of course I have never done that!]_
 
+<p align="center"><img src="https://orig00.deviantart.net/784b/f/2014/354/a/3/poor_messing_with_a_portal_gun__gif__by_ritorical-d8ahh8f.gif" width="20%"></p>
+
 So let us make a new subdirectory to store our symlink to the FASTQ file we 
 already downloaded, and move to that directory.
 
@@ -514,10 +516,11 @@ for i in {1..15}; do echo -ne "I will not copy paste everything that is in a box
      </code>
    </p>
  </details>
+&nbsp; 
 
 Now for a bit of honesty. A single sample will not get you a nature publication.
-_\[ok, maybe sometimes, but just go with it]._ We will need more data if we're 
-gonna make it there. 
+_\[ok, maybe sometimes]._ We will need more data if we're gonna make it to the
+most prestigious journals. 
 
 
 preserve original file, so make symlink in new directory
