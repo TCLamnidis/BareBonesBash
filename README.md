@@ -521,7 +521,7 @@ ls -l
 ```
 
 We can now rename the symlink to give it its sexy new name. You already learned 
-this command, so try to work it out, or give either of us a shout. (Hint: It 
+this command, so **try to work it out**, or give either of us a shout. (Hint: It 
 came before the bears.)
 
 ```bash
@@ -550,10 +550,16 @@ Which should print out the same read as it did on the original FASTQ file.
 
 Now for a bit of honesty. A single sample will not get you a nature publication.
 _\[ok, maybe sometimes]._ We will need more data if we're gonna make it to the
-most prestigious journals. So let's download another XX samples from James' 
+most prestigious journals. So let's download another 8 samples from James' 
 Mammoth project to get us on our way to a nature cover page.
 
-It is a lot of work to run `wget` XX times while changing the command everytime. 
+It is a lot of work to run `wget` 8 times while changing the command everytime.
+
+**Bonus tip time!** One way would be to press the 'up' arrow on your keyboard,
+which will allow you to scrolled through all your previous commands. Thus you 
+could pull up the previous command, then just change a couple of characters.
+This can be useful in certain cases, but 8 times might still be too much work.
+
 Good thing we're here to learn how to be lazy! We can download multiple files 
 from an ftp server by giving `wget` a file that contains the ftp links for each 
 file we want downloaded. Copy the text below, and save it as `~/BareBonesBash/
@@ -584,48 +590,93 @@ minimise our workload in making the symlinks! We can do this using a **for loop*
 one of the basic methods of all programming. 
 
 Imagine you have to order pizzas for a varying number of scientists every week. 
-_\[Just a random example]._ For every person you will need an extra pizza.This 
+_\[Just a random example]._ For every person you will need an extra pizza. This 
 is a sort of "for loop", where you go through the list of names of hungry 
 scientists, and you add one more pizza to the list for every name. Note that the 
 specific names of the scientists wouldn't really mattter here, only the number of 
 names. So in pseudocode (code-like writing that is human readable but a computer 
 will not understand it) the above loop would look like this:
+
 ```
 for every scientist:
   Order another pizza
 done
 ```
+
 <p align="center"><img src="https://media1.tenor.com/images/5ef4336be26e478431f85b349ec6bd34/tenor.gif?itemid=4149888" width="20%"></p>
 
 Let's stop daydreaming of pizza now and return to the task at hand. For each FASTQ 
 file we want to make a symlink to that file. Following the above example, but this 
-time putting it into code directly, we get.
+time putting it into code directly, we get:
 
 ```bash
-for FastQ in ERR2020609.fastq.gz ERR2020611.fastq.gz ERR2020567.fastq.gz ERR2020565.fastq.gz ERR2020613.fastq.gz ERR2020618.fastq.gz ERR2020617.fastq.gz; do 
-  ln -s ~/BareBonesBash/$FastQ ~/BareBonesBash/FastQ.Portals
+for fastq in ERR2020609.fastq.gz ERR2020611.fastq.gz ERR2020567.fastq.gz ERR2020565.fastq.gz ERR2020613.fastq.gz ERR2020618.fastq.gz ERR2020617.fastq.gz; do 
+  ln -s ~/BareBonesBash/$fastq ~/BareBonesBash/FastQ.Portals
 done
 ```
 
-In the above example `FastQ` (case-sensitive) is **a variable**. A variable can be 
-"set" (i.e. telling the computer what that means) to a variety of things. In this 
-case it is set to a string of letters, corresponding to the name of the first FASTQ 
-file (`ERR2020617.fastq.gz`). At that point the command given within the loop (in 
-this case `ln -s`) is executed. Within that command we wish to read what is in the 
-`FastQ` variable, so we tell the computer we are looking for what is in the variable 
-using the character `$`. This means that when reading `~/BareBonesBash/$FastQ`, the 
-computer knows that `$FastQ` means "what is in the variable `FastQ`", thus seeing 
+In the above example `fastq` (case-sensitive) is **a variable**. A variable can 
+be "set" (i.e. telling the computer what that means) to a variety of things. In 
+this case it is set to a **string** of characters, corresponding to the name 
+of the first FASTQ file (`ERR2020617.fastq.gz`). At that point the command 
+given within the loop (in this case `ln -s`) is executed. 
+
+Within that command itself, we wish to use what is in the `fastq` variable, 
+so we tell the computer we are looking for what is contained in the variable 
+by prefixing the character `$` to the variable name. This means that when 
+reading `~/BareBonesBash/$fastq`, the computer knows that `$fastq` means 
+"use what ever is stored in the variable `fastq`", thus seeing 
 `~/BareBonesBash/ERR2020609.fastq.gz`. In the second part of the command 
-(`~/BareBonesBash/FastQ.Portals`), there is no `$` in front of the sequence of letters
-`FastQ`, so the computer reads it as letters and not the variable (which is what we 
-wanted to happen).
+(`~/BareBonesBash/FastQ.Portals`), there is no `$` in front of the sequence of 
+letters `fastq`, so the computer reads it as the letters themselves and not 
+the contents variable (which is what we wanted to happen).
+
+In other words:
+
+```bash
+for every_object in a_list; do
+	<this_command> on <this_object>
+done
+```
+
+Note that you need to separate out your 'loop' from the command itself using
+`; do`, and finish the loop with `done`, otherwise bash will keep waiting for
+some other input.
+
+However, this not the only way to write a loop. In the example above, we 
+still have to do a lot of writing as we have to write out the name of every 
+file. What if we could skip that, and just tell the loop to use everything in
+the directory the files are contained in? For this, we can use a **wildcard**
+which according to Google is something that "refers to a character that can be 
+substituted for zero or more characters in a string". In bash, this is an 
+asterix (`*`). Therefore, we can use the wildcard to tell the loop to perform 
+a command, on every item in a directory, that has any combination of letters or 
+numbers in it's name.
+
+```bash
+for fastq in ~/BareBonesBash/*; do
+	ln -s $fastq ~/BareBonesBash/FastQ.Portals
+done
+
+```
+
+If you need to be more specific with your loop, you can also use the wildcard
+with a other characters. For example, `ERR*` would mean perform a command on
+every file that begins with ERR, and has any combination of characters after 
+the ERR.
+
+For example, lets try out one of our old commands in a loop. Lets use 
+`gzip -l` on every file in our new directory.
+
+```bash
+for fastq in ~/BareBonesBash/ERR*; do
+	gzip -l $fastq
+done
+
+```
+
 
 preserve original file, so make symlink in new directory
-* mkdir
-* ln -s 
-* mv (the symlink) ERR2020601.fastq.gz JK2781_MT.fastq.gz
-* ls -l (to see)
-* download more files from ENA with a provided list.
 * small for loop to copy and rename the rest of the fastq.gz with ln -s.
 * rev
 * cut 
