@@ -13,7 +13,7 @@
 | zcat	  | print contents of a gzipped file to screen			 | zcat pineapple_pen.txt.gz 				    |
 | whatis  | get a short description of a program				 | whatis zcat 								    |
 | man	  | print the man(ual) page of a command 				 | man zcat									    |
-| &#124	  | pipe, a way to pass output of one command to another | cat pineapple_pen.txt &#124; head 		    |
+| &#124;  | pipe, a way to pass output of one command to another | cat pineapple_pen.txt &#124; head 		    |
 | head 	  | print first X number of lines of a file to screen	 | head -n 20 pineapple_pen.txt 	  		    |
 | tail 	  | print last X number of lines of a file to screen	 | tail -n 20 pineapple_pen.txt 			    |
 | less 	  | print file to screen, but allow scrolling			 | less pineapple_pen.txt 					    |
