@@ -180,7 +180,7 @@ You can now see your new and devoid-of-content directory. But don't celebrate
 yet! The directory has the wrong name! Who could have seen _this_ coming? If 
 you saw the typo and fixed it already, no brownies for you! 
 
-<p align="center"><img src="https://media.giphy.com/media/ieGdB2g5kDIkg/giphy.gif" width="20%"></p>
+<p align="center"><img src="https://media.giphy.com/media/ieGdB2g5kDIkg/giphy.gif" width="20%"> <img src="https://media.tenor.co/images/d82c7edc4b04227b4c973f24b904695f/raw" width="26%"></p>
 
 But don't lose hope, because we can rename things with the `mv` command, 
 shorthand for "**m**o**v**e". 
