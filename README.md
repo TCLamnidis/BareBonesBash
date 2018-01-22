@@ -684,26 +684,26 @@ Therefore, loops allow us to do repetitive tasks, and reap the rewards thereof,
 without having to do all the repetitive work! 
 <p align="center"><img src="https://media.giphy.com/media/3rgXByefj5zvCcodOM/giphy.gif" width="40%"></p>
 
+----
 
-preserve original file, so make symlink in new directory
-* small for loop to copy and rename the rest of the fastq.gz with ln -s.
-* rev
-* cut 
-* variables
-* for/while loops
-* if statements
+## TO DO NOW:
 
-## "Help" - The Beatles
-
-* whatis
-* man
+* Introduce echo early on
+* Add nano
+* Redo Comment description (GIF WITH NINJA!)
+* Typo checks
+* Run through
 
 ## DIE ZUKUNFT
 
+* rev
+* cut
 * find
 * awk
 * sed
 * parallel
+* while loops
+* if statements
 * bash arithmetic "$((8*8))"
 * double and single quotes (or in grep and loops)
  
