@@ -692,6 +692,7 @@ without having to do all the repetitive work!
 * Add nano
 * Redo Comment description (GIF WITH NINJA!)
 * Typo checks
+* Swap ( to _\[_ where it's our voices and not part of the tutorial.
 * Run through
 
 ## DIE ZUKUNFT
