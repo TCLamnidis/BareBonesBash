@@ -511,10 +511,13 @@ ln -s ~/BareBonesBash/ERR2020601.fastq.gz .
 Make sure you included that `.` in the command above. As discussed in the 
 "Relative Paths" section, that points your current working directory, thus 
 telling the `ln` programme that it should create the link in the current 
-directory. You should now see the symlink in the directory. To see where the 
-link points to we can use `ls -l`, which provides exended information on the 
-files shown with `ls`. (For more information you can look at the `man` page for 
-`ls`).
+directory. You should now see the symlink in the directory. 
+
+<p align="center"><img src="https://78.media.tumblr.com/0ac8df83e4b5ee82c150048347a7db01/tumblr_n1blyfhvTY1qfbz1so1_500.gif" width="30%"></p>
+
+To see where the link points to we can use `ls -l`, which provides exended 
+information on the files shown with `ls`. (For more information you can look 
+at the `man` page for `ls`).
 
 ```bash
 ls -l
@@ -543,7 +546,7 @@ It is a lot of work to run `wget` 8 times while changing the command everytime.
 **Bonus tip time!** One way would be to press the 'up' arrow on your keyboard,
 which will allow you to scroll through all your previous commands. Thus you 
 could pull up the previous command, then just change a couple of characters.
-This can be useful in certain cases, but doing that 8 times is still be too much 
+This can be useful in certain cases, but doing that 8 times is **still** too much 
 work.
 
 Good thing we're here to learn how to be lazy! We can download multiple files 
@@ -676,6 +679,10 @@ for fastq in ~/BareBonesBash/ERR*.gz; do
 done
 
 ```
+
+Therefore, loops allow us to do repetitive tasks, and reap the rewards thereof, 
+without having to do all the repetitive work! 
+<p align="center"><img src="https://media.giphy.com/media/3rgXByefj5zvCcodOM/giphy.gif" width="40%"></p>
 
 
 preserve original file, so make symlink in new directory
