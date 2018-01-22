@@ -688,6 +688,7 @@ without having to do all the repetitive work!
 
 ## TO DO NOW:
 
+* Table with commands that are in this tutorial before Introduction.
 * Introduce echo early on
 * Add nano
 * Redo Comment description (GIF WITH NINJA!)
