@@ -7,11 +7,11 @@ A basic Bash tutorial by @jfy133 and @TCLamnidis.
 
 The aim of this tutorial is to make you familiar with using bash everyday... 
 for the rest of your life :smiling_imp::trollface:. More specifically, we want to do this in the context
-of our work. We will start with how to navigate (Thiseas' words...) around a 
+of our work. We will start with how to navigate _\[Thiseas' words...]_ around a 
 filesystem in the terminal, download sequencing files, and then to 
 manipulate these. Within these sections we will also show you simple tips and 
 tricks to make your life generally easier. In fact, some of these commands we 
-only just learnt last week (thanks Aida!) and we've been using the terminal 
+only just learnt last week _\[Thanks Aida!]_ and we've been using the terminal 
 for more than 2 years.
 
 This tutorial is designed to be self sufficent using public data. Thus you
@@ -30,8 +30,8 @@ a directory path and ends with a dollar symbol. Like so.
 <p align="center"><img src="https://media.giphy.com/media/3o84U72tKO389H2lI4/giphy.gif" width="20%"></p>
 
 Note that prompts _are_ customisable, so will not always be displayed as above 
-(look at Thiseas' magical prompt as an example. James keeps his vanilla as he 
-is a barbarian).
+_\[look at Thiseas' magical prompt as an example. James keeps his vanilla as he 
+is a barbarian]_.
 
 The prompt is never involved in any command, it is just there to help you know
 who and where you are. Therefore you must always make sure when copying a 
@@ -80,7 +80,7 @@ ls
 Your home directory should come equipped with multiple subdirectories like 
 "Documents", "Pictures", etc. 
 
-It is now time to start moving (navigating) towards "the Brandenburger Tor" 
+It is now time to start moving _\[navigating]_ towards "the Brandenburger Tor" 
 from the example above. We can navigate through directories using the command 
 `cd` which stands for "**c**hange **d**irectory".
 
@@ -163,7 +163,7 @@ ssh <user>@mpi-sdag1.sdag.ppj.shh.mpg.de
 
 Once we've logged in the `~` points to a different home directory, as you are 
 on a different machine. However, all of the commands you've learned so far will 
-still work the same. ;). You can double check both of these by typing `pwd`.
+still work the same :wink:. You can double check both of these by typing `pwd`.
 
 It is important to keep your corner of the servers well organised, and the 
 trick to doing that is making your own directories. Often _a lot_ of them. 
@@ -285,8 +285,8 @@ _Zipped_, if you will. We constantly compress files in multiple different ways
 
 An everyday example of the benefits of compression comes from music. To keep the 
 calculations smaller we'll take a time machine back to 2001 when having one of 
-these things made you instantly popular and better geared than James Bond (tech-savvy 
-Pierce Brosnan, not the trigger-happy Daniel Craig):
+these things made you instantly popular and better geared than James Bond _\[tech-savvy 
+Pierce Brosnan, not the trigger-happy Daniel Craig]_:
 
 <p align="center"><img src="https://everymac.com/images/cpu_pictures/apple_ipod.jpg" width="20%"></p>
 
@@ -326,6 +326,8 @@ and uncompressed form, as well as the compression ratio (how effective the
 compression was). **Most programmes you will use DO have a `man` page, making 
 this command extremely useful.**. Now that we learned about the `-l` option of 
 `gzip`, let's use it to see how efficient the compression of this FASTQ file is. 
+_**\[Say it with us: "`man` is love. `man` is life."]**_
+
 
 ```bash
 gzip -l ERR2020601.fastq.gz
@@ -336,8 +338,7 @@ A compression factor of `74.9%` is pretty good. It means our compressed FASTQ fi
 
 ## The Lord of the Pipes: One command to do them all.
 
-After that tangent, lets get back to our back to our regularly scheduled 
-program(ming)!
+After that tangent, let's get back to our regularly scheduled program(ming)!
 
 We will now try out three semi-related commands to make viewing the contents 
 of a file, and begin to familiarise with the most important functionality of 
@@ -367,13 +368,13 @@ zcat ERR2020601.fastq.gz | head -n 20
 ```
 
 The same option exists for tail, note that but options are not universal! Not 
-every programme will use the same options!)
+every programme will use the same options!
 
 ```bash
 zcat ERR2020601.fastq.gz | tail -n 4
 ```
 
-And you can also chain them altogether (not unlike a human centipede...) _\[no 
+And you can also chain them altogether _\[not unlike a human centipede... No 
 gif here so I don't get fired]_
 
 ```bash
@@ -420,7 +421,7 @@ can work out how many reads are in our file.
 
 For this we can use 'wc', which stands for "**w**ord **c**ount". However, we 
 don't want to count words, we want to count the number of lines. We can 
-therefore use the flag `-l` to do this (try using what we learnt above how to 
+therefore use the flag `-l` to do this (try using what we learnt above to 
 find lists of these flags!). But remember we first have to decompress the lines 
 we are reading from the file with `zcat`.
 
@@ -473,20 +474,15 @@ zcat ERR2020601.fastq.gz | grep "@ERR" | wc -l
 
 The FASTQ we have been working with so far we downloaded from the ENA. It is 
 important to keep the file name intact, so we can easily identify this specific 
-FASTQ file in the ENA database in the future, if need be. But talking about 
-sample `ERR2020601` is simply not sexy enough, and makes things harder to work 
-with, especially when we are working on 15 different and similarly named samples.
-We need to come up with a better name for this sample. Something less arbitrary 
-and easier to remember. How about `Sample_1`? That sounds much more easily 
-identifiable! :neutral_face:
+FASTQ file in the ENA database in the future, if need be. 
 
-In order to retain the original file but also rename it for convenience we can 
-use a _symbolic link (**symlink**)_. You have doubtless seen these many times 
-right on your desktop, in the form of desktop shortcuts! They are small portals 
-that let you go to a remote location really fast, and take something from there. 
-Imagine if you could reach the TV remote from the sofa, although for some strange 
-reason you left it in the freezer when picking up the (now half-melted) ice cream. 
-_\[No, of course I have never done that!]_
+In order to retain the original file we can use a _symbolic link (**symlink**)_.
+You have doubtless seen these many times right on your desktop, in the form of 
+desktop shortcuts! They are small portals that let you go to a remote location 
+really fast, and take something from there. Imagine if you could reach the TV 
+remote from the sofa, although for some strange reason you left it in the freezer 
+when picking up the (now half-melted) ice cream. _\[No, of course I have never 
+done that!]_
 
 <p align="center"><img src="https://orig00.deviantart.net/784b/f/2014/354/a/3/poor_messing_with_a_portal_gun__gif__by_ritorical-d8ahh8f.gif" width="20%"></p>
 
@@ -502,7 +498,8 @@ It is now time to make the symlink. We do this with the `ln` command (short for
 "**l**i**n**k"), by providing the `-s` option, which specifies we want to create 
 a **s**ymbolic link (i.e. a shortcut).
 Note: You should give _absolute_ paths to the file your symlinks point to, or 
-things **will** break down.
+things **will** break down. (Note that a path that starts with `~` is technically 
+an absolute path, since it is also not relative to your current position.)
 
 ```bash
 ln -s ~/BareBonesBash/ERR2020601.fastq.gz .
@@ -632,9 +629,9 @@ reading `~/BareBonesBash/$fastq`, the computer knows that `$fastq` means
 `~/BareBonesBash/ERR2020609.fastq.gz`. In the second part of the command 
 (`~/BareBonesBash/FastQ.Portals`), there is no `$` in front of the sequence of 
 letters `FastQ`, so the computer reads it as the letters themselves and not 
-the contents variable (which is what we wanted to happen). The word is also in 
-different case, so it would **NOT** be read as the variable even with the `$` 
-character. See the example below for more info:
+the contents of a variable (which is what we wanted to happen). The word is 
+also in different case, so it would **NOT** be read as the variable even with 
+the `$` character. See the example below for more info:
 
 ```bash
 (echo -e "$FastQ <---- Not a set variable"
@@ -648,8 +645,8 @@ _right_ not to type more than we need to! It is therefore our right - nay,
 our _responsibility_ - to use **wildcards** "refers to a character that can be 
 substituted for zero or more characters in a string". In bash, the wildcard 
 character is the asterisk (`*`) _\[Not to be confused with Asterix (Really, 
-James?)]_. Therefore, we can use the wildcard to tell bash the loop should be 
-performed on ALL items in a directory that match the criterion given. 
+James? REALLY!?)]_. Therefore, we can use the wildcard to tell bash the loop 
+should be performed on ALL items in a directory that match the criterion given. 
 
 If we want to create a symlink (with `ln -s`) for every item within the 
 `~/BareBonesBash` directory, and place that symlink within the 
