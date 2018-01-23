@@ -597,7 +597,7 @@ ls
 Great! There is a file there! But wait! OH NO! There is another typo! We 
 have multiple _links_ not a Link!
 
-<p align="center"><img title="https://media.giphy.com/media/RkymcOKhoCRTG/giphy.gif" width="30%"></p>
+<p align="center"><img src="https://media.giphy.com/media/RkymcOKhoCRTG/giphy.gif" width="30%"></p>
 
 _[Dear lord, how much nerdier can we get here -.- ...]
 
