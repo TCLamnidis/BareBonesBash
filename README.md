@@ -1,6 +1,6 @@
 # (Bespoke)BareBonesBash(BroughtByBeardedBioinformaticians)
 A basic Bash tutorial by @jfy133 and @TCLamnidis.
-<p align="center"><img src="https://media.giphy.com/media/v58q1se3dZvag/giphy.gif" width="40%"></p>
+<p align="center"><img title="Source: https://giphy.com/gifs/v58q1se3dZvag" src="https://media.giphy.com/media/v58q1se3dZvag/giphy.gif" width="40%"></p>
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><p align="center"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
@@ -28,7 +28,7 @@ a directory path and ends with a dollar symbol. Like so.
 <username>@<device_name>:~$
 ```
 
-<p align="center"><img src="https://media.giphy.com/media/3o84U72tKO389H2lI4/giphy.gif" width="20%"></p>
+<p align="center"><img title="Source: https://giphy.com/gifs/studiosoriginals-gilphabet-3o84U72tKO389H2lI4" src="https://media.giphy.com/media/3o84U72tKO389H2lI4/giphy.gif" width="20%"></p>
 
 Note that prompts _are_ customisable, so will not always be displayed as above 
 _\[look at Thiseas' magical prompt as an example. James keeps his vanilla as he 
@@ -67,7 +67,7 @@ started their journey) _\[haha, human history joke]_, or you could say "Take
 a left here, straight for 3 blocks, and you're there.". The latter set of 
 directions is relative to their current position, while the first one is not.
 
-<p align="center"><img src="https://media.giphy.com/media/3o6Ztk4xTVAnfqYPn2/source.gif" width="20%"> <img src="https://media.giphy.com/media/QWXhaNjfwuNs4/giphy-tumblr.gif" width="20%"></p>
+<p align="center"><img title="Source: https://giphy.com/gifs/teamcoco-germany-berlin-3o6Ztk4xTVAnfqYPn2" src="https://media.giphy.com/media/3o6Ztk4xTVAnfqYPn2/source.gif" width="20%"> <img title="Source: https://giphy.com/gifs/guys-call-ethiopia-QWXhaNjfwuNs4" src="https://media.giphy.com/media/QWXhaNjfwuNs4/giphy-tumblr.gif" width="20%"></p>
 
 
 Now let's look around at out current location and see what we can find within 
@@ -109,7 +109,7 @@ We can also change directories using absolute paths. Lets do this using the
 absolute path we printed using `pwd` in the previous step. Type `cd`, but don't 
 press enter yet! 
 
-<p align="center"><img src="https://media.giphy.com/media/23BST5FQOc8k8/source.gif" width="20%"></p>
+<p align="center"><img title="Source: https://giphy.com/gifs/cant-23BST5FQOc8k8" src="https://media.giphy.com/media/23BST5FQOc8k8/source.gif" width="20%"></p>
 
 Copy and paste the output of the previous `pwd` command 
 (which you can see in your terminal does not have the command prompt), after 
@@ -128,13 +128,19 @@ to return to our home directory from the documents directory we can type:
 
 ```bash
 cd -
-## And to see our new location <- btw, this is called a comment. 
-## In bash they always begin with a '#', but the character differs per programming language
-## A commented out line is a line that will not by read by the computer.
+## Remember in "A land before time" when the dinosaur's mother died?
 pwd
 ```
 
-And voilá! We are back in our home directory.
+And voilá! We are back in our home directory. While reading that command, you 
+might have been reminded of one of the most emotionally devastating moments of 
+any person's life. However, the computer would show no signs of emotional struggle.
+Sure, computers don't have feelings and all, but **ALSO** the computer never even read 
+that sad reminder. A computer will **NOT** read anything that comes after a _comment 
+character_, which in bash is a hash (`#`) _\[NOT a hashtag!]_.   This can be a useful lifehack that you
+can use, an example of which will be given later.
+
+<p align="center"><img title="Source: https://www.buzzfeed.com/bradesposito/sad-before-time?utm_term=.cjY4banJZ#.ixJ815NjJ" src="https://img.buzzfeed.com/buzzfeed-static/static/2015-04/29/21/enhanced/webdr15/anigif_enhanced-31175-1430357953-19.gif" width="35%"></p>
 
 However, often when working in bioinformatics we will be working remotely on a 
 server. The most typical way is to log in via "**s**ecure **sh**ell", known as 
@@ -180,7 +186,7 @@ You can now see your new and devoid-of-content directory. But don't celebrate
 yet! The directory has the wrong name! Who could have seen _this_ coming? If 
 you saw the typo and fixed it already, no brownies for you! 
 
-<p align="center"><img src="https://media.giphy.com/media/ieGdB2g5kDIkg/giphy.gif" width="20%"> <img src="https://media.tenor.co/images/d82c7edc4b04227b4c973f24b904695f/raw" width="26%"></p>
+<p align="center"><img title="Source: https://giphy.com/gifs/table-flip-ieGdB2g5kDIkg" src="https://media.giphy.com/media/ieGdB2g5kDIkg/giphy.gif" width="20%"> <img title="Source: https://tenor.com/view/it-crowd-moss-computer-throw-gif-5404468" src="https://media.tenor.co/images/d82c7edc4b04227b4c973f24b904695f/raw" width="26%"></p>
 
 But don't lose hope, because we can rename things with the `mv` command, 
 shorthand for "**m**o**v**e". 
@@ -199,7 +205,7 @@ different name, essentially renaming it to `BearBonesBash`.
 
 But oh no! Not again! This is not a bash tutorial for ancient bear genomics! 
 
-<p align="center"><img src="https://media.giphy.com/media/IQ9KefLJHfJPq/giphy.gif" width="20%"></p>
+<p align="center"><img title="Source: https://giphy.com/gifs/bear-forest-water-IQ9KefLJHfJPq" src="https://media.giphy.com/media/IQ9KefLJHfJPq/giphy.gif" width="20%"></p>
 
 Let's just delete that empty directory and start over, using the `rmdir` 
 command, short for "**r**e**m**ove **dir**ectory".
@@ -225,14 +231,14 @@ Lets change that.
 We ain't playing with bears today - that's dangerous (as we saw above), instead
 lets play with some Mammoths!
 
-<p align="center"><img src="https://media.giphy.com/media/kbuQOkATEo6VW/giphy.gif" width="20%"> <img src="https://media.giphy.com/media/3o6Zte5Q11lxAu8Q5q/giphy.gif" width="20%"></p>
+<p align="center"><img title="Source: https://giphy.com/gifs/sid-ice-age-a-mammoth-christmas-kbuQOkATEo6VW" src="https://media.giphy.com/media/kbuQOkATEo6VW/giphy.gif" width="20%"> <img title="Source: https://giphy.com/gifs/3o6Zte5Q11lxAu8Q5q" src="https://media.giphy.com/media/3o6Zte5Q11lxAu8Q5q/giphy.gif" width="20%"></p>
 
 We're going to use `wget` to download a FASTQ file from the ENA. So while in 
 our `BareBonesBash` directory, we will give `wget` the link to the file, and 
 we should see a loading bar. Once downloaded (it should be pretty quick),
 we can use `ls` to check the contents.
 
-<p align="center"><img src="https://media.giphy.com/media/lAIbbDbcXSZSU/giphy.gif" width="20%"></p>
+<p align="center"><img title="Source: https://giphy.com/gifs/mario-kart-lAIbbDbcXSZSU" src="https://media.giphy.com/media/lAIbbDbcXSZSU/giphy.gif" width="20%"></p>
 
 ```bash
 wget ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
@@ -254,7 +260,7 @@ cat ERR2020601.fastq.gz
 
 Yay for auto-complete! But you probably had a bunch of junk printed to screen.
 
-<p align="center"><img src="https://media.giphy.com/media/kQbMO5X7UA1C8/giphy.gif" width="20%"></p>
+<p align="center"><img title="Source: https://giphy.com/gifs/kQbMO5X7UA1C8" src="https://media.giphy.com/media/kQbMO5X7UA1C8/giphy.gif" width="20%"></p>
 
 That's because the FASTQ file, as with almost all FASTQs, is compressed (as 
 indicated by the .gz). To then view the _real_ contents of the file, we can 
@@ -290,7 +296,7 @@ calculations smaller we'll take a time machine back to 2001 when having one of
 these things made you instantly popular and better geared than James Bond _\[tech-savvy 
 Pierce Brosnan, not the trigger-happy Daniel Craig]_:
 
-<p align="center"><img src="https://everymac.com/images/cpu_pictures/apple_ipod.jpg" width="20%"></p>
+<p align="center"><img title="Source: https://everymac.com/systems/apple/ipod/specs/ipod.html" src="https://everymac.com/images/cpu_pictures/apple_ipod.jpg" width="20%"></p>
 
 That amazing piece of technology came with a storage space of 5GB, whie an 
 uncompressed music album takes up 640MB of space. **THAT IS 7.8125 ALBUMS!** 
@@ -346,7 +352,7 @@ We will now try out three semi-related commands to make viewing the contents
 of a file, and begin to familiarise with the most important functionality of 
 bash: the concept of `|` (i.e. the "pipe"). 
 
-<p align="center"><img src=".gifs/Boromir.gif" width="40%" height="10%"> <img src="https://tinynin.files.wordpress.com/2012/01/warppipe-copy.gif" width="20%"></p>
+<p align="center"><img title="Made with EZGif.com" src=".gifs/Boromir.gif" width="40%" height="10%"> <img title="Source: https://tinynin.wordpress.com/2012/01/08/marioportal-warp-pipe/" src="https://tinynin.files.wordpress.com/2012/01/warppipe-copy.gif" width="20%"></p>
 
 A pipe passes the output of one command and gives it as input to the next. It 
 allows us to string commands together, one after the other, which means you can 
@@ -386,7 +392,7 @@ zcat ERR2020601.fastq.gz | head -n 20 | tail -n 4
 The above command will print the whole file, but capture only the first 20 
 lines, before printing out the last 4 lines of these 20.
 
-<p align="center"><img src=".gifs/frodo.gif" width="30%" height="20%"></p>
+<p align="center"><img title="Made with EZGif.com" src=".gifs/frodo.gif" width="30%" height="20%"></p>
 
 In practice, what was just printed on your screen is the record of a single read, 
 which spans 4 lines of the FASTQ file. 
@@ -400,7 +406,7 @@ enough to find information about it online, if you want to know more.
 
 But what if you wanted to view the whole file "at your own leisurely pace"
 
-<p align="center"><img src="https://media.giphy.com/media/82abB3W2DknkY/giphy.gif" width="20%"></p>
+<p align="center"><img title="Source: https://giphy.com/gifs/stroll-82abB3W2DknkY" src="https://media.giphy.com/media/82abB3W2DknkY/giphy.gif" width="20%"></p>
 
 We can use the tool `less`, which prints the file to screen, but allows you 
 to move up and down the output with your arrow keys. You can also move down a full 
@@ -419,7 +425,7 @@ now that each read record in a FASTQ file has four components, and takes up 4
 lines. So if we count the number of lines in a file, then divide by four, we 
 can work out how many reads are in our file. 
 
-<p align="center"><img src="https://media.giphy.com/media/l41YtZOb9EUABnuqA/giphy.gif" width="20%"></p>
+<p align="center"><img title="Source: https://giphy.com/gifs/l41YtZOb9EUABnuqA" src="https://media.giphy.com/media/l41YtZOb9EUABnuqA/giphy.gif" width="20%"></p>
 
 For this we can use 'wc', which stands for "**w**ord **c**ount". However, we 
 don't want to count words, we want to count the number of lines. We can 
@@ -438,7 +444,7 @@ Finally, maybe we want to know what the name of each read is. When we used
 less above, we saw each read header began with "@". Maybe we can use this
 to our advantage!
 
-<p align="center"><img src="https://media.giphy.com/media/3orieUe6ejxSFxYCXe/giphy.gif" width="20%"></p>
+<p align="center"><img title="Source: https://giphy.com/gifs/season-16-the-simpsons-16x3-3orieUe6ejxSFxYCXe" src="https://media.giphy.com/media/3orieUe6ejxSFxYCXe/giphy.gif" width="20%"></p>
 
 The command `grep` will only print lines in a file that match a certain 
 pattern. So for example, we want to search for every line in our FASTQ file 
@@ -470,7 +476,7 @@ zcat ERR2020601.fastq.gz | grep "@ERR" | wc -l
 ```
 
 
-<p align="center"><img src="https://media.giphy.com/media/11sBLVxNs7v6WA/giphy.gif" width="20%"></p>
+<p align="center"><img title="Source: https://giphy.com/gifs/cheer-cheering-11sBLVxNs7v6WA" src="https://media.giphy.com/media/11sBLVxNs7v6WA/giphy.gif" width="20%"></p>
 
 ## Now you're thinking with portals! Symlinks and their usefulness.
 
@@ -486,7 +492,7 @@ remote from the sofa, although for some strange reason you left it in the freeze
 when picking up the (now half-melted) ice cream. _\[No, of course I have never 
 done that!]_
 
-<p align="center"><img src="https://orig00.deviantart.net/784b/f/2014/354/a/3/poor_messing_with_a_portal_gun__gif__by_ritorical-d8ahh8f.gif" width="20%"></p>
+<p align="center"><img title="Source: https://ritorical.deviantart.com/art/Poor-messing-with-a-portal-gun-GIF-501341055" src="https://orig00.deviantart.net/784b/f/2014/354/a/3/poor_messing_with_a_portal_gun__gif__by_ritorical-d8ahh8f.gif" width="20%"></p>
 
 So let us make a new subdirectory to store our symlink to the FASTQ file we 
 already downloaded, and move to that directory.
@@ -512,7 +518,7 @@ Make sure you included that `.` in the command above. As discussed in the
 telling the `ln` programme that it should create the link in the current 
 directory. You should now see the symlink in the directory. 
 
-<p align="center"><img src="https://78.media.tumblr.com/0ac8df83e4b5ee82c150048347a7db01/tumblr_n1blyfhvTY1qfbz1so1_500.gif" width="30%"></p>
+<p align="center"><img title="Source: https://imgur.com/gallery/GOyDQjn" src="https://78.media.tumblr.com/0ac8df83e4b5ee82c150048347a7db01/tumblr_n1blyfhvTY1qfbz1so1_500.gif" width="30%"></p>
 
 To see where the link points to we can use `ls -l`, which provides exended 
 information on the files shown with `ls`. (For more information you can look 
@@ -612,7 +618,7 @@ command prompt, as you made no changes to the file.
 Woop! Now lets utilise the file we just created, by downloading all the files
 stored in the URLs. IN ONE GO! 
 
-<p align="center"><img src="https://media.giphy.com/media/oAEoEC7vdf1QI/giphy.gif" width="30%"></p>
+<p align="center"><img title="Source: https://giphy.com/gifs/aliens-oAEoEC7vdf1QI" src="https://media.giphy.com/media/oAEoEC7vdf1QI/giphy.gif" width="30%"></p>
 
 You can provide a file to `wget` with URLs (like the one you just made) using 
 the flag `-i`, for "**i**nput". 
@@ -658,7 +664,7 @@ Variables as the one above are called **environment variables** and should gener
 **NOT** be changed on a whim _\[even though the temptation might be a whim away. A 
 whim away... A-whim-away...]_.
 
-<p align="center"><img src="http://cdn.webfail.com/upl/img/e91115df851/post2.jpg" width="30%"></p>
+<p align="center"><img title="Source: http://en.webfail.com/e91115df851" src="http://cdn.webfail.com/upl/img/e91115df851/post2.jpg" width="30%"></p>
 
 But you can also set your own variables, which is extremely handy. Any variable can be easily 
 overwritten, which is one reason why they are so useful. Therefore, as long as you don't 
@@ -678,7 +684,7 @@ GreekFood=7 #And, of course, we can overwrite with a number again too.
 echo "I've been to Greece $Greekfood times already this year, for the food and wine!"
 ```
 
-<p align="center"><img src="https://78.media.tumblr.com/04ac7d0699ac494a7ccb4fc9316bbc0a/tumblr_oo77m9RLgv1uwr1s7o1_500.gif" width="30%"></p>
+<p align="center"><img title="Source: http://visitgreece-gr.tumblr.com/" src="https://78.media.tumblr.com/04ac7d0699ac494a7ccb4fc9316bbc0a/tumblr_oo77m9RLgv1uwr1s7o1_500.gif" width="30%"></p>
 
 Now you have a basic understanding of Greek food. I mean **variables** in bash! Let's see 
 how we can use this knowledge.
@@ -702,7 +708,7 @@ for every scientist:
 done
 ```
 
-<p align="center"><img src="https://media1.tenor.com/images/5ef4336be26e478431f85b349ec6bd34/tenor.gif?itemid=4149888" width="20%"></p>
+<p align="center"><img title="Source: https://tenor.com/view/izza-oprah-eatwhatyouwant-gif-4149888" src="https://media1.tenor.com/images/5ef4336be26e478431f85b349ec6bd34/tenor.gif?itemid=4149888" width="20%"></p>
 
 Let's stop daydreaming of pizza now and return to the task at hand. For each FASTQ 
 file we want to make a symlink to that file. Following the above example, but this 
@@ -789,7 +795,7 @@ done
 
 Therefore, loops allow us to do repetitive tasks, and reap the rewards thereof, 
 without having to do all the repetitive work! 
-<p align="center"><img src="https://media.giphy.com/media/3rgXByefj5zvCcodOM/giphy.gif" width="40%"></p>
+<p align="center"><img title="Source: https://giphy.com/gifs/tinder-automation-tinderbot-3rgXByefj5zvCcodOM" src="https://media.giphy.com/media/3rgXByefj5zvCcodOM/giphy.gif" width="40%"></p>
 
 ----
 
