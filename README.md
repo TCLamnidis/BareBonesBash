@@ -25,7 +25,7 @@ at this table as a quick reference. To understand actually what each command
 does, carry on reading below!
 
 | command | description 			   							 | example 					  	  	 		      			  | common flags or arguments	   |
-|---------|------------------------------------------------------|------------------------------------------------------------|----------------------- --------|
+|---------|------------------------------------------------------|------------------------------------------------------------|--------------------------------|
 | pwd     | print working directory    		 					 | pwd						      	 		      			  |								   |
 | ls	  | list contents of directory 		 					 | ls 						      	  		      			  | -l (long info)				   |
 | mkdir	  | make directory			   		 					 | mkdir pen      			  				      			  |								   |
