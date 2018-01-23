@@ -803,11 +803,9 @@ without having to do all the repetitive work!
 
 * Table with commands that are in this tutorial before Introduction. (James)
 * Add nano also introduce `rm` (James)
-* Redo Comment description (GIF WITH NINJA!) (Thiseas)
 * Typo checks (Both. But mostly Thiseas let's be honest)
 * Swap ( to _\[_ where it's our voices and not part of the tutorial. (Just check. think it is done.)
 * Run through (Both)
-* Add GIF credits (giphy links) as ALT text (Both)
 
 ## DIE ZUKUNFT
 
