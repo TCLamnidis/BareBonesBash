@@ -599,7 +599,7 @@ have multiple _links_ not a Link!
 
 <p align="center"><img src="https://media.giphy.com/media/RkymcOKhoCRTG/giphy.gif" width="30%"></p>
 
-_[Dear lord, how much nerdier can we get here -.- ...]
+_[Dear lord, how much nerdier can we get here -.- ...]_
 
 Lets remove that file, and start again. 
 
