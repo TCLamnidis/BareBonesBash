@@ -137,7 +137,7 @@ might have been reminded of one of the most emotionally devastating moments of
 any person's life. However, the computer would show no signs of emotional struggle.
 Sure, computers don't have feelings and all, but **ALSO** the computer never even read 
 that sad reminder. A computer will **NOT** read anything that comes after a _comment 
-character_, which in bash is a hash (`#`) _\[NOT a hashtag!].   This can be a useful lifehack that you
+character_, which in bash is a hash (`#`) _\[NOT a hashtag!]_.   This can be a useful lifehack that you
 can use, an example of which will be given later.
 
 <p align="center"><img title="Source: https://www.buzzfeed.com/bradesposito/sad-before-time?utm_term=.cjY4banJZ#.ixJ815NjJ" src="https://img.buzzfeed.com/buzzfeed-static/static/2015-04/29/21/enhanced/webdr15/anigif_enhanced-31175-1430357953-19.gif" width="35%"></p>
