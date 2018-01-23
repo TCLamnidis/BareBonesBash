@@ -278,6 +278,7 @@ Now it's time for the inevitable tangent when your tutor thinks of a very
 (un)funny metaphor to explain something!
 
 ## Asking the computer for help (it loves helping people)
+
 As we just learned, the FASTQ file we've been playing with is compressed, 
 _Zipped_, if you will. We constantly compress files in multiple different ways 
 (bams are another example of a compressed file), but **why?** As the name
@@ -534,6 +535,8 @@ Which should print out the same read as it did on the original FASTQ file.
 
 ## Lazyness 101: Minimising our work by maximising the work of the computer
 
+### Text Editing in Terminal
+
 Now for a bit of honesty. A single sample will not get you a nature publication.
 _\[ok, maybe sometimes]._ We will need more data if we're gonna make it to the
 most prestigious journals. So let's download another 8 samples from James' 
@@ -574,9 +577,17 @@ cd ~/BareBonesBash
 wget -i ~/BareBonesBash/Ftp.Links.txt
 ```
 
-Look at that! One command instead of 7! You're becoming a bash pro already! Now to 
-minimise our workload in making the symlinks! We can do this using a **for loop**, 
-one of the basic methods of all programming. 
+Look at that! One command instead of 7! You're becoming a bash pro already! 
+
+### What is a Variable anyway?
+
+A variable can 
+be "set" (i.e. telling the computer what that means) to a variety of things.
+
+### Loop de Loop
+
+Now to minimise our workload in making the symlinks! We can do this using a 
+**for loop**, one of the basic methods of all programming. 
 
 Imagine you have to order pizzas for a varying number of scientists every week. 
 _\[Just a random example]._ For every person you will need an extra pizza. This 
@@ -604,8 +615,7 @@ for fastq in ERR2020609.fastq.gz ERR2020611.fastq.gz ERR2020567.fastq.gz ERR2020
 done
 ```
 
-In the above example `fastq` (case-sensitive) is **a variable**. A variable can 
-be "set" (i.e. telling the computer what that means) to a variety of things. In 
+In the above example `fastq` (case-sensitive) is **the variable** In 
 this case it is set to a **string** of characters, corresponding to the name 
 of the first FASTQ file (`ERR2020617.fastq.gz`). At that point the command 
 given within the loop (in this case `ln -s`) is executed, before the next FASTQ 
