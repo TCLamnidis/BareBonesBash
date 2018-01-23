@@ -547,13 +547,38 @@ It is a lot of work to run `wget` 8 times while changing the command everytime.
 **Bonus tip time!** One way would be to press the 'up' arrow on your keyboard,
 which will allow you to scroll through all your previous commands. Thus you 
 could pull up the previous command, then just change a couple of characters.
-This can be useful in certain cases, but doing that 8 times is **still** too much 
-work.
+This can be useful in certain cases, but doing that 8 times is **still** too 
+much work.
 
 Good thing we're here to learn how to be lazy! We can download multiple files 
 from an ftp server by giving `wget` a file that contains the ftp links for each 
-file we want downloaded. Copy the text below, and save it as `~/BareBonesBash/
-Ftp.Links.txt`, using a text editor of your choice (e.g. `nano`).
+file we want downloaded. 
+
+But how can we make this file? There are multiple options for text editing in
+the terminal. If you're absolutely insane you may look up `vim` 
+(_[Theseus' poison]_), or we can use `nano` which is much more user friendly. 
+
+Editing the contents of a file in `nano` is mostly as you would with your 
+standard `textmate` or `gedit` on your local machine. However, the main 
+difference is how you save, and close the program which you preform using 
+keyboard combinations (like you would use `ctrl + c` to copy a line in your 
+typical 'Office' suite).
+
+So open up the program with
+
+```bash
+nano
+```
+
+And you will now see a blank window, with a section at the bottom with 
+a variety of commands at the bottom, with `^` corresponding to `ctrl` on 
+your keyboard. You can try typing and deleting text as you normally would
+on your offline text editor.
+
+After clearing your gibberish, you can now copy the text below into blank 
+window as you would normally when at your terminal command promp (`cmd+v` on 
+OSX or `ctrl+shift+v` 
+on Linux).
 
 <pre>
 ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/009/ERR2020609/ERR2020609.fastq.gz
@@ -566,10 +591,30 @@ ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/008/ERR2020618/ERR2020618.fastq.gz
 ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/007/ERR2020617/ERR2020617.fastq.gz
 </pre>
 
-**NANO INSTRUCTIONS GO HERE (or before the links?) Also explain the #?**
+To save the contents of the file, we want to begin by initating our exit
+with `ctrl+x`. At the bottom you will be prompted to "Save modified buffer", 
+press `y` on your keyboard to agree. Now you will be asked what you want 
+the file to be called. Type `~/BareBonesBash/Ftp.Links.txt` to give both
+the directory and the file name (`Ftp.Links.txt`), and then press `enter`.
 
-And now that we have a file with all the ftp links, it is time to actually download 
-the files. You can provide a file with ftp links (like the one you just made) using 
+To verify that it worked correctly, we can either use the command to 
+print to screen the contents that we learnt above (which is...?), or
+we can use `nano` again but with the file as an argument to open the 
+file and see the contents.
+
+```bash
+nano ~/BareBonesBash/Ftp.Links.txt
+```
+
+This time when you exit with `ctrl+x` you'll immediately return to your 
+command prompt, as you made no changes to the file.
+
+Woop! Now lets utilise the file we just created, by downloading all the files
+stored in the URLs. IN ONE GO! 
+
+<p align="center"><img src="https://media.giphy.com/media/oAEoEC7vdf1QI/giphy.gif" width="30%"></p>
+
+You can provide a file to `wget` with URLs (like the one you just made) using 
 the flag `-i`, for "**i**nput". 
 
 ```bash
@@ -703,6 +748,7 @@ without having to do all the repetitive work!
 * Typo checks
 * Swap ( to _\[_ where it's our voices and not part of the tutorial.
 * Run through
+* Add GIF credits (giphy links) as ALT text
 
 ## DIE ZUKUNFT
 
