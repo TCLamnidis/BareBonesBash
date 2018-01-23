@@ -670,7 +670,7 @@ several sentences _\[which also happen to be objectively true]_.
 ```bash
 GreekFood=4            #Here, 'GreekFood' is a number.
 echo "Greek food is $GreekFood people who want to know what heaven tastes like."
-GreekFood=deliscious   #Now we overwrite that number with a word (or a "string" of characters).
+GreekFood=delicious   #Now we overwrite that number with a word (or a "string" of characters).
 echo "Everyone says that Greek food is $GreekFood."
 GreekFood="Greek wine" #We can overwrite 'GreekFood' again, but when there's a space in our string, we need quotations.
 echo "The only thing better than Greek food is $GreekFood!"
