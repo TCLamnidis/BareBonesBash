@@ -542,7 +542,7 @@ _\[ok, maybe sometimes]._ We will need more data if we're gonna make it to the
 most prestigious journals. So let's download another 8 samples from James' 
 Mammoth project to get us on our way to a nature cover page.
 
-It is a lot of work to run `wget` 8 times while changing the command everytime.
+It is a lot of work to run `wget` 7 times while changing the command everytime.
 
 **Bonus tip time!** One way would be to press the 'up' arrow on your keyboard,
 which will allow you to scroll through all your previous commands. Thus you 
@@ -556,11 +556,11 @@ file we want downloaded.
 
 But how can we make this file? There are multiple options for text editing in
 the terminal. If you're absolutely insane you may look up `vim` 
-(_[Theseus' poison]_), or we can use `nano` which is much more user friendly. 
+_\[Theseus' poison]_, or we can use `nano` which is much more user friendly. 
 
 Editing the contents of a file in `nano` is mostly as you would with your 
 standard `textmate` or `gedit` on your local machine. However, the main 
-difference is how you save, and close the program which you preform using 
+difference is how you save, and close the program which you perform using 
 keyboard combinations (like you would use `ctrl + c` to copy a line in your 
 typical 'Office' suite).
 
@@ -571,7 +571,7 @@ nano
 ```
 
 And you will now see a blank window, with a section at the bottom with 
-a variety of commands at the bottom, with `^` corresponding to `ctrl` on 
+a variety of commands at the bottom, with `^` corresponding to the `ctrl` key on 
 your keyboard. You can try typing and deleting text as you normally would
 on your offline text editor.
 
