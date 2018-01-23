@@ -559,10 +559,10 @@ the terminal. If you're absolutely insane you may look up `vim`
 _\[Theseus' poison]_, or we can use `nano` which is much more user friendly. 
 
 Editing the contents of a file in `nano` is mostly as you would with your 
-standard `textmate` or `gedit` on your local machine. However, the main 
+standard `TextMate` or `gedit` on your local machine. However, the main 
 difference is how you save, and close the program which you perform using 
 keyboard combinations (like you would use `ctrl + c` to copy a line in your 
-typical 'Office' suite).
+typical 'Microsoft Office' suite).
 
 So open up the program with
 
