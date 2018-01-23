@@ -581,8 +581,41 @@ Look at that! One command instead of 7! You're becoming a bash pro already!
 
 ### What is a Variable anyway?
 
-A variable can 
-be "set" (i.e. telling the computer what that means) to a variety of things.
+First off, let us start on a tangent. You will now learn the `echo` command. 
+In bash `echo` just prints things. The name refers to the fact that since the 
+computer "says" what you just told it to say, it behaves like an echo of yourself.
+Tradition dictates that the first thing you have the computer say in programming 
+tutorials is "Hello World!", so here goes:
+
+```bash
+echo Hello World!
+```
+
+Great! Now back to the question at hand. What _is_ a variable anyway? That is a good 
+question! A variable is something that changes! But what does that mean, exactly? A 
+variable can be "set" (i.e. telling the computer what that variable means) to a 
+variety of things. Some variables are set _for_ you, the moment you open your terminal 
+or log into a servers. By convention, such variables have names in ALL CAPS. An example 
+of such a variable is `HOME`, which stores the location of your home directory. Therefore, when you use the shorthand `~`, the 
+computer looks into that variable to see what that means. However, the computer 
+cannot always tell what is a variable and what is just text. It relies on you to 
+tell it what should and should not be "unpacked". "Unpacking" means "telling the 
+computer to look at what is _inside_ a variable. We signal the computer that we wish 
+to look inside a variable by using the `$` character in front of the variable name. 
+Try this:
+
+```bash
+echo HOME    #This will print the word HOME.
+echo $HOME   #This will print the contents of the variable HOME.
+```
+
+Variables as the one above are calles **environment variables** and should generally 
+**NOT** be changed on a whim _\[even though the temptation might be a whim away. A-whim-away...].
+
+<p align="center"><img src="http://cdn.webfail.com/upl/img/e91115df851/post2.jpg" width="30%"></p>
+
+
+
 
 ### Loop de Loop
 
