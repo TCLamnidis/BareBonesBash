@@ -43,7 +43,7 @@ seen and used both on your machine and on the cluster. Note that this shorthand
 will point to a different place, depending on the machine and the user.
 
 If you want to know what the shorthand means, (here comes your first command!)
-you can type in `pwd`, which is short for "**p**rint **w**orking **d**irectory". 
+you can type in `pwd`, which stands for "**p**rint **w**orking **d**irectory". 
 The working directory stands for whichever directory you are currently in. 
 
 ```bash
