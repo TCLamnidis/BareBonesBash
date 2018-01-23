@@ -1,4 +1,4 @@
-# BareBonesBash
+# (Bespoke)BareBonesBash(BroughtByBioinformaticians)
 A basic Bash tutorial by @jfy133 and @TCLamnidis.
 <p align="center"><img src="https://media.giphy.com/media/v58q1se3dZvag/giphy.gif" width="40%"></p>
 
