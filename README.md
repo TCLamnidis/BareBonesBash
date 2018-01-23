@@ -128,13 +128,19 @@ to return to our home directory from the documents directory we can type:
 
 ```bash
 cd -
-## And to see our new location <- btw, this is called a comment. 
-## In bash they always begin with a '#', but the character differs per programming language
-## A commented out line is a line that will not by read by the computer.
+## Remember in "A land before time" when the dinosaur's mother died?
 pwd
 ```
 
-And voilá! We are back in our home directory.
+And voilá! We are back in our home directory. While reading that command, you 
+might have been reminded of one of the most emotionally devastating moments of 
+any person's life. However, the computer would show no signs of emotional struggle.
+Sure, computers don't have feelings and all, but **ALSO** the computer never even read 
+that sad reminder. A computer will **NOT** read anything that comes after a _comment 
+character_, which in bash is a hash (`#`) _\[NOT a hashtag!].   This can be a useful lifehack that you
+can use, an example of which will be given later.
+
+<p align="center"><img title="Source: https://www.buzzfeed.com/bradesposito/sad-before-time?utm_term=.cjY4banJZ#.ixJ815NjJ" src="https://img.buzzfeed.com/buzzfeed-static/static/2015-04/29/21/enhanced/webdr15/anigif_enhanced-31175-1430357953-19.gif" width="35%"></p>
 
 However, often when working in bioinformatics we will be working remotely on a 
 server. The most typical way is to log in via "**s**ecure **sh**ell", known as 
