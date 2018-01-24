@@ -632,9 +632,7 @@ ls
 Great! There is a file there! But wait! OH NO! There is another typo! We 
 have multiple _links_ not a Link!
 
-<p align="center"><img src="https://media.giphy.com/media/RkymcOKhoCRTG/giphy.gif" width="30%"></p>
-
-_[Dear lord, how much nerdier can we get here -.- ...]_
+<p align="center"><img src="https://media.giphy.com/media/RkymcOKhoCRTG/giphy.gif" width="30%"><br /><i>_[Dear lord, how much nerdier can we get here -.- ...]_</p>
 
 Lets remove that file, and start again. 
 
@@ -837,10 +835,13 @@ _right_ not to type more than we need to! It is therefore our right - nay,
 our _responsibility_ - to use **wildcards** "refers to a character that can be 
 substituted for zero or more characters in a string". In bash, the wildcard 
 character is the asterisk (`*`) _\[Not to be confused with Asterix (Really, 
-James? REALLY!?)]_. Therefore, we can use the wildcard to tell bash the loop 
-should be performed on ALL items in a directory that match the criterion given. 
+James? REALLY!?)]_. 
 
-If we want to create a symlink (with `ln -s`) for every item within the 
+<p align="center"><img title="Source: https://www.garethjmsaunders.co.uk/2008/01/29/asterix-and-asterisk/" src="https://www.garethjmsaunders.co.uk/wp-content/uploads/2008/01/asterix_or_asterisk.gif" width="30%"><br /><i> [Take note James...] </i></p>
+
+Therefore, we can use the wildcard to tell bash the loop 
+should be performed on ALL items in a directory that match the criterion given. If 
+we want to create a symlink (with `ln -s`) for every item within the 
 `~/BareBonesBash` directory, and place that symlink within the 
 `~/BareBonesBash/FastQ.Portals` directory, we could use: 
 ```bash
