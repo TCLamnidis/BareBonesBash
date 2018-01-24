@@ -976,7 +976,9 @@ tricks, to ensure using bash doesn't make you feel... __BASHED__!
 <p align="center"><img title="Source: https://giphy.com/gifs/csi-miami-horatio-caine-xPGkOAdiIO3Is" src="https://media1.giphy.com/media/xPGkOAdiIO3Is/giphy.gif" width="40%"></p>
 
 Please let us know if you have feedback or if there are any questions, don't 
-be... __BASHFUL__! _\[I'll see myself out...]_
+be... __BASHFUL__! 
+
+_\[I'll see myself out...]_
 
 ----
 
