@@ -16,13 +16,13 @@ generally easier. In fact, some of these commands we only just learnt last week
 _\[Thanks Aida!]_ and we've been using the terminal for more than 2 years.
 
 This tutorial is designed to be self sufficent using public data. Thus you
-can do this anywhere on any machine with a unix terminal (no warranty provided).
+can do this anywhere on any machine with a UNIX terminal (no warranty provided).
 
 ## tl;dr
 
-If you are already too scared to read the rest of this tutorial, you can look 
-at this table as a quick reference. To understand actually what each command 
-does, carry on reading below!
+If you want to know what you will learn in this tutorial, or are already too scared 
+to read the rest of this tutorial, you can look at this table as a quick reference. 
+To understand actually what each command does, carry on reading below!
 
 | command | description 			   							 | example 					  	  	 		      			  | common flags or arguments	   |
 |---------|------------------------------------------------------|------------------------------------------------------------|--------------------------------|
