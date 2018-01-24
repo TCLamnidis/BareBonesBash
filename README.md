@@ -348,8 +348,8 @@ Pierce Brosnan, not the trigger-happy Daniel Craig]_:
 
 That amazing piece of technology came with a storage space of 5GB, while an 
 uncompressed music album takes up 640MB of space. **THAT IS 7.8125 ALBUMS!** 
-At 20 songs per album, that makes less than 160 songs total! "But my iPod had 
-800 songs in it, and still had space!" I hear you thinking. That's mp3 
+At 20 songs per album, that makes less than 160 songs total! _"But my iPod had 
+800 songs in it, and still had space!"_ I hear you thinking. That's mp3 
 compression for you. Compression programmes you might be familiar with are, 
 for example, WinZip or WinRar. 
 
