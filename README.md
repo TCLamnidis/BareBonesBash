@@ -8,7 +8,7 @@ A basic Bash tutorial by @jfy133 and @TCLamnidis.
 
 The aim of this tutorial is to make you familiar with using bash everyday... 
 for the rest of your life :smiling_imp::trollface:. More specifically, we want 
-to do this in the context of our work. We will start with how to navigate 
+to do this in the context of bioinformatics. We will start with how to navigate 
 _\[Thiseas insisted on that fancy word...]_ around a filesystem in the 
 terminal, download sequencing files, and then to manipulate these. Within 
 these sections we will also show you simple tips and tricks to make your life 
