@@ -18,6 +18,9 @@ _\[Thanks Aida!]_ and we've been using the terminal for more than 2 years.
 This tutorial is designed to be self sufficent using public data. Thus you
 can do this anywhere on any machine with a UNIX terminal (no warranty provided).
 
+<p align="center"><img title="Source: https://tenor.com/view/starwars-confusion-jake-lloyd-anakin-skywalker-confused-gif-4813240" src="https://media1.tenor.com/images/2c42ed493c000f048a561e8217ef9611/tenor.gif" width="40%"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img title="Source: https://giphy.com/gifs/i-then-zZfNOVP35Nrkk" src="https://i.giphy.com/media/zZfNOVP35Nrkk/giphy.webp" width="40%"><br /><i>
+You BEFORE this tutorial. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; You AFTER this tutorial.</i></p>
+
 ## tl;dr
 
 If you want to know what you will learn in this tutorial, or are already too scared 
@@ -847,7 +850,7 @@ for fastq in ERR2020609.fastq.gz ERR2020611.fastq.gz ERR2020567.fastq.gz ERR2020
 done
 ```
 
-**Bones tip time!** `ls` will also accept a particular path to print to screen. 
+**Bonus tip time!** `ls` will also accept a particular path to print to screen. 
 i.e. If you're in a different directory but want to see the contents of a 
 different one, you can follow the example here, where we are in `~/BareBonesBash`
 but want to check the contents of `FastQ.Portals/` 
@@ -959,6 +962,21 @@ used the wildcard for _everything_ in ~/BareBonesBash.
 
 Try writing your own loop using `for`, `*`, and `rm` to remove ONLY those 
 two files.
+
+## The road so far
+
+Thank you for joining us in this small tutorial, and for putting up with our 
+terrible pop-culture and video game references. All in all, you should now know 
+how to move around using the Terminal, as well as the basic commands you need to
+create, view and manipulate files and directories.
+
+We are planning a second part of this tutorial series, with slightly more advanced
+tricks, to ensure using bash doesn't make you feel... __BASHED__!
+
+<p align="center"><img title="Source: https://giphy.com/gifs/csi-miami-horatio-caine-xPGkOAdiIO3Is" src="https://media1.giphy.com/media/xPGkOAdiIO3Is/giphy.gif" width="40%"></p>
+
+Please let us know if you have feedback or if there are any questions, don't 
+be... __BASHFUL__! _\[I'll see myself out...]_
 
 ----
 
