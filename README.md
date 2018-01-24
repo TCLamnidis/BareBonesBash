@@ -974,7 +974,7 @@ We are planning a second part of this tutorial series, with slightly more advanc
 tricks, to ensure using bash doesn't make you feel... __BASHED__!
 
 
-<p align="center"><img title="Source: https://giphy.com/gifs/csi-miami-horatio-caine-xPGkOAdiIO3Is" src="https://media1.giphy.com/media/xPGkOAdiIO3Is/giphy.gif" width="30%"> <img title="Source: https://giphy.com/gifs/swag-80s-sunglasses-62PP2yEIAZF6g" src="https://media.giphy.com/media/62PP2yEIAZF6g/giphy-downsized.gif" width="20%"></p>
+<p align="center"><img title="Source: https://giphy.com/gifs/csi-miami-horatio-caine-xPGkOAdiIO3Is" src="https://media1.giphy.com/media/xPGkOAdiIO3Is/giphy.gif" width="30%"> <img title="Source: https://giphy.com/gifs/swag-80s-sunglasses-62PP2yEIAZF6g" src="https://media.giphy.com/media/62PP2yEIAZF6g/giphy-downsized.gif" width="25%"></p>
 	
 Please let us know if you have feedback or if there are any questions, don't 
 be... __BASHFUL__! 
