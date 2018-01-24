@@ -632,7 +632,7 @@ ls
 Great! There is a file there! But wait! OH NO! There is another typo! We 
 have multiple _links_ not a Link!
 
-<p align="center"><img title="Source: https://giphy.com/gifs/the-legend-of-zelda-link-funny-RkymcOKhoCRTG" src="https://media.giphy.com/media/RkymcOKhoCRTG/giphy.gif" width="30%"> <img title="Source: https://giphy.com/gifs/link-the-legend-of-zelda-NVBR6cLvUjV9C" src="https://media3.giphy.com/media/NVBR6cLvUjV9C/giphy.gif" width="30%"><br /><i>[Dear lord, how much nerdier can we get here -.- ...]</p>
+<p align="center"><img title="Source: https://giphy.com/gifs/the-legend-of-zelda-link-funny-RkymcOKhoCRTG" src="https://media.giphy.com/media/RkymcOKhoCRTG/giphy.gif" width="30%"> <img title="Source: https://giphy.com/gifs/link-the-legend-of-zelda-NVBR6cLvUjV9C" src="https://media3.giphy.com/media/NVBR6cLvUjV9C/giphy.gif" width="30%"><br /><i>[Dear lord, how much nerdier can we get here -.- ...]</i></p>
 
 Lets remove that file, and start again. 
 
