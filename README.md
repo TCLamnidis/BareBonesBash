@@ -7,16 +7,16 @@ A basic Bash tutorial by @jfy133 and @TCLamnidis.
 ## Introduction
 
 The aim of this tutorial is to make you familiar with using bash everyday... 
-for the rest of your life :smiling_imp::trollface:. More specifically, we want to do this in the context
-of our work. We will start with how to navigate _\[Thiseas' words...]_ around a 
-filesystem in the terminal, download sequencing files, and then to 
-manipulate these. Within these sections we will also show you simple tips and 
-tricks to make your life generally easier. In fact, some of these commands we 
-only just learnt last week _\[Thanks Aida!]_ and we've been using the terminal 
-for more than 2 years.
+for the rest of your life :smiling_imp::trollface:. More specifically, we want 
+to do this in the context of our work. We will start with how to navigate 
+_\[Thiseas' insisted on that fancy word...]_ around a filesystem in the 
+terminal, download sequencing files, and then to manipulate these. Within 
+these sections we will also show you simple tips and tricks to make your life 
+generally easier. In fact, some of these commands we only just learnt last week 
+_\[Thanks Aida!]_ and we've been using the terminal for more than 2 years.
 
 This tutorial is designed to be self sufficent using public data. Thus you
-can do this anywhere on any PC with a unix terminal (no warranty provided).
+can do this anywhere on any machine with a unix terminal (no warranty provided).
 
 ## TL;DR
 
@@ -30,10 +30,10 @@ does, carry on reading below!
 | ls	  | list contents of directory 		 					 | ls 						      	  		      			  | -l (long info)				   |
 | mkdir	  | make directory			   		 					 | mkdir pen      			  				      			  |								   |
 | cd 	  | change directory		   		 					 | cd ~/pen 		 	      	 			      			  | ~ (home dir), - (previous dir) |
-| ssh	  | log into a remote server   	     					 | ssh <pen>@<apple>.com 					      			  | -x (allows graphical windows)  |
+| ssh	  | log into a remote server   	     					 | ssh <pen>@<apple>.com 					      			  | -Y (allows graphical windows)  |
 | mv	  | move something to a new location (& rename if needed)| mv pen pineapple 						      			  |								   |
 | rmdir	  | remove a directory									 | rmdir pineapple		 	 					  			  |								   |
-| wget	  | download something from a URL						 | wget [www.pineapple.com/pen.txt](https://media.giphy.com/media/10fVn57KfQ8Wkw/giphy.gif) | -i (use input file) |
+| wget	  | download something from an URL						 | wget [www.pineapple.com/pen.txt](https://media.giphy.com/media/10fVn57KfQ8Wkw/giphy.gif) | -i (use input file) |
 | cat	  | print contents of a file to screen					 | cat pen.txt 				  								  |								   |
 | gzip 	  | a tool for dealing with gzip files					 | gzip pen.txt 					      					  | -l (show info)				   |
 | zcat	  | print contents of a gzipped file to screen			 | zcat pen.txt.gz 				      						  |								   |
@@ -56,8 +56,8 @@ does, carry on reading below!
 ## Navigating the maze
 
 After opening the terminal what you will normally see is a blank screen with a
-'command prompt'. This typically consists of your username, device name a colon, 
-a directory path and ends with a dollar symbol. Like so.
+'command prompt'. This typically consists of your username, the device name, a 
+colon, a directory path and ends with a dollar symbol. Like so:
 
 ```bash
 <username>@<device_name>:~$
@@ -65,9 +65,8 @@ a directory path and ends with a dollar symbol. Like so.
 
 <p align="center"><img title="Source: https://giphy.com/gifs/studiosoriginals-gilphabet-3o84U72tKO389H2lI4" src="https://media.giphy.com/media/3o84U72tKO389H2lI4/giphy.gif" width="20%"></p>
 
-Note that prompts _are_ customisable, so will not always be displayed as above 
-_\[look at Thiseas' magical prompt as an example. James keeps his vanilla as he 
-is a barbarian]_.
+Note that prompts _are_ customisable, so they will not always be displayed as 
+above _\[look at Thiseas' magical prompt as an example. James keeps his vanilla as he is a barbarian]_.
 
 The prompt is never involved in any command, it is just there to help you know
 who and where you are. Therefore you must always make sure when copying a 
@@ -83,7 +82,12 @@ The working directory stands for whichever directory you are currently in.
 
 ```bash
 pwd
+
 ```
+
+This prints the entire "filepath" of the directory i.e. the route from the 
+a certain directory of the machine, through every subdirectory to your 
+particular folder. 
 
 There are two types of filepaths: 
 * An **absolute** path will start with the deepest directory in the machine, 
@@ -93,7 +97,7 @@ There are two types of filepaths:
   your current directory). Often this type of path will begin with one (`./`) 
   or two (`../`) dots followed by a forward slash, **but not always**. In the 
   syntax of relative pathways `.` means "the current directory" and `..` means 
-  "the parent directory". 
+  "the parent directory" (or the 'one above'). 
 
 As a real life example, imagine you are walking down the street when a car 
 stops to ask for the way to the Brandenburger Tor. You could tell them how to 
@@ -105,12 +109,13 @@ directions is relative to their current position, while the first one is not.
 <p align="center"><img title="Source: https://giphy.com/gifs/teamcoco-germany-berlin-3o6Ztk4xTVAnfqYPn2" src="https://media.giphy.com/media/3o6Ztk4xTVAnfqYPn2/source.gif" width="20%"> <img title="Source: https://giphy.com/gifs/guys-call-ethiopia-QWXhaNjfwuNs4" src="https://media.giphy.com/media/QWXhaNjfwuNs4/giphy-tumblr.gif" width="20%"></p>
 
 
-Now let's look around at out current location and see what we can find within 
-our home directories. We can use the command `ls`, shorthand for "list", which 
+Now let's look around at our current location and see what we can find within 
+our home directory. We can use the command `ls`, shorthand for "list", which 
 will (surprise surprise) list the directory contents.
 
 ```bash
 ls
+
 ```
 
 Your home directory should come equipped with multiple subdirectories like 
@@ -122,6 +127,7 @@ from the example above. We can navigate through directories using the command
 
 ```bash
 cd Documents/
+
 ```
 
 This command will move you from your home directory to its "Documents" 
@@ -131,6 +137,7 @@ absolute path of the "Documents" directory we will once again use `pwd`.
 
 ```bash
 pwd
+
 ```
 
 Now we can move up one directory, back to your home using the relative path
@@ -138,6 +145,7 @@ Now we can move up one directory, back to your home using the relative path
 
 ```bash
 cd ../
+
 ```
 
 We can also change directories using absolute paths. Lets do this using the 
@@ -153,59 +161,57 @@ the `cd`, then press enter.
 For example:
 
 ```bash
-cd /home/fellows/Documents
+cd /home/fellows
+
 ```
 
 **BONUS TIP TIME!** Now for one last move, here is a lesser-known trick. When 
 using `cd` you can use a dash (`-`) to indicate 'my previous location'. This is 
-useful since you can move multiple directories with one `cd` command. So, now, 
-to return to our home directory from the documents directory we can type:
+useful since you can traverse _[ha! I have my own fancy words now! - James]_ 
+multiple directories with one `cd` command. So, now, to return to our home 
+directory from the documents directory we can type:
 
 ```bash
 cd -
 ## Remember in "A land before time" when the dinosaur's mother died?
 pwd
+
 ```
 
 And voilá! We are back in our home directory. While reading that command, you 
 might have been reminded of one of the most emotionally devastating moments of 
-any person's life. However, the computer would show no signs of emotional struggle.
-Sure, computers don't have feelings and all, but **ALSO** the computer never even read 
-that sad reminder. A computer will **NOT** read anything that comes after a _comment 
-character_, which in bash is a hash (`#`) _\[NOT a hashtag!]_.   This can be a useful lifehack that you
-can use, an example of which will be given later.
+any person's life. However, the computer would show no signs of emotional 
+struggle. Sure, computers don't have feelings and all, but **ALSO** the 
+computer never even read that sad reminder. A computer will **NOT** read 
+anything that comes after a _comment character_, which in bash is a hash (`#`) 
+_\[NOT a hashtag!]_.   This can be a useful lifehack that you can use, an 
+example of which will be given later.
 
 <p align="center"><img title="Source: https://www.buzzfeed.com/bradesposito/sad-before-time?utm_term=.cjY4banJZ#.ixJ815NjJ" src="https://img.buzzfeed.com/buzzfeed-static/static/2015-04/29/21/enhanced/webdr15/anigif_enhanced-31175-1430357953-19.gif" width="35%"></p>
 
 However, often when working in bioinformatics we will be working remotely on a 
 server. The most typical way is to log in via "**s**ecure **sh**ell", known as 
 `ssh`. Note that you can normally only log into an institute's server being on 
-the network of the institute and or via VPN, so make sure are on either of 
+the network of the institute and or via VPN, so make sure you are on either of 
 those.
 
 A typical `ssh` command consists of the `ssh`, with a user, '@' symbol and then 
 the address of the server. For example:
 
 ```bash
-ssh <user>@<my>.<address>.com
+ssh <user>@<server>
 ```
 
+You can find our your user and server from your IT department.
 
----
-
-**MPI-SHH ONLY**
-For example we can log into SDAG with the following, replacing <username> with 
-your username. Note that this will normally ask you for your password.
+Once we've logged in, the `~` points to a different home directory, as you are 
+on a different machine. However, all of the commands you've learned so far will 
+still work the same :wink:. You can double check both of these by typing 
 
 ```bash
-ssh <user>@mpi-sdag1.sdag.ppj.shh.mpg.de
+pwd
+
 ```
-
----
-
-Once we've logged in the `~` points to a different home directory, as you are 
-on a different machine. However, all of the commands you've learned so far will 
-still work the same :wink:. You can double check both of these by typing `pwd`.
 
 It is important to keep your corner of the servers well organised, and the 
 trick to doing that is making your own directories. Often _a lot_ of them. 
@@ -215,15 +221,16 @@ You can make a new empty directory using the command `mkdir`, shorthand for
 ```bash
 mkdir ~/BareBonesBosh
 ls ~
+
 ```
 
 You can now see your new and devoid-of-content directory. But don't celebrate 
-yet! The directory has the wrong name! Who could have seen _this_ coming? If 
-you saw the typo and fixed it already, no brownies for you! 
+yet! The directory has the wrong name! _[Who could have seen _this_ coming?]_ 
+If you saw the typo and fixed it already, NO BROWNIES FOR YOU! 
 
 <p align="center"><img title="Source: https://giphy.com/gifs/table-flip-ieGdB2g5kDIkg" src="https://media.giphy.com/media/ieGdB2g5kDIkg/giphy.gif" width="20%"> <img title="Source: https://tenor.com/view/it-crowd-moss-computer-throw-gif-5404468" src="https://media.tenor.co/images/d82c7edc4b04227b4c973f24b904695f/raw" width="26%"></p>
 
-But don't lose hope, because we can rename things with the `mv` command, 
+But don't lose hope, as we can rename things with the `mv` command, 
 shorthand for "**m**o**v**e". 
 
 In fact move, as the name suggests, will move a file/folder into a new location, 
@@ -232,11 +239,12 @@ location and a target location.
 
 ```bash
 mv ~/BareBonesBosh ~/BearBonesBash
+
 ```
 
-The command above will now move the directory into the same location, but with
+The command above will now move the directory into the same location, but
 as the target location is spelt differently, the directory will now have a 
-different name, essentially renaming it to `BearBonesBash`. 
+different name. Thus, essentially renaming it to `BearBonesBash`. 
 
 But oh no! Not again! This is not a bash tutorial for ancient bear genomics! 
 
@@ -248,6 +256,7 @@ command, short for "**r**e**m**ove **dir**ectory".
 ```bash
 rmdir ~/BearBonesBash
 ls ~
+
 ```
 
 And now we can create our directory, properly named this time, and change 
@@ -256,6 +265,7 @@ directory into it.
 ```bash
 mkdir ~/BareBonesBash
 cd ~/BareBonesBash
+
 ```
 
 ## Playing with files, one bit at a time
@@ -263,13 +273,13 @@ cd ~/BareBonesBash
 So we have places to organise our files... buuut we don't have any files yet! 
 Lets change that.
 
-We ain't playing with bears today - that's dangerous (as we saw above), instead
+We ain't playing with bears today - that's dangerous (as we saw above), instead,
 lets play with some Mammoths!
 
 <p align="center"><img title="Source: https://giphy.com/gifs/sid-ice-age-a-mammoth-christmas-kbuQOkATEo6VW" src="https://media.giphy.com/media/kbuQOkATEo6VW/giphy.gif" width="20%"> <img title="Source: https://giphy.com/gifs/3o6Zte5Q11lxAu8Q5q" src="https://media.giphy.com/media/3o6Zte5Q11lxAu8Q5q/giphy.gif" width="20%"></p>
 
 We're going to use `wget` to download a FASTQ file from the ENA. So while in 
-our `BareBonesBash` directory, we will give `wget` the link to the file, and 
+our `~/BareBonesBash` directory, we will give `wget` the link to the file, and 
 we should see a loading bar. Once downloaded (it should be pretty quick),
 we can use `ls` to check the contents.
 
@@ -279,11 +289,13 @@ we can use `ls` to check the contents.
 wget ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
 ## Then to check if the file is now in our working directory
 ls
+
 ```
 
 Great! But maybe we want to check we downloaded the right thing. In bash,
-with text files you can normally use `cat`, which is used to print the 
-contents of a file to the screen. Lets try this with our newly downloaded file.
+with text files you can normally use `cat`, short for con**cat**enate, which 
+is used to print the contents of a file to the screen. Lets try this with our 
+newly downloaded file.
 
 **BONUS TIP TIME!** If you're anything like Thiseas, who gets triggered at slow 
 computer things, and prefer to have the computer do the work for you - try 
@@ -291,6 +303,7 @@ typing a couple of characters then press the "TAB" key on your keyboard.
 
 ```bash
 cat ERR2020601.fastq.gz
+
 ```
 
 Yay for auto-complete! But you probably had a bunch of junk printed to screen.
@@ -298,11 +311,12 @@ Yay for auto-complete! But you probably had a bunch of junk printed to screen.
 <p align="center"><img title="Source: https://giphy.com/gifs/kQbMO5X7UA1C8" src="https://media.giphy.com/media/kQbMO5X7UA1C8/giphy.gif" width="20%"></p>
 
 That's because the FASTQ file, as with almost all FASTQs, is compressed (as 
-indicated by the .gz). To then view the _real_ contents of the file, we can 
-instead use `zcat`. Don't forget your auto-complete!
+indicated by the .gz). To view the _human readable_ contents of the file, we 
+can instead use `zcat`. Don't forget your auto-complete!
 
 ```bash
 zcat ERR2020601.fastq.gz
+
 ```
 
 That looks much better, we can now actually see some DNA sequences! But you 
@@ -321,19 +335,18 @@ Now it's time for the inevitable tangent when your tutor thinks of a very
 ## Asking the computer for help (it loves helping people)
 
 As we just learned, the FASTQ file we've been playing with is compressed, 
-_Zipped_, if you will. We constantly compress files in multiple different ways 
-(bams are another example of a compressed file), but **why?** As the name
- suggests, compression saves disk space, so we can have more files stored on 
- our system. 
+_Zipped_, if you will. We constantly compress files in multiple different ways, 
+but **why?** As the name suggests, compression saves disk space, so we can have 
+more files stored on our system. 
 
 An everyday example of the benefits of compression comes from music. To keep the 
-calculations smaller we'll take a time machine back to 2001 when having one of 
+calculations smaller we'll take a time machine back to 2001, when having one of 
 these things made you instantly popular and better geared than James Bond _\[tech-savvy 
 Pierce Brosnan, not the trigger-happy Daniel Craig]_:
 
 <p align="center"><img title="Source: https://everymac.com/systems/apple/ipod/specs/ipod.html" src="https://everymac.com/images/cpu_pictures/apple_ipod.jpg" width="20%"></p>
 
-That amazing piece of technology came with a storage space of 5GB, whie an 
+That amazing piece of technology came with a storage space of 5GB, while an 
 uncompressed music album takes up 640MB of space. **THAT IS 7.8125 ALBUMS!** 
 At 20 songs per album, that makes less than 160 songs total! "But my iPod had 
 800 songs in it, and still had space!" I hear you thinking. That's mp3 
@@ -348,21 +361,24 @@ what `man` does.
 
 ```bash
 whatis man
+
 ```
 
-This will inform us that `man` is `an interface to the on-line reference manuals`. 
-Cool! Now try to get information on `zcat` using `man`.
+This will inform us that `man` is 
+`an interface to the on-line reference manuals`. Cool! Now try to get 
+information on `zcat` using `man`.
 
 ```bash
 man zcat
+
 ```
 
 This will open the manual page for `zcat` in a separate screen, which you can 
-exit by pressing "q". You can scroll up or down with the arrow keys. At the top 
-of the screen you will see the command the manual is for, in this case it 
-should read `gzip`. That is because `zcat` is part of the programme `gzip`. You 
-will see a long description of the programme, followed by (scroll down) a 
-section with all the options available. 
+exit by pressing "`q`" on your keyboard. You can scroll up or down with the 
+arrow keys. At the top of the screen you will see the command the manual is 
+for, in this case it should read `gzip`. That is because `zcat` is part of the 
+programme `gzip`. You will see a long description of the programme, followed by 
+(scroll down) a section with all the options available. 
 
 Isn't this great! The option `-l` lists the size of a file in both compressed 
 and uncompressed form, as well as the compression ratio (how effective the 
@@ -374,6 +390,7 @@ _**\[Say it with us: "`man` is love. `man` is life."]**_
 
 ```bash
 gzip -l ERR2020601.fastq.gz
+
 ```
 
 A compression factor of `74.9%` is pretty good. It means our compressed FASTQ file is 
@@ -384,8 +401,8 @@ A compression factor of `74.9%` is pretty good. It means our compressed FASTQ fi
 After that tangent, let's get back to our regularly scheduled program(ming)!
 
 We will now try out three semi-related commands to make viewing the contents 
-of a file, and begin to familiarise with the most important functionality of 
-bash: the concept of `|` (i.e. the "pipe"). 
+of a file easier, and begin to familiarise with the most important 
+functionality of bash: the concept of `|` (a.k.a. the "pipe"). 
 
 <p align="center"><img title="Made with EZGif.com" src=".gifs/Boromir.gif" width="40%" height="10%"> <img title="Source: https://tinynin.wordpress.com/2012/01/08/marioportal-warp-pipe/" src="https://tinynin.files.wordpress.com/2012/01/warppipe-copy.gif" width="20%"></p>
 
@@ -401,6 +418,7 @@ allow us to see just the first 10 lines.
 
 ```bash
 zcat ERR2020601.fastq.gz | head
+
 ```
 
 We can also display more lines with the `-n` flag (short for "**n**umber of 
@@ -408,6 +426,7 @@ lines"). To see the first 20 lines you would use
 
 ```bash
 zcat ERR2020601.fastq.gz | head -n 20
+
 ```
 
 The same option exists for tail, note that but options are not universal! Not 
@@ -415,13 +434,15 @@ every programme will use the same options!
 
 ```bash
 zcat ERR2020601.fastq.gz | tail -n 4
+
 ```
 
 And you can also chain them altogether _\[not unlike a human centipede... No 
-gif here so I don't get fired]_
+gif here so we don't get fired]_
 
 ```bash
 zcat ERR2020601.fastq.gz | head -n 20 | tail -n 4
+
 ```
 
 The above command will print the whole file, but capture only the first 20 
@@ -444,11 +465,12 @@ But what if you wanted to view the whole file "at your own leisurely pace"
 <p align="center"><img title="Source: https://giphy.com/gifs/stroll-82abB3W2DknkY" src="https://media.giphy.com/media/82abB3W2DknkY/giphy.gif" width="20%"></p>
 
 We can use the tool `less`, which prints the file to screen, but allows you 
-to move up and down the output with your arrow keys. You can also move down a full 
-screen with space.
+to move up and down the output with your `arrow keys`. You can also move down 
+a full screen with the `spacebar`.
 
 ```bash
 less ERR2020601.fastq.gz
+
 ```
 
 You can quit by pressing "q" on your keyboard.
@@ -456,27 +478,28 @@ You can quit by pressing "q" on your keyboard.
 Now we've had a look inside and checked that the file is a pretty normal FASTQ 
 file, lets start asking more informative bioinformatic questions about it. A pretty 
 standard question would be, **how many reads are in this FASTQ file?** We know 
-now that each read record in a FASTQ file has four components, and takes up 4 
-lines. So if we count the number of lines in a file, then divide by four, we 
-can work out how many reads are in our file. 
+now that each read record in a FASTQ file has four components, and thus takes 
+up 4 lines. So if we count the number of lines in a file, then divide by four, 
+we can work out how many reads are in our file. 
 
 <p align="center"><img title="Source: https://giphy.com/gifs/l41YtZOb9EUABnuqA" src="https://media.giphy.com/media/l41YtZOb9EUABnuqA/giphy.gif" width="20%"></p>
 
 For this we can use 'wc', which stands for "**w**ord **c**ount". However, we 
 don't want to count words, we want to count the number of lines. We can 
-therefore use the flag `-l` to do this (try using what we learnt above to 
-find lists of these flags!). But remember we first have to decompress the lines 
-we are reading from the file with `zcat`.
+therefore use the flag `-l` (try using what we learnt above to find lists of 
+these flags!). But remember we first have to decompress the lines we are 
+reading from the file with `zcat`.
 
 ```bash
 zcat ERR2020601.fastq.gz | wc -l
+
 ```
 
 This should give us 18880, which divided by four (since there are four lines 
 per read), is 4720 reads.
 
-Finally, maybe we want to know what the name of each read is. When we used
-less above, we saw each read header began with "@". Maybe we can use this
+Next, maybe we want to know what the name of each read is. When we used
+`less` above, we saw each read header began with "@". Maybe we can use this
 to our advantage!
 
 <p align="center"><img title="Source: https://giphy.com/gifs/season-16-the-simpsons-16x3-3orieUe6ejxSFxYCXe" src="https://media.giphy.com/media/3orieUe6ejxSFxYCXe/giphy.gif" width="20%"></p>
@@ -487,27 +510,31 @@ that contains a '@'. Lets try it out again in combination with `zcat` and
 our pipes.
 
 ```zcat
-zcat ERR2020601.fastq.gz | grep "@"
+zcat ERR2020601.fastq.gz | grep @
+
 ```
 
 Unfortunately we seem to have picked up some other stuff because of the @ 
-characters in the base quality lines. We can make our "pattern", in this 
-case `"@"`, more specific by adding "ERR" to it. But let's also avoid flooding 
-your screen with 4720 lines of stuff, and pipe that output into `less`, so 
-we can look at it more carefully.
+characters in the base quality lines. 
+
+We can make our "pattern", in this case `"@"`, to be more specific by adding 
+"ERR" to it. But let's also avoid flooding your screen with 4720 lines of 
+stuff, and pipe that output into `less`, so we can look at it more carefully.
 
 ```zcat
-zcat ERR2020601.fastq.gz | grep "@ERR" | less
+zcat ERR2020601.fastq.gz | grep @ERR | less
+
 ```
 
 Remember to press "q" to exit.
 
 And for one final recap, we previously calculated there to be 4720 reads in our 
-file. If we have just extracted the unqiue read _headers_ for every read, then 
+file. If we have just extracted the unique read _headers_ for every read, then 
 in principle we can also just count these with `wc`!
 
 ```zcat
-zcat ERR2020601.fastq.gz | grep "@ERR" | wc -l
+zcat ERR2020601.fastq.gz | grep @ERR | wc -l
+
 ```
 
 
@@ -515,17 +542,19 @@ zcat ERR2020601.fastq.gz | grep "@ERR" | wc -l
 
 ## Now you're thinking with portals! Symlinks and their usefulness.
 
-The FASTQ we have been working with so far we downloaded from the ENA. It is 
+The FASTQ we have been working with so far was downloaded from the ENA. It is 
 important to keep the file name intact, so we can easily identify this specific 
 FASTQ file in the ENA database in the future, if need be. 
 
-In order to retain the original file we can use a _symbolic link (**symlink**)_.
-You have doubtless seen these many times right on your desktop, in the form of 
-desktop shortcuts! They are small portals that let you go to a remote location 
-really fast, and take something from there. Imagine if you could reach the TV 
-remote from the sofa, although for some strange reason you left it in the freezer 
-when picking up the (now half-melted) ice cream. _\[No, of course I have never 
-done that!]_
+In order to retain the original file, but also to play around with the 
+contents, we can use a _symbolic link (**symlink**)_. You have doubtless seen 
+these many times right on your desktop, in the form of desktop shortcuts! They 
+are small portals that let you go to a remote location really fast, and take 
+something from there. 
+
+Imagine if you could reach the TV remote from the sofa, although for some 
+strange reason you left it in the freezer when picking up the (
+now half-melted) ice cream. _\[No, of course Thiseas has never done that!]_
 
 <p align="center"><img title="Source: https://ritorical.deviantart.com/art/Poor-messing-with-a-portal-gun-GIF-501341055" src="https://orig00.deviantart.net/784b/f/2014/354/a/3/poor_messing_with_a_portal_gun__gif__by_ritorical-d8ahh8f.gif" width="20%"></p>
 
@@ -535,6 +564,7 @@ already downloaded, and move to that directory.
 ```bash
 mkdir ~/BareBonesBash/FastQ.Portals
 cd ~/BareBonesBash/FastQ.Portals
+
 ```
 
 It is now time to make the symlink. We do this with the `ln` command (short for 
@@ -546,6 +576,7 @@ an absolute path, since it is also not relative to your current position.)
 
 ```bash
 ln -s ~/BareBonesBash/ERR2020601.fastq.gz .
+
 ```
 
 Make sure you included that `.` in the command above. As discussed in the 
@@ -561,15 +592,18 @@ at the `man` page for `ls`).
 
 ```bash
 ls -l
+
 ```
 
-We can now look at the original FASTQ file by pointing at our symlink, like so:
-_\[The command looks the same as in the section above, but we are in a different 
-directory, so `ERR2020601.fastq.gz` is technically different. It is now a shortcut 
-to the originl file, which happens to have the same name.]_
+We can now look at the original FASTQ file by using our symlink. Note 
+that while command looks the same as in the section above, we are in a 
+different directory, so the `ERR2020601.fastq.gz` _here_ is technically 
+different to the original. It is now a shortcut to the originl file, which 
+happens to have the same name. So, repeating above:
 
 ```bash
 zcat ERR2020601.fastq.gz | head -n 20 | tail -n 4
+
 ```
 
 Which should print out the same read as it did on the original FASTQ file.
@@ -581,7 +615,7 @@ Which should print out the same read as it did on the original FASTQ file.
 Now for a bit of honesty. A single sample will not get you a nature publication.
 _\[ok, maybe sometimes]._ We will need more data if we're gonna make it to the
 most prestigious journals. So let's download another 8 samples from James' 
-Mammoth project to get us on our way to a nature cover page. (See [here](https://www.ebi.ac.uk/ena/data/view/PRJEB21582) for the ENA page of the project).
+Mammoth project to get us on our way to a nature cover page. (See [here](https://www.ebi.ac.uk/ena/data/view/PRJEB21582) for the ENA page of the project) _[Yay! Free Publicity!]_.
 
 It is a lot of work to run `wget` 7 times while changing the command everytime.
 
@@ -597,7 +631,7 @@ file we want downloaded.
 
 But how can we make this file? There are multiple options for text editing in
 the terminal. If you're absolutely insane you may look up `vim` 
-_\[Theseus' poison]_, or we can use `nano` which is much more user friendly. 
+_\[Thiseas' poison]_, or we can use `nano` which is much more user friendly. 
 
 Editing the contents of a file in `nano` is mostly as you would with your 
 standard `TextMate` or `gedit` on your local machine. However, the main 
@@ -609,12 +643,14 @@ So open up the program with
 
 ```bash
 nano
+
 ```
 
 And you will now see a blank window, with a section at the bottom with 
-a variety of commands at the bottom, with `^` corresponding to the `ctrl` key on 
-your keyboard. You can try typing and deleting text as you normally would
-on your offline text editor.
+a variety of commands at the bottom (where `^` corresponds to the `ctrl` or 
+`cmd` key on your keyboard). You can try typing and deleting text as you 
+normally would on your offline text editor, moving around the page with your 
+arrow keys.
 
 To save the contents of the file, we want to begin by initating our exit
 with `ctrl+x`. At the bottom you will be prompted to "Save modified buffer", 
@@ -628,6 +664,7 @@ the directory and doing `ls`.
 ```bash
 cd ~/BareBonesBash/
 ls
+
 ```
 Great! There is a file there! But wait! OH NO! There is another typo! We 
 have multiple _links_ not a Link!
@@ -642,6 +679,7 @@ instead use `rm` for – you guessed it! – **r**e**m**ove.
 ```bash
 rm Ftp.Link.txt
 ls
+
 ```
 And it's gone!
 
@@ -656,6 +694,7 @@ and opening up `nano` again
 ```bash
 cd ~
 nano
+
 ```
 
 Copy the text below into the blank window, as you would normally when at 
@@ -672,18 +711,21 @@ ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/008/ERR2020618/ERR2020618.fastq.gz
 ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/007/ERR2020617/ERR2020617.fastq.gz
 </pre>
 
+(Note the `#`, this is **commented out** as we've already downloaded this file!)
+
 So again to recap exiting and save a file in nano we do the following dance: 
 * to initate exit: `ctrl+x`
 * Press `y` to say you want to "Save modified buffer", 
 * Type the file name`~/BareBonesBash/Ftp.Links.txt` and then press `enter`.
 
-To verify that it worked correctly, we can either use the command to 
-print to screen the contents that we learnt above (which is...?), or
+To verify that it worked correctly, we can either use the command that we 
+learnt above to print to screen the contents of the file (which is...?), or
 we can use `nano` again, but with the file as an argument to open the 
 file and see the contents.
 
 ```bash
 nano ~/BareBonesBash/Ftp.Links.txt
+
 ```
 
 This time when you exit with `ctrl+x` you'll immediately return to your 
@@ -700,13 +742,14 @@ the flag `-i`, for "**i**nput".
 ```bash
 cd ~/BareBonesBash
 wget -i ~/BareBonesBash/Ftp.Links.txt
+
 ```
 
 Look at that! One command instead of 7! You're becoming a bash pro already! 
 
 ### What is a Variable anyway?
 
-First off, let us start on a tangent. You will now learn the `echo` command. 
+Time for another tangent! You will now learn the `echo` command. 
 In bash `echo` just prints things. The name refers to the fact that since the 
 computer "says" what you just told it to say, it behaves like an echo of yourself.
 Tradition dictates that the first thing you have the computer say in programming 
@@ -714,6 +757,7 @@ tutorials is "Hello World!", so here goes:
 
 ```bash
 echo Hello World!
+
 ```
 
 Great! Now back to the question at hand. What _is_ a variable anyway? That is a good 
@@ -732,6 +776,7 @@ Try this:
 ```bash
 echo HOME    #This will print the word HOME.
 echo $HOME   #This will print the contents of the variable HOME.
+
 ```
 
 Variables as the one above are called **environment variables** and should generally 
@@ -750,15 +795,23 @@ several sentences _\[which also happen to be objectively true]_.
 ```bash
 GreekFood=4            #Here, 'GreekFood' is a number.
 echo "Greek food is $GreekFood people who want to know what heaven tastes like."
+#
 GreekFood=delicious   #Now we overwrite that number with a word (or a "string" of characters).
 echo "Everyone says that Greek food is $GreekFood."
+#
 GreekFood="Greek wine" #We can overwrite 'GreekFood' again, but when there's a space in our string, we need quotations.
 echo "The only thing better than Greek food is $GreekFood!"
+#
 GreekFood=7 #And, of course, we can overwrite with a number again too.
 echo "I've been to Greece $Greekfood times already this year, for the food and wine!"
+#
+
 ```
 
 <p align="center"><img title="Source: http://visitgreece-gr.tumblr.com/" src="https://78.media.tumblr.com/04ac7d0699ac494a7ccb4fc9316bbc0a/tumblr_oo77m9RLgv1uwr1s7o1_500.gif" width="30%"></p>
+
+We will talk about quotes another time, so just forget you used them for the 
+moment :wink:.
 
 Now you have a basic understanding of Greek food. I mean **variables** in bash! Let's see 
 how we can use this knowledge.
@@ -770,11 +823,11 @@ previously! We can do this using a **for loop**, one of the basic methods of all
 
 Imagine you have to order pizzas for a varying number of scientists every week. 
 _\[Just a random example]._ For every person you will need an extra pizza. This 
-is a sort of "for loop", where you go through the list of names of hungry 
+is a sort of "for loop": whereby you go through the list of names of hungry 
 scientists, and you add one more pizza to the list for every name. Note that the 
 specific names of the scientists wouldn't really mattter here, only the number of 
 names. So in pseudocode (code-like writing that is human readable but a computer 
-will not understand it) the above loop would look like this:
+will not understand it), the above loop would look like this:
 
 ```
 for every scientist:
@@ -794,56 +847,81 @@ for fastq in ERR2020609.fastq.gz ERR2020611.fastq.gz ERR2020567.fastq.gz ERR2020
 done
 ```
 
-In the above example `fastq` (case-sensitive) is **the variable** In 
-this case it is set to a **string** of characters, corresponding to the name 
-of the first FASTQ file (`ERR2020617.fastq.gz`). At that point the command 
-given within the loop (in this case `ln -s`) is executed, before the next FASTQ 
-file in the list (`ERR2020611.fastq.gz`) s picked up, and the loop is repeated. 
-
-In other words:
+**Bones tip time!** `ls` will also accept a particular path to print to screen. 
+i.e. If you're in a different directory but want to see the contents of a 
+different one, you can follow the example here, where we are in `~/BareBonesBash`
+but want to check the contents of `FastQ.Portals/` 
 
 ```bash
+ls -l FastQ.Portals/
+
+```
+
+Going back to our loop - the above example `fastq` (case-sensitive) is 
+**the variable**. In this case it is set to a **string** of characters, 
+corresponding to the name of the first FASTQ file (`ERR2020617.fastq.gz`). 
+At that point the command given within the loop (in this case `ln -s`) is 
+executed, before the next FASTQ. After it has completed, the next file in the 
+list (`ERR2020611.fastq.gz`) s picked up, and the loop is repeated. 
+
+Described in more pseudocode:
+
+```
 for every_object in a_list; do
 	<this_command> on <this_object>
 done
 ```
-Note that you need to separate out your 'loop' from the command itself using
+
+It is important that you separate out your 'loop' from the command itself using
 `; do`, and finish the loop with `done`, otherwise bash will keep waiting for
 some other input.
 
-Within that command itself, we wish to use what is in the `fastq` variable, 
-so we tell the computer we are looking for what is contained in the variable 
-by prefixing the character `$` to the variable name. This means that when 
-reading `~/BareBonesBash/$fastq`, the computer knows that `$fastq` means 
-"use what ever is stored in the variable `fastq`", thus seeing 
-`~/BareBonesBash/ERR2020609.fastq.gz`. In the second part of the command 
-(`~/BareBonesBash/FastQ.Portals`), there is no `$` in front of the sequence of 
-letters `FastQ`, so the computer reads it as the letters themselves and not 
-the contents of a variable (which is what we wanted to happen). The word is 
-also in different case, so it would **NOT** be read as the variable even with 
-the `$` character. See the example below for more info:
+In the loop we just performed, we want to use what is in the `fastq` variable, 
+to tell the computer what to perform `ln` on. To tell the computer what to use 
+in `fastq`, we prefix `$` to the variable name.
+
+This means that when reading `~/BareBonesBash/$fastq`, the computer knows that 
+`$fastq` means "use what ever is stored in the variable `fastq`", thus seeing 
+`~/BareBonesBash/ERR2020609.fastq.gz`. 
+
+In the second part of the command (`~/BareBonesBash/FastQ.Portals`), there is 
+no `$` in front of the sequence of letters `FastQ`. In this case the computer 
+reads it as the letters themselves and not the contents of a variable 
+(which is what we wanted to happen). The word is also in written in a different 
+case, so it would **NOT** be read as the variable even with the `$` character. 
+
+See the example below for more info:
 
 ```bash
-(echo -e "$FastQ <---- Not a set variable"
-echo -e "$fastq <---- The last FastQ file in the list of files in the loop.")
+echo -e "$FastQ <---- Not a set variable"
+echo -e "$fastq <---- The last FastQ file in the list of files in the loop."
+
 ```
 
-However, this not the only way to write a loop. In the example above, we 
-still have to do a lot of writing, to write out the name of every file. But worry 
+However, this not the only way to write a loop. In the loop we ran above, we 
+still had to do a lot of writing; writing out the name of every file. But worry 
 not, this is Lazyness 101, and here we like to **NOT** write a lot! It is our 
 _right_ not to type more than we need to! It is therefore our right - nay, 
 our _responsibility_ - to use **wildcards** "refers to a character that can be 
 substituted for zero or more characters in a string". In bash, the wildcard 
-character is the asterisk (`*`) _\[Not to be confused with Asterix (Really, 
-James? REALLY!?)]_. 
+character is the asterisk (`*`) 
+_\[Not to be confused with Asterix, James. AGAIN, REALLY!?)]_. 
 
 <p align="center"><img title="Source: https://www.garethjmsaunders.co.uk/2008/01/29/asterix-and-asterisk/" src="https://www.garethjmsaunders.co.uk/wp-content/uploads/2008/01/asterix_or_asterisk.gif" width="30%"><br /><i> [Take note James...] </i></p>
 
-Therefore, we can use the wildcard to tell bash the loop 
-should be performed on ALL items in a directory that match the criterion given. If 
-we want to create a symlink (with `ln -s`) for every item within the 
+For example, we can remove (using `rm` as we learnt above) any object with any 
+combination of characters in it's name, with the following
+
+```bash
+rm ~/BareBonesBash/FastQ.Portals/*
+```
+
+In the context of a loop, we can use the wildcard to tell bash the loop 
+should be performed on ALL items in a directory that match the criterion given. 
+If we want to create a symlink (with `ln -s`) for every item within the 
 `~/BareBonesBash` directory, and place that symlink within the 
 `~/BareBonesBash/FastQ.Portals` directory, we could use: 
+
 ```bash
 for fastq in ~/BareBonesBash/*; do
 	ln -s $fastq ~/BareBonesBash/FastQ.Portals
@@ -870,17 +948,23 @@ done
 
 ```
 
-Therefore, loops allow us to do repetitive tasks, and reap the rewards thereof, 
-without having to do all the repetitive work! 
+Therefore, loops and wildcards allow us to do repetitive tasks, and reap the 
+rewards thereof, without having to do all the repetitive work! 
 <p align="center"><img title="Source: https://giphy.com/gifs/tinder-automation-tinderbot-3rgXByefj5zvCcodOM" src="https://media.giphy.com/media/3rgXByefj5zvCcodOM/giphy.gif" width="40%"></p>
+
+As a final practise, have a look inside your ~/FastQ.Portals directory. You 
+might notice that you have also symlinks to `FastQ.Portals` and `Ftp.Links.txt`
+as well as our FastQ files. These came in our previous `ln -s` loop, as we 
+used the wildcard for _everything_ in ~/BareBonesBash. 
+
+Try writing your own loop using `for`, `*`, and `rm` to remove ONLY those 
+two files.
 
 ----
 
 ## TO DO NOW:
 
-* Typo checks (Both. But mostly Thiseas let's be honest)
-* Swap ( to _\[_ where it's our voices and not part of the tutorial. (Just check. think it is done.)
-* Run through (Both)
+* Outtro and 'clean up section' if someone doesn't want to keep all of the junk
 
 ## DIE ZUKUNFT
 

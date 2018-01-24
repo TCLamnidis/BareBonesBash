@@ -4,10 +4,10 @@
 | ls	  | list contents of directory 		 					 | ls 						      	  		      			  | -l (long info)				   |
 | mkdir	  | make directory			   		 					 | mkdir pen      			  				      			  |								   |
 | cd 	  | change directory		   		 					 | cd ~/pen 		 	      	 			      			  | ~ (home dir), - (previous dir) |
-| ssh	  | log into a remote server   	     					 | ssh <pen>@<apple>.com 					      			  | -x (allows graphical windows)  |
+| ssh	  | log into a remote server   	     					 | ssh <pen>@<apple>.com 					      			  | -Y (allows graphical windows)  |
 | mv	  | move something to a new location (& rename if needed)| mv pen pineapple 						      			  |								   |
 | rmdir	  | remove a directory									 | rmdir pineapple		 	 					  			  |								   |
-| wget	  | download something from a URL						 | wget [www.pineapple.com/pen.txt](https://media.giphy.com/media/10fVn57KfQ8Wkw/giphy.gif) | -i (use input file) |
+| wget	  | download something from an URL						 | wget [www.pineapple.com/pen.txt](https://media.giphy.com/media/10fVn57KfQ8Wkw/giphy.gif) | -i (use input file) |
 | cat	  | print contents of a file to screen					 | cat pen.txt 				  								  |								   |
 | gzip 	  | a tool for dealing with gzip files					 | gzip pen.txt 					      					  | -l (show info)				   |
 | zcat	  | print contents of a gzipped file to screen			 | zcat pen.txt.gz 				      						  |								   |
