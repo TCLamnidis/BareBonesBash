@@ -982,6 +982,20 @@ _\[I'll see myself out...]_
 
 ----
 
+## _OPTIONAL:_ The Cleanup Crew
+It is extremely important to ALWAYS keep your directories clean from random clutter. This lowers
+ the chances you will get lost in your  directories, but also ensures you can stay lazy, since TAB 
+completion will not keep finding similarly named files. So let's clean up your home directory by 
+removing all the clutter we downloaded and worked with today. The command below will remove the 
+`~/BareBonesBash` directory **as well as all of its contents**. 
+
+```bash
+cd ~     # We shouldn't delete a directory while we are still in it. (It is possible though).
+rm -r ~/BareBonesBash
+```
+
+----
+
 ## For next time!
 
 We will learn about:
