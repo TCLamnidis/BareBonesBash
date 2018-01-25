@@ -109,7 +109,7 @@ started their journey) _\[haha, human history joke]_, or you could say "Take
 a left here, straight for 3 blocks, and you're there.". The latter set of 
 directions is relative to their current position, while the first one is not.
 
-<p align="center"><img title="Source: https://giphy.com/gifs/teamcoco-germany-berlin-3o6Ztk4xTVAnfqYPn2" src="https://media.giphy.com/media/3o6Ztk4xTVAnfqYPn2/source.gif" width="20%"> <img title="Source: https://giphy.com/
+<p align="center"><img title="Source: https://giphy.com/gifs/teamcoco-germany-berlin-3o6Ztk4xTVAnfqYPn2" src="https://media.giphy.com/media/3o6Ztk4xTVAnfqYPn2/source.gif" width="20%"> <img title="Source: https://giphy.com/gifs/guys-call-ethiopia-QWXhaNjfwuNs4" src="https://media.giphy.com/media/QWXhaNjfwuNs4/giphy-tumblr.gif" width="20%"></p>
 
 Now let's look around at our current location and see what we can find within 
 our home directory. We can use the command `ls`, shorthand for "list", which 
