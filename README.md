@@ -53,7 +53,7 @@ To understand actually what each command does, carry on reading below!
 | rm   	  | more general 'remove' command, including files 		 | rm pineapple_pen.txt 									  | -r (to remove directories)	   |
 | $VAR 	  | Dollar sign + text indicates the name of a variable  | $PPAP=Pen 												  |								   |
 | echo	  | prints string to screen								 | echo $PPAP 												  |								   |
-| for     | begins 'for' loop, requires 'in', 'do' and 'done'	 | for p in apple pineapple; do echo "$p$PPAP" ;done <br /> applePen pineapplePen |								   |
+| for     | begins 'for' loop, requires 'in', 'do' and 'done'	 | for p in apple pineapple; do <br /> echo "$p$PPAP"; done <br /> <i>applePen pineapplePen</i> |								   |
 
 
 ## Navigating the maze
