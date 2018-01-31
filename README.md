@@ -51,9 +51,9 @@ To understand actually what each command does, carry on reading below!
 | ln 	  | make a (sym)link between a file and a new location   | ln -s pineapple.txt pineapple_pen.txt 		 			  |	-s (make _symbolic_ link) 	   |
 | nano 	  | user-friendly terminal-based text editor			 | nano pineapple_pen.txt 									  |								   |
 | rm   	  | more general 'remove' command, including files 		 | rm pineapple_pen.txt 									  | -r (to remove directories)	   |
-| $VAR 	  | Dollar sign + text indicates the name of a variable  | $PPAP=pen 												  |								   |
+| $VAR 	  | Dollar sign + text indicates the name of a variable  | $PPAP=Pen 												  |								   |
 | echo	  | prints string to screen								 | echo $PPAP 												  |								   |
-| for     | begins 'for' loop, requires 'in', 'do' and 'done'	 | for pineapple apple; do echo "$PPAP" pineapple apple $PPAP |								   |
+| for     | begins 'for' loop, requires 'in', 'do' and 'done'	 | for p in apple pineapple; do echo "$p$PPAP" ;done <br /> applePen pineapplePen |								   |
 
 
 ## Navigating the maze
