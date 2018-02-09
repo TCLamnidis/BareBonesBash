@@ -280,7 +280,7 @@ lets play with some Mammoths!
 
 <p align="center"><img title="Source: https://giphy.com/gifs/sid-ice-age-a-mammoth-christmas-kbuQOkATEo6VW" src="https://media.giphy.com/media/kbuQOkATEo6VW/giphy.gif" width="20%"> <img title="Source: https://giphy.com/gifs/3o6Zte5Q11lxAu8Q5q" src="https://media.giphy.com/media/3o6Zte5Q11lxAu8Q5q/giphy.gif" width="20%"></p>
 
-We're going to use `wget` to download a FASTQ file from the ENA. So while in 
+We're going to use `wget` to download a FASTQ file from the ENA (European Nucleotide Archive). So while in 
 our `~/BareBonesBash` directory, we will give `wget` the link to the file, and 
 we should see a loading bar. Once downloaded (it should be pretty quick),
 we can use `ls` to check the contents.
