@@ -954,10 +954,10 @@ Therefore, loops and wildcards allow us to do repetitive tasks, and reap the
 rewards thereof, without having to do all the repetitive work! 
 <p align="center"><img title="Source: https://giphy.com/gifs/tinder-automation-tinderbot-3rgXByefj5zvCcodOM" src="https://media.giphy.com/media/3rgXByefj5zvCcodOM/giphy.gif" width="40%"></p>
 
-As a final practise, have a look inside your ~/FastQ.Portals directory. You 
+As a final practise, have a look inside your `~/FastQ.Portals` directory. You 
 might notice that you have also symlinks to `FastQ.Portals` and `Ftp.Links.txt`
 as well as our FastQ files. These came in our previous `ln -s` loop, as we 
-used the wildcard for _everything_ in ~/BareBonesBash. 
+used the wildcard for _everything_ in `~/BareBonesBash`. 
 
 Try writing your own loop using `for`, `*`, and `rm` to remove ONLY those 
 two files.
