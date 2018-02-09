@@ -686,8 +686,8 @@ ls
 And it's gone!
 
 You can also use `rm` to remove directories using it with the flag `-r`,
-but this is 'less' safe - it will not warn you if a directory has stuff
-already inside it.
+but this is 'less' safe - **it will not warn you if a directory has stuff
+already inside it.**
 
 Anyway, lets start again, but this time get ready to download our extra 
 Mammoth files, using our relative paths to go back to our home directory,
