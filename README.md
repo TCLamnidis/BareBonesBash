@@ -4,6 +4,24 @@ A basic Bash tutorial by @jfy133 and @TCLamnidis.
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><p align="center"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
 
+## Table of contents
+   * [(Bespoke)BareBonesBash(BroughtByBeardedBioinformaticians)](#bespokebarebonesbashbroughtbybeardedbioinformaticians)
+      * [Introduction](#introduction)
+      * [tl;dr](#tldr)
+      * [Navigating the maze](#navigating-the-maze)
+      * [Playing with files, one bit at a time](#playing-with-files-one-bit-at-a-time)
+      * [Asking the computer for help (it loves helping people)](#asking-the-computer-for-help-it-loves-helping-people)
+      * [The Lord of the Pipes: One command to do them all.](#the-lord-of-the-pipes-one-command-to-do-them-all)
+      * [Now you're thinking with portals! Symlinks and their usefulness.](#now-youre-thinking-with-portals-symlinks-and-their-usefulness)
+      * [Lazyness 101: Minimising our work by maximising the work of the computer](#lazyness-101-minimising-our-work-by-maximising-the-work-of-the-computer)
+         * [Text Editing in Terminal](#text-editing-in-terminal)
+         * [What is a Variable anyway?](#what-is-a-variable-anyway)
+         * [Loop de Loop](#loop-de-loop)
+      * [The road so far](#the-road-so-far)
+      * [<em>OPTIONAL:</em> The Cleanup Crew](#optional-the-cleanup-crew)
+      * [For next time!](#for-next-time)
+
+----
 ## Introduction
 
 The aim of this tutorial is to make you familiar with using bash everyday... 
