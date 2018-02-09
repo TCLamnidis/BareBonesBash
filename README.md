@@ -88,8 +88,8 @@ pwd
 
 ```
 
-This prints the entire "filepath" of the directory i.e. the route from the 
-a certain directory of the machine, through every subdirectory to your 
+This prints the entire "filepath" of the directory i.e. the route from the "root" 
+(a specific directory on the machine), through every subdirectory, leading to your 
 particular folder. 
 
 There are two types of filepaths: 
@@ -915,7 +915,7 @@ For example, we can remove (using `rm` as we learnt above) any object with any
 combination of characters in it's name, with the following
 
 ```bash
-rm ~/BareBonesBash/FastQ.Portals/*
+#rm ~/BareBonesBash/FastQ.Portals/*
 ```
 
 In the context of a loop, we can use the wildcard to tell bash the loop 
