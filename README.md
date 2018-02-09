@@ -490,7 +490,7 @@ to move up and down the output with your `arrow keys`. You can also move down
 a full screen with the `spacebar`.
 
 ```bash
-less ERR2020601.fastq.gz
+zcat ERR2020601.fastq.gz | less
 
 ```
 
