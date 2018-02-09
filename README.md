@@ -332,7 +332,8 @@ it simply scrolls down for you. You can still find all your previous work if
 you scroll up.
 
 Now it's time for the inevitable tangent when your tutor thinks of a very 
-(un)funny metaphor to explain something!
+(un)funny metaphor to explain something! _\[James added that and I didn't 
+notice till it was too late >.<]_
 
 ## Asking the computer for help (it loves helping people)
 
