@@ -507,7 +507,7 @@ we can work out how many reads are in our file.
 
 For this we can use 'wc', which stands for "**w**ord **c**ount". However, we 
 don't want to count words, we want to count the number of lines. We can 
-therefore use the flag `-l` (try using what we learnt above to find lists of 
+therefore use the flag `-l` (try using what we learnt about `man` above to find lists of 
 these flags!). But remember we first have to decompress the lines we are 
 reading from the file with `zcat`.
 
