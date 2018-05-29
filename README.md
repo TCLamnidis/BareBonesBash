@@ -883,7 +883,7 @@ Going back to our loop - the above example `fastq` (case-sensitive) is
 corresponding to the name of the first FASTQ file (`ERR2020617.fastq.gz`). 
 At that point the command given within the loop (in this case `ln -s`) is 
 executed, before the next FASTQ. After it has completed, the next file in the 
-list (`ERR2020611.fastq.gz`) s picked up, and the loop is repeated. 
+list (`ERR2020611.fastq.gz`) is picked up, and the loop is repeated. 
 
 Described in more pseudocode:
 
