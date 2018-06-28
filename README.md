@@ -176,7 +176,8 @@ press enter yet!
 
 Copy and paste the output of the previous `pwd` command 
 (which you can see in your terminal does not have the command prompt), after 
-the `cd`, then press enter. [Putty users have to highlight the text and it copies automatically, and use right click or `shift + Insert` to paste.]
+the `cd`, then press enter. **NOTE:** Putty users have to highlight the text 
+and it copies automatically, and use right click or `shift + Insert` to paste.
 
 For example:
 
@@ -285,12 +286,10 @@ ls ~
 
 ```
 
-And now we can create our directory, properly named this time, and change 
-directory into it.
+And now we can create our directory, properly named this time.
 
 ```bash
 mkdir ~/BareBonesBash
-cd ~/BareBonesBash
 
 ```
 
@@ -318,10 +317,27 @@ ls
 
 ```
 
-Great! But maybe we want to check we downloaded the right thing. In bash,
-with text files you can normally use `cat`, short for con**cat**enate, which 
-is used to print the contents of a file to the screen. Lets try this with our 
-newly downloaded file.
+Great, the file is there! Now it's time for organising. We should move our 
+fastq file into our newly created directory. This time, we can use `mv` the 
+way it was meant to be used.
+
+```bash
+mv ~/ERR2020601.fastq.gz ~/BareBonesBash
+ls
+```
+
+You should now see that the fastq file is no longer in your home folder. 
+Let's go find it!
+
+```bash
+cd ~/BareBonesBash
+ls 
+```
+
+Good, the file arrived in `~/BareBonesBash` safely! Maybe now would be a good 
+time to check if we downloaded the right thing. In bash, you can normally use 
+`cat` with text files, short for con**cat**enate, which is used to print the 
+contents of a file to the screen. Lets try this with our newly downloaded file.
 
 **BONUS TIP TIME!** If you're anything like Thiseas, who gets triggered at slow 
 computer things, and prefer to have the computer do the work for you - try 
@@ -333,6 +349,7 @@ cat ERR2020601.fastq.gz
 ```
 
 Yay for auto-complete! But you probably had a bunch of junk printed to screen.
+_[Looks like curiosity killed the `cat`! ]_
 
 <p align="center"><img title="Source: https://giphy.com/gifs/kQbMO5X7UA1C8" src="https://media.giphy.com/media/kQbMO5X7UA1C8/giphy.gif" width="20%"></p>
 
