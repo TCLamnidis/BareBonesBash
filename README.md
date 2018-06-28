@@ -607,8 +607,8 @@ are small portals that let you go to a remote location really fast, and take
 something from there. 
 
 Imagine if you could reach the TV remote from the sofa, although for some 
-strange reason you left it in the freezer when picking up the (
-now half-melted) ice cream. _\[No, of course Thiseas has never done that!]_
+strange reason you left it in the freezer when picking up the (now 
+half-melted) ice cream. _\[No, of course Thiseas has never done that!]_
 
 <p align="center"><img title="Source: https://ritorical.deviantart.com/art/Poor-messing-with-a-portal-gun-GIF-501341055" src="https://orig00.deviantart.net/784b/f/2014/354/a/3/poor_messing_with_a_portal_gun__gif__by_ritorical-d8ahh8f.gif" width="20%"></p>
 
@@ -860,7 +860,7 @@ GreekFood="Greek wine" #We can overwrite 'GreekFood' again, but when there's a s
 echo "The only thing better than Greek food is $GreekFood!"
 #
 GreekFood=7 #And, of course, we can overwrite with a number again too.
-echo "I've been to Greece $Greekfood times already this year, for the food and wine!"
+echo "I've been to Greece $GreekFood times already this year, for the food and wine!"
 #
 
 ```
@@ -882,7 +882,7 @@ Imagine you have to order pizzas for a varying number of scientists every week.
 _\[Just a random example]._ For every person you will need an extra pizza. This 
 is a sort of "for loop": whereby you go through the list of names of hungry 
 scientists, and you add one more pizza to the list for every name. Note that the 
-specific names of the scientists wouldn't really mattter here, only the number of 
+specific names of the scientists wouldn't really matter here, only the number of 
 names. So in pseudocode (code-like writing that is human readable but a computer 
 will not understand it), the above loop would look like this:
 
@@ -1048,6 +1048,8 @@ removing all the clutter we downloaded and worked with today. The command below 
 cd ~     # We shouldn't delete a directory while we are still in it. (It is possible though).
 rm -r ~/BareBonesBash
 ```
+
+<p align="center"><img title="Source: https://i.imgur.com/lcxyE0D.gif" src="https://i.imgur.com/lcxyE0D.gif" width="40%"></p>
 
 ----
 
