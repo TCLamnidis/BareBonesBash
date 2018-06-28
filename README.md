@@ -158,6 +158,8 @@ This command will move you from your home directory to its "Documents"
 subdirectory. Note that `Documents/` above is indeed a relative path, since it 
 starts from the home directory (the initial `./` is implied). To find the 
 absolute path of the "Documents" directory we will once again use `pwd`.
+**BONUS TIP TIME!** You can use the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> to search through your 
+last 1000 used commands.
 
 ```bash
 pwd
