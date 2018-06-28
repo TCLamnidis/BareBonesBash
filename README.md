@@ -193,12 +193,17 @@ directory from the documents directory we can type:
 
 ```bash
 cd -
-## Remember in "A land before time" when the dinosaur's mother died?
 pwd
 
 ```
 
-And voilá! We are back in our home directory. While reading that command, you 
+And voilá! We are back in our home directory. Now try running this:
+
+```bash
+## Remember in "A land before time" when the dinosaur's mother died?
+```
+
+While reading that command, you 
 might have been reminded of one of the most emotionally devastating moments of 
 any person's life. However, the computer would show no signs of emotional 
 struggle. Sure, computers don't have feelings and all, but **ALSO** the 
