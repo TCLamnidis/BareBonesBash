@@ -887,6 +887,7 @@ names. So in pseudocode (code-like writing that is human readable but a computer
 will not understand it), the above loop would look like this:
 
 ```
+## Don't copy and paste this, it will not work.
 for every scientist:
   Order another pizza
 done
