@@ -312,6 +312,10 @@ we can use `ls` to check the contents.
 
 ```bash
 wget ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
+
+## if you don't have wget, you can instead use 'curl' with the command below.
+# curl -O ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
+
 ## Then to check if the file is now in our working directory
 ls
 
