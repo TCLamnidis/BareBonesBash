@@ -116,8 +116,9 @@ particular folder.
 
 There are two types of filepaths: 
 * An **absolute** path will start with the deepest directory in the machine, 
-  shown as a `/`. That is the directory path you see in the output of the `pwd` 
-  command you just ran.
+  shown as a `/`. Paths starting with `~` are also absolute paths, since `~` 
+  translates to an absolute path of your specific home directory. That is the 
+  directory path you see in the output of the `pwd` command you just ran.
 * Alternatively a **relative** path always begins from your working directory (i.e.
   your current directory). Often this type of path will begin with one (`./`) 
   or two (`../`) dots followed by a forward slash, **but not always**. In the 
@@ -158,6 +159,7 @@ This command will move you from your home directory to its "Documents"
 subdirectory. Note that `Documents/` above is indeed a relative path, since it 
 starts from the home directory (the initial `./` is implied). To find the 
 absolute path of the "Documents" directory we will once again use `pwd`.
+
 **BONUS TIP TIME!** You can use the <kbd>&uarr;</kbd> and <kbd>&darr;</kbd> to search through your 
 last 1000 used commands.
 
