@@ -83,6 +83,10 @@ colon, a directory path and ends with a dollar symbol. Like so:
 ```bash
 <username>@<device_name>:~$
 ```
+Throughout this tutorial, `<>` are used to show things that will/should be replaced
+by another value. For example, in Thiseas' command prompt `<username>` will be 
+replaced by `lamnidis`, as that is his username. Keep an eye out for these 
+throughout the tutorial.
 
 <p align="center"><img title="Source: https://giphy.com/gifs/studiosoriginals-gilphabet-3o84U72tKO389H2lI4" src="https://media.giphy.com/media/3o84U72tKO389H2lI4/giphy.gif" width="20%"></p>
 
