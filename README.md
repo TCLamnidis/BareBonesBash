@@ -176,7 +176,7 @@ press enter yet!
 
 Copy and paste the output of the previous `pwd` command 
 (which you can see in your terminal does not have the command prompt), after 
-the `cd`, then press enter. [Putty users can use right click, or `shift + Insert` to Paste.]
+the `cd`, then press enter. [Putty users have to highlight the text and it copies automatically, and use right click or `shift + Insert` to paste.]
 
 For example:
 
