@@ -791,6 +791,9 @@ the flag `-i`, for "**i**nput".
 cd ~/BareBonesBash
 wget -i ~/BareBonesBash/Ftp.Links.txt
 
+## curl cannot handle links from a file, so if you are using curl, you should run the command below to download all the files.
+#  curl -O ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/009/ERR2020609/ERR2020609.fastq.gz -O ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020611/ERR2020611.fastq.gz -O ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/007/ERR2020567/ERR2020567.fastq.gz -O ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/005/ERR2020565/ERR2020565.fastq.gz -O ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/003/ERR2020613/ERR2020613.fastq.gz -O ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/008/ERR2020618/ERR2020618.fastq.gz -O ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/007/ERR2020617/ERR2020617.fastq.gz
+
 ```
 
 Look at that! One command instead of 7! You're becoming a bash pro already! 
