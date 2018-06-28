@@ -967,11 +967,12 @@ _\[Not to be confused with Asterix, James. AGAIN, REALLY!?)]_.
 
 <p align="center"><img title="Source: https://www.garethjmsaunders.co.uk/2008/01/29/asterix-and-asterisk/" src="https://www.garethjmsaunders.co.uk/wp-content/uploads/2008/01/asterix_or_asterisk.gif" width="30%"><br /><i> [Take note James...] </i></p>
 
-For example, we can remove (using `rm` as we learnt above) any object with any 
-combination of characters in it's name, with the following
+For example, we could remove (using `rm` as we learnt above) any object with any 
+combination of characters in it's name, with the following command. But we _won't_ 
+do that.
 
 ```bash
-#rm ~/BareBonesBash/FastQ.Portals/*
+# rm ~/BareBonesBash/FastQ.Portals/*
 ```
 
 In the context of a loop, we can use the wildcard to tell bash the loop 
