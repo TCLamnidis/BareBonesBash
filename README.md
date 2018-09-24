@@ -33,7 +33,7 @@ these sections we will also show you simple tips and tricks to make your life
 generally easier. In fact, some of these commands we only just learnt last week 
 _\[Thanks Aida!]_ and we've been using the terminal for more than 2 years.
 
-This tutorial is designed to be self sufficent using public data. Thus you
+This tutorial is designed to be self sufficient using public data. Thus you
 can do this anywhere on any machine with a UNIX terminal (no warranty provided).
 
 <p align="center"><img title="Source: https://tenor.com/view/starwars-confusion-jake-lloyd-anakin-skywalker-confused-gif-4813240" src="https://media1.tenor.com/images/2c42ed493c000f048a561e8217ef9611/tenor.gif" width="40%"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img title="Source: https://giphy.com/gifs/i-then-zZfNOVP35Nrkk" src="https://i.giphy.com/media/zZfNOVP35Nrkk/giphy.webp" width="40%"><br /><i>
