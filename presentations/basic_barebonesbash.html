@@ -37,6 +37,21 @@
       }
 
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; color: grey}
+      
+      /* Two-column layouts */
+      .left-column  { width: 49%; float: left; }
+      .right-column { width: 49%; float: right; }
+
+      .left-column-33  { width: 33%; float: left; }
+      .right-column-66 { width: 66%; float: right; }
+
+      .left-column-66  { width: 66%; float: left; }
+      .right-column-33 { width: 33%; float: right; }
+
+      .right-column ~ p { clear: both; }
+      .right-column ~ ul { clear: both; }
+
+
     </style>
   </head>
   <body>
@@ -450,12 +465,11 @@ class: center,middle
 .cols[
 .fifty[
 
-- We have a place to organise our files... but no files :\(
-
---
+- We have a place to organise our files... but no files :\
 
 - We aren't playing with bears today
-  - That's dangerous! 
+  > That's dangerous! 
+
   - Lets play with some Mammoths instead!
   ]
   .fifty[
@@ -483,13 +497,13 @@ We are going to download a FASTQ file from the ENA (European Nucleotide Archive)
 
 ```bash
 ## Download!
-wget ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
+$ wget ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
 
 ## if you don't have wget, you can instead use 'curl' with the command below.
-# curl -O ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
+#$ curl -O ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
 
 ## Then to check if the file is now in our working directory
-ls
+$ ls
 
 ```
 
@@ -504,8 +518,8 @@ Then check to see if it moved!
 --
 
 ```bash
-mv ~/ERR2020601.fastq.gz ~/BareBonesBash
-ls
+$ mv ~/ERR2020601.fastq.gz ~/BareBonesBash
+$ ls
 ```
 
 --
@@ -521,8 +535,8 @@ Lets see if it went to were we told it to go...
 --
 
 ```bash
-cd ~/BareBonesBash
-ls 
+$ cd ~/BareBonesBash
+$ ls 
 ```
 
 Good, the file arrived in `~/BareBonesBash/` safely!  But what is in it?
@@ -556,7 +570,7 @@ typing a couple of characters then press the "TAB" key on your keyboard.
 --
 
 ```bash
-cat ERR2020601.fastq.gz
+$ cat ERR2020601.fastq.gz
 ```
 --
 
@@ -565,30 +579,31 @@ cat ERR2020601.fastq.gz
 �B��stݹlfDt������-L��|x:�MUtI����u�1������"d�H�F����
 ```
 
---
-
-
 ---
+
+layout: false
 
 # Oh...
 
-.cols[
-.fifty[
-
+.left-column[
 - You probably had a bunch of junk printed to screen or nothing displayed 
   - just press enter to cancel
+  ]
 
-- That's because the FASTQ file, as with almost all FASTQs, is compressed 
-  - as indicated by the .gz
+--
 
-]
-
-.fifty[
+.right-column[
 <p align="center">
   <img title="Source: https://giphy.com/gifs/kQbMO5X7UA1C8" src="https://media.giphy.com/media/kQbMO5X7UA1C8/giphy.gif", width="80%">
 </p>
 > Looks like curiosity killed the `cat`!
 ]
+
+--
+
+.left-column[
+- That's because the FASTQ file, as with almost all FASTQs, is compressed 
+  - as indicated by the .gz
 ]
 
 ---
@@ -693,7 +708,7 @@ the whole thing print, we will "pipe" the output into `head`, which will
 allow us to see just the first 10 lines.
 
 ```bash
-zcat ERR2020601.fastq.gz | head
+$ zcat ERR2020601.fastq.gz | head
 
 ```
 --
@@ -702,7 +717,7 @@ We can also display more lines with the `-n` flag (short for "**n**umber of
 lines"). To see the first 20 lines you would use 
 
 ```bash
-zcat ERR2020601.fastq.gz | head -n 20
+$ zcat ERR2020601.fastq.gz | head -n 20
 
 ```
 
@@ -714,7 +729,7 @@ The same option exists for tail, note that but options are not universal! Not
 every programme will use the same options!
 
 ```bash
-zcat ERR2020601.fastq.gz | tail -n 4
+$ zcat ERR2020601.fastq.gz | tail -n 4
 
 ```
 
@@ -726,7 +741,7 @@ gif here so we don't get fired]_
 --
 
 ```bash
-zcat ERR2020601.fastq.gz | head -n 20 | tail -n 4
+$ zcat ERR2020601.fastq.gz | head -n 20 | tail -n 4
 ```
 
 The above command will print the whole file, but capture only the first 20 
@@ -749,7 +764,7 @@ to move up and down the output with your `arrow keys`. You can also move down
 a full screen with the `spacebar`.
 
 ```bash
-zcat ERR2020601.fastq.gz | less
+$ zcat ERR2020601.fastq.gz | less
 
 ```
 
