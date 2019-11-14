@@ -264,7 +264,7 @@ me, at the workshop server. ~ means "my HOME directory" (user specific).
 
 class: middle, center
 
-#Always mind the $!
+# Always mind the $!
 
 <p align="center"><img title="Source: https://giphy.com/gifs/studiosoriginals-gilphabet-3o84U72tKO389H2lI4" src="https://media.giphy.com/media/3o84U72tKO389H2lI4/giphy.gif" ></p>
 
@@ -278,7 +278,7 @@ in Bash ALWAYS MIND THE $. Only copy after the $ so you dont paste the command p
 As we mentioned, _~_ is your _home directory_. But where _is_ your home?
 
 ```bash
-pwd
+$ pwd
 ```
 --
 This prints the entire "filepath" of the directory i.e. the route from the "root" 
@@ -353,6 +353,90 @@ __NOTE:__ In the syntax of relative paths `.` means "the current directory" and 
 ]
 ???
 These directions are easier to follow, but only work if you begin AT MARKTPLATZ.
+
+---
+
+# The contents of a directory
+
+Now let's look around at our current location and see what we can find within 
+our home directory. We can use the command `ls`, shorthand for "list", which 
+will (surprise surprise) list the directory contents.
+
+```bash
+$ ls
+
+```
+--
+This will produce no output, since your current directory is empty. Let's change that!
+--
+<br>
+You can make a new empty directory using the command `mkdir`, shorthand for 
+"**m**a**k**e **dir**ectory".
+
+```bash
+$ mkdir ~/BareBonesBosh
+$ ls ~
+```
+
+--
+```
+BareBonesBosh
+```
+Now that your home directory is not empty, `ls` has output!
+
+---
+
+# Directory Management
+
+It is important to keep your corner of the computer well organised, and the 
+trick to doing that is making your own directories. Often _a lot_ of them. 
+--
+<br><br>
+__But what's this!?! There was a typo in the name of the directory you made!__
+<p align="center"><img title="Source: https://giphy.com/gifs/table-flip-ieGdB2g5kDIkg" src="https://media.giphy.com/media/ieGdB2g5kDIkg/giphy.gif" width="25%"> <img title="Source: https://tenor.com/view/it-crowd-moss-computer-throw-gif-5404468" src="https://media.tenor.co/images/d82c7edc4b04227b4c973f24b904695f/raw" width="32%"></p>
+
+--
+But don't lose hope, as we can rename things with the `mv` command, 
+shorthand for "**m**o**v**e". 
+
+In fact move, as the name suggests, will move a file/folder into a new location, 
+also renaming it in the process if necessary. It works by typing `mv`, the old 
+location and a target location.
+
+```bash
+$ mv ~/BareBonesBosh ~/BearBonesBash
+
+```
+
+---
+
+# Oh no! Not again! 
+```bash
+$ ls
+```
+```
+BearBonesBash
+```
+This is not a bash tutorial for ancient __bear__ genomics!
+<p align="center"><img title="Source: https://giphy.com/gifs/bear-forest-water-IQ9KefLJHfJPq" src="https://media.giphy.com/media/IQ9KefLJHfJPq/giphy.gif" width="20%"></p>
+--
+Let's just delete that empty directory and start over, using the `rmdir` 
+command, short for "**r**e**m**ove **dir**ectory".
+
+```bash
+$ rmdir ~/BearBonesBash
+```
+--
+
+And now we can create our directory, properly named this time.
+
+```bash
+$ mkdir ~/BareBonesBash
+$ ls
+```
+```
+BareBonesBash
+```
 
 ---
 
