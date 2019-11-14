@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Title</title>
+    <title>Basic Bare Bones Bash</title>
     <meta charset="utf-8">
     <style>
       @import url(https://fonts.googleapis.com/css?family=Maven+Pro:400,700,400italic);
@@ -24,7 +24,16 @@
       .thirty {
         flex: 30%;
       }
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+
+      blockquote {
+        border-left: 0.3em solid #ccc;
+        padding: 0 15px;
+        font-style: italic;
+        color: #ccc;
+        quotes: "\201C""\201D""\2018""\2019";
+      }
+
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; color: grey}
     </style>
   </head>
   <body>
@@ -218,8 +227,193 @@ class: center,middle
 
 ---
 
+# Time to play!
+
+.cols[
+.fifty[
+
+- We have a place to organise our files... but no files :\(
+
+--
+
+- We aren't playing with bears today
+  - That's dangerous! 
+  - Lets play with some Mammoths instead!
+  ]
+  .fifty[
+  <p align="center">
+    <img title="Source: https://giphy.com/gifs/sid-ice-age-a-mammoth-christmas-kbuQOkATEo6VW" src="https://media.giphy.com/media/kbuQOkATEo6VW/giphy.gif"> 
+    <img title="Source: https://giphy.com/gifs/3o6Zte5Q11lxAu8Q5q" src="https://media.giphy.com/media/3o6Zte5Q11lxAu8Q5q/giphy.gif" width = "65%">
+  </p>
+  ]
+] 
+
+---
+
+# Downloading files with `wget`
+
+We are going to download a FASTQ file from the ENA (European Nucleotide Archive). This should be pretty quick!
+
+> For non-squishy dead thing nerds: a FASTQ file is just a text file with DNA molecule sequences and extra metadata]
+
+
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/mario-kart-lAIbbDbcXSZSU" src="https://media.giphy.com/media/lAIbbDbcXSZSU/giphy.gif" width="20%">
+</p>
+
+--
+
+```bash
+## Download!
+wget ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
+
+## if you don't have wget, you can instead use 'curl' with the command below.
+# curl -O ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
+
+## Then to check if the file is now in our working directory
+ls
+
+```
+
+---
+
+# Organise yo' stuff!
+
+Use `mv` as it should be used, and move your newly downloaded file into your workshop folder.
+
+Then check to see if it moved!
+
+--
+
+```bash
+mv ~/ERR2020601.fastq.gz ~/BareBonesBash
+ls
+```
+
+--
+
+You should now see that the fastq file is no longer in your home folder.
+
+---
+
+# But where did it go?!
+
+Lets see if it went to were we told it to go...
+
+--
+
+```bash
+cd ~/BareBonesBash
+ls 
+```
+
+Good, the file arrived in `~/BareBonesBash/` safely!  But what is in it?
+
+---
+
+
+# Meow 
+
+
+.cols[
+.fifty[
+In bash, you can normally use 
+`cat` with text files, short for con**cat**enate, which is used to print the 
+contents of a file to the screen. Lets try this with our newly downloaded file.
+]
+.fifty[
+<p align = "center">
+<img title="Source: https://giphy.com/gifs/meow-descriptive-noise-x4YHSKRpYQhLq" src="https://media.giphy.com/media/x4YHSKRpYQhLq/giphy.gif" width = "90%"> 
+</p>
+]
+]
+
+
+--
+
+> **BONUS TIP TIME!** If you're anything like Thiseas, who gets triggered at slow 
+computer things, and prefer to have the computer do the work for you - try 
+typing a couple of characters then press the "TAB" key on your keyboard.
+
+
+```bash
+cat ERR2020601.fastq.gz
+```
+--
+
+```
+��'��x��xI��-]�����2��u�_SuY�9A�}W.��Zf��?���}H����9�Kɰ�����l
+�B��stݹlfDt������-L��|x:�MUtI����u�1������"d�H�F����
+```
+
+--
+
+
+---
+
+# Oh...
+
+.cols[
+.fifty[
+
+- You probably had a bunch of junk printed to screen or nothing displayed 
+  - just press enter to cancel
+
+- That's because the FASTQ file, as with almost all FASTQs, is compressed 
+  - as indicated by the .gz
+
+]
+
+.fifty[
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/kQbMO5X7UA1C8" src="https://media.giphy.com/media/kQbMO5X7UA1C8/giphy.gif", width="80%">
+</p>
+> Looks like curiosity killed the `cat`!
+]
+]
+
+---
+
+## Viewing the gz
+
+To view the _human readable_ contents of the file, we 
+can instead use `zcat`. Don't forget your auto-complete!
+
+--
+
+```bash
+$ zcat ERR2020601.fastq.gz
+
+```
+
+--
+
+```
+@ERR2020601.147099 F_AHSTEUER006:166:C5UJMANXX:8:2109:2222:68258/1
+TCTGCGTCCGTCATATCTATTGCCCAGTCACTAGTCACTAGTCA
++
+3:3AAEFGGGGGGGGGGGEGGCDGGGBGGGGGFGFGEGGGGGGG
+@ERR2020601.147100 F_AHSTEUER006:166:C5UJMANXX:8:1315:17303:82366/1
+TGGTCGCTGCCGCGAGCGGATTCCTGCTGA
++
+3B=@BECGGGGGGGGGGGGGGGGGGGGGGG
+```
+
+That looks much better, we can now actually see some DNA sequences! 
+
+--
+
+> **BONUS TIP TIME!** try pressing `ctrl+l`, which will clear your terminal of 
+> all the junk that was printed to your screen. This does NOT delete those lines, 
+> it simply scrolls down for you. You can still find all your previous work if
+> you scroll up.
+
+---
+
 class: center,middle
 # Asking the computer for help (it loves helping people)
+
+A.K.A. when your tutor thinks of a very (un)funny metaphor to explain something!
 
 ---
 
@@ -229,7 +423,7 @@ class: center,middle
 ---
 
 class: center,middle
-# Now you're thinking with portals! Symlinks and their usefulness
+# Now you're thinking with portals! Symlinks and their usefulness 
 
 ---
 

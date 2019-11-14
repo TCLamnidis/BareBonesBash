@@ -37,7 +37,8 @@ This tutorial is designed to be self sufficient using public data. Thus you
 can do this anywhere on any machine with a UNIX terminal (no warranty provided).
 
 <p align="center"><img title="Source: https://tenor.com/view/starwars-confusion-jake-lloyd-anakin-skywalker-confused-gif-4813240" src="https://media1.tenor.com/images/2c42ed493c000f048a561e8217ef9611/tenor.gif" width="40%"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img title="Source: https://giphy.com/gifs/i-then-zZfNOVP35Nrkk" src="https://i.giphy.com/media/zZfNOVP35Nrkk/giphy.webp" width="40%"><br /><i>
-You BEFORE this tutorial. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; You AFTER this tutorial.</i></p>
+You BEFORE this tutorial. &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; You AFTER this tutorial.</i>
+</p>
 
 ## tl;dr
 
@@ -849,7 +850,7 @@ overwritten, which is one reason why they are so useful. Therefore, as long as y
 give your variables names in ALL CAPS, you won't run the risk of overwriting environment 
 variables, and everyone is happy. One way to assign variables is by using an `=`. In the 
 example below, we will set and overwrite the variable `GreekFood`, and then "unpack" it in 
-several sentences _\[which also happen to be objectively true]_.
+several sentences _\[which also happen to be objectively true\]_.
 
 ```bash
 GreekFood=4            #Here, 'GreekFood' is a number.
@@ -858,16 +859,18 @@ echo "Greek food is $GreekFood people who want to know what heaven tastes like."
 GreekFood=delicious   #Now we overwrite that number with a word (or a "string" of characters).
 echo "Everyone says that Greek food is $GreekFood."
 #
-GreekFood="Greek wine" #We can overwrite 'GreekFood' again, but when there's a space in our string, we need quotations.
+GreekFood="Greek wine" #We can overwrite 'GreekFood' again, but when there is a space in our string, we need quotations.
 echo "The only thing better than Greek food is $GreekFood!"
 #
 GreekFood=7 #And, of course, we can overwrite with a number again too.
-echo "I've been to Greece $GreekFood times already this year, for the food and wine!"
+echo "I have been to Greece $GreekFood times already this year, for the food and wine!"
 #
 
 ```
 
-<p align="center"><img title="Source: http://visitgreece-gr.tumblr.com/" src="https://78.media.tumblr.com/04ac7d0699ac494a7ccb4fc9316bbc0a/tumblr_oo77m9RLgv1uwr1s7o1_500.gif" width="30%"></p>
+<p align="center">
+  <img title="Source: http://visitgreece-gr.tumblr.com/" src="https://78.media.tumblr.com/04ac7d0699ac494a7ccb4fc9316bbc0a/tumblr_oo77m9RLgv1uwr1s7o1_500.gif" width="30%">
+</p>
 
 We will talk about quotes another time, so just forget you used them for the 
 moment :wink:.
