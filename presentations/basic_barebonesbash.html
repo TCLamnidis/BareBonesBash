@@ -335,6 +335,7 @@ contents of a file to the screen. Lets try this with our newly downloaded file.
 computer things, and prefer to have the computer do the work for you - try 
 typing a couple of characters then press the "TAB" key on your keyboard.
 
+--
 
 ```bash
 cat ERR2020601.fastq.gz
@@ -419,6 +420,163 @@ A.K.A. when your tutor thinks of a very (un)funny metaphor to explain something!
 
 class: center,middle
 # The Lord of the Pipes: One command to do them all.
+
+---
+
+# Ceci n'est pas une pipe
+
+After that tangent, let's get back to our regularly scheduled program(ming)!
+
+--
+
+Now we will get familiar with the most important functionality of bash: the
+concept of the `|` (a.k.a the "pipe")
+
+<p align="center">
+  <img title="Made with EZGif.com" src="../docs/.gifs/Boromir.gif" > 
+</p>
+<p align="center">
+  <img title="Source: https://tinynin.wordpress.com/2012/01/08/marioportal-warp-pipe/" src="https://tinynin.files.wordpress.com/2012/01/warppipe-copy.gif" width = "30%" >
+</p>
+
+---
+
+# Pass the parcel
+
+- A pipe passes the output of one command and gives it as input to the next. 
+- It allows us to string multiple commands together, one after the other, 
+  - which means you can do more complicated (and beautiful) things to your files "on the fly". 
+
+--
+
+Lets try this out with new new commands
+
+.cols[
+.fifty[
+- `head` 
+  - shows first 10 lines of a file
+- `tail` 
+  - shows the last 10 lines. 
+]
+.fifty[
+
+<p align="center">
+<iframe align="center" src='https://gfycat.com/ifr/MeekWarpedAsiandamselfly' frameborder='0' scrolling='no' allowfullscreen></iframe> 
+</p>
+]
+]
+
+---
+
+# Tiene cabeza...
+
+We will now print the file to screen with `zcat`, but rather than just let 
+the whole thing print, we will "pipe" the output into `head`, which will 
+allow us to see just the first 10 lines.
+
+```bash
+zcat ERR2020601.fastq.gz | head
+
+```
+--
+
+We can also display more lines with the `-n` flag (short for "**n**umber of 
+lines"). To see the first 20 lines you would use 
+
+```bash
+zcat ERR2020601.fastq.gz | head -n 20
+
+```
+
+---
+
+# ...y tiene cola
+
+The same option exists for tail, note that but options are not universal! Not 
+every programme will use the same options!
+
+```bash
+zcat ERR2020601.fastq.gz | tail -n 4
+
+```
+
+--
+
+And you can also chain them altogether _\[not unlike a human centipede... No 
+gif here so we don't get fired]_
+
+--
+
+```bash
+zcat ERR2020601.fastq.gz | head -n 20 | tail -n 4
+```
+
+The above command will print the whole file, but capture only the first 20 
+lines, before printing out the last 4 lines of these 20.
+
+<p align="center"><img title="Made with EZGif.com" src="../docs/.gifs/frodo.gif" width="30%" height="20%"></p>
+
+---
+
+# Slow down dude...
+
+But what if you wanted to view the whole file "at your own leisurely pace"
+
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/stroll-82abB3W2DknkY" src="https://media.giphy.com/media/82abB3W2DknkY/giphy.gif" width="20%">
+</p>
+
+We can use the tool `less`, which prints the file to screen, but allows you 
+to move up and down the output with your `arrow keys`. You can also move down 
+a full screen with the `spacebar`.
+
+```bash
+zcat ERR2020601.fastq.gz | less
+
+```
+
+To quit the viwer: press "q" on your keyboard.
+---
+
+
+# Hold your horses... what does all this junk mean!?
+
+In practice, what was just printed on your screen is the record of a single DNA 
+molecule, which spans 4 lines of the FASTQ file. 
+
+* The record begins with the read ID, preceded by an `@`, given by the sequencing machine
+* The next line contains the actual DNA sequence of the read. 
+* The third line is a separator line ('`+`'). 
+* Finally, the fourth line of this record contains the base quality score for each position on the read, encoded a certain way.  (again something the sequencer)
+
+
+# lol wut?
+
+Don't worry if this makes no sense...
+
+--
+
+The important thing is that there is a repeated structure in the file (in this 
+case a collection of lines with the same structure for each DNA molecule)
+
+
+Why does this matter?
+
+-- 
+
+.cols[
+
+.fifty[
+This means PATTERNS!
+]
+
+.fifty[
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/WgO1QdDfTooxrEsfES" src="https://media.giphy.com/media/WgO1QdDfTooxrEsfES/giphy.gif" width="20%">
+</p>
+
+]
+]
 
 ---
 
