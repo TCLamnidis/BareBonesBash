@@ -20,7 +20,10 @@
       .fifty {
         flex: 50%;
       }
-
+      .sixty {
+        flex:60%;
+      }
+      
       .thirty {
         flex: 30%;
       }
@@ -208,8 +211,139 @@ class: middle
 
 ---
 
-class: center,middle
+# Connecting to our server
+
+
+ * Go to https://c107-224.cloud.gwdg.de
+ * Log-in with the user and password we provided you. 
+
+---
+
+class: center
+
+<p align="left"><img src=".images/Jupyter1.png" width="100%" ></p>
+
+---
+
+class: center
+
+<p align="left"><img src=".images/Jupyter2.png" width="100%" ></p>
+
+---
+
+class: center
+
+<p align="left"><img src=".images/Jupyter3.png" width="100%" ></p>
+
+---
+
+class: center
+
+<p align="left"><img src=".images/Jupyter4.png" width="100%" ></p>
+
+---
+
+class: center
+
+<p align="left"><img src=".images/Jupyter5.png" width="100%" ></p>
+
+???
+What you see here is the "command prompt". username@server:pwd$
+me, at the workshop server. ~ means "my HOME directory" (user specific). 
+
+---
+
+class: middle, center
+
+#Always mind the $!
+
+<p align="center"><img title="Source: https://giphy.com/gifs/studiosoriginals-gilphabet-3o84U72tKO389H2lI4" src="https://media.giphy.com/media/3o84U72tKO389H2lI4/giphy.gif" ></p>
+
+???
+in Bash ALWAYS MIND THE $. Only copy after the $ so you dont paste the command prompt too. $ is also important when dealing with variables, which you will see later today.
+
+---
+
 # Navigating the maze
+
+As we mentioned, _~_ is your _home directory_. But where _is_ your home?
+
+```bash
+pwd
+```
+--
+This prints the entire "filepath" of the directory i.e. the route from the "root" 
+(a specific directory on the machine), through every subdirectory, leading to your 
+particular folder. 
+
+```
+/home/thiseas
+```
+
+---
+
+# Let's talk about paths!
+.cols[
+.sixty[
+While walking around downtown Jena, you feel a rumble in your belly, and feel a craving that only a _currywurst with sweet potato fries_ can fulfill. 
+
+You look around and see a stranger sitting under __the statue of Kurfürst Johann Friedrich.__ You approach the stranger and ask them for directions to Fritz Mitte!]
+
+.sixty[<p align="right"><img src=".images/Jena_Marktplatz_by_C.Loeser.jpg" width="80%" > <figcaption align="right">Photo by C. Loeser. CC-BY</figcaption></p>
+]
+]
+
+---
+
+# Absolute paths
+.cols[
+.sixty[
+The location of a file or folder, __from the “root” directory__ (/).
+
+
+Equivalent to getting directions to Fritz Mitte, from Jentower (the de facto landmark in Jena).
+
+
+>___“From Jentower, cross Leutragraben and turn right. You will see FM 100m ahead!”___
+<p align="right"><i>Kind stranger, 2019</i></p>
+
+--
+
+__Absolute__ paths always start with `/`. Paths starting with `~` are also absolute paths, since `~` translates to the absolute path of your specific home directory. That is the directory path you see in the output of the `pwd` command you just ran.
+]
+
+
+.sixty[<p align="right"><img src=".images/JenTower_by_Igor_Slovak.jpg" width="80%" > <figcaption align="right">Photo by Igor Slovak. CC-BY-SA</figcaption></p>
+]
+]
+???
+These directions are true no matter where in town you happen to be.
+
+---
+
+# Relative paths
+.cols[
+.sixty[
+The location of a file or folder, __from your current directory.__
+
+Equivalent getting directions to Fritz Mitte from your current location.
+
+>___“Go down that road, turn left, then keep going straight until you see it!”___
+<p align="right"><i>also Kind stranger, 2019</i></p>
+
+__Relative__ paths are always relative to your working directory (i.e.
+  your current directory). Often this type of path will begin with one (`./`) 
+  or two (`../`) dots followed by a forward slash. 
+  
+__NOTE:__ In the syntax of relative paths `.` means "the current directory" and `..` means "the parent directory" (or the 'one above'). 
+]
+
+
+.sixty[<p align="right"><img src=".images/Jena_Johannistor_by_Andreas_Praefcke.jpg" width="75%" > <figcaption align="right">Photo by Andreas Praefcke. CC-BY</figcaption></p>
+]
+]
+???
+These directions are easier to follow, but only work if you begin AT MARKTPLATZ.
 
 ---
 
