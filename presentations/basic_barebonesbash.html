@@ -455,6 +455,53 @@ BareBonesBash
 
 ---
 
+# Navigating the file system
+Now that we have our directory, we should move into it. To do this, we will need to use `cd`, short for __c__hange __d__irectory.
+
+```bash
+$ cd BareBonesBash
+```
+--
+You can see that your current directory has changed on your command prompt! (or you can use `pwd`). <br>
+--
+To move to the parent directory of your current location, you can use:
+```bash
+cd ..
+```
+--
+You can also use an abosolute path to move to a directory:
+```bash
+cd ~/BareBonesBash
+```
+--
+> **BONUS TIP TIME!** When 
+using `cd` you can use a dash (`-`) to indicate 'my previous location'. This is 
+useful since you can traverse _[ha! I have my own fancy words now! - James]_ 
+multiple directories with one `cd` command.
+
+---
+
+# Concept: Comments
+Try running the following code:
+```bash
+## Remember in "A land before time" when the dinosaur's mother died?
+```
+--
+While reading that command, you 
+might have been reminded of one of the most emotionally devastating moments of 
+any person's life. <p align="center"><img title="Source: https://www.buzzfeed.com/bradesposito/sad-before-time?utm_term=.cjY4banJZ#.ixJ815NjJ" src="https://img.buzzfeed.com/buzzfeed-static/static/2015-04/29/21/enhanced/webdr15/anigif_enhanced-31175-1430357953-19.gif" width="35%"></p>
+--
+<br>However, the computer would show no signs of emotional 
+struggle whatsoever, because it __ignores 
+anything that comes after a _comment character_, which in bash is a hash (`#`).__
+???
+You can use comments to explain what a certain bit of code 
+does, without affecting how that code runs. This can also be a useful lifehack 
+in certain situations, an example of which will be given later.
+--
+
+---
+
 class: center,middle
 # Playing with the files, one bit at a time
 
