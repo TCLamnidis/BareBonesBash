@@ -7,16 +7,17 @@
       @import url(https://fonts.googleapis.com/css?family=Maven+Pro:400,700,400italic);
       @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
       @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
-      @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700);
+      @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700);
 
       body { 
-        font-family: 'Ubuntu', sans-serif; 
+        font-family: 'Roboto', sans-serif;
+        font-weight: 300;
         color: #000000;
       }
       
       h1, h2, h3 {
-        font-family: 'Ubuntu', sans-serif;
-        font-weight: 500;
+        font-family: 'Libre Baskerville', sans-serif;
       }
 
       h3 {
@@ -624,18 +625,17 @@ Good, the file arrived in `~/BareBonesBash/` safely!  But what is in it?
 # Meow 
 
 
-.cols[
-.fifty[
+.left-column[
 In bash, you can normally use 
 `cat` with text files, short for con**cat**enate, which is used to print the 
 contents of a file to the screen. Lets try this with our newly downloaded file.
 ]
-.fifty[
+.right-column[
 <p align = "center">
 <img title="Source: https://giphy.com/gifs/meow-descriptive-noise-x4YHSKRpYQhLq" src="https://media.giphy.com/media/x4YHSKRpYQhLq/giphy.gif" width = "90%"> 
 </p>
 ]
-]
+
 
 
 --
@@ -1214,6 +1214,85 @@ $ ls
 And it's gone!
 ]
 
+---
+
+# Anyway...
+
+Now we've fixed our typo 
+
+1. Open `nano` again
+2. Go to [https://tinyurl.com/BBB-FtpLinks](https://tinyurl.com/BBB-FtpLinks) in your \[_real life_\] internet browser
+3. Copy the text on the webpage
+4. \[_back down the rabbit hole_\] paste the text into `nano`
+
+> Note the `#`, this means the line is **commented out** as we've already downloaded this file!
+
+--
+
+.left-column-66[
+So again to recap exiting and save a file in nano we do the following dance: 
+  1. Initiate exit with `ctrl + x`
+  2. You will be prompted to 'Save modified buffer'.
+  3. Press `y` on your keyboard to agree
+  4. Set the file name as `~/BareBonesBash/Ftp.Link.txt`
+  5. Press `enter` to save
+]
+
+.right-column-33[
+  <p align="center">
+  <img title="Source: https://giphy.com/gifs/dancing-dance-star-wars-6fScAIQR0P0xW" src="https://media.giphy.com/media/6fScAIQR0P0xW/giphy.gif">
+</p>
+]
+
+---
+
+# Did it save?
+
+How can we check that the links saved correctly?
+
+--
+
+<p align = "center">
+<img title="Source: https://giphy.com/gifs/meow-descriptive-noise-x4YHSKRpYQhLq" src="https://media.giphy.com/media/x4YHSKRpYQhLq/giphy.gif" width = "50%"> 
+</p>
+
+
+```bash
+$ cat ~/BareBonesBash/Ftp.Link.txt
+
+```
+
+--
+
+```
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/009/ERR2020609/ERR2020609.fastq.gz
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020611/ERR2020611.fastq.gz
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/007/ERR2020567/ERR2020567.fastq.gz
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/005/ERR2020565/ERR2020565.fastq.gz
+#ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/003/ERR2020613/ERR2020613.fastq.gz
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/008/ERR2020618/ERR2020618.fastq.gz
+ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/007/ERR2020617/ERR2020617.fastq.gz
+```
+
+---
+
+# Zoom zoom zoom!
+
+Now to download all the files stored in the URLs. IN ONE GO! 
+
+<p align="center"><img title="Source: https://giphy.com/gifs/aliens-oAEoEC7vdf1QI" src="https://media.giphy.com/media/oAEoEC7vdf1QI/giphy.gif" width="30%"></p>
+
+--
+
+As before: 
+  - give a file to `wget` with URLs with the flag `-i`, for "**i**nput". 
+
+```bash
+cd ~/BareBonesBash
+wget -i ~/BareBonesBash/Ftp.Links.txt
+
+```
 
 ---
 
