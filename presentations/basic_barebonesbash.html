@@ -1417,8 +1417,8 @@ $ echo $HOME
 
 
 ```bash
-GreekFood=4            #Here, 'GreekFood' is a number.
-echo "Greek food is $GreekFood people who want to know what heaven tastes like."
+$ GreekFood=4            #Here, 'GreekFood' is a number.
+$ echo "Greek food is $GreekFood people who want to know what heaven tastes like."
 ```
 
 --
@@ -1430,8 +1430,8 @@ Greek food is 4 people who want to know what heaven tastes like.
 --
 
 ```bash
-GreekFood=delicious   #Now we overwrite that number with a word (or a "string" of characters).
-echo "Everyone says that Greek food is $GreekFood."
+$ GreekFood=delicious   #Now we overwrite that number with a word (or a "string" of characters).
+$ echo "Everyone says that Greek food is $GreekFood."
 ```
 --
 
@@ -1443,8 +1443,8 @@ Everyone says that Greek food is delicious.
 --
 
 ```bash
-GreekFood="Greek wine" #We can overwrite 'GreekFood' again, but when there is a space in our string, we need quotations.
-echo "The only thing better than Greek food is $GreekFood!"
+$ GreekFood="Greek wine" #We can overwrite 'GreekFood' again, but when there is a space in our string, we need quotations.
+$ echo "The only thing better than Greek food is $GreekFood!"
 ```
 
 --
@@ -1456,8 +1456,8 @@ The only thing better than Greek food is Greek wine!
 --
 
 ```bash
-GreekFood=7 #And, of course, we can overwrite with a number again too.
-echo "I have been to Greece $GreekFood times already this year, for the food and wine!"
+$ GreekFood=7 #And, of course, we can overwrite with a number again too.
+$ echo "I have been to Greece $GreekFood times already this year, for the food and wine!"
 ```
 
 --
@@ -1473,6 +1473,87 @@ class: center,middle
 # Laziness 101: Minimising our work by maximising the work of the computer
 
 ### Loop de Loop?
+
+---
+
+# I'm running out of bad titles...
+
+Back to being lazy 
+- how to make symlinks for each FASTQ file, without writing the command 7 times?
+
+--
+
+We do this with a `for` loop.
+- for each element in a list, do something
+
+--
+
+.left-column[
+
+In pseudo-code
+
+```
+## Don't copy this, it will not work.
+for every scientist:
+  Order another pizza
+done
+```
+]
+
+.right-column[
+
+<p align="center">
+  <img title="Source: https://tenor.com/view/izza-oprah-eatwhatyouwant-gif-4149888" src="https://media1.tenor.com/images/5ef4336be26e478431f85b349ec6bd34/tenor.gif?itemid=4149888" width="60%">
+</p>
+]
+
+---
+
+# Enough pizza, back to mammoths!
+
+- Our loop:
+  - For a given list of files
+  - Do a symbolic link command for each one
+  - Stop when there are no more files
+
+--
+
+```bash
+$ for fastq in ERR2020609.fastq.gz ERR2020611.fastq.gz ERR2020567.fastq.gz ERR2020565.fastq.gz ERR2020613.fastq.gz ERR2020618.fastq.gz ERR2020617.fastq.gz; do 
+  ln -s ~/BareBonesBash/$fastq ~/BareBonesBash/FastQ.Portals
+done
+```
+
+--
+
+**Bonus tip time!** `ls` will also accept a path to look into!
+
+```bash
+ls -l FastQ.Portals/
+
+```
+# PUT OUTPUT HERE
+
+---
+
+## Shortcut!
+
+We're mean to be lazy! Not writing the name of each FASTQ file!
+
+--
+
+Instead we can use **wildcards** 
+ - "refers to a character that can be substituted for zero or more characters in a string". 
+ - In bash, the wildcard character is the asterisk (`*`) 
+_\[Not to be confused with Asterix, James. AGAIN, REALLY!?)]_. 
+
+<p align="center">
+  <img title="Source: https://www.garethjmsaunders.co.uk/2008/01/29/asterix-and-asterisk/" src="https://www.garethjmsaunders.co.uk/wp-content/uploads/2008/01/asterix_or_asterisk.gif" width="30%"><br /><i> [Take note James...] </i>
+</p>
+
+---
+
+## GOT TO HERE - SYMLINK LOOP
 
 ---
 
