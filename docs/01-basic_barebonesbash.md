@@ -671,7 +671,7 @@ Which should print out the same read as it did on the original FASTQ file.
 
 Now for a bit of honesty. A single sample will not get you a nature publication.
 _\[ok, maybe sometimes]._ We will need more data if we're gonna make it to the
-most prestigious journals. So let's download another 8 samples from James' 
+most prestigious journals. So let's download another 7 samples from James' 
 Mammoth project to get us on our way to a nature cover page. (See [here](https://www.ebi.ac.uk/ena/data/view/PRJEB21582) for the ENA page of the project) _[Yay! Free Publicity!]_.
 
 It is a lot of work to run `wget` 7 times while changing the command everytime.

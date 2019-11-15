@@ -7,11 +7,21 @@
       @import url(https://fonts.googleapis.com/css?family=Maven+Pro:400,700,400italic);
       @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
       @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu:300,400,500,400italic);
 
-      body { font-family: 'Maven Pro', sans-serif; }
+      body { 
+        font-family: 'Ubuntu', sans-serif; 
+        color: #000000;
+      }
+      
       h1, h2, h3 {
-        font-family: 'Maven Pro', bold,sans-serif;
-        font-weight: normal;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 500;
+      }
+
+      h3 {
+        color: #999999;
+        font-size: 20px;
       }
         .cols {
         display: flex;
@@ -51,26 +61,46 @@
       .right-column ~ p { clear: both; }
       .right-column ~ ul { clear: both; }
 
+      /* For progress bar */
+      .remark-slide-number {
+        position: inherit;
+      }
+
+      .remark-slide-number .progress-bar-container {
+        position: absolute;
+        bottom: 0;
+        height: 4px;
+        display: block;
+        left: 0;
+        right: 0;
+      }
+
+      .remark-slide-number .progress-bar {
+        height: 100%;
+        background-color: red;
+      }
 
     </style>
   </head>
   <body>
-    <textarea id="source">
+    <textarea id="source" bar>
+
+---
 
 class: center, middle
 
-**Basic** Bespoke 
+## **Basic** Bespoke 
 # BARE BONES BASH 
-Brought By Bearded Bioinformaticians
+## Brought By Bearded Bioinformaticians
 
 ### Thiseas C. Lamnidis and James A. Fellows Yates
 
 ---
 
 # Who are we?
-
 .cols[
 .thirty[
+
 ## James
 
 - BSc. @ Department of Archaeology (York)
@@ -701,6 +731,10 @@ A.K.A. when your tutor thinks of a very (un)funny metaphor to explain something!
 class: center,middle
 # The Lord of the Pipes: One command to do them all.
 
+--
+
+### Piping
+
 ---
 
 # Ceci n'est pas une pipe
@@ -731,20 +765,19 @@ concept of the `|` (a.k.a the "pipe")
 
 Lets try this out with new new commands
 
-.cols[
-.fifty[
+.left-column[
 - `head` 
   - shows first 10 lines of a file
 - `tail` 
   - shows the last 10 lines. 
 ]
-.fifty[
+.right-column[
 
 <p align="center">
 <iframe align="center" src='https://gfycat.com/ifr/MeekWarpedAsiandamselfly' frameborder='0' scrolling='no' allowfullscreen></iframe> 
 </p>
 ]
-]
+
 
 ---
 
@@ -754,14 +787,20 @@ We will now print the file to screen with `zcat`, but rather than just let
 the whole thing print, we will "pipe" the output into `head`, which will 
 allow us to see just the first 10 lines.
 
+> Don't forget your auto-complete with the tab key!
+
 ```bash
 $ zcat ERR2020601.fastq.gz | head
 
 ```
+
 --
 
 We can also display more lines with the `-n` flag (short for "**n**umber of 
 lines"). To see the first 20 lines you would use 
+
+> **Bonus tip time** you can press up and down on your keyboard buttons to
+view previous commands!
 
 ```bash
 $ zcat ERR2020601.fastq.gz | head -n 20
@@ -824,11 +863,23 @@ To quit the viwer: press "q" on your keyboard.
 In practice, what was just printed on your screen is the record of a single DNA 
 molecule, which spans 4 lines of the FASTQ file. 
 
+--
+
 * The record begins with the read ID, preceded by an `@`, given by the sequencing machine
+
+--
+
 * The next line contains the actual DNA sequence of the read. 
+
+--
+
 * The third line is a separator line ('`+`'). 
+
+--
+
 * Finally, the fourth line of this record contains the base quality score for each position on the read, encoded a certain way.  (again something the sequencer)
 
+---
 
 # lol wut?
 
@@ -842,21 +893,174 @@ case a collection of lines with the same structure for each DNA molecule)
 
 Why does this matter?
 
--- 
+--
 
-.cols[
-
-.fifty[
-This means PATTERNS!
+.left-column[
+## This means PATTERNS!
 ]
 
-.fifty[
+.right-column[
 <p align="center">
-  <img title="Source: https://giphy.com/gifs/WgO1QdDfTooxrEsfES" src="https://media.giphy.com/media/WgO1QdDfTooxrEsfES/giphy.gif" width="20%">
+  <img title="Source: https://giphy.com/gifs/WgO1QdDfTooxrEsfES" src="https://media.giphy.com/media/WgO1QdDfTooxrEsfES/giphy.gif" width="80%">
+</p>
+]
+
+---
+
+class: center,middle
+# The Lord of the Pipes: One command to do them all.
+
+--
+
+### Word Count 
+
+_no, not in your manuscript, don't panic!_
+
+---
+
+
+# Counting
+
+.left-column[
+A first question a bioinformatician might have is how many DNA molecules are 
+in my file?
+]
+
+.right-column[
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/l41YtZOb9EUABnuqA" src="https://media.giphy.com/media/l41YtZOb9EUABnuqA/giphy.gif" width="50%">
+</p>
+]
+
+--
+
+We can count certain attributes of a text file with `wc` 
+- which stands for "**w**ord **c**ount".
+
+--
+
+But we want lines! Give the option `-l`
+
+```bash
+zcat ERR2020601.fastq.gz | wc -l
+```
+
+```
+18880
+```
+
+> Example for non-geneticists: how many entries in a table do you have? 
+
+---
+
+# But DNA molecules FASTQ have four lines!
+
+How can we be lazy and avoiding doing _acutal maths_ (ew)?
+
+--
+<br>
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/WgO1QdDfTooxrEsfES" src="https://media.giphy.com/media/WgO1QdDfTooxrEsfES/giphy.gif" width="30%">
+</p>
+<p align="center"><b>What is a common PATTERN in the file?</b></p>
+
+
+---
+
+# But DNA molecules FASTQ have four lines!
+
+> * The record begins with the read ID, preceded by an `@`, given by the sequencing machine
+
+--
+
+Lets count each line with a `@` in it!
+
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/season-16-the-simpsons-16x3-3orieUe6ejxSFxYCXe" src="https://media.giphy.com/media/3orieUe6ejxSFxYCXe/giphy.gif" width="50%">
 </p>
 
-]
-]
+
+---
+
+
+# Grep
+
+To search for a particular character or string in a text file we can use 
+
+`grep`
+
+
+This prints only lines in a file that match a certain pattern.
+
+--
+
+For example
+
+```bash
+zcat ERR2020601.fastq.gz | grep @
+
+```
+
+Results in...
+
+-- 
+
+```
+@ERR2020601.147096 F_AHSTEUER006:166:C5UJMANXX:8:1215:14390:82061/1
+AB@BBGGGGGGGGGGGGGGGEFGGGGGGGGGGGGGFGGGGG>GGGGGGGGGGAFGGGGGGGGGGGG
+@ERR2020601.147097 F_AHSTEUER006:166:C5UJMANXX:8:1301:14633:50792/1
+@ERR2020601.147098 F_AHSTEUER006:166:C5UJMANXX:8:1210:12875:93069/1
+@ERR2020601.147099 F_AHSTEUER006:166:C5UJMANXX:8:2109:2222:68258/1
+@ERR2020601.147100 F_AHSTEUER006:166:C5UJMANXX:8:1315:17303:82366/1
+3B=@BECGGGGGGGGGGGGGGGGGGGGGGG
+```
+
+---
+
+# Close but no cigar...
+
+Unfortunately we seem to have picked up some other stuff because of the @ 
+characters in the sequence quality lines. 
+
+--
+
+We can therefore use a more specific _string_ to ensure we print stuff want.
+
+--
+
+In this case, each read ID begins with '@ERR'
+
+```bash
+zcat ERR2020601.fastq.gz | grep @ERR | less
+```
+
+--
+
+Scroll up and down - this looks better, doesn't it?!
+
+> Remember to press your q key to quit `less`!
+
+---
+
+## ding ding ding - Round TWO!
+
+Lets now try and count the number of read IDs, to find the number of DNA 
+molecules in our file
+
+```zcat
+zcat ERR2020601.fastq.gz | grep @ERR | wc -l
+
+```
+--
+```
+4720
+```
+
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/cheer-cheering-11sBLVxNs7v6WA" src="https://media.giphy.com/media/11sBLVxNs7v6WA/giphy.gif">
+</p>
+
+> That's the right number, trust us ;)
 
 ---
 
@@ -865,8 +1069,65 @@ class: center,middle
 
 ---
 
+THISEAS Do me! (The slide I mean...)
+
+---
+
 class: center,middle
 # Laziness 101: Minimising our work by maximising the work of the computer
+
+--
+
+### Text Editing in the Terminal
+
+---
+
+# One sample ain't enough
+
+
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/reaction-FyKfqRxVbzciY" src="https://media.giphy.com/media/FyKfqRxVbzciY/giphy.gif">
+</p>
+
+Lets get 7 more!
+
+--
+
+But typing the same `wget` command over and over isn't being lazy!
+
+--
+
+Instead, we can supply `wget` a text file, with the link to each new FASTQ file.
+
+```bash
+wget -i <LIST_OF_URLS>.txt
+```
+
+---
+
+# Text editing
+
+
+But how can we make this file? 
+
+--
+
+If you're absolutely insane you may look up `vim` 
+_\[Thiseas' poison]_, or we can use `nano` which is much more user friendly. 
+
+---
+
+class: center,middle
+# Laziness 101: Minimising our work by maximising the work of the computer
+
+### What is a variable anyway?
+
+---
+
+class: center,middle
+# Laziness 101: Minimising our work by maximising the work of the computer
+
+### Loop de Loop?
 
 ---
 
@@ -886,15 +1147,26 @@ class: center,middle
 
 # Thanks to...
 
-- Stephan Schiffels - for loaning us his cluster
-- Aida Andrades Valuteña - for suggestions/ideas and protecting James' daughter from dying of embarrassement.
-- **YOU!** for putting up with an inordinate amount of internet memes and gifs. 
+- Stephan Schiffels 
+  - for loaning us his cluster
+- Aida Andrades Valuteña 
+  - for suggestions/ideas 
+  - protecting James' daughter from dying of future embarrassement.
+- **YOU!** 
+  - for putting up with an inordinate amount of internet memes and gifs. 
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
     </script>
     <script>
-      var slideshow = remark.create();
+      var slideshow = remark.create({
+      slideNumberFormat: (current, total) => `
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: ${current/total*100}%">
+          </div>
+        </div>
+      `
+    });
     </script>
   </body>
 </html>
