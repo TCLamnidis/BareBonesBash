@@ -1281,7 +1281,9 @@ ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/007/ERR2020617/ERR2020617.fastq.gz
 
 Now to download all the files stored in the URLs. IN ONE GO! 
 
-<p align="center"><img title="Source: https://giphy.com/gifs/aliens-oAEoEC7vdf1QI" src="https://media.giphy.com/media/oAEoEC7vdf1QI/giphy.gif" width="30%"></p>
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/aliens-oAEoEC7vdf1QI" src="https://media.giphy.com/media/oAEoEC7vdf1QI/giphy.gif" width="30%">
+</p>
 
 --
 
@@ -1300,6 +1302,170 @@ class: center,middle
 # Laziness 101: Minimising our work by maximising the work of the computer
 
 ### What is a variable anyway?
+
+---
+
+# Tangent Nr. 2
+
+How not feel lonely - make the computer talk back to you with `echo`
+
+```bash
+$ echo Hello World!
+```
+
+--
+
+```
+Hello World!
+```
+
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/SpongeBobMovie-spongebob-squarepant-PnUatAYWMEMvmiwsyx" src="https://media.giphy.com/media/PnUatAYWMEMvmiwsyx/giphy.gif" width = "30%">
+</p>
+
+---
+
+# Home sweet home...
+
+A variable is a container
+  - Begins with `$` with no space between some characters
+  - The name of the variable stays the same, the contents _changes_
+
+--
+
+.left-column-33[
+Try `echo`ing HOME
+
+```bash
+$ echo HOME
+```
+
+```
+home
+```
+]
+
+--
+
+.right-column-66[
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/home-explosm-h4BLlvyUM2CVFK683U" src="https://media.giphy.com/media/h4BLlvyUM2CVFK683U/giphy.gif" width = "80%">
+</p>
+]
+
+--
+
+.left-column-33[
+Now try `echo`ing home as a variable 
+
+```bash
+$ echo $HOME
+```
+```
+/home/james/
+```
+]
+
+---
+
+# Klaxon alert!
+
+- Variables as the one above are called **environment variables**
+
+--
+
+- Typically in $ALL_CAPS
+
+--
+
+- Defined by your default computer environment
+
+--
+
+- Should generally **NOT** be changed on a whim 
+
+\[_even though the temptation might be a whim away. A whim away... A-whim-away..._\].
+
+<p align="center"><img title="Source: http://en.webfail.com/e91115df851" src="http://cdn.webfail.com/upl/img/e91115df851/post2.jpg" width="50%"></p>
+
+---
+
+# Making your own
+
+.left-column[
+- Any variable can be easily overwritten, which is one reason why they are so useful.
+]
+
+--
+
+
+.left-column[
+- To assign your own variable, 
+  - Write variable name
+  - Then the `=` symbol. 
+  - And the contents of the variable
+]
+
+--
+
+<p align="center">
+  <img title="Source: http://visitgreece-gr.tumblr.com/" src="https://78.media.tumblr.com/04ac7d0699ac494a7ccb4fc9316bbc0a/tumblr_oo77m9RLgv1uwr1s7o1_500.gif" width="25%">
+</p>
+<p align="center"><i>And now for a trip...</i></p>
+
+---
+
+
+```bash
+GreekFood=4            #Here, 'GreekFood' is a number.
+echo "Greek food is $GreekFood people who want to know what heaven tastes like."
+```
+
+--
+
+```
+Greek food is 4 people who want to know what heaven tastes like.
+```
+
+--
+
+```bash
+GreekFood=delicious   #Now we overwrite that number with a word (or a "string" of characters).
+echo "Everyone says that Greek food is $GreekFood."
+```
+--
+
+```
+Everyone says that Greek food is delicious.
+
+```
+
+--
+
+```bash
+GreekFood="Greek wine" #We can overwrite 'GreekFood' again, but when there is a space in our string, we need quotations.
+echo "The only thing better than Greek food is $GreekFood!"
+```
+
+--
+
+```
+The only thing better than Greek food is Greek wine!
+```
+
+--
+
+```bash
+GreekFood=7 #And, of course, we can overwrite with a number again too.
+echo "I have been to Greece $GreekFood times already this year, for the food and wine!"
+```
+
+--
+
+```
+I have been to Greece 7 times already this year, for the food and wine!
+
+```
 
 ---
 
