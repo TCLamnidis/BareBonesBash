@@ -86,8 +86,6 @@
   <body>
     <textarea id="source" bar>
 
----
-
 class: center, middle
 
 ## **Basic** Bespoke 
@@ -1520,8 +1518,8 @@ done
 
 ```bash
 $ for fastq in ERR2020609.fastq.gz ERR2020611.fastq.gz ERR2020567.fastq.gz ERR2020565.fastq.gz ERR2020613.fastq.gz ERR2020618.fastq.gz ERR2020617.fastq.gz; do 
-  ln -s ~/BareBonesBash/$fastq ~/BareBonesBash/FastQ.Portals
-done
+    ln -s ~/BareBonesBash/$fastq ~/BareBonesBash/FastQ.Portals
+  done
 ```
 
 --
@@ -1529,16 +1527,16 @@ done
 **Bonus tip time!** `ls` will also accept a path to look into!
 
 ```bash
-ls -l FastQ.Portals/
+$ ls -l FastQ.Portals/
 
 ```
 # PUT OUTPUT HERE
 
 ---
 
-## Shortcut!
+## Ugh can't be bothered to write...gip!
 
-We're mean to be lazy! Not writing the name of each FASTQ file!
+We're meant to be lazy! Not writing the name of each FASTQ file!
 
 --
 
@@ -1553,7 +1551,99 @@ _\[Not to be confused with Asterix, James. AGAIN, REALLY!?)]_.
 
 ---
 
-## GOT TO HERE - SYMLINK LOOP
+# This means: SHORTCUTS!
+
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/mario-kart-shortcut-rainbow-road-1385h22r1k6sIU" src="https://media.giphy.com/media/1385h22r1k6sIU/giphy.gif" width="20%">
+</p>
+
+In the context of a loop, we can use the `*` to perform an action on all items in
+a directory!
+
+--
+
+```bash
+$ for fastq in ~/BareBonesBash/ERR*; do
+    ln -s $fastq ~/BareBonesBash/FastQ.Portals
+  done
+
+```
+--
+
+Don't want literally everything? All files beginning with ERR:
+
+```bash
+$ for fastq in ~/BareBonesBash/ERR*; do
+    ln -s $fastq ~/BareBonesBash/FastQ.Portals
+  done
+
+```
+
+???
+
+In the context of a loop, we can use the wildcard to tell bash the loop 
+should be performed on ALL items in a directory that match the criterion given. 
+
+If we want to create a symlink (with `ln -s`) for every item within the 
+`~/BareBonesBash` directory, and place that symlink within the 
+`~/BareBonesBash/FastQ.Portals` directory, we could use: 
+
+---
+
+# Combine with everything!
+
+A wildcard can be added anywhere! Making the computer to do the hard work for you
+
+.left-column-66[
+```bash
+$ for fastq in ~/BareBonesBash/ERR*.gz; do
+    gzip -l $fastq
+  done
+
+```
+]
+
+.right-column-33[
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/tinder-automation-tinderbot-3rgXByefj5zvCcodOM" src="https://media.giphy.com/media/3rgXByefj5zvCcodOM/giphy.gif" width="90%">
+</p>
+]
+
+--
+
+# Over to you
+
+Look inside `~/BareBonesBash/FastQ.Portals`
+  - Are only your FASTQ files inside?
+
+--
+
+**Try writing your own loop using `for`, `*`, and `rm` to remove ONLY the non-FASTQ files!**
+
+
+???
+
+If you need to be more specific with your loop, you can also use the wildcard
+with some other characters. 
+
+For example, `ERR*` would mean perform a command on every file that begins with 
+ERR, regardless of what comes after ERR. 
+
+Finally, we can use characters AFTER the wildcard as well, to only pick up 
+files that have a certain suffix as well as prefix (e.g. `ERR*.gz` will find 
+all files that begin with `ERR` and end with `.gz`, regardless of what (if 
+anything) comes between the two).
+
+
+As a final practice, have a look inside your `~/FastQ.Portals` directory. 
+
+You might notice that you have also symlinks to `FastQ.Portals` and `Ftp.Links.txt`
+as well as our FastQ files. 
+
+These came in our previous `ln -s` loop, as we 
+used the wildcard for _everything_ in `~/BareBonesBash`. 
+
+
 
 ---
 
@@ -1563,9 +1653,60 @@ class: center,middle
 
 ---
 
+# Woohoo!
+
+Well done **you** for putting up with an inordinate amount of internet memes, gifs, terrible pop-culture, and video game references!
+
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/csi-miami-horatio-caine-xPGkOAdiIO3Is" src="https://media1.giphy.com/media/xPGkOAdiIO3Is/giphy.gif" width="30%"> 
+  <img title="Source: https://giphy.com/gifs/swag-80s-sunglasses-62PP2yEIAZF6g" src="https://media.giphy.com/media/62PP2yEIAZF6g/giphy-downsized.gif" width="40%">
+</p>
+
+--
+
+You should now feel more comfortable:
+  - how to move around using the Terminal, 
+  - using basic commands to view, create, and manipulate files and directories.
+  - understanding what a `for` loop is
+
+
+---
+
 class: center,middle
 
-# OPTIONAL: The Cleanup Crew
+# The Cleanup Crew
+
+---
+
+# Enter the janitor!
+
+Despite being lazy - you should ALWAYS keep your room tidy.
+
+- This stops losing files
+- Prevents getting lost in a maze of directories
+- Accidently permanently deleting a days worth of work \[_don't ask how many times this happens_\].
+
+--
+
+.left-column[
+Lets remove:
+  - the  `~/BareBonesBash` directory 
+  - **all of its contents**. 
+
+```bash
+$ cd ~     # Don't delete a directory 
+         # while we are still in it! 
+$ rm -r ~/BareBonesBash
+```
+]
+
+--
+
+.right-column[
+<p align="center">
+  <img title="Source: https://i.imgur.com/lcxyE0D.gif" src="https://i.imgur.com/lcxyE0D.gif" width="80%">
+</p>
+]
 
 ---
 
@@ -1574,12 +1715,36 @@ class: center,middle
 # Thanks to...
 
 - Stephan Schiffels 
-  - for loaning us his cluster
+  - for loaning us his cluster and the cool passwords
 - Aida Andrades Valuteña 
   - for suggestions/ideas 
   - protecting James' daughter from dying of future embarrassement.
-- **YOU!** 
-  - for putting up with an inordinate amount of internet memes and gifs. 
+
+--
+
+## Next time
+
+.left-column[
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/kimmyschmidt-unbreakable-kimmy-schmidt-3o72FiJGth3gp4jhUA" src="https://media.giphy.com/media/3o72FiJGth3gp4jhUA/giphy.gif" width="70%">
+</p>
+
+<p align="center" >
+  <i>[HAHAHAHA! jk.]</i>
+</p>
+]
+
+.right-column[
+* advanced echo
+* rev
+* cut
+* find
+* awk
+* sed
+* while loops
+* if statements
+
+]
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
