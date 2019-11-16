@@ -10,6 +10,7 @@
       @import url(https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700);
       @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700);
 
+      /* font/size formatting */
       body { 
         font-family: 'Roboto', sans-serif;
         font-weight: 300;
@@ -27,17 +28,6 @@
         .cols {
         display: flex;
       }
-      
-      .fifty {
-        flex: 50%;
-      }
-      .sixty {
-        flex:60%;
-      }
-      
-      .thirty {
-        flex: 30%;
-      }
 
       blockquote {
         border-left: 0.3em solid #ccc;
@@ -45,6 +35,7 @@
         font-style: italic;
         color: #ccc;
         quotes: "\201C""\201D""\2018""\2019";
+        font-size: 14px;
       }
 
       .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; color: grey}
@@ -59,8 +50,29 @@
       .left-column-66  { width: 66%; float: left; }
       .right-column-33 { width: 33%; float: right; }
 
+      .center-column-33 { width: 33% float: middle; }
+
       .right-column ~ p { clear: both; }
       .right-column ~ ul { clear: both; }
+
+      /* use with e.g. <div class=vertical-center"> */
+      .vertical-center {
+         margin: 0;
+         position: absolute;
+         top: 50%;
+         -ms-transform: translateY(-50%);
+         transform: translateY(-50%);
+      }
+
+
+      .vertical-center-with-title {
+         margin: 0;
+         position: absolute;
+         top: 60%;
+         -ms-transform: translateY(-50%);
+         transform: translateY(-50%);
+      }
+
 
       /* For progress bar */
       .remark-slide-number {
@@ -97,60 +109,65 @@ class: center, middle
 ---
 
 # Who are we?
-.cols[
-.thirty[
-
-## James
+.left-column-66[
+### ~~Bowser~~ James
 
 - BSc. @ Department of Archaeology (York)
 - MSc. @ Institute for Archaeological Sciences (Tübingen)
 - Ph.D.(?) @ Department of Archaeogenetics (Jena)
-]
 
-.fifty[
-<p align="center">
-  <img src=".images/James_JamessDaughter_Thiseas_In_Japan.jpg" width="95%" height = "95%">
-</p>
-
-<p align="center">
-  (no children were licked in the making of this presentation, honest)
-</p>
-]
-
-.thirty[
-## Thiseas 
+### ~~Yoshi~~ Thiseas 
 
 - BSc. @ Department of Biology (York)
 - MSc. @ Department of Anthropology (Durham)
 - Ph.D.(?) @ Department of Archaeogenetics (Jena)
 ]
+
+.right-column-33[
+<div class="vertical-center-with-title">
+  <img src=".images/James_JamessDaughter_Thiseas_In_Japan.jpg" width="80%">
+</div>
 ]
 
 ---
 
 class: center, middle
 
-.cols[
-.fifty[
+.left-column[
 # Neither of us...
 ##...has a computational background
 ]
 
-.fifty[
-Except in internet memes!
-<p align="center">
-  <img src=".images/science_dog.jpg" width="95%" height = "95%">
-</p>
+--
+
+.right-column[
+<div class="vertical-center">
+  <p align="center">
+    Except in internet memes!
+    <img src=".images/science_dog.jpg" width="95%" height = "95%">
+  </p>
+</div>
 ]
-]
+
 
 ---
 
-# How did we learn to do everything you're about to learn?
+# How did we get here?
+
+How did we learn to do everything you're about to learn?
 
 - Being lazy
+
+--
+
 - Google
+
+--
+
 - Talking to each other
+
+--
+
 - Metric tons of TRIAL AND ERROR (tears, manic screaming, blood...)
 
 ---
@@ -159,6 +176,8 @@ Except in internet memes!
 
 - Aim:
   - To get you comfortable enough with the terminal to try it out
+
+--
 
 - Objectives
   1. What is a terminal?
@@ -190,14 +209,13 @@ class: center, middle
 
 class: middle
 
-.cols[
-.fifty[
+
+.left-column[
 # Rule Nr. 1
 ## Be lazy!
 ]
-.fifty[
+.right-column[
 Desire for shortcuts motivates you explore more!
-]
 ]
 
 ---
@@ -205,49 +223,46 @@ Desire for shortcuts motivates you explore more!
 class: middle
 
 
-.cols[
-.fifty[
+
+.left-column[
 # Rule Nr. 2
 ## ~~Google~~ The Hive-Mind knows everything.
 ]
-.fifty[
+.right-column[
 - 99% of the time, someone else has already had the same issue.
 - Let the poor soul do the work for you!
 - (...and pass it on!)
 ]
-]
 
 ---
 
 class: middle
 
 
-.cols[
-.fifty[
+
+.left-column[
 # Rule Nr. 3
 ## Document everything you do.
 ]
-.fifty[
+.right-column[
 - Makes future you happy
 - Reproducibility
 - Helps others!
 ]
-]
 
 ---
 
 class: middle
 
 
-.cols[
-.fifty[
+
+.left-column[
 # Rule Nr. 4
 ## There will ALWAYS be a typo!
 ]
-.fifty[
+.right-column[
 - Don't get disheartned, even best programmers make mistakes
 - Sometimes the problem _isn't_ you being 'stupid', programmers are crap at documentation
-]
 ]
 
 ---
@@ -255,11 +270,10 @@ class: middle
 class: middle
 
 
-.cols[
-.fifty[
+
+.left-column[
 # Rule Nr. 5
 ## Something to come....
-]
 ]
 
 ---
@@ -336,67 +350,94 @@ particular folder.
 ---
 
 # Let's talk about paths!
-.cols[
-.sixty[
+
+.left-column-66[
 While walking around downtown Jena, you feel a rumble in your belly, and feel a craving that only a _currywurst with sweet potato fries_ can fulfill. 
 
 You look around and see a stranger sitting under __the statue of Kurfürst Johann Friedrich.__ You approach the stranger and ask them for directions to Fritz Mitte!]
 
-.sixty[<p align="right"><img src=".images/Jena_Marktplatz_by_C.Loeser.jpg" width="80%" > <figcaption align="right">Photo by C. Loeser. CC-BY</figcaption></p>
-]
+.left-column-33[<p align="right"><img src=".images/Jena_Marktplatz_by_C.Loeser.jpg" width="80%" > <figcaption align="right">Photo by C. Loeser. CC-BY</figcaption></p>
 ]
 
 ---
 
 # Absolute paths
-.cols[
-.sixty[
+
+.left-column-66[
 The location of a file or folder, __from the “root” directory__ (/).
 
+]
+
+.right-column-33[
+<p align="center">
+  <img src=".images/JenTower_by_Igor_Slovak.jpg" width="80%" > 
+  <figcaption align="right">Photo by Igor Slovak. CC-BY-SA</figcaption>
+</p>
+]
+
+--
+
+.left-column-66[
 
 Equivalent to getting directions to Fritz Mitte, from Jentower (the de facto landmark in Jena).
 
 
 >___“From Jentower, cross Leutragraben and turn right. You will see FM 100m ahead!”___
 <p align="right"><i>Kind stranger, 2019</i></p>
+]
+
+
+
+
+???
+These directions are true no matter where in town you happen to be.
 
 --
 
+.left-column-66[
 __Absolute__ paths always start with `/`. Paths starting with `~` are also absolute paths, since `~` translates to the absolute path of your specific home directory. That is the directory path you see in the output of the `pwd` command you just ran.
 ]
 
 
-.sixty[<p align="right"><img src=".images/JenTower_by_Igor_Slovak.jpg" width="80%" > <figcaption align="right">Photo by Igor Slovak. CC-BY-SA</figcaption></p>
-]
-]
-???
-These directions are true no matter where in town you happen to be.
 
 ---
 
 # Relative paths
-.cols[
-.sixty[
+
+.left-column-66[
 The location of a file or folder, __from your current directory.__
+]
+
+.right-column-33[
+<p align="right">
+  <img src=".images/Jena_Johannistor_by_Andreas_Praefcke.jpg" width="75%" > 
+  <figcaption align="right">Photo by Andreas Praefcke. CC-BY</figcaption></p>
+]
+
+--
+
+.left-column-66[
 
 Equivalent getting directions to Fritz Mitte from your current location.
 
 >___“Go down that road, turn left, then keep going straight until you see it!”___
 <p align="right"><i>also Kind stranger, 2019</i></p>
 
+]
+
+???
+These directions are easier to follow, but only work if you begin AT MARKTPLATZ.
+
+--
+
+.left-column-66[
 __Relative__ paths are always relative to your working directory (i.e.
   your current directory). Often this type of path will begin with one (`./`) 
   or two (`../`) dots followed by a forward slash. 
   
-__NOTE:__ In the syntax of relative paths `.` means "the current directory" and `..` means "the parent directory" (or the 'one above'). 
+> In the syntax of relative paths `.` means "the current directory" and `..` means "the parent directory" (or the 'one above'). 
 ]
 
-
-.sixty[<p align="right"><img src=".images/Jena_Johannistor_by_Andreas_Praefcke.jpg" width="75%" > <figcaption align="right">Photo by Andreas Praefcke. CC-BY</figcaption></p>
-]
-]
-???
-These directions are easier to follow, but only work if you begin AT MARKTPLATZ.
 
 ---
 
@@ -462,15 +503,20 @@ $ ls
 BearBonesBash
 ```
 This is not a bash tutorial for ancient __bear__ genomics!
-<p align="center"><img title="Source: https://giphy.com/gifs/bear-forest-water-IQ9KefLJHfJPq" src="https://media.giphy.com/media/IQ9KefLJHfJPq/giphy.gif" width="20%"></p>
---
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/bear-forest-water-IQ9KefLJHfJPq" src="https://media.giphy.com/media/IQ9KefLJHfJPq/giphy.gif" width="20%">
+</p>
+
 Let's just delete that empty directory and start over, using the `rmdir` 
 command, short for "**r**e**m**ove **dir**ectory".
 
 ```bash
 $ rmdir ~/BearBonesBash
 ```
---
+
+---
+
+# From the beginning...
 
 And now we can create our directory, properly named this time.
 
@@ -481,6 +527,29 @@ $ ls
 ```
 BareBonesBash
 ```
+
+Much better!
+
+.left-column[
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/tiktok-bear-tsX3YMWYzDPjAARfeg" src="https://media.giphy.com/media/tsX3YMWYzDPjAARfeg/giphy.gif" width="50%">
+</p>
+]
+
+.right-column[
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+_\[Tags included: #happy #dancing #bear #sexy (WTF!?!?)_\]
+]
+
+
+
 
 ---
 
@@ -511,6 +580,7 @@ multiple directories with one `cd` command.
 ---
 
 # Concept: Comments
+
 Try running the following code:
 ```bash
 ## Remember in "A land before time" when the dinosaur's mother died?
@@ -527,7 +597,6 @@ anything that comes after a _comment character_, which in bash is a hash (`#`)._
 You can use comments to explain what a certain bit of code 
 does, without affecting how that code runs. This can also be a useful lifehack 
 in certain situations, an example of which will be given later.
---
 
 ---
 
@@ -538,8 +607,8 @@ class: center,middle
 
 # Time to play!
 
-.cols[
-.fifty[
+
+.left-column[
 
 - We have a place to organise our files... but no files :\
 
@@ -548,12 +617,12 @@ class: center,middle
 
   - Lets play with some Mammoths instead!
   ]
-  .fifty[
-  <p align="center">
-    <img title="Source: https://giphy.com/gifs/sid-ice-age-a-mammoth-christmas-kbuQOkATEo6VW" src="https://media.giphy.com/media/kbuQOkATEo6VW/giphy.gif"> 
-    <img title="Source: https://giphy.com/gifs/3o6Zte5Q11lxAu8Q5q" src="https://media.giphy.com/media/3o6Zte5Q11lxAu8Q5q/giphy.gif" width = "65%">
-  </p>
-  ]
+
+.right-column[
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/sid-ice-age-a-mammoth-christmas-kbuQOkATEo6VW" src="https://media.giphy.com/media/kbuQOkATEo6VW/giphy.gif"> 
+  <img title="Source: https://giphy.com/gifs/3o6Zte5Q11lxAu8Q5q" src="https://media.giphy.com/media/3o6Zte5Q11lxAu8Q5q/giphy.gif" width = "65%">
+</p>
 ] 
 
 ---
@@ -562,7 +631,7 @@ class: center,middle
 
 We are going to download a FASTQ file from the ENA (European Nucleotide Archive). This should be pretty quick!
 
-> For non-squishy dead thing nerds: a FASTQ file is just a text file with DNA molecule sequences and extra metadata]
+> For non-squishy dead thing nerds: a FASTQ file is just a text file with DNA molecule sequences and extra metadata
 
 
 <p align="center">
@@ -574,9 +643,6 @@ We are going to download a FASTQ file from the ENA (European Nucleotide Archive)
 ```bash
 ## Download!
 $ wget ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
-
-## if you don't have wget, you can instead use 'curl' with the command below.
-#$ curl -O ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
 
 ## Then to check if the file is now in our working directory
 $ ls
@@ -600,7 +666,16 @@ $ ls
 
 --
 
+.left-column-33[
+
 You should now see that the fastq file is no longer in your home folder.
+]
+
+.right-column-66[
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/fallontonight-dogs-disappear-poof-5ZYx8Zng64KBowFvLQ" src="https://media.giphy.com/media/5ZYx8Zng64KBowFvLQ/giphy.gif" width="50%">
+</p>
+]
 
 ---
 
@@ -619,40 +694,45 @@ Good, the file arrived in `~/BareBonesBash/` safely!  But what is in it?
 
 ---
 
-
 # Meow 
-
 
 .left-column[
 In bash, you can normally use 
 `cat` with text files, short for con**cat**enate, which is used to print the 
 contents of a file to the screen. Lets try this with our newly downloaded file.
 ]
+
 .right-column[
 <p align = "center">
 <img title="Source: https://giphy.com/gifs/meow-descriptive-noise-x4YHSKRpYQhLq" src="https://media.giphy.com/media/x4YHSKRpYQhLq/giphy.gif" width = "90%"> 
 </p>
 ]
 
-
-
 --
 
-> **BONUS TIP TIME!** If you're anything like Thiseas, who gets triggered at slow 
-computer things, and prefer to have the computer do the work for you - try 
-typing a couple of characters then press the "TAB" key on your keyboard.
 
---
-
+.left-column[
 ```bash
 $ cat ERR2020601.fastq.gz
 ```
+]
+
+.right-column[
+> **BONUS TIP TIME!** If you're anything like Thiseas, who gets triggered at slow 
+computer things, and prefer to have the computer do the work for you - try 
+typing a couple of characters then press the "TAB" key on your keyboard.
+]
+
 --
 
+.left-column[
 ```
-��'��x��xI��-]�����2��u�_SuY�9A�}W.��Zf��?���}H����9�Kɰ�����l
-�B��stݹlfDt������-L��|x:�MUtI����u�1������"d�H�F����
+��'��x��xI��-�����2��u�_SuY�9A�}W.��
+Zf��?���}H����9�Kɰ�
+����l�B��stݹlfDt������-L��|x:�MU
+tI����u�1������"d�H
 ```
+]
 
 ---
 
@@ -678,7 +758,7 @@ layout: false
 
 .left-column[
 - That's because the FASTQ file, as with almost all FASTQs, is compressed 
-  - as indicated by the .gz
+  - as indicated by the `.gz`
 ]
 
 ---
@@ -723,6 +803,178 @@ class: center,middle
 # Asking the computer for help (it loves helping people)
 
 A.K.A. when your tutor thinks of a very (un)funny metaphor to explain something!
+
+---
+
+## Yeah, but what EXACTLY is compression?
+
+.left-column[
+- Compression is a way of saving hard-disk space
+  - finds common patterns and replace with a smaller (repeated)-value
+  - later translated back (decompression)
+]
+
+-
+
+.right-column[
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/via-exhaust-intake-1rb6ylm4QCUaA
+" src="https://media.giphy.com/media/1rb6ylm4QCUaA/giphy.gif" width="50%">
+<p>
+]
+
+--
+
+.left-column[
+For example - take a time machine back to 2001, when having one of 
+these things...
+]
+
+--
+
+.right-column[
+<p align="center">
+  <img title="Source: https://everymac.com/systems/apple/ipod/specs/ipod.html" src="https://everymac.com/images/cpu_pictures/apple_ipod.jpg" width="40%">
+</p>
+]
+
+--
+
+.left-column[
+made you instantly popular and better geared than James Bond _\[tech-savvy 
+Pierce Brosnan, not the trigger-happy Daniel Craig]_
+]
+
+---
+
+# Muzak!
+
+.left-column[
+This iPod had a space of 5GB
+ - Average uncompressed album: 640MB
+ - Fits: 7.8125 Albums  
+ - 20 songs per album \[_because Thiseas just listens to Disney soundtracks..._\]
+ - Only 160 songs in total
+]
+
+.right-column[
+<p align="center">
+  <img title="Source: https://everymac.com/systems/apple/ipod/specs/ipod.html" src="https://everymac.com/images/cpu_pictures/apple_ipod.jpg" width="60%">
+</p>
+]
+
+--
+
+_But I had 800 songs, and still had space_ - we hear you call?
+- Because of compression!
+- MP3 is a another type of compression specifically for music files
+
+---
+
+# Ok cool, but back to computers...
+
+How to find out how much space our FASTQ has? 
+  - Let's ask the computer to help us find a way! 
+
+First - how to find out what a program does? Ask `whatis`!
+
+```bash
+whatis man
+```
+
+--
+
+```
+man (1)              - an interface to the on-line reference manuals
+```
+
+.left-column-33[
+
+<br/>
+<br/>
+Wait... what is this? MANUALS!? OMG!?
+
+
+]
+
+.right-column-66[
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/baby-story-reading-8dYmJ6Buo3lYY" src="https://media.giphy.com/media/8dYmJ6Buo3lYY/giphy.gif" width="50%">
+</p>
+]
+
+---
+
+
+
+Now we can read what zcat does!
+
+```bash
+man zcat
+
+```
+
+--
+
+```
+GZIP(1)                     General Commands Manual                    GZIP(1)
+
+NAME
+       gzip, gunzip, zcat - compress or expand files
+
+SYNOPSIS
+       gzip [ -acdfhklLnNrtvV19 ] [--rsyncable] [-S suffix] [ name ...  ]
+       gunzip [ -acfhklLnNrtvV ] [-S suffix] [ name ...  ]
+       zcat [ -fhLV ] [ name ...  ]
+
+DESCRIPTION
+       Gzip  reduces  the  size  of  the  named  files using Lempel-Ziv coding
+       (LZ77).  Whenever possible, each file  is  replaced  by  one  with  the
+       extension .gz, while keeping the same ownership modes, access and modi‐
+       fication times.  (The default extension is -gz for VMS,  z  for  MSDOS,
+       OS/2  FAT, Windows NT FAT and Atari.)  If no files are specified, or if
+       a file name is "-", the standard input is compressed  to  the  standard
+       output.  Gzip will only attempt to compress regular files.  In particu‐
+       lar, it will ignore symbolic links.
+
+```
+
+- To navigate:
+  - Scroll up and down with arrow keys
+  - Quit press `q` on your keyboard
+
+Scroll until you see `OPTIONS` - what does `--list` do?
+
+---
+
+# Oooooooh
+
+The option `-l` lists 
+  - the size of a file in both compressed and uncompressed form
+  -as well as the compression ratio (how effective the 
+compression was). 
+
+--
+
+**Most programmes you will use DO have a `man` page, making this command 
+extremely useful.**.
+
+--
+
+ Now that we learned about the `-l` option of `gzip`
+
+```bash
+gzip -l ERR2020601.fastq.gz
+
+```
+--
+```
+         compressed        uncompressed  ratio uncompressed_name
+             217232              864983  74.9% ERR2020601.fastq
+```
+
+A compression factor of `74.9%` is pretty good. It means our compressed FASTQ file is 
+25.1% the size of the uncompressed file would.
 
 ---
 
@@ -908,11 +1160,9 @@ Why does this matter?
 class: center,middle
 # The Lord of the Pipes: One command to do them all.
 
---
-
 ### Word Count 
 
-_no, not in your manuscript, don't panic!_
+_\[no, not in your manuscript, don't panic!\]_
 
 ---
 
@@ -1188,7 +1438,7 @@ Lets remove that file, and start again.
 
 ---
 
-## Delete...
+# Delete...
 
 .left-column[
 So far, we learnt `rmdir` to remove a directory. 
@@ -1530,11 +1780,24 @@ $ for fastq in ERR2020609.fastq.gz ERR2020611.fastq.gz ERR2020567.fastq.gz ERR20
 $ ls -l FastQ.Portals/
 
 ```
-# PUT OUTPUT HERE
+
+--
+
+```
+total 0
+lrwxrwxrwx 1 fellows jamesfellowsyates 47 Nov 16 16:25 ERR2020565.fastq.gz -> /home/fellows/BareBonesBash/ERR2020565.fastq.gz
+lrwxrwxrwx 1 fellows jamesfellowsyates 47 Nov 16 16:25 ERR2020567.fastq.gz -> /home/fellows/BareBonesBash/ERR2020567.fastq.gz
+lrwxrwxrwx 1 fellows jamesfellowsyates 47 Nov 16 16:25 ERR2020609.fastq.gz -> /home/fellows/BareBonesBash/ERR2020609.fastq.gz
+lrwxrwxrwx 1 fellows jamesfellowsyates 47 Nov 16 16:25 ERR2020611.fastq.gz -> /home/fellows/BareBonesBash/ERR2020611.fastq.gz
+lrwxrwxrwx 1 fellows jamesfellowsyates 47 Nov 16 16:25 ERR2020613.fastq.gz -> /home/fellows/BareBonesBash/ERR2020613.fastq.gz
+lrwxrwxrwx 1 fellows jamesfellowsyates 47 Nov 16 16:25 ERR2020617.fastq.gz -> /home/fellows/BareBonesBash/ERR2020617.fastq.gz
+lrwxrwxrwx 1 fellows jamesfellowsyates 47 Nov 16 16:25 ERR2020618.fastq.gz -> /home/fellows/BareBonesBash/ERR2020618.fastq.gz
+
+```
 
 ---
 
-## Ugh can't be bothered to write...gip!
+## Hold up...!
 
 We're meant to be lazy! Not writing the name of each FASTQ file!
 
