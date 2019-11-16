@@ -175,6 +175,7 @@ How did we learn to do everything you're about to learn?
 # Aims of this course
 
 - Aim:
+
   - To get you comfortable enough with the terminal to try it out
 
 --
@@ -333,19 +334,23 @@ in Bash ALWAYS MIND THE $. Only copy after the $ so you dont paste the command p
 
 # Navigating the maze
 
-As we mentioned, _~_ is your _home directory_. But where _is_ your home?
-
+`pwd` stands for "__p__rint __w__rite __d__irectory" 
 ```bash
 $ pwd
 ```
+???
+As we mentioned, _~_ is your _home directory_. But where _is_ your home?
 --
-This prints the entire "filepath" of the directory i.e. the route from the "root" 
-(a specific directory on the machine), through every subdirectory, leading to your 
-particular folder. 
 
 ```
 /home/thiseas
 ```
+???
+This prints the entire "filepath" of the directory i.e. the route from the "root" 
+(a specific directory on the machine), through every subdirectory, leading to your 
+particular folder. 
+
+Each user has their own home directory!
 
 ---
 
@@ -395,9 +400,14 @@ These directions are true no matter where in town you happen to be.
 --
 
 .left-column-66[
-__Absolute__ paths always start with `/`. Paths starting with `~` are also absolute paths, since `~` translates to the absolute path of your specific home directory. That is the directory path you see in the output of the `pwd` command you just ran.
-]
 
+__Example of an absolute path:__
+```
+/home/thiseas
+```
+]
+???
+__Absolute__ paths always start with `/`. Paths starting with `~` are also absolute paths, since `~` translates to the absolute path of your specific home directory. That is the directory path you see in the output of the `pwd` command you just ran.
 
 
 ---
@@ -431,43 +441,54 @@ These directions are easier to follow, but only work if you begin AT MARKTPLATZ.
 --
 
 .left-column-66[
+__Example of a relative path:__
+```
+../Documents/Memes/Pepe.png
+```
+]
+???
 __Relative__ paths are always relative to your working directory (i.e.
   your current directory). Often this type of path will begin with one (`./`) 
   or two (`../`) dots followed by a forward slash. 
-  
-> In the syntax of relative paths `.` means "the current directory" and `..` means "the parent directory" (or the 'one above'). 
-]
 
+In the syntax of relative paths `.` means "the current directory" and `..` means "the parent directory" (or the 'one above'). 
 
 ---
 
 # The contents of a directory
 
-Now let's look around at our current location and see what we can find within 
-our home directory. We can use the command `ls`, shorthand for "list", which 
-will (surprise surprise) list the directory contents.
+`ls` is shorthand for "list". 
 
 ```bash
 $ ls
 
 ```
---
+???
+Now let's look around at our current location and see what we can find within 
+our home directory.
+
+`ls` is shorthand for "list". It will (surprise surprise) list the contents of the current directory.
+
 This will produce no output, since your current directory is empty. Let's change that!
 --
-<br>
-You can make a new empty directory using the command `mkdir`, shorthand for 
-"**m**a**k**e **dir**ectory".
+<br><br>
+`mkdir` is shorthand for "**m**a**k**e **dir**ectory".
 
 ```bash
 $ mkdir ~/BareBonesBosh
 $ ls ~
 ```
+???
+You can make a new empty directory using the command `mkdir`, shorthand for 
+"**m**a**k**e **dir**ectory".
 
 --
 ```
 BareBonesBosh
 ```
 Now that your home directory is not empty, `ls` has output!
+???
+Also notice that if we provide a path to `ls`, it will list the contents of the given directory.
 
 ---
 
@@ -476,22 +497,24 @@ Now that your home directory is not empty, `ls` has output!
 It is important to keep your corner of the computer well organised, and the 
 trick to doing that is making your own directories. Often _a lot_ of them. 
 --
-<br><br>
-__But what's this!?! There was a typo in the name of the directory you made!__
 <p align="center"><img title="Source: https://giphy.com/gifs/table-flip-ieGdB2g5kDIkg" src="https://media.giphy.com/media/ieGdB2g5kDIkg/giphy.gif" width="25%"> <img title="Source: https://tenor.com/view/it-crowd-moss-computer-throw-gif-5404468" src="https://media.tenor.co/images/d82c7edc4b04227b4c973f24b904695f/raw" width="32%"></p>
+???
+__But what's this!?! There was a typo in the name of the directory you made!__
 
 --
 But don't lose hope, as we can rename things with the `mv` command, 
 shorthand for "**m**o**v**e". 
 
+```bash
+$ mv ~/BareBonesBosh BearBonesBash
+
+```
+???
 In fact move, as the name suggests, will move a file/folder into a new location, 
 also renaming it in the process if necessary. It works by typing `mv`, the old 
 location and a target location.
 
-```bash
-$ mv ~/BareBonesBosh ~/BearBonesBash
-
-```
+__Can you tell me what type of path each argument to the command used is?__
 
 ---
 
@@ -502,80 +525,75 @@ $ ls
 ```
 BearBonesBash
 ```
-This is not a bash tutorial for ancient __bear__ genomics!
+
 <p align="center">
   <img title="Source: https://giphy.com/gifs/bear-forest-water-IQ9KefLJHfJPq" src="https://media.giphy.com/media/IQ9KefLJHfJPq/giphy.gif" width="20%">
 </p>
-
-Let's just delete that empty directory and start over, using the `rmdir` 
-command, short for "**r**e**m**ove **dir**ectory".
+???
+This is not a bash tutorial for ancient __bear__ genomics! Let's just delete that empty directory and start over.
+--
+`rmdir` is short for "**r**e**m**ove **dir**ectory"
+???
+__rmdir only works on EMPTY directories!__
+--
 
 ```bash
 $ rmdir ~/BearBonesBash
+$ ls
 ```
+???
+Now your home directory is empty again.
 
 ---
 
 # From the beginning...
 
-And now we can create our directory, properly named this time.
+<p align="center">
+  <img title="Source: https://66.media.tumblr.com/f36d6c252af07ce3202ef9d73413e9c6/tumblr_mqm45nq9e01sqsny9o1_400.gif" src="https://66.media.tumblr.com/f36d6c252af07ce3202ef9d73413e9c6/tumblr_mqm45nq9e01sqsny9o1_400.gif" width="70%">
+</p>
 
 ```bash
 $ mkdir ~/BareBonesBash
 $ ls
 ```
+???
+And now we can create our directory, properly named this time.
+
+--
 ```
 BareBonesBash
 ```
-
 Much better!
-
-.left-column[
-<p align="center">
-  <img title="Source: https://giphy.com/gifs/tiktok-bear-tsX3YMWYzDPjAARfeg" src="https://media.giphy.com/media/tsX3YMWYzDPjAARfeg/giphy.gif" width="50%">
-</p>
-]
-
-.right-column[
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-<br/>
-_\[Tags included: #happy #dancing #bear #sexy (WTF!?!?)_\]
-]
-
-
-
 
 ---
 
 # Navigating the file system
-Now that we have our directory, we should move into it. To do this, we will need to use `cd`, short for __c__hange __d__irectory.
+`cd` is short for __c__hange __d__irectory.
 
 ```bash
 $ cd BareBonesBash
 ```
+???
+Now that we have our directory, we should move into it. 
 --
-You can see that your current directory has changed on your command prompt! (or you can use `pwd`). <br>
+???
+You can see that your current directory has changed on your command prompt! (or you can use `pwd`).
 --
-To move to the parent directory of your current location, you can use:
+To move to the parent directory of your current location:
 ```bash
-cd ..
+$ cd ..
 ```
 --
+
+```bash
+$ cd ~/BareBonesBash
+```
+???
 You can also use an abosolute path to move to a directory:
-```bash
-cd ~/BareBonesBash
-```
 --
 > **BONUS TIP TIME!** When 
 using `cd` you can use a dash (`-`) to indicate 'my previous location'. This is 
-useful since you can traverse _[ha! I have my own fancy words now! - James]_ 
-multiple directories with one `cd` command.
+useful since you can traverse multiple directories with one `cd` command.
 
 ---
 
@@ -583,20 +601,32 @@ multiple directories with one `cd` command.
 
 Try running the following code:
 ```bash
-## Remember in "A land before time" when the dinosaur's mother died?
+$ ## Remember in "A land before time" when the dinosaur's mother died?
 ```
---
+???
 While reading that command, you 
 might have been reminded of one of the most emotionally devastating moments of 
-any person's life. <p align="center"><img title="Source: https://www.buzzfeed.com/bradesposito/sad-before-time?utm_term=.cjY4banJZ#.ixJ815NjJ" src="https://img.buzzfeed.com/buzzfeed-static/static/2015-04/29/21/enhanced/webdr15/anigif_enhanced-31175-1430357953-19.gif" width="35%"></p>
+any young person's life.
 --
-<br>However, the computer would show no signs of emotional 
-struggle whatsoever, because it __ignores 
-anything that comes after a _comment character_, which in bash is a hash (`#`).__
+ <p align="center"><img title="Source: https://www.buzzfeed.com/bradesposito/sad-before-time?utm_term=.cjY4banJZ#.ixJ815NjJ" src="https://img.buzzfeed.com/buzzfeed-static/static/2015-04/29/21/enhanced/webdr15/anigif_enhanced-31175-1430357953-19.gif" width="35%"></p>
 ???
-You can use comments to explain what a certain bit of code 
-does, without affecting how that code runs. This can also be a useful lifehack 
-in certain situations, an example of which will be given later.
+However, the computer would show no signs of emotional 
+struggle whatsoever, because it __ignores anything that comes after a _comment character_, which in bash is a hash (`#`).__
+
+--
+
+## `#` is the comment character
+???
+If you are writing scripts for others to use, you should use comments to explain what a certain bit of code does. 
+This is also a great way to ignore selected parts of code. 
+
+Often this also works with input files, as you will see later.
+
+---
+
+class: center,middle
+### To rehash:
+##In bash, a hash (#) will stash your code in a flash!
 
 ---
 
@@ -648,6 +678,8 @@ $ wget ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
 $ ls
 
 ```
+???
+Notice how I have used comments to explain what the different sections of the code do!
 
 ---
 
@@ -688,6 +720,9 @@ Lets see if it went to were we told it to go...
 ```bash
 $ cd ~/BareBonesBash
 $ ls 
+```
+```
+ERR2020601.fastq.gz
 ```
 
 Good, the file arrived in `~/BareBonesBash/` safely!  But what is in it?
@@ -879,7 +914,7 @@ How to find out how much space our FASTQ has?
 First - how to find out what a program does? Ask `whatis`!
 
 ```bash
-whatis man
+$ whatis man
 ```
 
 --
@@ -910,7 +945,7 @@ Wait... what is this? MANUALS!? OMG!?
 Now we can read what zcat does!
 
 ```bash
-man zcat
+$ man zcat
 
 ```
 
@@ -964,7 +999,7 @@ extremely useful.**.
  Now that we learned about the `-l` option of `gzip`
 
 ```bash
-gzip -l ERR2020601.fastq.gz
+$ gzip -l ERR2020601.fastq.gz
 
 ```
 --
@@ -1105,6 +1140,7 @@ $ zcat ERR2020601.fastq.gz | less
 ```
 
 To quit the viwer: press "q" on your keyboard.
+
 ---
 
 
@@ -1316,8 +1352,81 @@ class: center,middle
 # Now you're thinking with portals! Symlinks and their usefulness 
 
 ---
+class: centre
+##Symlinks stands for symbolic links.
+<div class="vertical-center">
+  <img title="Source: https://media.giphy.com/media/qXexawbjsqK88/giphy.gif" src="https://media.giphy.com/media/qXexawbjsqK88/giphy.gif" width="150%">
+</div>
+???
+You have probably seen these countless of times before! They are what windows calls "shortcuts", so your windows Desktop is probably full of em.
 
-THISEAS Do me! (The slide I mean...)
+---
+
+####Symlinks can be portals to faraway places!
+<p align="center"><img title="Source: https://ritorical.deviantart.com/art/Poor-messing-with-a-portal-gun-GIF-501341055" src="https://orig00.deviantart.net/784b/f/2014/354/a/3/poor_messing_with_a_portal_gun__gif__by_ritorical-d8ahh8f.gif" width="25%">
+<img title="Source: https://i.gifer.com/Me7i.gif" src="https://i.gifer.com/Me7i.gif" width="50%"></p>
+
+???
+Making a symlink to a distant folder can make it easy to travel there with cd!
+--
+
+#### Or multiple names for the same file or folder!
+<p align="center">
+  <img title="Source: https://media.giphy.com/media/z9qrawQhOARdC/giphy.gif" src="https://media.giphy.com/media/z9qrawQhOARdC/giphy.gif" width="65%">
+</p>
+
+???
+They are a great way to have a file or folder in two places at once without copying it over. 
+
+---
+# Making symlinks
+First create a new directory:
+```bash
+$ mkdir ~/BareBonesBash/FastQ.Portals
+$ cd ~/BareBonesBash/FastQ.Portals
+
+```
+--
+
+`ln` is short for "__l__i__n__k" <br>
+`-s` option for a __s__ymbolic link (i.e. a shortcut).
+
+```bash
+$ ln -s ~/BareBonesBash/ERR2020601.fastq.gz .
+$ ls
+```
+```
+ERR2020601.fastq.gz
+```
+???
+Make sure you include the `.` in the `ln `command! 
+
+---
+
+# How do I know that is a symlink and not a file?
+
+Option `-l` for `ls`. Gives "__l__ong" information.
+
+```bash
+$ ls -l
+``` 
+```
+lrwxrwxrwx 1 thiseas teaching 19 Nov 16 19:52 ERR2020601.fastq.gz ->
+~/BareBonesBash/ERR2020601.fastq.gz
+```
+???
+This tells us that the symmlink ERR2020601.fastq.gz POINTS to ~/BareBonesBash/ERR2020601.fastq.gz
+--
+<br>
+
+--------
+You can use the symlink just like the orginal file!
+```bash
+$ zcat ERR2020601.fastq.gz | head -n 20 | tail -n 4
+
+```
+???
+The command looks the same since we kept the file name, but it uses the symlink in the ~/BareBonesBash/FastQ.Portals directory, instead of the orginal file.
 
 ---
 
@@ -1421,7 +1530,7 @@ the directory and doing `ls`.
 
 ```bash
 $ cd ~/BareBonesBash/
-ls
+$ ls
 
 ```
 --
@@ -1474,6 +1583,9 @@ Now we've fixed our typo
 4. \[_back down the rabbit hole_\] paste the text into `nano`
 
 > Note the `#`, this means the line is **commented out** as we've already downloaded this file!
+
+???
+This is an example of a programme that understands # as a comment in its input!
 
 --
 
@@ -1539,8 +1651,8 @@ As before:
   - give a file to `wget` with URLs with the flag `-i`, for "**i**nput". 
 
 ```bash
-cd ~/BareBonesBash
-wget -i ~/BareBonesBash/Ftp.Links.txt
+$ cd ~/BareBonesBash
+$ wget -i ~/BareBonesBash/Ftp.Links.txt
 
 ```
 
@@ -1589,7 +1701,7 @@ $ echo HOME
 ```
 
 ```
-home
+HOME
 ```
 ]
 
@@ -1806,7 +1918,7 @@ We're meant to be lazy! Not writing the name of each FASTQ file!
 Instead we can use **wildcards** 
  - "refers to a character that can be substituted for zero or more characters in a string". 
  - In bash, the wildcard character is the asterisk (`*`) 
-_\[Not to be confused with Asterix, James. AGAIN, REALLY!?)]_. 
+_\[Not to be confused with Asterix, James!)]_. 
 
 <p align="center">
   <img title="Source: https://www.garethjmsaunders.co.uk/2008/01/29/asterix-and-asterisk/" src="https://www.garethjmsaunders.co.uk/wp-content/uploads/2008/01/asterix_or_asterisk.gif" width="30%"><br /><i> [Take note James...] </i>
