@@ -4,41 +4,58 @@
     <title>Basic Bare Bones Bash</title>
     <meta charset="utf-8">
     <style>
-      @import url(https://fonts.googleapis.com/css?family=Maven+Pro:400,700,400italic);
-      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
       @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
-      @import url(https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700);
       @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700);
+      @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:300,300i,400,400i,700);
+      @import url(https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700);
+
 
       /* font/size formatting */
       body { 
-        font-family: 'Roboto', sans-serif;
+        font-family: 'Raleway', sans-serif;
         font-weight: 300;
         color: #000000;
       }
       
-      h1, h2, h3 {
-        font-family: 'Libre Baskerville', sans-serif;
+      h1 {
+        font-family: 'Roboto Slab', sans-serif;
+        color: #7570b3;
+        font-weight: 400;
+        font-size: 10px;
+      }
+
+      h2 {
+        font-family: 'Roboto Slab', sans-serif;
+        font-weight: 400;
+        font-size: 12px;
+        color: #7570b3;
       }
 
       h3 {
-        color: #999999;
-        font-size: 20px;
-      }
-        .cols {
-        display: flex;
+        font-family: 'Raleway', sans-serif;
+        color: #7570b3;
       }
 
+      /* improve font size modifications - https://github.com/yihui/xaringan/wiki/Font-Size */
+
+      .huge { font-size: 160% }
+      .large { font-size: 130% }
+      .small { font-size: 70% }
+      .tiny{font-size: 40%}
+
+      /* https://github.com/gnab/remark/issues/305#issuecomment-403309989 */
       blockquote {
         border-left: 0.3em solid #ccc;
         padding: 0 15px;
         font-style: italic;
         color: #ccc;
         quotes: "\201C""\201D""\2018""\2019";
-        font-size: 14px;
+        font-size: 16px;
       }
 
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; color: grey}
+      .remark-code, .remark-inline-code { 
+        font-family: 'Ubuntu Mono'; color: grey;
+      }
       
       /* Two-column layouts */
       .left-column  { width: 49%; float: left; }
@@ -90,25 +107,64 @@
 
       .remark-slide-number .progress-bar {
         height: 100%;
-        background-color: red;
+        background-color: #6a3d9a;
       }
+
+    /* Header and Footer from 
+    https://github.com/gnab/remark/issues/501#issuecomment-392961900/ 
+    */
+
+    div.my-header {
+      background-color: #7570b3;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      height: 10px;
+      width: 100%;
+      text-align: left;
+    }
+
+    div.my-footer img {
+      height: 75px;
+      width: 75px;
+      bottom: 5px;
+      right: 5px;
+      position: fixed;
+    }
+
+  /* Comment  */
+  .remark-slide-content { 
+    font-size: 20px; 
+
+  }
+
 
     </style>
   </head>
   <body>
     <textarea id="source" bar>
 
+layout: true
+<div class="my-header"></div>
+   <div class="my-footer"><img src=".images/BareBonesBash_Icon.png" /></div>
+
+
+---
+
 class: center, middle
 
-## **Basic** Bespoke 
-# BARE BONES BASH 
-## Brought By Bearded Bioinformaticians
+# .tiny[_Basic_ Bespoke]
+# .large[**Bare Bones Bash**]
+## .tiny[Brought By Bearded Bioinformaticians]
 
-### Thiseas C. Lamnidis and James A. Fellows Yates
+Thiseas C. Lamnidis
+
+James A. Fellows Yates
 
 ---
 
 # Who are we?
+
 .left-column-66[
 ### ~~Bowser~~ James
 
@@ -128,6 +184,7 @@ class: center, middle
   <img src=".images/James_JamessDaughter_Thiseas_In_Japan.jpg" width="80%">
 </div>
 ]
+
 
 ---
 
@@ -369,7 +426,7 @@ You look around and see a stranger sitting under __the statue of Kurfürst Johan
 # Absolute paths
 
 .left-column-66[
-The location of a file or folder, __from the “root” directory__ (/).
+The location of a file or folder, __from the “root” directory__ (`/`).
 
 ]
 
@@ -771,8 +828,6 @@ tI����u�1������"d�H
 
 ---
 
-layout: false
-
 # Oh...
 
 .left-column[
@@ -849,7 +904,7 @@ A.K.A. when your tutor thinks of a very (un)funny metaphor to explain something!
   - later translated back (decompression)
 ]
 
--
+--
 
 .right-column[
 <p align="center">
@@ -860,10 +915,8 @@ A.K.A. when your tutor thinks of a very (un)funny metaphor to explain something!
 
 --
 
-.left-column[
 For example - take a time machine back to 2001, when having one of 
 these things...
-]
 
 --
 
@@ -873,10 +926,8 @@ these things...
 </p>
 ]
 
---
-
 .left-column[
-made you instantly popular and better geared than James Bond _\[tech-savvy 
+...made you instantly popular and better geared than James Bond _\[tech-savvy 
 Pierce Brosnan, not the trigger-happy Daniel Craig]_
 ]
 
@@ -996,7 +1047,7 @@ extremely useful.**.
 
 --
 
- Now that we learned about the `-l` option of `gzip`
+Lets try it!
 
 ```bash
 $ gzip -l ERR2020601.fastq.gz
@@ -1007,9 +1058,9 @@ $ gzip -l ERR2020601.fastq.gz
          compressed        uncompressed  ratio uncompressed_name
              217232              864983  74.9% ERR2020601.fastq
 ```
+<br/>
 
-A compression factor of `74.9%` is pretty good. It means our compressed FASTQ file is 
-25.1% the size of the uncompressed file would.
+Not bad! Our file 25.1% the size of the uncompressed file would.
 
 ---
 
@@ -1043,12 +1094,15 @@ concept of the `|` (a.k.a the "pipe")
 # Pass the parcel
 
 - A pipe passes the output of one command and gives it as input to the next. 
+
+--
+
 - It allows us to string multiple commands together, one after the other, 
   - which means you can do more complicated (and beautiful) things to your files "on the fly". 
 
 --
 
-Lets try this out with new new commands
+Lets try this out with new commands
 
 .left-column[
 - `head` 
@@ -2095,7 +2149,14 @@ $ rm -r ~/BareBonesBash
   - for suggestions/ideas 
   - protecting James' daughter from dying of future embarrassement.
 
---
+- [Google](https://google.com)
+  - Pretty much teaching all of this
+- [giphy](https://giphy.com/)
+  - For procrastination
+- [fontawesome.com](https://fontawesome.com/) 
+  - for icons for making the logo
+
+---
 
 ## Next time
 
@@ -2103,6 +2164,8 @@ $ rm -r ~/BareBonesBash
 <p align="center">
   <img title="Source: https://giphy.com/gifs/kimmyschmidt-unbreakable-kimmy-schmidt-3o72FiJGth3gp4jhUA" src="https://media.giphy.com/media/3o72FiJGth3gp4jhUA/giphy.gif" width="70%">
 </p>
+
+--
 
 <p align="center" >
   <i>[HAHAHAHA! jk.]</i>
@@ -2126,6 +2189,7 @@ $ rm -r ~/BareBonesBash
     </script>
     <script>
       var slideshow = remark.create({
+      /*ratio: "16:9", from: https://github.com/gnab/remark/issues/86#issuecomment-36157045*/
       slideNumberFormat: (current, total) => `
         <div class="progress-bar-container">
           <div class="progress-bar" style="width: ${current/total*100}%">
