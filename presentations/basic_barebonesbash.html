@@ -193,7 +193,8 @@ James A. Fellows Yates
 </div>
 ]
 
-
+???
+BOTH
 ---
 
 class: center, middle
@@ -214,7 +215,8 @@ class: center, middle
 </div>
 ]
 
-
+???
+BOTH
 ---
 
 # How did we get here?
@@ -223,6 +225,8 @@ How did we learn to do everything you're about to learn?
 
 - Being lazy
 
+???
+JAMES
 --
 
 - Google
@@ -278,19 +282,22 @@ class: center, middle
 
 # Five Commandments of Bare Bones Bash
 
+???
+THISEAS
 ---
 
 class: middle
-
 
 .left-column[
 # Rule Nr. 1
 ## Be lazy!
 ]
+
 .right-column[
 Desire for shortcuts motivates you explore more!
 ]
-??? 
+
+???
 It's better to spend 1day working on a script that will save you 5min per day for the rest of your PhD, than putting in those 5 minutes!
 
 TAB will be you favourite key by the time we are done here.
@@ -575,7 +582,7 @@ In the syntax of relative paths `.` means "the current directory" and `..` means
 
 # The contents of a directory
 
-`ls` is shorthand for "list". 
+`ls` is shorthand for **l**i**s**t. 
 
 ```bash
 $ ls
@@ -612,12 +619,15 @@ Also notice that if we provide a path to `ls`, it will list the contents of the 
 
 # Directory Management
 
+__But what's this!?! There was a typo in the name of the directory you made!__
+
+
+<p align="center"><img title="Source: https://giphy.com/gifs/table-flip-ieGdB2g5kDIkg" src="https://media.giphy.com/media/ieGdB2g5kDIkg/giphy.gif" width="25%"> <img title="Source: https://tenor.com/view/it-crowd-moss-computer-throw-gif-5404468" src="https://media.tenor.co/images/d82c7edc4b04227b4c973f24b904695f/raw" width="32%"></p>
+
+--
+
 It is important to keep your corner of the computer well organised, and the 
 trick to doing that is making your own directories. Often _a lot_ of them. 
---
-<p align="center"><img title="Source: https://giphy.com/gifs/table-flip-ieGdB2g5kDIkg" src="https://media.giphy.com/media/ieGdB2g5kDIkg/giphy.gif" width="25%"> <img title="Source: https://tenor.com/view/it-crowd-moss-computer-throw-gif-5404468" src="https://media.tenor.co/images/d82c7edc4b04227b4c973f24b904695f/raw" width="32%"></p>
-???
-__But what's this!?! There was a typo in the name of the directory you made!__
 
 --
 But don't lose hope, as we can rename things with the `mv` command, 
@@ -686,12 +696,14 @@ Much better!
 ---
 
 # Navigating the file system
-`cd` is short for __c__hange __d__irectory.
+`cd` is short for "__c__hange __d__irectory".
 
 ```bash
 $ cd BareBonesBash
 ```
 ???
+JAMES
+
 Now that we have our directory, we should move into it. 
 --
 ???
@@ -722,6 +734,8 @@ Try running the following code:
 $ ## Remember in "A land before time" when the dinosaur's mother died?
 ```
 ???
+THISEAS
+
 While reading that command, you 
 might have been reminded of one of the most emotionally devastating moments of 
 any young person's life.
@@ -731,6 +745,7 @@ any young person's life.
 However, the computer would show no signs of emotional 
 struggle whatsoever, because it __ignores anything that comes after a _comment character_, which in bash is a hash (`#`).__
 
+???
 --
 
 ## `#` is the comment character
@@ -772,6 +787,9 @@ class: center,middle
   <img title="Source: https://giphy.com/gifs/3o6Zte5Q11lxAu8Q5q" src="https://media.giphy.com/media/3o6Zte5Q11lxAu8Q5q/giphy.gif" width = "65%">
 </p>
 ] 
+
+???
+JAMES
 
 ---
 
@@ -833,6 +851,12 @@ You should now see that the fastq file is no longer in your home folder.
 
 Lets see if it went to were we told it to go...
 
+???
+
+We use `cd` to check into directory - 
+
+But How do we check what is in a directory?
+
 --
 
 ```bash
@@ -853,9 +877,10 @@ Good, the file arrived in `~/BareBonesBash/` safely!  But what is in it?
 # Meow 
 
 .left-column[
-In bash, you can normally use 
-`cat` with text files, short for con**cat**enate, which is used to print the 
-contents of a file to the screen. Lets try this with our newly downloaded file.
+  - `cat` is short for "con**cat**enate".
+
+  - Used to print the 
+contents of a file to the screen.
 ]
 
 .right-column[
@@ -863,6 +888,10 @@ contents of a file to the screen. Lets try this with our newly downloaded file.
 <img title="Source: https://giphy.com/gifs/meow-descriptive-noise-x4YHSKRpYQhLq" src="https://media.giphy.com/media/x4YHSKRpYQhLq/giphy.gif" width = "90%"> 
 </p>
 ]
+
+???
+
+Lets try this with our newly downloaded file.
 
 --
 
@@ -911,7 +940,7 @@ tI����u�1������"d�H
 --
 
 .left-column[
-- That's because the FASTQ file, as with almost all FASTQs, is compressed 
+- That's because the FASTQ file, as with almost all FASTQs, is _compressed_ 
   - as indicated by the `.gz`
 ]
 
@@ -961,6 +990,9 @@ That looks much better, we can now actually see some DNA sequences!
   - later translated back (decompression)
 ]
 
+???
+THISEAS
+
 --
 
 .right-column[
@@ -992,7 +1024,7 @@ Pierce Brosnan, not the trigger-happy Daniel Craig]_
 
 # Muzak!
 
-.left-column[
+.left-column-66[
 This iPod had a space of 5GB
  - Average uncompressed album: 640MB
  - Fits: 7.8125 Albums  
@@ -1000,7 +1032,7 @@ This iPod had a space of 5GB
  - Only 160 songs in total
 ]
 
-.right-column[
+.right-column-33[
 <p align="center">
   <img title="Source: https://everymac.com/systems/apple/ipod/specs/ipod.html" src="https://everymac.com/images/cpu_pictures/apple_ipod.jpg" width="60%">
 </p>
@@ -1052,8 +1084,6 @@ Wait... what is this? MANUALS!? OMG!?
 ]
 
 ---
-
-
 
 Now we can read what zcat does!
 
@@ -1138,6 +1168,9 @@ class: center,middle
 # Ceci n'est pas une pipe
 
 After that tangent, let's get back to our regularly scheduled program(ming)!
+
+???
+JAMES
 
 --
 
@@ -1471,6 +1504,9 @@ class: center,middle
 # Now you're thinking with portals! 
 ### Symlinks and their usefulness 
 
+???
+THISEAS 
+
 ---
 class: centre
 ## Symlinks stands for symbolic links.
@@ -1557,6 +1593,8 @@ class: center,middle
 
 ### Text Editing in the Terminal
 
+???
+JAMES
 ---
 
 # One sample ain't enough
@@ -1783,6 +1821,8 @@ class: center,middle
 
 ### What is a variable anyway?
 
+???
+THISEAS
 ---
 
 # Tangent Nr. 2
@@ -2143,6 +2183,8 @@ class: center,middle
 
 # The road so far
 
+???
+JAMES
 ---
 
 # Woohoo!
@@ -2170,7 +2212,8 @@ You should now feel more comfortable:
   <img title="Source: https://tenor.com/view/hitchhikers-guide-to-the-galaxy-leigh574-question-understand-wisdom-gif-12472040.gif" src="https://tenor.com/view/hitchhikers-guide-to-the-galaxy-leigh574-question-understand-wisdom-gif-12472040.gif" width="100%">
 </p>
 
-
+???
+THISEAS
 ---
 
 # Knowing the question
@@ -2239,6 +2282,9 @@ class: center,middle
 
 # The Cleanup Crew
 
+???
+JAMES
+
 ---
 
 # Enter the janitor!
@@ -2273,8 +2319,6 @@ $ rm -r ~/BareBonesBash
 
 ---
 
-
-
 # Thanks to...
 
 - Stephan Schiffels 
@@ -2290,6 +2334,8 @@ $ rm -r ~/BareBonesBash
 - [fontawesome.com](https://fontawesome.com/) 
   - for icons for making the logo
 
+???
+THISEAS
 ---
 
 # Next time
@@ -2335,6 +2381,8 @@ describing **why** you did each step. This should include the search terms you u
 
 Email this documentation file to us before December 19th with a file `<SURNAME>_<FIRSTNAME>-BB1_<DATE>.txt`.
 
+???
+JAMES
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
