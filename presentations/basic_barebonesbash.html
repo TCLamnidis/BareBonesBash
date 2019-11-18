@@ -67,8 +67,6 @@
       .left-column-66  { width: 66%; float: left; }
       .right-column-33 { width: 33%; float: right; }
 
-      .center-column-33 { width: 33%; float: center; }
-
       .right-column ~ p { clear: both; }
       .right-column ~ ul { clear: both; }
 
@@ -288,13 +286,14 @@ THISEAS
 
 class: middle
 
-.left-column[
 # Rule Nr. 1
+
+.left-column[
 ## Be lazy!
 ]
 
 .right-column[
-Desire for shortcuts motivates you explore more!
+- Desire for shortcuts motivates you explore more!
 ]
 
 ???
@@ -306,8 +305,8 @@ TAB will be you favourite key by the time we are done here.
 
 class: middle
 
-.left-column[
 # Rule Nr. 2
+.left-column[
 ## ~~Google~~ The Hive-Mind knows everything.
 ]
 .right-column[
@@ -322,10 +321,9 @@ HOW to google programming questions is not as trivial as it sounds. In the final
 
 class: middle
 
-
+# Rule Nr. 3
 
 .left-column[
-# Rule Nr. 3
 ## Document everything you do.
 ]
 .right-column[
@@ -338,10 +336,9 @@ class: middle
 
 class: middle
 
-
+# Rule Nr. 4
 
 .left-column[
-# Rule Nr. 4
 ## There will ALWAYS be a typo!
 ]
 .right-column[
@@ -353,10 +350,9 @@ class: middle
 
 class: middle
 
-
+# Rule Nr. 5
 
 .left-column[
-# Rule Nr. 5
 ## Don't be afraid of you freedom!
 
 ]
@@ -379,7 +375,7 @@ class: center middle
 
 # Materials
 
-- A long-form walkthrough, and these slides are all freely avaliable avaliable at: 
+- A long-form walkthrough, and these slides, are all freely avaliable avaliable at: 
 [https://github.com/TCLamnidis/BareBonesBash](https://github.com/TCLamnidis/BareBonesBash)
 
 - This session is under **Basic Bare Bones Bash**
@@ -626,10 +622,12 @@ __But what's this!?! There was a typo in the name of the directory you made!__
 
 --
 
-It is important to keep your corner of the computer well organised, and the 
-trick to doing that is making your own directories. Often _a lot_ of them. 
+**Important:** keep your corner of the computer well organised!
+- The trick: make own directories. 
+- Often, _a lot_ of them. 
 
 --
+
 But don't lose hope, as we can rename things with the `mv` command, 
 shorthand for "**m**o**v**e". 
 
@@ -773,17 +771,33 @@ class: center,middle
 
 .left-column[
 
-- We have a place to organise our files... but no files :\
+We have a place to organise our files... but no files :\
 
-- We aren't playing with bears today
+We aren't playing with bears today
   > That's dangerous! 
+]
 
-  - Lets play with some Mammoths instead!
-  ]
+--
 
 .right-column[
 <p align="center">
   <img title="Source: https://giphy.com/gifs/sid-ice-age-a-mammoth-christmas-kbuQOkATEo6VW" src="https://media.giphy.com/media/kbuQOkATEo6VW/giphy.gif"> 
+</p>
+] 
+
+--
+
+.left-column[
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+.huge[**Lets play with some Mammoths instead!**]
+  ]
+
+.right-column[
+<p align="center">
   <img title="Source: https://giphy.com/gifs/3o6Zte5Q11lxAu8Q5q" src="https://media.giphy.com/media/3o6Zte5Q11lxAu8Q5q/giphy.gif" width = "65%">
 </p>
 ] 
@@ -797,7 +811,7 @@ JAMES
 
 We are going to download a FASTQ file from the ENA (European Nucleotide Archive). This should be pretty quick!
 
-> For non-squishy dead thing nerds: a FASTQ file is just a text file with DNA molecule sequences and extra metadata
+> For non-squishy-dead-thing nerds: a FASTQ file is just a text file with DNA molecule sequences and extra metadata
 
 
 <p align="center">
@@ -823,12 +837,16 @@ Notice how I have used comments to explain what the different sections of the co
 
 Use `mv` as it should be used, and move your newly downloaded file into your workshop folder.
 
+```bash
+$ mv ~/ERR2020601.fastq.gz ~/BareBonesBash
+```
+
+
 Then check to see if it moved!
 
 --
 
 ```bash
-$ mv ~/ERR2020601.fastq.gz ~/BareBonesBash
 $ ls
 ```
 
@@ -872,6 +890,17 @@ ERR2020601.fastq.gz
 
 Good, the file arrived in `~/BareBonesBash/` safely!  But what is in it?
 
+<br/>
+
+<p align = "center">
+<img title="Source: https://giphy.com/gifs/reaction-confused-will-smith-y3QOvy7xxMwKI/" src="https://media.giphy.com/media/y3QOvy7xxMwKI/giphy.gif" width = "18%"> 
+<img title="Source: https://giphy.com/gifs/reaction-a5viI92PAF89q" src="http://giphygifs.s3.amazonaws.com/media/a5viI92PAF89q/giphy.gif" width = "21%"> 
+<img title="Source: https://giphy.com/gifs/good-friday-ya-MsWnkCVSXz73i" src="https://media.giphy.com/media/MsWnkCVSXz73i/giphy.gif" width = "26%"> 
+<img title="Source: https://giphy.com/gifs/animation-reaction-disney-AvxviAq9lVCuY" src="https://media.giphy.com/media/AvxviAq9lVCuY/giphy.gif" width = "12%"> 
+
+</p>
+
+
 ---
 
 # Meow 
@@ -902,22 +931,14 @@ $ cat ERR2020601.fastq.gz
 ```
 ]
 
-.right-column[
+<br/>
+
 > **BONUS TIP TIME!** If you're anything like Thiseas, who gets triggered at slow 
 computer things, and prefer to have the computer do the work for you - try 
 typing a couple of characters then press the "TAB" key on your keyboard.
-]
+
 
 --
-
-.left-column[
-```
-��'��x��xI��-�����2��u�_SuY�9A�}W.��
-Zf��?���}H����9�Kɰ�
-����l�B��stݹlfDt������-L��|x:�MU
-tI����u�1������"d�H
-```
-]
 
 ---
 
@@ -926,6 +947,13 @@ tI����u�1������"d�H
 .left-column[
 - You probably had a bunch of junk printed to screen or nothing displayed 
   - just press enter to cancel
+
+```
+��'��x��xI��-�����2��u�_SuY�9A�}W.��
+Zf��?���}H����9�Kɰ�
+����l�B��stݹlfDt������-L��|x:�MU
+tI����u�1������"d�H
+```
   ]
 
 --
@@ -939,10 +967,12 @@ tI����u�1������"d�H
 
 --
 
-.left-column[
-- That's because the FASTQ file, as with almost all FASTQs, is _compressed_ 
+<br/>
+- That's because the FASTQ file is _compressed_ 
+  - As with almost all FASTQs 
+  - Also most large text files
   - as indicated by the `.gz`
-]
+
 
 ---
 
@@ -970,8 +1000,8 @@ TGGTCGCTGCCGCGAGCGGATTCCTGCTGA
 +
 3B=@BECGGGGGGGGGGGGGGGGGGGGGGG
 ```
-
-That looks much better, we can now actually see some DNA sequences! 
+<br/>
+Much better, now we see DNA sequences! 
 
 --
 
@@ -1005,19 +1035,20 @@ THISEAS
 --
 
 For example - take a time machine back to 2001, when having one of 
-these things...
+these...
 
 --
 
-.right-column[
+.left-column[
 <p align="center">
   <img title="Source: https://everymac.com/systems/apple/ipod/specs/ipod.html" src="https://everymac.com/images/cpu_pictures/apple_ipod.jpg" width="40%">
 </p>
 ]
 
-.left-column[
-...made you instantly popular and better geared than James Bond _\[tech-savvy 
-Pierce Brosnan, not the trigger-happy Daniel Craig]_
+.right-column[
+...made you instantly popular and better geared than James Bond 
+
+_\[tech-savvy Pierce Brosnan, not the trigger-happy Daniel Craig]_
 ]
 
 ---
@@ -1028,8 +1059,8 @@ Pierce Brosnan, not the trigger-happy Daniel Craig]_
 This iPod had a space of 5GB
  - Average uncompressed album: 640MB
  - Fits: 7.8125 Albums  
- - 20 songs per album \[_because Thiseas just listens to Disney soundtracks..._\]
- - Only 160 songs in total
+ - Songs per Album: 20  .tiny[\[_because Thiseas just listens to Disney soundtracks..._\]]
+ - Total songs: 60
 ]
 
 .right-column-33[
@@ -1139,7 +1170,7 @@ extremely useful.**.
 
 --
 
-Lets try it!
+Lets try our new found knowledge!
 
 ```bash
 $ gzip -l ERR2020601.fastq.gz
@@ -1174,8 +1205,8 @@ JAMES
 
 --
 
-Now we will get familiar with the most important functionality of bash: the
-concept of the `|` (a.k.a the "pipe")
+Now we will get familiar with the most important functionality of bash: 
+  - the concept of .huge[`|`] (a.k.a the "pipe")
 
 <p align="center">
   <img title="Made with EZGif.com" src="../docs/.gifs/Boromir.gif" > 
@@ -1192,10 +1223,14 @@ concept of the `|` (a.k.a the "pipe")
 
 --
 
-- It allows us to string multiple commands together, one after the other, 
-  - which means you can do more complicated (and beautiful) things to your files "on the fly". 
+- It allows us to connect **multiple commands together**, 
+  - One after the other 
+  - Enables more complicated (and beautiful) actions on your files "on the fly". 
 
 --
+
+<br/>
+<br/>
 
 Lets try this out with new commands
 
@@ -1217,9 +1252,9 @@ Lets try this out with new commands
 
 # Tiene cabeza...
 
-We will now print the file to screen with `zcat`, but rather than just let 
-the whole thing print, we will "pipe" the output into `head`, which will 
-allow us to see just the first 10 lines.
+We will now print the file to screen with `zcat`
+  - But pipe the output of`zcat` into `head`
+  - This will stop the print vomit 
 
 > Don't forget your auto-complete with the tab key!
 
@@ -1229,6 +1264,9 @@ $ zcat ERR2020601.fastq.gz | head
 ```
 
 --
+
+<br/>
+
 
 We can also display more lines with the `-n` flag (short for "**n**umber of 
 lines"). To see the first 20 lines you would use 
@@ -1255,8 +1293,8 @@ $ zcat ERR2020601.fastq.gz | tail -n 4
 
 --
 
-And you can also chain them altogether _\[not unlike a human centipede... No 
-gif here so we don't get fired]_
+And you can also chain them altogether .small[_\[not unlike a human centipede!... No 
+gif here so we don't get fired]_]
 
 --
 
@@ -1279,9 +1317,10 @@ But what if you wanted to view the whole file "at your own leisurely pace"
   <img title="Source: https://giphy.com/gifs/stroll-82abB3W2DknkY" src="https://media.giphy.com/media/82abB3W2DknkY/giphy.gif" width="20%">
 </p>
 
-We can use the tool `less`, which prints the file to screen, but allows you 
-to move up and down the output with your `arrow keys`. You can also move down 
-a full screen with the `spacebar`.
+We can use the tool `less`, 
+- Prints the file to screen in a controlled manner
+- Move up and down the output (per lines) with your `arrow keys`. 
+- Move up and down (per screen) with the `spacebar`.
 
 ```bash
 $ zcat ERR2020601.fastq.gz | less
@@ -1318,12 +1357,23 @@ molecule, which spans 4 lines of the FASTQ file.
 
 # lol wut?
 
+.left-column[
+<br/>
 Don't worry if this makes no sense...
+]
+
+.right-column[
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/reactionseditor-winona-ryder-26xBI73gWquCBBCDeY" src="https://media.giphy.com/media/26xBI73gWquCBBCDe/giphy.gif" width="50%">
+</p>
+
+]
 
 --
 
-The important thing is that there is a repeated structure in the file (in this 
-case a collection of lines with the same structure for each DNA molecule)
+The important thing is that there is a **repeated structure** in the file 
+
+.small[(in this case a collection of lines with the same structure, for each DNA molecule)]
 
 
 Why does this matter?
@@ -1336,7 +1386,7 @@ Why does this matter?
 
 .right-column[
 <p align="center">
-  <img title="Source: https://giphy.com/gifs/WgO1QdDfTooxrEsfES" src="https://media.giphy.com/media/WgO1QdDfTooxrEsfES/giphy.gif" width="80%">
+  <img title="Source: https://giphy.com/gifs/WgO1QdDfTooxrEsfES" src="https://media.giphy.com/media/WgO1QdDfTooxrEsfES/giphy.gif" width="50%">
 </p>
 ]
 
@@ -1355,6 +1405,7 @@ _\[no, not in your manuscript, don't panic!\]_
 # Counting
 
 .left-column[
+<br/>
 A first question a bioinformatician might have is how many DNA molecules are 
 in my file?
 ]
@@ -1388,13 +1439,17 @@ $ zcat ERR2020601.fastq.gz | wc -l
 
 # But DNA molecules FASTQ have four lines!
 
-How can we be lazy and avoiding doing _acutal maths_ (ew)?
+How can we be lazy and avoiding doing _acutal maths_ _\[eww!\]_?
 
 --
-<br>
+
+<br/>
 <p align="center">
   <img title="Source: https://giphy.com/gifs/WgO1QdDfTooxrEsfES" src="https://media.giphy.com/media/WgO1QdDfTooxrEsfES/giphy.gif" width="30%">
 </p>
+
+<br>
+
 <p align="center"><b>What is a common PATTERN in the file?</b></p>
 
 
@@ -1436,7 +1491,7 @@ $ zcat ERR2020601.fastq.gz | grep @
 
 Results in...
 
--- 
+--
 
 ```
 @ERR2020601.147096 F_AHSTEUER006:166:C5UJMANXX:8:1215:14390:82061/1
