@@ -1389,6 +1389,7 @@ To search for a particular character or string in a text file we can use
 
 `grep`
 
+
 This prints only lines in a file that match a certain pattern.
 
 --
@@ -1402,7 +1403,7 @@ $ zcat ERR2020601.fastq.gz | grep @
 
 Results in...
 
---
+-- 
 
 ```
 @ERR2020601.147096 F_AHSTEUER006:166:C5UJMANXX:8:1215:14390:82061/1
@@ -1418,18 +1419,11 @@ AB@BBGGGGGGGGGGGGGGGEFGGGGGGGGGGGGGFGGGGG>GGGGGGGGGGAFGGGGGGGGGGGG
 
 # Close but no cigar...
 
-```
-@ERR2020601.147096 F_AHSTEUER006:166:C5UJMANXX:8:1215:14390:82061/1
-AB@BBGGGGGGGGGGGGGGGEFGGGGGGGGGGGGGFGGGGG>GGGGGGGGGGAFGGGGGGGGGGGG
-@ERR2020601.147097 F_AHSTEUER006:166:C5UJMANXX:8:1301:14633:50792/1
-@ERR2020601.147098 F_AHSTEUER006:166:C5UJMANXX:8:1210:12875:93069/1
-@ERR2020601.147099 F_AHSTEUER006:166:C5UJMANXX:8:2109:2222:68258/1
-@ERR2020601.147100 F_AHSTEUER006:166:C5UJMANXX:8:1315:17303:82366/1
-3B=@BECGGGGGGGGGGGGGGGGGGGGGGG
-```
-
 Unfortunately we seem to have picked up some other stuff because of the @ 
 characters in the sequence quality lines. 
+
+???
+not every line starts with "@ERR", which means we also picked up lines that happen to have a @ in the sequence quality line
 
 --
 
