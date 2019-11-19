@@ -48,9 +48,9 @@
         border-left: 0.3em solid #ccc;
         padding: 0 15px;
         font-style: italic;
-        color: #ccc;
+        color: #777;
         quotes: "\201C""\201D""\2018""\2019";
-        font-size: 16px;
+        font-size: 18px;
       }
 
       .remark-code, .remark-inline-code { 
@@ -165,7 +165,7 @@ James A. Fellows Yates
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
   <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
 </a>
-.tiny[<br />This work is licensed under a <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.]
+.small[<br />This work is licensed under a <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.]
 
 ---
 
@@ -700,7 +700,6 @@ Much better!
 $ cd BareBonesBash
 ```
 ???
-JAMES
 
 Now that we have our directory, we should move into it. 
 --
@@ -719,9 +718,14 @@ $ cd ~/BareBonesBash
 ???
 You can also use an abosolute path to move to a directory:
 --
-> **BONUS TIP TIME!** When 
-using `cd` you can use a dash (`-`) to indicate 'my previous location'. This is 
-useful since you can traverse multiple directories with one `cd` command.
+
+You can also use the shortcut `-` (hyphen) to indicate 'my previous location'. 
+
+This is useful since you can traverse multiple directories with one `cd` command. Try it now!
+
+```bash
+cd -
+```
 
 ---
 
@@ -732,7 +736,6 @@ Try running the following code:
 $ ## Remember in "A land before time" when the dinosaur's mother died?
 ```
 ???
-THISEAS
 
 While reading that command, you 
 might have been reminded of one of the most emotionally devastating moments of 
@@ -763,6 +766,9 @@ class: center,middle
 
 class: center,middle
 # Playing with the files, one bit at a time
+
+???
+James
 
 ---
 
@@ -1059,7 +1065,7 @@ these...
 This iPod had a space of 5GB
  - Average uncompressed album: 640MB
  - Fits: 7.8125 Albums  
- - Songs per Album: 20  .tiny[\[_because Thiseas just listens to Disney soundtracks..._\]]
+ - Songs per Album: 20  .small[\[_because Thiseas just listens to Disney soundtracks..._\]]
  - Total songs: 60
 ]
 
@@ -1190,6 +1196,9 @@ Not bad! Our file 25.1% the size of the uncompressed file would.
 class: center,middle
 # The Lord of the Pipes: One command to do them all.
 
+???
+JAMES
+
 --
 
 ### Piping
@@ -1200,8 +1209,7 @@ class: center,middle
 
 After that tangent, let's get back to our regularly scheduled program(ming)!
 
-???
-JAMES
+
 
 --
 
@@ -1327,7 +1335,7 @@ $ zcat ERR2020601.fastq.gz | less
 
 ```
 
-To quit the viwer: press "q" on your keyboard.
+To quit the viewer: press "q" on your keyboard.
 
 ---
 
@@ -1685,7 +1693,6 @@ Instead, we can supply `wget` a text file, with the link to each new FASTQ file.
 ```bash
 $ wget -i <LIST_OF_URLS>.txt
 ```
-
 ---
 
 # Text editing
@@ -1897,6 +1904,8 @@ $ wget -i ~/BareBonesBash/Ftp.Links.txt
 
 ```
 
+<p align="center"><b> One at a time!</b> .small[_\[Last time we DDoS'd the ENA\]_ 😅] </p>
+
 ---
 
 class: center,middle
@@ -1942,7 +1951,11 @@ Try `echo`ing HOME
 ```bash
 $ echo HOME
 ```
+]
 
+--
+
+.left-column-33[
 ```
 HOME
 ```
@@ -1964,6 +1977,11 @@ Now try `echo`ing home as a variable
 ```bash
 $ echo $HOME
 ```
+]
+
+--
+
+.left-column-33[
 ```
 /home/james/
 ```
@@ -1996,17 +2014,21 @@ $ echo $HOME
 # Making your own
 
 .left-column[
-- Any variable can be easily overwritten, which is one reason why they are so useful.
+- To assign your own variable, 
+  - Write variable name
+  - Then the `=` symbol. 
+  - And the contents of the variable
 ]
 
 --
 
 
 .left-column[
-- To assign your own variable, 
-  - Write variable name
-  - Then the `=` symbol. 
-  - And the contents of the variable
+
+- Any variable can be easily overwritten, 
+  - This is why it is so useful
+  - Change contents, not your code!
+
 ]
 
 --
@@ -2178,7 +2200,7 @@ a directory!
 --
 
 ```bash
-$ for fastq in ~/BareBonesBash/ERR*; do
+$ for fastq in ~/BareBonesBash/*; do
     ln -s $fastq ~/BareBonesBash/FastQ.Portals
   done
 
