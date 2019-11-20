@@ -396,7 +396,20 @@ __A terminal is a window that allows you to access the command line interfce of 
 
 i.e. a place for you to write to the computer what you want it to do.
 
-<p align="center"><img title="Source: https://i.imgur.com/BkDkTxY.jpg" src="https://i.imgur.com/BkDkTxY.jpg" width=45% ></p>
+--
+
+----
+
+__Bash is the programming language that is used within the Terminal.__
+
+--
+
+i.e. it is _how_ you tell the computer what you want it to do.
+
+---
+
+# Combine the two and become L33T H4X0RZ
+<p align="center"><img title="Source: https://i.imgur.com/BkDkTxY.jpg" src="https://i.imgur.com/BkDkTxY.jpg" width=55% ></p>
 
 ---
 
@@ -596,7 +609,7 @@ This will produce no output, since your current directory is empty. Let's change
 `mkdir` is shorthand for "**m**a**k**e **dir**ectory".
 
 ```bash
-$ mkdir ~/BareBonesBosh
+$ mkdir ~/BBB
 $ ls ~
 ```
 ???
@@ -605,7 +618,7 @@ You can make a new empty directory using the command `mkdir`, shorthand for
 
 --
 ```
-BareBonesBosh
+BBB
 ```
 Now that your home directory is not empty, `ls` has output!
 ???
@@ -615,8 +628,12 @@ Also notice that if we provide a path to `ls`, it will list the contents of the 
 
 # Directory Management
 
-__But what's this!?! There was a typo in the name of the directory you made!__
+__However, `BBB` is not a very descriptive name.__
 
+???
+In two years when you start looking through these folders `BBB` won't mean much and you will likely go like this. (click)
+
+--
 
 <p align="center"><img title="Source: https://giphy.com/gifs/table-flip-ieGdB2g5kDIkg" src="https://media.giphy.com/media/ieGdB2g5kDIkg/giphy.gif" width="25%"> <img title="Source: https://tenor.com/view/it-crowd-moss-computer-throw-gif-5404468" src="https://media.tenor.co/images/d82c7edc4b04227b4c973f24b904695f/raw" width="32%"></p>
 
@@ -632,7 +649,7 @@ But don't lose hope, as we can rename things with the `mv` command,
 shorthand for "**m**o**v**e". 
 
 ```bash
-$ mv ~/BareBonesBosh BearBonesBash
+$ mv ~/BBB BearBonesBash
 
 ```
 ???
@@ -2145,10 +2162,11 @@ done
 
 ```bash
 $ for fastq in ERR2020609.fastq.gz ERR2020611.fastq.gz ERR2020567.fastq.gz ERR2020565.fastq.gz ERR2020613.fastq.gz ERR2020618.fastq.gz ERR2020617.fastq.gz; do 
-    ln -s ~/BareBonesBash/$fastq ~/BareBonesBash/FastQ.Portals
-  done
+>    ln -s ~/BareBonesBash/$fastq ~/BareBonesBash/FastQ.Portals
+> done
 ```
-
+???
+Notice how the prompt changes from `$` to `>`. This means that your command still expects more to be complete. in this case it is completed when `done` is encountered.
 --
 
 **Bonus tip time!** `ls` will also accept a path to look into!
@@ -2201,8 +2219,8 @@ a directory!
 
 ```bash
 $ for fastq in ~/BareBonesBash/*; do
-    ln -s $fastq ~/BareBonesBash/FastQ.Portals
-  done
+>    ln -s $fastq ~/BareBonesBash/FastQ.Portals
+> done
 
 ```
 --
@@ -2211,8 +2229,8 @@ Don't want literally everything? Then specify all files beginning with ERR!
 
 ```bash
 $ for fastq in ~/BareBonesBash/ERR*; do
-    ln -s $fastq ~/BareBonesBash/FastQ.Portals
-  done
+>    ln -s $fastq ~/BareBonesBash/FastQ.Portals
+> done
 
 ```
 
@@ -2235,8 +2253,8 @@ Making the computer to do the hard work for you.
 .left-column-66[
 ```bash
 $ for fastq in ~/BareBonesBash/ERR*.gz; do
-    gzip -l $fastq
-  done
+>    gzip -l $fastq
+> done
 
 ```
 ]
