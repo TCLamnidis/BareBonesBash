@@ -75,6 +75,18 @@ To understand actually what each command does, carry on reading below!
 | for     | begins 'for' loop, requires 'in', 'do' and 'done'  | for p in apple pineapple; do <br /> echo "$p$PPAP"; done <br /> <i>applePen pineapplePen</i> |                  |
 
 
+## What is a terminal?
+
+A terminal is simply a fancy window that allows you to access the command-line interface
+of a computer or server.
+
+The command-line itself is how you can work on the computer with just text.
+
+`bash` (**b**ourne **a**gain shell) is one of the most languages used in the terminal. 
+
+<p align="center"><img title="Source: https://i.imgur.com/BkDkTxY.jpg" src="https://i.imgur.com/BkDkTxY.jpg" width=55% ></p>
+_\[Combine the two and become L33T H4X0RZ\]_
+
 ## Navigating the maze
 
 After opening the terminal what you will normally see is a blank screen with a
@@ -84,10 +96,18 @@ colon, a directory path and ends with a dollar symbol. Like so:
 ```bash
 <username>@<device_name>:~$
 ```
-Throughout this tutorial, `<>` are used to show things that will/should be replaced
-by another value. For example, in Thiseas' command prompt `<username>` will be 
-replaced by `lamnidis`, as that is his username. Keep an eye out for these 
-throughout the tutorial.
+
+
+Throughout this tutorial, we will indicate the prompt of each command just with 
+a single `$`, without the rest of the prompt. Make sure NOT to copy the `$` 
+as the command won't work! This symbol is important for reasons you will see 
+later.
+
+Furthermore, the symbols`<>` are used to show things that will/should be 
+replaced by another value. For example, in Thiseas' command prompt `<username>` 
+will be replaced by `lamnidis`, as that is his username. 
+
+Keep an eye out for both of these throughout the tutorial.
 
 <p align="center"><img title="Source: https://giphy.com/gifs/studiosoriginals-gilphabet-3o84U72tKO389H2lI4" src="https://media.giphy.com/media/3o84U72tKO389H2lI4/giphy.gif" width="20%"></p>
 
@@ -107,8 +127,7 @@ you can type in `pwd`, which stands for "**p**rint **w**orking **d**irectory".
 The working directory stands for whichever directory you are currently in. 
 
 ```bash
-pwd
-
+$ pwd
 ```
 
 This prints the entire "filepath" of the directory i.e. the route from the "root" 
@@ -140,8 +159,7 @@ our home directory. We can use the command `ls`, shorthand for "list", which
 will (surprise surprise) list the directory contents.
 
 ```bash
-ls
-
+$ ls
 ```
 
 Your home directory should come equipped with multiple subdirectories like 
@@ -152,8 +170,7 @@ from the example above. We can navigate through directories using the command
 `cd` which stands for "**c**hange **d**irectory".
 
 ```bash
-cd Documents/
-
+$ cd Documents/
 ```
 
 This command will move you from your home directory to its "Documents" 
@@ -165,7 +182,7 @@ absolute path of the "Documents" directory we will once again use `pwd`.
 last 1000 used commands.
 
 ```bash
-pwd
+$ pwd
 
 ```
 
@@ -173,7 +190,7 @@ Now we can move up one directory, back to your home using the relative path
 `../`.
 
 ```bash
-cd ../
+$ cd ../
 
 ```
 
@@ -191,7 +208,7 @@ and it copies automatically, and use right click or `shift + Insert` to paste.
 For example:
 
 ```bash
-cd /home/fellows
+$ cd /home/fellows
 
 ```
 
@@ -202,8 +219,8 @@ multiple directories with one `cd` command. So, now, to return to our home
 directory from the documents directory we can type:
 
 ```bash
-cd -
-pwd
+$ cd -
+$ pwd
 
 ```
 
@@ -231,21 +248,28 @@ server. The most typical way is to log in via "**s**ecure **sh**ell", known as
 the network of the institute and or via VPN, so make sure you are on either of 
 those.
 
+If you're working just on your personal computer, skip to the [next section](#where-am-i)!
+
+----
+
 A typical `ssh` command consists of the `ssh`, with a user, '@' symbol and then 
 the address of the server. For example:
 
 ```bash
-ssh <user>@<server>
+$ ssh <user>@<server>
 ```
 
 You can find our your user and server from your IT department.
 
-Once we've logged in, the `~` points to a different home directory, as you are 
-on a different machine. However, all of the commands you've learned so far will 
-still work the same :wink:. You can double check both of these by typing 
+----
+
+Now, looking at your terminal you will see `~`. In bash `~` points to a 
+different home directory, as you are on a different machine. However, all of 
+the commands you've learned so far will still work the same :wink:. You can 
+double check both of these by typing 
 
 ```bash
-pwd
+$ pwd
 
 ```
 
@@ -255,8 +279,8 @@ You can make a new empty directory using the command `mkdir`, shorthand for
 "**m**a**k**e **dir**ectory".
 
 ```bash
-mkdir ~/BareBonesBosh
-ls ~
+$ mkdir ~/BareBonesBosh
+$ ls ~
 
 ```
 
@@ -274,7 +298,7 @@ also renaming it in the process if necessary. It works by typing `mv`, the old
 location and a target location.
 
 ```bash
-mv ~/BareBonesBosh ~/BearBonesBash
+$ mv ~/BareBonesBosh ~/BearBonesBash
 
 ```
 
@@ -290,15 +314,15 @@ Let's just delete that empty directory and start over, using the `rmdir`
 command, short for "**r**e**m**ove **dir**ectory".
 
 ```bash
-rmdir ~/BearBonesBash
-ls ~
+$ rmdir ~/BearBonesBash
+$ ls ~
 
 ```
 
 And now we can create our directory, properly named this time.
 
 ```bash
-mkdir ~/BareBonesBash
+$ mkdir ~/BareBonesBash
 
 ```
 
@@ -320,13 +344,13 @@ we can use `ls` to check the contents.
 <p align="center"><img title="Source: https://giphy.com/gifs/mario-kart-lAIbbDbcXSZSU" src="https://media.giphy.com/media/lAIbbDbcXSZSU/giphy.gif" width="20%"></p>
 
 ```bash
-wget ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
+$ wget ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
 
 ## if you don't have wget, you can instead use 'curl' with the command below.
 # curl -O ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020601/ERR2020601.fastq.gz
 
 ## Then to check if the file is now in our working directory
-ls
+$ ls
 
 ```
 
@@ -335,16 +359,16 @@ fastq file into our newly created directory. This time, we can use `mv` the
 way it was meant to be used.
 
 ```bash
-mv ~/ERR2020601.fastq.gz ~/BareBonesBash
-ls
+$ mv ~/ERR2020601.fastq.gz ~/BareBonesBash
+$ ls
 ```
 
 You should now see that the fastq file is no longer in your home folder. 
 Let's go find it!
 
 ```bash
-cd ~/BareBonesBash
-ls 
+$ cd ~/BareBonesBash
+$ ls 
 ```
 
 Good, the file arrived in `~/BareBonesBash` safely! Maybe now would be a good 
@@ -357,7 +381,7 @@ computer things, and prefer to have the computer do the work for you - try
 typing a couple of characters then press the "TAB" key on your keyboard.
 
 ```bash
-cat ERR2020601.fastq.gz
+$ cat ERR2020601.fastq.gz
 
 ```
 
@@ -371,7 +395,7 @@ indicated by the .gz). To view the _human readable_ contents of the file, we
 can instead use `zcat`. Don't forget your auto-complete!
 
 ```bash
-zcat ERR2020601.fastq.gz
+$ zcat ERR2020601.fastq.gz
 
 ```
 
@@ -417,7 +441,7 @@ command does. The second command we need is `man`. Using `whatis` we can find ou
 what `man` does.
 
 ```bash
-whatis man
+$ whatis man
 
 ```
 
@@ -426,7 +450,7 @@ This will inform us that `man` is
 information on `zcat` using `man`.
 
 ```bash
-man zcat
+$ man zcat
 
 ```
 
@@ -446,7 +470,7 @@ _**\[Say it with us: "`man` is love. `man` is life."]**_
 
 
 ```bash
-gzip -l ERR2020601.fastq.gz
+$ gzip -l ERR2020601.fastq.gz
 
 ```
 
@@ -474,7 +498,7 @@ the whole thing print, we will "pipe" the output into `head`, which will
 allow us to see just the first 10 lines.
 
 ```bash
-zcat ERR2020601.fastq.gz | head
+$ zcat ERR2020601.fastq.gz | head
 
 ```
 
@@ -482,7 +506,7 @@ We can also display more lines with the `-n` flag (short for "**n**umber of
 lines"). To see the first 20 lines you would use 
 
 ```bash
-zcat ERR2020601.fastq.gz | head -n 20
+$ zcat ERR2020601.fastq.gz | head -n 20
 
 ```
 
@@ -490,7 +514,7 @@ The same option exists for tail, note that but options are not universal! Not
 every programme will use the same options!
 
 ```bash
-zcat ERR2020601.fastq.gz | tail -n 4
+$ zcat ERR2020601.fastq.gz | tail -n 4
 
 ```
 
@@ -498,7 +522,7 @@ And you can also chain them altogether _\[not unlike a human centipede... No
 gif here so we don't get fired]_
 
 ```bash
-zcat ERR2020601.fastq.gz | head -n 20 | tail -n 4
+$ zcat ERR2020601.fastq.gz | head -n 20 | tail -n 4
 
 ```
 
@@ -526,7 +550,7 @@ to move up and down the output with your `arrow keys`. You can also move down
 a full screen with the `spacebar`.
 
 ```bash
-zcat ERR2020601.fastq.gz | less
+$ zcat ERR2020601.fastq.gz | less
 
 ```
 
@@ -548,7 +572,7 @@ these flags!). But remember we first have to decompress the lines we are
 reading from the file with `zcat`.
 
 ```bash
-zcat ERR2020601.fastq.gz | wc -l
+$ zcat ERR2020601.fastq.gz | wc -l
 
 ```
 
@@ -567,7 +591,7 @@ that contains a '@'. Lets try it out again in combination with `zcat` and
 our pipes.
 
 ```zcat
-zcat ERR2020601.fastq.gz | grep @
+$ zcat ERR2020601.fastq.gz | grep @
 
 ```
 
@@ -579,7 +603,7 @@ We can make our "pattern", in this case `"@"`, to be more specific by adding
 stuff, and pipe that output into `less`, so we can look at it more carefully.
 
 ```zcat
-zcat ERR2020601.fastq.gz | grep @ERR | less
+$ zcat ERR2020601.fastq.gz | grep @ERR | less
 
 ```
 
@@ -590,7 +614,7 @@ file. If we have just extracted the unique read _headers_ for every read, then
 in principle we can also just count these with `wc`!
 
 ```zcat
-zcat ERR2020601.fastq.gz | grep @ERR | wc -l
+$ zcat ERR2020601.fastq.gz | grep @ERR | wc -l
 
 ```
 
@@ -619,8 +643,8 @@ So let us make a new subdirectory to store our symlink to the FASTQ file we
 already downloaded, and move to that directory.
 
 ```bash
-mkdir ~/BareBonesBash/FastQ.Portals
-cd ~/BareBonesBash/FastQ.Portals
+$ mkdir ~/BareBonesBash/FastQ.Portals
+$ cd ~/BareBonesBash/FastQ.Portals
 
 ```
 
@@ -632,7 +656,7 @@ things **will** break down. (Note that a path that starts with `~` is technicall
 an absolute path, since it is also not relative to your current position.)
 
 ```bash
-ln -s ~/BareBonesBash/ERR2020601.fastq.gz .
+$ ln -s ~/BareBonesBash/ERR2020601.fastq.gz .
 
 ```
 
@@ -648,7 +672,7 @@ information on the files shown with `ls`. (For more information you can look
 at the `man` page for `ls`).
 
 ```bash
-ls -l
+$ ls -l
 
 ```
 
@@ -659,7 +683,7 @@ different to the original. It is now a shortcut to the originl file, which
 happens to have the same name. So, repeating above:
 
 ```bash
-zcat ERR2020601.fastq.gz | head -n 20 | tail -n 4
+$ zcat ERR2020601.fastq.gz | head -n 20 | tail -n 4
 
 ```
 
@@ -699,7 +723,7 @@ typical 'Microsoft Office' suite).
 So open up the program with
 
 ```bash
-nano
+$ nano
 
 ```
 
@@ -719,8 +743,8 @@ We can check that the file was successfully generated by navigating into
 the directory and doing `ls`.
 
 ```bash
-cd ~/BareBonesBash/
-ls
+$ cd ~/BareBonesBash/
+$ ls
 
 ```
 Great! There is a file there! But wait! OH NO! There is another typo! We 
@@ -734,8 +758,8 @@ So far, we learnt `rmdir` to remove a directory. To remove a file, we can
 instead use `rm` for – you guessed it! – **r**e**m**ove. 
 
 ```bash
-rm Ftp.Link.txt
-ls
+$ rm Ftp.Link.txt
+$ ls
 
 ```
 And it's gone!
@@ -749,8 +773,8 @@ Mammoth files, using our relative paths to go back to our home directory,
 and opening up `nano` again
 
 ```bash
-cd ~
-nano
+$ cd ~
+$ nano
 
 ```
 
@@ -781,7 +805,7 @@ we can use `nano` again, but with the file as an argument to open the
 file and see the contents.
 
 ```bash
-nano ~/BareBonesBash/Ftp.Links.txt
+$ nano ~/BareBonesBash/Ftp.Links.txt
 
 ```
 
@@ -797,8 +821,8 @@ You can provide a file to `wget` with URLs (like the one you just made) using
 the flag `-i`, for "**i**nput". 
 
 ```bash
-cd ~/BareBonesBash
-wget -i ~/BareBonesBash/Ftp.Links.txt
+$ cd ~/BareBonesBash
+$ wget -i ~/BareBonesBash/Ftp.Links.txt
 
 ## curl cannot handle links from a file, so if you are using curl, you should run the command below to download all the files.
 #  curl -O ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/009/ERR2020609/ERR2020609.fastq.gz -O ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/001/ERR2020611/ERR2020611.fastq.gz -O ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/007/ERR2020567/ERR2020567.fastq.gz -O ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/005/ERR2020565/ERR2020565.fastq.gz -O ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/003/ERR2020613/ERR2020613.fastq.gz -O ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/008/ERR2020618/ERR2020618.fastq.gz -O ftp.sra.ebi.ac.uk/vol1/fastq/ERR202/007/ERR2020617/ERR2020617.fastq.gz
@@ -816,7 +840,7 @@ Tradition dictates that the first thing you have the computer say in programming
 tutorials is "Hello World!", so here goes:
 
 ```bash
-echo Hello World!
+$ echo Hello World!
 
 ```
 
@@ -834,8 +858,8 @@ to look inside a variable by using the `$` character in front of the variable na
 Try this:
 
 ```bash
-echo HOME    #This will print the word HOME.
-echo $HOME   #This will print the contents of the variable HOME.
+$ echo HOME    #This will print the word HOME.
+$ echo $HOME   #This will print the contents of the variable HOME.
 
 ```
 
@@ -853,17 +877,17 @@ example below, we will set and overwrite the variable `GreekFood`, and then "unp
 several sentences _\[which also happen to be objectively true\]_.
 
 ```bash
-GreekFood=4            #Here, 'GreekFood' is a number.
-echo "Greek food is $GreekFood people who want to know what heaven tastes like."
+$ GreekFood=4            #Here, 'GreekFood' is a number.
+$ echo "Greek food is $GreekFood people who want to know what heaven tastes like."
 #
-GreekFood=delicious   #Now we overwrite that number with a word (or a "string" of characters).
-echo "Everyone says that Greek food is $GreekFood."
+$ GreekFood=delicious   #Now we overwrite that number with a word (or a "string" of characters).
+$ echo "Everyone says that Greek food is $GreekFood."
 #
-GreekFood="Greek wine" #We can overwrite 'GreekFood' again, but when there is a space in our string, we need quotations.
-echo "The only thing better than Greek food is $GreekFood!"
+$ GreekFood="Greek wine" #We can overwrite 'GreekFood' again, but when there is a space in our string, we need quotations.
+$ echo "The only thing better than Greek food is $GreekFood!"
 #
-GreekFood=7 #And, of course, we can overwrite with a number again too.
-echo "I have been to Greece $GreekFood times already this year, for the food and wine!"
+$ GreekFood=7 #And, of course, we can overwrite with a number again too.
+$ echo "I have been to Greece $GreekFood times already this year, for the food and wine!"
 #
 
 ```
@@ -901,14 +925,35 @@ done
 <p align="center"><img title="Source: https://tenor.com/view/izza-oprah-eatwhatyouwant-gif-4149888" src="https://media1.tenor.com/images/5ef4336be26e478431f85b349ec6bd34/tenor.gif?itemid=4149888" width="20%"></p>
 
 Let's stop daydreaming of pizza now and return to the task at hand. For each FASTQ 
-file we want to make a symlink to that file. Following the above example, but this 
-time putting it into code directly, we get:
+file we want to make a symlink to that file. 
+
+Lets first check this will work as we expect by converting our pseudo-code to 
+real code, but getting the computer to TELL us what it says we have told it 
+what to do (with actually doing it), by putting the command in `echo`!
 
 ```bash
-for fastq in ERR2020609.fastq.gz ERR2020611.fastq.gz ERR2020567.fastq.gz ERR2020565.fastq.gz ERR2020613.fastq.gz ERR2020618.fastq.gz ERR2020617.fastq.gz; do 
-  ln -s ~/BareBonesBash/$fastq ~/BareBonesBash/FastQ.Portals
-done
+$ for fastq in ERR2020609.fastq.gz ERR2020611.fastq.gz ERR2020567.fastq.gz ERR2020565.fastq.gz ERR2020613.fastq.gz ERR2020618.fastq.gz ERR2020617.fastq.gz; do 
+>    echo "ln -s ~/BareBonesBash/$fastq ~/BareBonesBash/FastQ.Portals"
+> done
 ```
+
+Look! You can see all the hard work of typing you DON'T have to do! Woohoo!
+
+So try removing the echo and see what happens.
+
+```bash
+$ for fastq in ERR2020609.fastq.gz ERR2020611.fastq.gz ERR2020567.fastq.gz ERR2020565.fastq.gz ERR2020613.fastq.gz ERR2020618.fastq.gz ERR2020617.fastq.gz; do 
+>  ln -s ~/BareBonesBash/$fastq ~/BareBonesBash/FastQ.Portals
+> done
+```
+
+After writing the first line, and pressing enter, you may have noticed how 
+the prompt changes from `$` to `>`. This means that your command still expects 
+more information before it can execute! In this case it is completed when 
+`done` is encountered. (If you accidently get stuck there and can't leave, 
+press `ctrl + z` on your keyboard).
+
+Once you've written done - lets see if the command worked correctly!
 
 **Bonus tip time!** `ls` will also accept a particular path to print to screen. 
 i.e. If you're in a different directory but want to see the contents of a 
@@ -916,7 +961,7 @@ different one, you can follow the example here, where we are in `~/BareBonesBash
 but want to check the contents of `FastQ.Portals/` 
 
 ```bash
-ls -l FastQ.Portals/
+$ ls -l FastQ.Portals/
 
 ```
 
@@ -956,8 +1001,8 @@ case, so it would **NOT** be read as the variable even with the `$` character.
 See the example below for more info:
 
 ```bash
-echo -e "$FastQ <---- Not a set variable"
-echo -e "$fastq <---- The last FastQ file in the list of files in the loop."
+$ echo -e "$FastQ <---- Not a set variable"
+$ echo -e "$fastq <---- The last FastQ file in the list of files in the loop."
 
 ```
 
@@ -987,9 +1032,9 @@ If we want to create a symlink (with `ln -s`) for every item within the
 `~/BareBonesBash/FastQ.Portals` directory, we could use: 
 
 ```bash
-for fastq in ~/BareBonesBash/*; do
-  ln -s $fastq ~/BareBonesBash/FastQ.Portals
-done
+$ for fastq in ~/BareBonesBash/*; do
+>  ln -s $fastq ~/BareBonesBash/FastQ.Portals
+> done
 
 ```
 
@@ -1006,9 +1051,9 @@ For example, lets try out one of our old commands in a loop. Lets use
 new directory.
 
 ```bash
-for fastq in ~/BareBonesBash/ERR*.gz; do
-  gzip -l $fastq
-done
+$ for fastq in ~/BareBonesBash/ERR*.gz; do
+>  gzip -l $fastq
+> done
 
 ```
 
@@ -1052,8 +1097,8 @@ removing all the clutter we downloaded and worked with today. The command below 
 `~/BareBonesBash` directory **as well as all of its contents**. 
 
 ```bash
-cd ~     # We shouldn't delete a directory while we are still in it. (It is possible though).
-rm -r ~/BareBonesBash
+$ cd ~     # We shouldn't delete a directory while we are still in it. (It is possible though).
+$ rm -r ~/BareBonesBash
 ```
 
 <p align="center"><img title="Source: https://i.imgur.com/lcxyE0D.gif" src="https://i.imgur.com/lcxyE0D.gif" width="40%"></p>
