@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Basic Bare Bones Bash</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700);
+      @import url(https://fonts.googleapis.com/css?family=Roboto+Slab:300,300i,400,400i,700);
+      @import url(https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700);
+
+
+      /* font/size formatting */
+      body { 
+        font-family: 'Raleway', sans-serif;
+        font-weight: 300;
+        color: #000000;
+      }
+      
+      h1 {
+        font-family: 'Roboto Slab', sans-serif;
+        color: #7570b3;
+        font-weight: 400;
+        font-size: 10px;
+      }
+
+      h2 {
+        font-family: 'Roboto Slab', sans-serif;
+        font-weight: 400;
+        font-size: 12px;
+        color: #7570b3;
+      }
+
+      h3 {
+        font-family: 'Raleway', sans-serif;
+        color: #7570b3;
+      }
+
+      /* improve font size modifications - https://github.com/yihui/xaringan/wiki/Font-Size */
+
+      .huge { font-size: 160% }
+      .large { font-size: 130% }
+      .small { font-size: 70% }
+      .tiny{font-size: 40%}
+
+      /* https://github.com/gnab/remark/issues/305#issuecomment-403309989 */
+      blockquote {
+        border-left: 0.3em solid #ccc;
+        padding: 0 15px;
+        font-style: italic;
+        color: #777;
+        quotes: "\201C""\201D""\2018""\2019";
+        font-size: 18px;
+      }
+
+      .remark-code, .remark-inline-code { 
+        font-family: 'Ubuntu Mono'; color: grey;
+      }
+      
+      /* Two-column layouts */
+      .left-column  { width: 49%; float: left; }
+      .right-column { width: 49%; float: right; }
+
+      .left-column-33  { width: 33%; float: left; }
+      .right-column-66 { width: 66%; float: right; }
+
+      .left-column-66  { width: 66%; float: left; }
+      .right-column-33 { width: 33%; float: right; }
+
+      .right-column ~ p { clear: both; }
+      .right-column ~ ul { clear: both; }
+
+      /* use with e.g. <div class=vertical-center"> */
+      .vertical-center {
+         margin: 0;
+         position: absolute;
+         top: 50%;
+         -ms-transform: translateY(-50%);
+         transform: translateY(-50%);
+      }
+
+
+      .vertical-center-with-title {
+         margin: 0;
+         position: absolute;
+         top: 60%;
+         -ms-transform: translateY(-50%);
+         transform: translateY(-50%);
+      }
+
+
+      /* For progress bar */
+      .remark-slide-number {
+        position: inherit;
+      }
+
+      .remark-slide-number .progress-bar-container {
+        position: absolute;
+        bottom: 0;
+        height: 4px;
+        display: block;
+        left: 0;
+        right: 0;
+      }
+
+      .remark-slide-number .progress-bar {
+        height: 100%;
+        background-color: #6a3d9a;
+      }
+
+    /* Header and Footer from 
+    https://github.com/gnab/remark/issues/501#issuecomment-392961900/ 
+    */
+
+    div.my-header {
+      background-color: #7570b3;
+      position: fixed;
+      top: 0px;
+      left: 0px;
+      height: 10px;
+      width: 100%;
+      text-align: left;
+    }
+
+    div.my-footer img {
+      height: 75px;
+      width: 75px;
+      bottom: 5px;
+      right: 5px;
+      position: fixed;
+    }
+
+  /* Comment  */
+  .remark-slide-content { 
+    font-size: 20px; 
+
+  }
+
+
+    </style>
+  </head>
+  <body>
+    <textarea id="source" bar>
+
+layout: true
+<div class="my-header"></div>
+   <div class="my-footer"><img src=".images/BareBonesBash_Icon.png" /></div>
+
+
+---
+
+class: center, middle
+
+# .tiny[_Boosted_ Bespoke]
+# .large[**Bare Bones Bash**]
+## .tiny[Brought By Blissfully Baffled Bioinformaticians]
+
+Thiseas C. Lamnidis
+
+James A. Fellows Yates
+
+Aida Andrades Valtueña
+<br/>
+<br/>
+<br/>
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+  <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+</a>
+.small[<br />This work is licensed under a <br/> <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.]
+
+---
+
+# Who are we?
+
+.left-column-66[
+### ~~Bowser~~ James
+
+- BSc. @ Department of Archaeology (York)
+- MSc. @ Institute for Archaeological Sciences (Tübingen)
+- Ph.D.(?) @ Department of Archaeogenetics (Jena)
+
+### ~~Yoshi~~ Thiseas 
+
+- BSc. @ Department of Biology (York)
+- MSc. @ Department of Anthropology (Durham)
+- Ph.D.(?) @ Department of Archaeogenetics (Jena)
+]
+
+.right-column-33[
+<div class="vertical-center-with-title">
+  <img src=".images/James_JamessDaughter_Thiseas_In_Japan.jpg" width="80%">
+</div>
+]
+
+???
+BOTH
+---
+
+# 
+
+    </textarea>
+    <script src="https://remarkjs.com/downloads/remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create({
+      /*ratio: "16:9", from: https://github.com/gnab/remark/issues/86#issuecomment-36157045*/
+      slideNumberFormat: (current, total) => `
+        <div class="progress-bar-container">
+          <div class="progress-bar" style="width: ${current/total*100}%">
+          </div>
+        </div>
+      `
+    });
+    </script>
+  </body>
+</html>
