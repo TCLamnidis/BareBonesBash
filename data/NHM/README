@@ -15,3 +15,13 @@ Please ensure you reference this DOI when citing this data.
 ## Photos
 
 The photos avaliable are listed on the metadata file above, and are all licensed under a Creative Commons 4.0 license.
+
+We only download the first photo of each, and rename as the download id (column 2).
+
+```bash
+for i in $(cat data.csv | cut -f 2,8 -d ',' | cut -f 1 -d '|' | awk -F "," '$2 != ""' | tail -n 39); do 
+  hash="$(echo "$i" | cut -d, -f 2)"
+  name="$(echo "$i" | cut -d, -f 1)"
+  wget "$hash" -O DCIM"$name".jpg
+done
+```
