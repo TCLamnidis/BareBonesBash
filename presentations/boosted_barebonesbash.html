@@ -646,11 +646,130 @@ $ find . -name '*JPG*' -type f
 ```bash
 $ find . -name '*JPG*' -type f > <file_with_paths>.txt
 ```
----
-# CONCEPT - Datastreams and redirects
 
 ---
-# CONCEPT - Quotes matter!
+# Concept: Datastreams
+Programmes can take in and spit out data from different _streams_. By default there are 3 such data streams.
+--
+.left-column[
+
+- `stdin`: the __st__an__d__ard __in__put
+- `stdout`: the __st__an__d__ard __out__put
+- `stderr`: the __st__an__d__ard __err__or
+]
+--
+.right.column[
+<p align="center">
+  <img src=".images/Datastreams.png" width="50%">
+</p>]
+
+--
+
+.left-column[
+<br><br><br>___A program is like the human body; One way in, two ways out!___
+]
+.right-column[<p align="center"><img src="https://media.giphy.com/media/4kg8IIClzvLtC/giphy.gif" title="Source: https://media.giphy.com/media/4kg8IIClzvLtC/" width="60%">
+</p>]
+
+---
+# Pipes revisited
+In the first session you learned about piping. Here's how that works!
+<br>
+<br>
+--
+
+<p>
+  <img src=".images/Piping.png" width="100%">
+</p>
+<br>
+<br>
+The `stdout` of one script becomes the `stdin` of the other. 
+`stderr` is printed on your screen.
+
+---
+# Concept: Redirects
+
+Much like streams in the real world, datastreams can be redirected. 
+
+???
+This way you can save the stdout of a program (or even the stderr) into a file to save for later.
+
+--
+
+- `stdin` can be redirected with `<`.
+
+???
+An arrow pointing TO your program name!
+
+--
+
+- `stdout` can be redirected with `>`.
+
+???
+An arrow pointing AWAY your program name!
+
+--
+
+- `stderr` can be redirected with `2>`.
+
+???
+Because it is the secondary output stream.
+
+--
+
+It is also possible to combine streams, but we won't get into that here.
+<p align="center"><img src="https://media.giphy.com/media/3o72EWUgbRNfLegO1W/giphy.gif" title="Source: https://media.giphy.com/media/3o72EWUgbRNfLegO1W/" width="90%">
+</p>
+
+---
+# Concept: - Quotes matter!
+In bash, there is a big difference between a single quote `'` and a double quote `"`!
+
+- The contents of single quotes, are passed on as they are.
+ - Inside double quotes, contents are _interpreted_!
+
+???
+That means that it will be read just like the rest of the code.
+
+--
+
+.left-column-66[
+In some cases the difference doesn't matter:
+```bash
+echo "I like Greek Food"
+echo 'I like Greek Food'
+```
+```
+I like Greek Food
+I like Greek Food
+```
+]
+
+--
+
+.right-column-33[
+      <p align="center"><img src="https://media.giphy.com/media/NSqQkXJjnsVpZQezfg/giphy.gif" title="Source: https://media.giphy.com/media/NSqQkXJjnsVpZQezfg/" width="90%">
+      </p>
+      <p align="center"><img src="https://media.giphy.com/media/bh4jzePjmd9iE/giphy.gif" title="Source: https://media.giphy.com/media/bh4jzePjmd9iE/" width="100%">
+      </p>
+]
+
+.left-column-66[
+In other cases it makes all the difference:
+```bash
+Arr=Banana
+echo 'Pirates say $Arr'
+echo "Minions say $Arr"
+```
+```
+Pirates say $Arr
+Minions say Banana
+```
+]
+
+???
+You can already see from the syntax highlighting that $Arr is treated differently in the two quotes.
+
 ---
 # While loop: to infinity and beyond!
 
