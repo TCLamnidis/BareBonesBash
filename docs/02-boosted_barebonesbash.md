@@ -1,4 +1,4 @@
-# (Bespoke)BareBonesBash(BroughtByBlissfullyBaffledBioinformaticians)
+# Boosted (Bespoke)BareBonesBash(BroughtByBlissfullyBaffledBioinformaticians)
 A basic Bash tutorial by [@jfy133](https://github.com/jfy133), [@TCLamnidis](https://github.com/TCLamnidis/) and [@aidaanva](https://github.com/aidaanva).
 <p align="center"><img title="Source: https://giphy.com/gifs/v58q1se3dZvag" src="https://media.giphy.com/media/v58q1se3dZvag/giphy.gif" width="40%"></p>
 
@@ -6,6 +6,13 @@ A basic Bash tutorial by [@jfy133](https://github.com/jfy133), [@TCLamnidis](htt
 
 ## Presumed knowledge
 [The first part of this tutorial series.](01-basic_barebonesbash.md)
+
 ## Table of contents
 
+
 ## Recap
+
+
+## Concept: Datastreams and redirects
+
+## Concept: Quotes matter
