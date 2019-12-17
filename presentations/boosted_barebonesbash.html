@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Basic Bare Bones Bash</title>
+    <title>Boosted Bare Bones Bash</title>
     <meta charset="utf-8">
     <style>
       @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
@@ -204,18 +204,423 @@ Aida Andrades Valtueña
 
 ???
 BOTH
+
+---
+
+# Aims of this session
+
+
+- Aim:
+
+  - Get more familiar with text modification with bash
+
+--
+
+- Objectives:
+  - How to find stuff?
+  - What is a while loop?
+  - How to write a conditional statement (if/else)
+  - Regular expressions (aka "Regex")
+  - _Simple_ text modfication with `sed` (i.e. witchcraft)
+  - _Advanced_ text modification with `awk` (i.e. necromancy)
+
+--
+
+.left-column[
+<p align="center">
+  <img title="Source https://giphy.com/gifs/comedy-retro-musical-UjYw9fdCEPwU8" src="https://media.giphy.com/media/UjYw9fdCEPwU8/giphy.gif" width=55% >
+</p>
+]
+
+--
+
+.right-column[
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/bethesda-elder-scrolls-online-necromancer-zumog-phoom-hsaHwzGKJucbXRa7B6" src="https://media.giphy.com/media/hsaHwzGKJucbXRa7B6/giphy.gif" width=70% >
+</p>
+] 
+
+---
+
+# Future outcomes
+
+- Make your work more efficient
+
+  - Large scale modifications of files
+  - Make your work more reproducible
+  - Wizardary (stuff that we can't even imagine...)
+
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/t9lPSqrGSc1IOnajTz" 
+  src="https://media.giphy.com/media/t9lPSqrGSc1IOnajTz/giphy.gif" width=50% >
+</p>
+
+--
+
+- Make fewer mistakes
+  - Eliminate human error (blame it on the computer!)
+
+--
+
+- Look like a ~~computer nerd~~ really cool
+
+---
+
+class: center, middle
+
+# **RECAP**: Five Commandments of Bare Bones Bash
+
+???
+THISEAS
+---
+
+class: middle
+
+.left-column[
+### 1. Be lazy!
+]
+
+.right-column[
+- Desire for shortcuts motivates you explore more!
+]
+
+???
+It's better to spend 1day working on a script that will save you 5min per day for the rest of your PhD, than putting in those 5 minutes!
+
+TAB will be you favourite key by the time we are done here.
+
+---
+
+class: middle
+
+.left-column[
+### 1. Be lazy!
+### 2. ~~Google~~ The Hive-Mind knows everything.
+]
+
+.right-column[
+- Desire for shortcuts motivates you explore more!
+
+- 99% of the time, someone else has already had the same issue.
+
+]
+???
+HOW to google programming questions is not as trivial as it sounds. In the final part of today's session we can talk a bit about this.
+
+---
+
+class: middle
+
+.left-column[
+### 1. Be lazy!
+### 2. ~~Google~~ The Hive-Mind knows everything.
+### 3. Document everything you do.
+]
+
+.right-column[
+- Desire for shortcuts motivates you explore more!
+
+- 99% of the time, someone else has already had the same issue.
+
+- Makes future you happy
+]
+
+---
+
+class: middle
+
+.left-column[
+### 1. Be lazy!
+### 2. ~~Google~~ The Hive-Mind knows everything.
+### 3. Document everything you do.
+### 4. There will ALWAYS be a typo!
+]
+.right-column[
+- Desire for shortcuts motivates you explore more!
+
+- 99% of the time, someone else has already had the same issue.
+
+- Makes future you happy
+
+- Don't get disheartened, even best programmers make mistakes
+
+]
+
+---
+
+class: middle
+
+.left-column[
+### 1. Be lazy!
+### 2. ~~Google~~ The Hive-Mind knows everything.
+### 3. Document everything you do.
+### 4. There will ALWAYS be a typo!
+### 5. Don't be afraid of you freedom!
+
+]
+
+.right-column[
+- Desire for shortcuts motivates you explore more!
+
+- 99% of the time, someone else has already had the same issue.
+
+- Makes future you happy
+
+- Don't get disheartened, even best programmers make mistakes
+
+- Explore! Try out things! 
+]
+
+???
+In my experience, most of learning in programming happens by failing. Repeatedly! 
+
+---
+
+class: center middle
+
+# Preparation!
+
+---
+
+# Materials
+
+- A long-form walkthrough, and these slides, are all freely avaliable avaliable at: 
+[https://github.com/TCLamnidis/BareBonesBash](https://github.com/TCLamnidis/BareBonesBash)
+
+- This session is under **Boosted Bare Bones Bash**
+
+.<center>
+**INSERT BOOSTED BBB TOC SCREENSHOT HERE**
+</center>
+
+---
+
+# Into the hacker-verse
+
+
+- Connecting to our server
+  - In your browser, go to the URL that you got with your login information.
+  - Log-in with the user and password we provided you. 
+
+---
+
+class: center
+
+<p align="left"><img src=".images/Jupyter1.png" width="100%" ></p>
+
+---
+
+class: center
+
+<p align="left"><img src=".images/Jupyter2.png" width="100%" ></p>
+
+---
+
+class: center
+
+<p align="left"><img src=".images/Jupyter3.png" width="100%" ></p>
+
+---
+
+class: center
+
+<p align="left"><img src=".images/Jupyter4.png" width="100%" ></p>
+
+---
+
+class: center
+
+<p align="left"><img src=".images/Jupyter5.png" width="100%" ></p>
+
+???
+What you see here is the "command prompt". username@server:pwd$
+me, at the workshop server. ~ means "my HOME directory" (user specific). 
+
+---
+
+class: middle, center
+
+# Always mind the $!
+
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/studiosoriginals-gilphabet-3o84U72tKO389H2lI4" src="https://media.giphy.com/media/3o84U72tKO389H2lI4/giphy.gif" >
+</p>
+
+???
+in Bash ALWAYS MIND THE $. Only copy after the $ so you dont paste the command prompt too. $ is also important when dealing with variables, which you will see later today.
+
+---
+
+class: center,middle
+
+# Uhh... what did we do?
+
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/sonic-the-hedgehog-PJiqz1RHkdtGE" src="https://media.giphy.com/media/PJiqz1RHkdtGE/giphy.gif" >
+</p>
+
+---
+
+# Uhh... what did we do?
+
+- **Make** a directory: 
+
+---
+# Uhh... what did we do?
+
+
+- ~~**Make** a directory:~~
+
+- **What** did that that again?
+
+```bash
+whatis mkdir
+man mkdir
+
+```
+
+---
+
+# Uhh... what did we do?
+
+- **Make** a directory: 
+
+```bash 
+$ mkdir boosted_barebonesbash
+```
+--
+
+- How to **download** a file?
+
+```bash
+$ wget <INSERT_LINK_TO_METADATA_FILE_HERE>
+```
+
+--
+
+- How to **move** a something e.g. file into a directory?
+
+```bash
+$ mv <INSERT_NAME_TO_METADATA_FILE_HERE>  boosted_barebonesbash
+```
+
+--
+
+- Change **into** a directory
+
+```bash 
+$ cd boosted_barebonesbash
+```
+
+--
+
+- What's **inside** my directory (with extra info)? 
+
+```bash
+$ ls -l
+```
+
+
+---
+
+# Uhh... what did we do?
+
+- What's **inside** a (text) file?
+
+```bash
+$ cat <INSERT_NAME_Of_METADATA_FILE_HERE>
+$ head <INSERT_NAME_Of_METADATA_FILE_HERE>
+$ tail <INSERT_NAME_Of_METADATA_FILE_HERE>
+$ less <INSERT_NAME_Of_METADATA_FILE_HERE>
+
+```
+
+- How to **combine** tools?
+
+```bash
+$ cat <INSERT_NAME_Of_METADATA_FILE_HERE> | grep '|'
+
+```
+
+--
+
+.left-column-33[
+- How do we **search inside** a text file?
+]
+
+.right-column-66[
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/netflix-orange-is-the-new-black-oitnb-l4FGndnGHA5oA8sX6" src="https://media.giphy.com/media/l4FGndnGHA5oA8sX6/giphy.gif"  width=40% >
+</p>
+]
+
+--
+
+.left-column-33[
+- How do I **edit** a file?
+
+```bash
+nano
+```
+]
+
+---
+
+# Uhh... what did we do?
+
+- How to assign a **variable**
+
+```bash
+VARIABLE=Yes
+```
+
+--
+
+- How do I **repeat** a command multiple times on a list of things?
+
+```bash
+for i in Greece Spain Britain; do
+  echo "Does $i have lovely food? $VARIABLE"
+done
+
+```
+
+---
+
+# Preparation
+
+
+1. Download the following file
+```bash
+<what_the_command?> <INSERT_TINYURL_TO_PHOTODIR_ZIP_HERE>
+```
+
+--
+
+2. `unzip` the `.zip` file
+```bash
+gunzip <INSERT_TINYURL_TO_PHOTODIR_ZIP_HERE>.zip
+```
+
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/bobs-burgers-fox-bobs-burgers-3og0IRc1sW8yPON3WM" src="https://media.giphy.com/media/3og0IRc1sW8yPON3WM/giphy.gif">
+</p>
+
+---
+
+class: middle
+
+<p align="center">
+  <img title="Source: https://giphy.com/gifs/mario-super-64-WZdlab0U3AkSc
+" src="https://media.giphy.com/media/WZdlab0U3AkSc/giphy.gif">
+</p>
+
+
 ---
 
 #Outline
 
 .large[
-- Recap
-.medium[
-  - cd, mkdir, ls, mv
-- man, whatis, wget
-- cat, tail, head, wc, grep and pipes
-- symlinks, nano, echo, for loops
-]
 - Where is my stuff??
 - CONCEPT - Datastreams and redirects
 - CONCEPT - Quotes matter!
@@ -227,11 +632,7 @@ BOTH
 - Modifying files: SED, PASTE, AWK
 ]
 ---
-# Recap
 
-???
-JAMES WORK!
----
 # Where is my stuff??
 ```bash
 $ find . -name '*JPG*' -type f
@@ -239,16 +640,136 @@ $ find . -name '*JPG*' -type f
 - . : directory where you would like to search
 - -name: name that you want to find, * is a wildcard
 - -type: if you are searching a file (f), directory (d)
+
 ---
 # How do I save my stuff?
 ```bash
 $ find . -name '*JPG*' -type f > <file_with_paths>.txt
 ```
----
-# CONCEPT - Datastreams and redirects
 
 ---
-# CONCEPT - Quotes matter!
+# Concept: Datastreams
+Programmes can take in and spit out data from different _streams_. By default there are 3 such data streams.
+--
+.left-column[
+
+- `stdin`: the __st__an__d__ard __in__put
+- `stdout`: the __st__an__d__ard __out__put
+- `stderr`: the __st__an__d__ard __err__or
+]
+--
+.right.column[
+<p align="center">
+  <img src=".images/Datastreams.png" width="50%">
+</p>]
+
+--
+
+.left-column[
+<br><br><br>___A program is like the human body; One way in, two ways out!___
+]
+.right-column[<p align="center"><img src="https://media.giphy.com/media/4kg8IIClzvLtC/giphy.gif" title="Source: https://media.giphy.com/media/4kg8IIClzvLtC/" width="60%">
+</p>]
+
+---
+# Pipes revisited
+In the first session you learned about piping. Here's how that works!
+<br>
+<br>
+--
+
+<p>
+  <img src=".images/Piping.png" width="100%">
+</p>
+<br>
+<br>
+The `stdout` of one script becomes the `stdin` of the other. 
+`stderr` is printed on your screen.
+
+---
+# Concept: Redirects
+
+Much like streams in the real world, datastreams can be redirected. 
+
+???
+This way you can save the stdout of a program (or even the stderr) into a file to save for later.
+
+--
+
+- `stdin` can be redirected with `<`.
+
+???
+An arrow pointing TO your program name!
+
+--
+
+- `stdout` can be redirected with `>`.
+
+???
+An arrow pointing AWAY your program name!
+
+--
+
+- `stderr` can be redirected with `2>`.
+
+???
+Because it is the secondary output stream.
+
+--
+
+It is also possible to combine streams, but we won't get into that here.
+<p align="center"><img src="https://media.giphy.com/media/3o72EWUgbRNfLegO1W/giphy.gif" title="Source: https://media.giphy.com/media/3o72EWUgbRNfLegO1W/" width="90%">
+</p>
+
+---
+# Concept: - Quotes matter!
+In bash, there is a big difference between a single quote `'` and a double quote `"`!
+
+- The contents of single quotes, are passed on as they are.
+ - Inside double quotes, contents are _interpreted_!
+
+???
+That means that it will be read just like the rest of the code.
+
+--
+
+.left-column-66[
+In some cases the difference doesn't matter:
+```bash
+echo "I like Greek Food"
+echo 'I like Greek Food'
+```
+```
+I like Greek Food
+I like Greek Food
+```
+]
+
+--
+
+.right-column-33[
+      <p align="center"><img src="https://media.giphy.com/media/NSqQkXJjnsVpZQezfg/giphy.gif" title="Source: https://media.giphy.com/media/NSqQkXJjnsVpZQezfg/" width="90%">
+      </p>
+      <p align="center"><img src="https://media.giphy.com/media/bh4jzePjmd9iE/giphy.gif" title="Source: https://media.giphy.com/media/bh4jzePjmd9iE/" width="100%">
+      </p>
+]
+
+.left-column-66[
+In other cases it makes all the difference:
+```bash
+Arr=Banana
+echo 'Pirates say $Arr'
+echo "Minions say $Arr"
+```
+```
+Pirates say $Arr
+Minions say Banana
+```
+]
+
+???
+You can already see from the syntax highlighting that $Arr is treated differently in the two quotes.
+
 ---
 # While loop: to infinity and beyond!
 
