@@ -258,6 +258,7 @@ BOTH
 --
 
 - Make fewer mistakes
+
   - Eliminate human error (blame it on the computer!)
 
 --
@@ -389,7 +390,7 @@ class: center middle
 
 - This session is under **Boosted Bare Bones Bash**
 
-.<center>
+<center>
 **INSERT BOOSTED BBB TOC SCREENSHOT HERE**
 </center>
 
@@ -474,8 +475,9 @@ class: center,middle
 - **What** did that that again?
 
 ```bash
-whatis mkdir
-man mkdir
+$ whatis mkdir
+## or
+$ man mkdir
 
 ```
 
@@ -584,6 +586,13 @@ for i in Greece Spain Britain; do
 done
 
 ```
+--
+```
+Does Greece have lovely food? Yes
+Does Spain have lovely food? Yes
+Does Britain have lovely food? Yes
+
+```
 
 ---
 
@@ -634,22 +643,126 @@ class: middle
 ---
 
 # Where is my stuff??
+
+```bash
+$ find
+```
+
+How can you search for files and directories hidden in layers and layers 
+(of your very organised 😉) directories?
+
+<p align="center">
+  <img title="https://giphy.com/gifs/download-find-funsubstancea-XSJIE5xMWA9HO
+" src="https://media.giphy.com/media/XSJIE5xMWA9HO/giphy.gif">
+</p>
+
+---
+
+# Where is my stuff??
+```bash
+$ find .
+```
+- **First** part of the `find` command: _the place to look from_
+
+  - e.g. `.` to indicate 'here'
+--
+
+  - Could also use `~/`
+--
+
+  - Could use absolute path e.g. `/home/james/`
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+> **Question** What is the difference between `~/` and `/home/james`?
+
+---
+
+# Where is my stuff??
+```bash
+$ find . -name
+```
+- **First** part of the `find` command: _the place to look from_
+  - e.g. `.` to indicate 'here'
+  - Could also use `~/`
+  - Could use absolute path e.g. `/home/james/`
+
+- **Second** part of the `find` command: _what to look in?_
+  - Use `-name` to say look in 'names' of things
+
+---
+
+# Where is my stuff??
+```bash
+$ find . -name '*JPG*'
+```
+- **First** part of the `find` command: _the place to look from_
+  - e.g. `.` to indicate 'here'
+  - Could also use `~/`
+  - Could use absolute path e.g. `/home/james/`
+
+- **Second** part of the `find` command: _what to look in?_
+  - Use `-name` to say look in 'names' of things
+
+- **Third** part of the `find` command: _the string to look for in part two_
+  - Use wildcards! 
+
+<br/>
+<br/>
+
+> **Question** What do wildcards mean? 
+
+---
+
+# Where is my stuff??
 ```bash
 $ find . -name '*JPG*' -type f
 ```
-- . : directory where you would like to search
-- -name: name that you want to find, * is a wildcard
-- -type: if you are searching a file (f), directory (d)
+- **First** part of the `find` command: _the place to look from_
+  - e.g. `.` to indicate 'here'
+  - Could also use `~/`
+  - Could use absolute path e.g. `/home/james/`
+
+- **Second** part of the `find` command: _what to look in?_
+  - Use `-name` to say look in 'names' of things
+
+- **Third** part of the `find` command: _the string to look for in part two_
+  - Use wildcards! 
+
+- **Final** part of the `find` command: _what object(s) to look for the string in_
+  - f.small[(ile)]
+  - d.small[(irectory)]
 
 ---
 # How do I save my stuff?
+
+How to save the output that is normally printed to screen?
+
+<p align="center">
+  <img title="https://giphy.com/gifs/transparent-nWGRHBnAl5Kmc
+" src="https://media.giphy.com/media/nWGRHBnAl5Kmc/giphy.gif" width="10%">
+</p>
+
+--
+
 ```bash
 $ find . -name '*JPG*' -type f > <file_with_paths>.txt
 ```
 
+You use the _redirect_ symbol (`>`) to say take the output of a command and 
+place it into the contents of a file.
+
 ---
 # Concept: Datastreams
-Programmes can take in and spit out data from different _streams_. By default there are 3 such data streams.
+Programs can take in and spit out data from different _streams_. By default there are 3 such data streams.
 --
 .left-column[
 
