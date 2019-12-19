@@ -59,6 +59,9 @@
       }
 
       /* Two-column layouts */
+      .cols {
+        display: flex;
+      }
       .left-column  { width: 49%; float: left; }
       .right-column { width: 49%; float: right; }
 
@@ -601,7 +604,7 @@ Does Britain have lovely food? Yes
 # Preparation
 
 
-1. Download the following file
+- Download the following file
 
 ```bash
 <whats_the_command?> tinyurl.com/Boosted-BBB-zip
@@ -651,13 +654,14 @@ unzip Boosted-BBB.zip
 
 ---
 
-class: middle
+class: middle,center
 
 <p align="center">
   <img title="Source: https://giphy.com/gifs/mario-super-64-WZdlab0U3AkSc
 " src="https://media.giphy.com/media/WZdlab0U3AkSc/giphy.gif">
 </p>
 
+Make sure to `cd` back to ~/boosted_barebonesbash now!
 
 ---
 
@@ -790,6 +794,14 @@ $ find abba_dancing_queen_1976/ -name '*JPG*' -type f > photo_filepaths.txt
 You use the _redirect_ symbol (`>`) to say take the output of a command and 
 place it into the contents of a file.
 
+--
+
+Check you saved correctly!
+
+```bash
+cat photo_filepaths.txt
+```
+
 ---
 # Concept: Datastreams
 Programs can take in and spit out data from different _streams_. By default there are 3 such data streams.
@@ -811,7 +823,7 @@ Programs can take in and spit out data from different _streams_. By default ther
 .left-column[
 <br><br><br>___A program is like the human body; One way in, two ways out!___
 ]
-.right-column[<p align="center"><img src="https://media.giphy.com/media/4kg8IIClzvLtC/giphy.gif" title="Source: https://media.giphy.com/media/4kg8IIClzvLtC/" width="60%">
+.right-column[<p align="center"><img src="https://media.giphy.com/media/4kg8IIClzvLtC/giphy.gif" title="Source: https://media.giphy.com/media/4kg8IIClzvLtC/" width="40%">
 </p>]
 
 ---
@@ -861,11 +873,11 @@ Because it is the secondary output stream.
 --
 
 It is also possible to combine streams, but we won't get into that here.
-<p align="center"><img src="https://media.giphy.com/media/3o72EWUgbRNfLegO1W/giphy.gif" title="Source: https://media.giphy.com/media/3o72EWUgbRNfLegO1W/" width="90%">
+<p align="center"><img src="https://media.giphy.com/media/3o72EWUgbRNfLegO1W/giphy.gif" title="Source: https://media.giphy.com/media/3o72EWUgbRNfLegO1W/" width="80%">
 </p>
 
 ---
-# Concept: - Quotes matter!
+# Concept: Quotes matter!
 In bash, there is a big difference between a single quote `'` and a double quote `"`!
 
 - The contents of single quotes, are passed on as they are.
@@ -889,24 +901,23 @@ I like Greek Food
 ]
 
 --
-
 .right-column-33[
       <p align="center"><img src="https://media.giphy.com/media/NSqQkXJjnsVpZQezfg/giphy.gif" title="Source: https://media.giphy.com/media/NSqQkXJjnsVpZQezfg/" width="90%">
       </p>
-      <p align="center"><img src="https://media.giphy.com/media/bh4jzePjmd9iE/giphy.gif" title="Source: https://media.giphy.com/media/bh4jzePjmd9iE/" width="100%">
+      <p align="center"><img src="https://media.giphy.com/media/bh4jzePjmd9iE/giphy.gif" title="Source: https://media.giphy.com/media/bh4jzePjmd9iE/" width="90%">
       </p>
 ]
 
 .left-column-66[
 In other cases it makes all the difference:
 ```bash
-Arr=Banana
-echo 'Pirates say $Arr'
-echo "Minions say $Arr"
+$ Arr=Banana
+$ echo 'Pirates say $Arr'
+$ echo "Minions say $Arr"
 ```
 ```
-Pirates say $Arr
-Minions say Banana
+$ Pirates say $Arr
+$ Minions say Banana
 ```
 ]
 
@@ -916,14 +927,199 @@ You can already see from the syntax highlighting that $Arr is treated differentl
 ---
 # While loop: to infinity and beyond!
 
+> ???use while to move files out of horrible abba folder mess? 
+
 ---
 # Renaming files with piping (removing shit)
+
+
+.left-column[
+- `cat photo_filepaths.txt` showed us very ugly file names 😕
+
+- Lets clean this up!
+
+- Lets start by giving the file a _proper_ file suffix
+]
+
+.right-column[
+<p align="center">
+  <img src="https://media.giphy.com/media/l41m2GZsZdZohqmje/giphy.gif" title="Source: https://giphy.com/gifs/adamosgood-monster-spooky-spooktacular-l41m2GZsZdZohqmje" width="60%">
+</p>
+]
+
 ---
-# Renaming files with piping (removing shit-the clean version)
+# Renaming files with piping (removing shit)
+
+Here comes two new commands
+  - `rev`
+  - `cut`
+
+Any guesses on what they do?
+
+???
+Reward to anyone who uses `whatis` or `man`
+---
+
+# Renaming files with piping (removing shit)
+
+Here comes two new commands
+  - `rev`: reverses a character string
+  - `cut`: cuts a string into multiple pieces
+
+.left-column[
+<p align="center">
+  <img style="transform: scaleX(-1)" src="https://media.giphy.com/media/mUGRVgAkamLZe/giphy.gif" title="Source: https://giphy.com/gifs/pony-mUGRVgAkamLZe" width="100%">
+</p>
+]
+
+.right-column[
+<p align="center">
+  <img style="transform: scaleX(-1)" src="https://media.giphy.com/media/2GdACZsbRnTmo/giphy.gif" title="Source: https://giphy.com/gifs/movie-photoset-2GdACZsbRnTmo" width="93%">
+</p>
+]
+
+---
+
+# Renaming files with piping (removing shit)
+
+**Step one**: check what `rev` does
+
+```bash
+$ while read line; do
+>   echo $line | rev
+> done < photo_filepaths.txt
+
+```
+--
+**Step two**: check what `cut` does (`-d`elimiter, `-f`ield)
+
+```bash
+$ while read line; do
+>   echo $line | cut -d . 
+> done < photo_filepaths.txt
+
+```
+--
+**Step three**: Combine! Reverse, then cut second to 'last' number and re-reverse
+.left-column-66[
+```bash
+$ while read line; do
+>   echo   echo $line | rev | cut -d . -f 2-9999 | rev 
+> done < photo_filepaths.txt
+
+```
+]
+
+.right-column-33[
+<p align="center">
+  <img src="https://media.giphy.com/media/26gR2f01UTynjCPNS/giphy.gif" title="Source: https://giphy.com/gifs/powerrangers-26gR2f01UTynjCPNS" width="45%">
+</p>
+]
+---
+
+# Renaming files with piping (removing shit)
+
+.left-column[
+Now lets apply our new found moonwalking and hairdressing skills
+
+Lets mass rename your files! Using:
+  - `while`
+  - `variable`
+  - `mv`
+  - `cut`
+  - `rev`
+]
+
+--
+
+.right-column[
+<p align="center">
+  <img src="https://media.giphy.com/media/CpgNjk2E54p7W/giphy.gif" title="Source: https://giphy.com/gifs/lol-shia-labeouf-CpgNjk2E54p7W" width="65%">
+</p>
+]
+
+--
+
+`$()` indicates that the result of this command should be assigned as a string
+```bash
+$ while read line; do
+>   new_name="$(echo $line | rev | cut -d . -f 2-9999 | rev)"
+>   mv "$line" "$new_name"
+> done < photo_filepaths.txt
+
+```
+
+---
+
+# Renaming files with piping (removing shit)
+
+**BUT DID IT WORK!?**
+
+--
+
+Use find!
+
+```bash
+$ find abba_dancing_queen_1976/ -name '*JPG*' -type f > photo_filepaths_clean.txt
+$ cat photo_filepaths_clean.txt | head -n 2
+```
+--
+```
+abba_dancing_queen_1976/With/a/bit/of/rock/music/DCIM2827587.JPG.mp3
+abba_dancing_queen_1976/With/a/bit/of/rock/music/DCIM2827582.JPG.mp3
+```
+
+<p align="center">
+  <img src="https://media.giphy.com/media/VbyXgohzJCIRw6uqiP/giphy.gif" title="Source: https://giphy.com/gifs/CBSAllAccess-season-2-episode-8-happy-days-VbyXgohzJCIRw6uqiP" width="30%">
+</p>
+
+---
+
+# Renaming files with piping (lazy shit-cleaning version)
+
+But we can be even .large[more] lazy!
+
+What if you didn't have to make the terminal version of a human centipede?
+
+ .small[_\[still no gif for job security reasons\]_]
+
+These aren't actually MP3s, these are files. How can we remove `.mp3`?
+
+
+--
+```bash
+$ while read line; do
+>   mv "$line" ${line%%.mp3*}
+> done < photo_filepaths_clean.txt
+$ find abba_dancing_queen_1976/ -name '*JPG*' -type f | head -n 2
+```
+.left-column-66[
+```
+abba_dancing_queen_1976/With/a/bit/of/rock/music/DCIM2349817.JPG
+abba_dancing_queen_1976/With/a/bit/of/rock/music/DCIM2349815.JPG
+```
+]
+
+.right-column-33[
+<p align="center">
+  <img src="https://media.giphy.com/media/13r9tgg7ZisiT6/giphy.gif" title="Source: https://giphy.com/gifs/michelle-tanner-stickleyman-13r9tgg7ZisiT6" width="35%">
+</p>
+]
 ---
 # CONCEPT - Bash expansion
+
+Thiseas ~~W~~RI~~T~~DE me
+
 ---
 # Renaming files with piping (renaming shit)
+
+More complex!
+
+
+```bash
+find abba_dancing_queen_1976/ -name '*JPG*' -type f rename 's/.mp3//'
+```
+
 ---
 # CONCEPT - Regular expressions
 - Strings that define a seach pattern
