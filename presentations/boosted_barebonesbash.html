@@ -495,7 +495,7 @@ $ mkdir boosted_barebonesbash
 - How to **download** a file?
 
 ```bash
-$ wget <INSERT_LINK_TO_METADATA_FILE_HERE>
+$ wget https://github.com/TCLamnidis/BareBonesBash/raw/master/data/NHM/data.csv
 ```
 
 --
@@ -503,7 +503,7 @@ $ wget <INSERT_LINK_TO_METADATA_FILE_HERE>
 - How to **move** a something e.g. file into a directory?
 
 ```bash
-$ mv <INSERT_NAME_TO_METADATA_FILE_HERE>  boosted_barebonesbash
+$ mv data.csv  boosted_barebonesbash
 ```
 
 --
@@ -530,41 +530,43 @@ $ ls -l
 - What's **inside** a (text) file?
 
 ```bash
-$ cat <INSERT_NAME_Of_METADATA_FILE_HERE>
-$ head <INSERT_NAME_Of_METADATA_FILE_HERE>
-$ tail <INSERT_NAME_Of_METADATA_FILE_HERE>
-$ less <INSERT_NAME_Of_METADATA_FILE_HERE>
+$ cat data.csv
+$ head data.csv
+$ tail data.csv
+$ less data.csv
 
 ```
 
 - How to **combine** tools?
 
 ```bash
-$ cat <INSERT_NAME_Of_METADATA_FILE_HERE> | grep '|'
+$ cat data.csv | grep '|'
 
 ```
 
 --
 
-.left-column-33[
+.left-column-66[
 - How do we **search inside** a text file?
 ]
 
-.right-column-66[
+.right-column-33[
 <p align="center">
-  <img title="Source: https://giphy.com/gifs/netflix-orange-is-the-new-black-oitnb-l4FGndnGHA5oA8sX6" src="https://media.giphy.com/media/l4FGndnGHA5oA8sX6/giphy.gif"  width=40% >
+  <img title="Source: https://giphy.com/gifs/netflix-orange-is-the-new-black-oitnb-l4FGndnGHA5oA8sX6" src="https://media.giphy.com/media/l4FGndnGHA5oA8sX6/giphy.gif"  width=70% >
 </p>
 ]
 
 --
 
-.left-column-33[
+.left-column-66[
 - How do I **edit** a file?
-
 ```bash
-nano
+nano data.csv
 ```
+> To exit without saving any changes: ctrl + x
+
 ]
+
 
 ---
 
@@ -600,20 +602,52 @@ Does Britain have lovely food? Yes
 
 
 1. Download the following file
+
 ```bash
-<what_the_command?> <INSERT_TINYURL_TO_PHOTODIR_ZIP_HERE>
+<whats_the_command?> tinyurl.com/Boosted-BBB-zip
+```
+
+---
+
+# Preparation
+
+
+- Download the following file
+
+```bash
+wget tinyurl.com/Boosted-BBB-zip
 ```
 
 --
 
-2. `unzip` the `.zip` file
+- `unzip` the `.zip` file by **auto-completing the file name with your TAB key!**
+
 ```bash
-gunzip <INSERT_TINYURL_TO_PHOTODIR_ZIP_HERE>.zip
+unzip Boosted-BBB-zip
 ```
 
+--
+
+- Ah that didn't work - `unzip` didn't recognise the file type! What else can `mv` do?
+
+--
+
+.left-column[
+```bash
+mv Boosted-BBB-zip Boosted-BBB.zip
+unzip Boosted-BBB.zip
+```
+
+> What is the name of directory you just extracted? 
+
+>What do you see in there?
+]
+
+.right-column[
 <p align="center">
-  <img title="Source: https://giphy.com/gifs/bobs-burgers-fox-bobs-burgers-3og0IRc1sW8yPON3WM" src="https://media.giphy.com/media/3og0IRc1sW8yPON3WM/giphy.gif">
+  <img title="Source: https://giphy.com/gifs/bobs-burgers-fox-bobs-burgers-3og0IRc1sW8yPON3WM" src="https://media.giphy.com/media/3og0IRc1sW8yPON3WM/giphy.gif" width="80%">
 </p>
+]
 
 ---
 
@@ -660,7 +694,7 @@ How can you search for files and directories hidden in layers and layers
 
 # Where is my stuff??
 ```bash
-$ find .
+$ find abba_dancing_queen_1976/
 ```
 - **First** part of the `find` command: _the place to look from_
 
@@ -688,7 +722,7 @@ $ find .
 
 # Where is my stuff??
 ```bash
-$ find . -name
+$ find abba_dancing_queen_1976/ -name
 ```
 - **First** part of the `find` command: _the place to look from_
   - e.g. `.` to indicate 'here'
@@ -702,7 +736,7 @@ $ find . -name
 
 # Where is my stuff??
 ```bash
-$ find . -name '*JPG*'
+$ find abba_dancing_queen_1976/ -name '*JPG*'
 ```
 - **First** part of the `find` command: _the place to look from_
   - e.g. `.` to indicate 'here'
@@ -724,7 +758,7 @@ $ find . -name '*JPG*'
 
 # Where is my stuff??
 ```bash
-$ find . -name '*JPG*' -type f
+$ find abba_dancing_queen_1976/ -name '*JPG*' -type f
 ```
 - **First** part of the `find` command: _the place to look from_
   - e.g. `.` to indicate 'here'
@@ -750,7 +784,7 @@ How to save the output that is normally printed to screen? <img align='middle' t
 --
 
 ```bash
-$ find . -name '*JPG*' -type f > <file_with_paths>.txt
+$ find abba_dancing_queen_1976/ -name '*JPG*' -type f > photo_filepaths.txt
 ```
 
 You use the _redirect_ symbol (`>`) to say take the output of a command and 
