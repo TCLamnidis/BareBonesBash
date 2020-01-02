@@ -38,4 +38,4 @@ more advanced topics.
 
 ### Boosted Bare Bones Bash
 
-**UPCOMING**
+<p align="center"><img title="Source: https://giphy.com/gifs/thinking-l3nWhI38IWDofyDrW" src="https://media.giphy.com/media/l3nWhI38IWDofyDrW/giphy.gif" width="40%"></p>
