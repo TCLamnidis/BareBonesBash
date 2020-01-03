@@ -10,9 +10,46 @@ A basic Bash tutorial by [@jfy133](https://github.com/jfy133), [@TCLamnidis](htt
 ## Table of contents
 
 
-## Recap
+## Where is my stuff??
 
 
 ## Concept: Datastreams and redirects
+By default, programmes are like the human body
 
 ## Concept: Quotes matter
+
+
+## While loop: to infinity and beyond!
+
+
+## Renaming files with piping (removing shit)
+
+
+## Renaming files with piping (removing shit-the clean version)
+
+
+## CONCEPT - Bash expansion
+
+
+## Renaming files with piping (renaming shit)
+
+
+## CONCEPT - Regular expressions
+
+
+## Renaming files with piping (regular expressions)
+
+
+## Conditionals: If/Else statements
+
+
+## Modifying files
+
+
+## SED
+
+
+## PASTE
+
+
+## AWK

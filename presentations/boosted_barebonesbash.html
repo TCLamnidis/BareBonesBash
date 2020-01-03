@@ -475,7 +475,7 @@ class: center,middle
 
 - ~~**Make** a directory:~~
 
-- **What** did that that again?
+- **What** did that do again?
 
 ```bash
 $ whatis mkdir
@@ -578,7 +578,7 @@ nano data.csv
 - How to assign a **variable**
 
 ```bash
-VARIABLE=Yes
+Variable=Yes
 ```
 
 --
@@ -587,7 +587,7 @@ VARIABLE=Yes
 
 ```bash
 for i in Greece Spain Britain; do
-  echo "Does $i have lovely food? $VARIABLE"
+  echo "Does $i have lovely food? $Variable"
 done
 
 ```
@@ -669,15 +669,16 @@ Make sure to `cd` back to ~/boosted_barebonesbash now!
 
 .large[
 - Where is my stuff??
-- CONCEPT - Datastreams and redirects
-- CONCEPT - Quotes matter!
+- Concept: Datastreams and redirects
+- Concept: Quotes matter!
 - While loop: to infinity and beyond!
 - How to rename stuff
-- CONCEPT - Bash expansion
-- CONCEPT - Regular expressions
+- Concept: Bash expansion
+- Concept: Regular expressions
 - Conditionals: IF/ELSE
 - Modifying files: SED, PASTE, AWK
 ]
+
 ---
 
 # Where is my stuff??
@@ -685,6 +686,7 @@ Make sure to `cd` back to ~/boosted_barebonesbash now!
 ```bash
 $ find
 ```
+<<<<<<< Updated upstream
 
 How can you search for files and directories hidden in layers and layers 
 (of your very organised 😉) directories?
@@ -778,6 +780,11 @@ $ find abba_dancing_queen_1976/ -name '*JPG*' -type f
 - **Final** part of the `find` command: _what object(s) to look for the string in_
   - f.small[(ile)]
   - d.small[(irectory)]
+=======
+- `. `: directory where you would like to search
+- `-name`: name that you want to find, `*` is a wildcard
+- `-type`: if you are searching a file (`f`), directory (`d`)
+>>>>>>> Stashed changes
 
 ---
 # How do I save my stuff?
@@ -812,12 +819,15 @@ Programs can take in and spit out data from different _streams_. By default ther
 - `stdout`: the __st__an__d__ard __out__put
 - `stderr`: the __st__an__d__ard __err__or
 ]
+???
+stderr is what is usually printed on your screen, while stout is generally what ends up in output files.
 --
 .right.column[
 <p align="center">
   <img src=".images/Datastreams.png" width="50%">
 </p>]
-
+???
+In the background, each program also broadcasts an `exit code` which tells you if the program encountered errors. You will never see these in the wild, but it's good to know they exist.
 --
 
 .left-column[
@@ -825,6 +835,8 @@ Programs can take in and spit out data from different _streams_. By default ther
 ]
 .right-column[<p align="center"><img src="https://media.giphy.com/media/4kg8IIClzvLtC/giphy.gif" title="Source: https://media.giphy.com/media/4kg8IIClzvLtC/" width="40%">
 </p>]
+???
+In this analogy exit codes would be how the person is _feeling_, I suppose.
 
 ---
 # Pipes revisited
@@ -1106,10 +1118,14 @@ abba_dancing_queen_1976/With/a/bit/of/rock/music/DCIM2349815.JPG
 </p>
 ]
 ---
+<<<<<<< Updated upstream
 # CONCEPT - Bash expansion
 
 Thiseas ~~W~~RI~~T~~DE me
 
+=======
+# Concept: Bash expansion
+>>>>>>> Stashed changes
 ---
 # Renaming files with piping (renaming shit)
 
@@ -1121,7 +1137,7 @@ find abba_dancing_queen_1976/ -name '*JPG*' -type f rename 's/.mp3//'
 ```
 
 ---
-# CONCEPT - Regular expressions
+# Concept: Regular expressions
 - Strings that define a seach pattern
 - Used in 'Search' or 'Search/Replace' functions
 - You have already used them!
