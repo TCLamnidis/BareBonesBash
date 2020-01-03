@@ -1118,8 +1118,68 @@ abba_dancing_queen_1976/With/a/bit/of/rock/music/DCIM2349815.JPG
 
 ---
 
-# Concept: Bash expansion
-@ Thiseas
+# Concept: Parameter expansion
+
+In the example above, you used `$()` to only keep the parts of the contents of variable `line`. 
+```bash
+$ while read line; do
+>   new_name="$(echo $line | rev | cut -d . -f 2-9999 | rev)"
+>   mv "$line" "$new_name"
+> done < photo_filepaths.txt
+```
+???
+This is code is quite explicit. Too much typing for the **truly lazy**!
+
+--
+
+We can make it shorter and better with **parameter expansion**.
+
+???
+Remember how we were saying a variable is like an box that you can put anything inside? Parameter expansion lets you play around with the contents of a the box AS you open it. 
+
+--
+
+<p align="center">
+  <img src="https://tenor.com/view/coal-no-presents-nooo-christmas-snowman-gif-10460388.gif" title="Source: https://tenor.com/R3n6.gif" width="35%">
+  <img src="https://media.giphy.com/media/xUA7aUNSe18p3tac5W/giphy.gif" title="Source: https://media.giphy.com/media/xUA7aUNSe18p3tac5W/giphy.gif" width="41%">
+</p>
+
+???
+Imagine if you got a box of coal for christmas. Then as you open it, you turn the coal into diamonds. Pretty handy!
+
+---
+
+# The basics
+
+Here's our example variables:
+```bash
+foo="/home/thiseas/folder/subfolder/BBB.is.bae.txt"
+bar="/home/thiseas/folder/subfolder/BBB_is_bae.txt"
+```
+???
+Two absolute file paths to some imaginary files.
+
+--
+
+To expand a variable use `${}`.
+```bash
+echo ${foo}
+```
+```
+/home/thiseas/folder/subfolder/BBB.is.bae.txt
+```
+--
+
+You can also add a **parameter** to expansions:
+```bash
+echo ${foo%.txt} 
+echo ${#foo}
+```
+```
+/home/thiseas/folder/subfolder/BBB.is.bae
+45
+```
+
 
 ---
 # Renaming files with piping (renaming shit)
