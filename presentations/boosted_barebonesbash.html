@@ -450,6 +450,8 @@ class: middle, center
   <img title="Source: https://giphy.com/gifs/studiosoriginals-gilphabet-3o84U72tKO389H2lI4" src="https://media.giphy.com/media/3o84U72tKO389H2lI4/giphy.gif" >
 </p>
 
+> **H/W Fdbk:** When _sharing_ code, don't include the `$`! makes it harder for others to run! 
+
 ???
 in Bash ALWAYS MIND THE $. Only copy after the $ so you dont paste the command prompt too. $ is also important when dealing with variables, which you will see later today.
 
@@ -490,9 +492,15 @@ $ man mkdir
 
 - **Make** a directory: 
 
+.left-column[
 ```bash 
 $ mkdir boosted_barebonesbash
 ```
+]
+
+.right-column[
+> **H/W Note:** One command, multiple directories!
+]
 --
 
 - How to **download** a file?
@@ -509,21 +517,53 @@ $ wget https://github.com/TCLamnidis/BareBonesBash/raw/master/data/NHM/data.csv
 $ mv data.csv  boosted_barebonesbash
 ```
 
---
+---
 
-- Change **into** a directory
+# Uhh... what did we do?
 
+- **Make** a directory: 
+
+.left-column[
 ```bash 
-$ cd boosted_barebonesbash
+$ mkdir boosted_barebonesbash
+```
+]
+
+.right-column[
+> **H/W Note:** One command, multiple directories!
+]
+
+- How to **download** a file?
+
+```bash
+$ wget https://github.com/TCLamnidis/BareBonesBash/raw/master/data/NHM/data.csv
 ```
 
---
+- How to **move** a something e.g. file into a directory?
 
-- What's **inside** my directory (with extra info)? 
+```bash
+$ mv data.csv  boosted_barebonesbash
+```
+
+.left-column[
+- Change **into** a directory
+
+```bash
+$ cd boosted_barebonesbash
+
+```
+
+]
+--
+.right-column[
+- What's **inside** my directory (+ info)? 
 
 ```bash
 $ ls -l
+
 ```
+
+]
 
 
 ---
@@ -540,12 +580,30 @@ $ less data.csv
 
 ```
 
+--
+
+.left-column[
 - How to **combine** tools?
 
 ```bash
-$ cat data.csv | grep '|'
+$ cat data.csv | grep '|' | wc -l
 
 ```
+]
+--
+.right-column[
+- **H/W Fdbk:** Be _lazy_!
+
+```bash
+$ grep '|' data.csv | wc -l
+
+```
+]
+
+???
+Remember we want to be lazy and efficient. While it is sometimes more 'readable', you don't need to cat every file into every program. Almost all programs accept a file by default.
+
+The latter means 1) less typing and 2) less computational resources
 
 --
 
@@ -614,12 +672,25 @@ Does Britain have lovely food? Yes
 
 # Preparation
 
-
+.left-column[
 - Download the following file
 
 ```bash
 wget tinyurl.com/Boosted-BBB-zip
 ```
+]
+
+
+.right-column[
+- **H/W Fk:** write _why_ bash comments with `#`
+```bash
+## use wget to download a file
+```
+]
+
+???
+
+Also: COMMENTING IS LANGUAGE SPECIFIC. In bash you can only use #.
 
 --
 
@@ -654,6 +725,33 @@ unzip Boosted-BBB.zip
 
 ---
 
+# Last one (or two...) homework Feedback(s)
+
+.left-column[
+<p align="center">
+  <img title="https://giphy.com/gifs/UKTVGIFBANK-eMUEeNGdwU7JDZ28g0" src="https://media.giphy.com/media/eMUEeNGdwU7JDZ28g0/giphy.gif" width="80%">
+</p>
+]
+
+.left-column[
+
+- ALWAYS include a 'target' directory when using `ln -s` (even if just `.`). 
+  - This is more readable, and less error prone!
+
+- To select all lines _not_ matching a pattern, can use the grep flag `-v` (no need to `diff`! But good find!)
+
+- Comments
+  - Comment **step by step**! 
+  - Better: **why** something is done, rather than _what_ it accomplishes. 
+  - Helps others (such as your baffled bioinformaticians) and **yourself** in two years. 
+
+]
+
+???
+i.e. Nicely written code should be self explanatory as to 'how', but 'why' is more useful.
+
+---
+
 class: middle,center
 
 <p align="center">
@@ -661,7 +759,11 @@ class: middle,center
 " src="https://media.giphy.com/media/WZdlab0U3AkSc/giphy.gif">
 </p>
 
-Make sure to `cd` back to ~/boosted_barebonesbash now!
+Make sure to `cd` back to `~/boosted_barebonesbash` now!
+
+???
+
+OK! Recap done! LETS'A GO!
 
 ---
 
