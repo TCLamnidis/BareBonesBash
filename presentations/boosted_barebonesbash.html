@@ -444,13 +444,16 @@ me, at the workshop server. ~ means "my HOME directory" (user specific).
 
 class: middle, center
 
-# Always mind the $!
+# Always mind the `$` and `>`)!
 
 <p align="center">
-  <img title="Source: https://giphy.com/gifs/studiosoriginals-gilphabet-3o84U72tKO389H2lI4" src="https://media.giphy.com/media/3o84U72tKO389H2lI4/giphy.gif" >
+  <img title="Source: https://giphy.com/gifs/studiosoriginals-gilphabet-3o84U72tKO389H2lI4" src="https://media.giphy.com/media/3o84U72tKO389H2lI4/giphy.gif" width = "54%">
+  <img title="Source: https://giphy.com/gifs/animography-animated-typography-font-gzJNFeqcRcqnm" src="https://media.giphy.com/media/gzJNFeqcRcqnm/giphy.gif" width="30%">
 </p>
 
-> **H/W Fdbk:** When _sharing_ code, don't include the `$`! makes it harder for others to run! 
+**H/W Fdbk:** When _sharing_ code, don't include the `$` or `>`! makes it harder for others to run! 
+
+To write multi-line code in one: replace a newline with a `;`
 
 ???
 in Bash ALWAYS MIND THE $. Only copy after the $ so you dont paste the command prompt too. $ is also important when dealing with variables, which you will see later today.
@@ -622,7 +625,7 @@ The latter means 1) less typing and 2) less computational resources
 .left-column-66[
 - How do I **edit** a file?
 ```bash
-nano data.csv
+$ nano data.csv
 ```
 > To exit without saving any changes: ctrl + x
 
@@ -636,7 +639,7 @@ nano data.csv
 - How to assign a **variable**
 
 ```bash
-Variable=Yes
+$ Variable=Yes
 ```
 
 --
@@ -644,9 +647,9 @@ Variable=Yes
 - How do I **repeat** a command multiple times on a list of things?
 
 ```bash
-for i in Greece Spain Britain; do
-  echo "Does $i have lovely food? $Variable"
-done
+$ for i in Greece Spain Britain; do
+>  echo "Does $i have lovely food? $Variable"
+> done
 
 ```
 --
@@ -665,7 +668,7 @@ Does Britain have lovely food? Yes
 - Download the following file
 
 ```bash
-<whats_the_command?> tinyurl.com/Boosted-BBB-zip
+$ <whats_the_command?> tinyurl.com/Boosted-BBB-zip
 ```
 
 ---
@@ -676,7 +679,7 @@ Does Britain have lovely food? Yes
 - Download the following file
 
 ```bash
-wget tinyurl.com/Boosted-BBB-zip
+$ wget tinyurl.com/Boosted-BBB-zip
 ```
 ]
 
@@ -697,7 +700,7 @@ Also: COMMENTING IS LANGUAGE SPECIFIC. In bash you can only use #.
 - `unzip` the `.zip` file by **auto-completing the file name with your TAB key!**
 
 ```bash
-unzip Boosted-BBB-zip
+$ unzip Boosted-BBB-zip
 ```
 
 --
@@ -708,8 +711,8 @@ unzip Boosted-BBB-zip
 
 .left-column[
 ```bash
-mv Boosted-BBB-zip Boosted-BBB.zip
-unzip Boosted-BBB.zip
+$ mv Boosted-BBB-zip Boosted-BBB.zip
+$ unzip Boosted-BBB.zip
 ```
 
 > What is the name of directory you just extracted? 
@@ -725,7 +728,7 @@ unzip Boosted-BBB.zip
 
 ---
 
-# Last one (or two...) homework Feedback(s)
+# Final homework feedback
 
 .left-column[
 <p align="center">
@@ -881,10 +884,6 @@ $ find abba_dancing_queen_1976/ -name '*JPG*' -type f
 - **Final** part of the `find` command: _what object(s) to look for the string in_
   - f.small[(ile)]
   - d.small[(irectory)]
-=======
-- `. `: directory where you would like to search
-- `-name`: name that you want to find, `*` is a wildcard
-- `-type`: if you are searching a file (`f`), directory (`d`)
 
 ---
 # How do I save my stuff?
@@ -1201,28 +1200,25 @@ These aren't actually MP3s, these are files. How can we remove `.mp3`?
 --
 ```bash
 $ while read line; do
->   mv "$line" ${line%%.mp3*}
+>   mv "$line" "${line%%.mp3*}"
 > done < photo_filepaths_clean.txt
-$ find abba_dancing_queen_1976/ -name '*JPG*' -type f | head -n 2
+$ find abba_dancing_queen_1976/ -name '*JPG*' -type f | head -n 1
 ```
-.left-column-66[
 ```
 abba_dancing_queen_1976/With/a/bit/of/rock/music/DCIM2349817.JPG
-abba_dancing_queen_1976/With/a/bit/of/rock/music/DCIM2349815.JPG
 ```
-]
 
-.right-column-33[
 <p align="center">
-  <img src="https://media.giphy.com/media/13r9tgg7ZisiT6/giphy.gif" title="Source: https://giphy.com/gifs/michelle-tanner-stickleyman-13r9tgg7ZisiT6" width="35%">
+  <img src="https://media.giphy.com/media/13r9tgg7ZisiT6/giphy.gif" title="Source: https://giphy.com/gifs/michelle-tanner-stickleyman-13r9tgg7ZisiT6" width="20%">
 </p>
-]
 
 ---
 
 # Concept: Parameter expansion
 
-In the example above, you used `$()` to only keep the parts of the contents of variable `line`. 
+What is this magic!?
+
+In the previous example, you used `$()` to only keep the parts of the contents of variable `line`. 
 ```bash
 $ while read line; do
 >   new_name="$(echo $line | rev | cut -d . -f 2-9999 | rev)"
@@ -1234,7 +1230,7 @@ This is code is quite explicit. Too much typing for the **truly lazy**!
 
 --
 
-We can make it shorter and better with **parameter expansion**.
+We can make it shorter and better with **parameter expansion** (the magic).
 
 ???
 Remember how we were saying a variable is like an box that you can put anything inside? Parameter expansion lets you play around with the contents of a the box AS you open it. 
@@ -1242,8 +1238,8 @@ Remember how we were saying a variable is like an box that you can put anything 
 --
 
 <p align="center">
-  <img src="https://tenor.com/view/coal-no-presents-nooo-christmas-snowman-gif-10460388.gif" title="Source: https://tenor.com/R3n6.gif" width="35%">
-  <img src="https://media.giphy.com/media/xUA7aUNSe18p3tac5W/giphy.gif" title="Source: https://media.giphy.com/media/xUA7aUNSe18p3tac5W/giphy.gif" width="41%">
+  <img src="https://tenor.com/view/coal-no-presents-nooo-christmas-snowman-gif-10460388.gif" title="Source: https://tenor.com/R3n6.gif" width="33%">
+  <img src="https://media.giphy.com/media/xUA7aUNSe18p3tac5W/giphy.gif" title="Source: https://media.giphy.com/media/xUA7aUNSe18p3tac5W/giphy.gif" width="39%">
 </p>
 
 ???
@@ -1255,8 +1251,8 @@ Imagine if you got a box of coal for christmas. Then as you open it, you turn th
 
 Here's our example variables:
 ```bash
-foo="/home/thiseas/folder/subfolder/BBB.is.bae.txt"
-bar="/home/thiseas/folder/subfolder/BBB_is_bae.txt"
+$ foo="/home/thiseas/folder/subfolder/BBB.is.bae.txt"
+$ bar="/home/thiseas/folder/subfolder/BBB_is_bae.txt"
 ```
 ???
 Two absolute file paths to some imaginary files.
@@ -1265,7 +1261,7 @@ Two absolute file paths to some imaginary files.
 
 To expand a variable use `${}`.
 ```bash
-echo ${foo}
+$ echo ${foo}
 ```
 ```
 /home/thiseas/folder/subfolder/BBB.is.bae.txt
@@ -1274,8 +1270,8 @@ echo ${foo}
 
 You can also add a **parameter** to expansions:
 ```bash
-echo ${foo%.txt} 
-echo ${#foo}
+$ echo ${foo%.txt} 
+$ echo ${#foo}
 ```
 ```
 /home/thiseas/folder/subfolder/BBB.is.bae
@@ -1286,12 +1282,47 @@ echo ${#foo}
 ---
 # Renaming files with piping (renaming shit)
 
-More complex!
+Now, as well as being lazy, we are (I am) all ultimately a little narcissistic.
+
+<p align="center">
+  <img src="https://media.giphy.com/media/87engmsxqCKKjlu534/giphy.gif" title="Source: https://giphy.com/gifs/hulu-sorry-shame-dislike-87engmsxqCKKjlu534" width="40%">
+</p>
+
+--
+
+We like things to look **pretty**: convention on file types is they are in lowercase. i.e.
+
+```bash
+## DCIM2349817.JPG -> DCIM2349817.jpg
+```
+--
+Consistency generally makes things more **readable** and easier for others to understand your code.
+
+---
+# Renaming files with piping (renaming shit)
+
+
+So, to prettify in the ultimate laziness, here comes a 'one liner':
+
+--
 
 
 ```bash
-find abba_dancing_queen_1976/ -name '*JPG*' -type f rename 's/.mp3//'
+$ find abba_dancing_queen_1976/ -name '*JPG*' -type f | rename 's/.JPG/.jpg/'
 ```
+
+Explanation:
+1. Fnd the files we want to rename
+2. Pipe into `rename`
+3. Use a _regular expression_ to search and replace in the file name
+
+> As we are piping, `rename` automatically expects filenames, as that is what it does. **This is not universal behaviour**.
+
+--
+
+<p align="center">
+  <img src="https://media.giphy.com/media/SQgEr5ViRcXYs/giphy.gif" title="Source: https://giphy.com/gifs/star-wars-gif-movie-try-SQgEr5ViRcXYs" width="30%">
+</p>
 
 ---
 # Concept: Regular expressions
@@ -1313,9 +1344,49 @@ find abba_dancing_queen_1976/ -name '*JPG*' -type f rename 's/.mp3//'
 - ^: beginning line
 - $: end of the line
 ---
-#Renaming files with piping (regular expressions)
+
+# More `find` stuff
+
+It is possible to run more complex commands that require multiple parameters with `find` (and without pipes).
+
+--
+
+Firstly, lets makes project directories that make more sense
+
+```bash
+$ mkdir project_photos
+$ cd project_photos
+$ mkdir Aquitaine Midi-Pyrénées Auvergne
+```
+
+--
+
+Secondly, lets retrieve the `.jpg`s from the musical pinnacle of the 1970s 
+
+For this we use `find`'s `-exec` parameter.
+
+```bash
+$ find ../abba_dancing_queen_1976 -name '*.jpg' -type f -exec mv {} . \;
+```
+
+--
+
+Explanation: 
+
+1. `-exec` to indicate we want to run a command on a `find` result
+2. Indicate the result file with `{}` (which we want to move)
+3. Indicate the _second_ parameter (in this case, 'here' with `.`)
+4. Indicate to `-exec` we are finished with `\;` 
+
+```bash
+ls -l ## To check the `.jpg`s are now with you in `project_photos/`
+```
+
 ---
-#Conditionals: If/Else statements
+# Bringing our your broom: If/Else statements
+
+Moving stuff based on ranges
+
 ---
 #Modifying files
 ---
