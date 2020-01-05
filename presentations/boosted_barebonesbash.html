@@ -1266,18 +1266,103 @@ $ echo ${foo}
 ```
 /home/thiseas/folder/subfolder/BBB.is.bae.txt
 ```
+???
+This is actually what bash does behind the scenes when we type $Var thus far.
 --
 
 You can also add a **parameter** to expansions:
 ```bash
-$ echo ${foo%.txt} 
-$ echo ${#foo}
+$ echo ${foo#/home/} 
+$ echo ${foo#*/}
 ```
 ```
+thiseas/folder/subfolder/BBB.is.bae.txt
+home/thiseas/folder/subfolder/BBB.is.bae.txt
+
+```
+???
+The first command strips the text after the # from the START of the variable.
+
+You can also use wildcards to make more general expansions.
+
+---
+
+# Some parameters for expansion
+
+```bash
+$ foo="/home/thiseas/folder/subfolder/BBB.is.bae.txt"
+$ echo ${foo}    # No parameters in this expansion
+$ echo ${foo#*/} # Removes everything before the first '/'
+$ echo ${foo%.*} # What will this do?
+```
+--
+```
+/home/thiseas/folder/subfolder/BBB.is.bae.txt
+      thiseas/folder/subfolder/BBB.is.bae.txt
 /home/thiseas/folder/subfolder/BBB.is.bae
-45
+```
+???
+Bash will look for the provided pattern ONCE and remove it.
+
+There are more `.` and `/` but they are not removed.
+--
+
+These expansion can be generalised:
+```bash
+$ echo ${foo##*/} # Removes everything before any '/'
+$ echo ${foo%%.*} # Removes everything after any '.'
+```
+--
+```
+BBB.is.bae.txt
+/home/thiseas/folder/subfolder/BBB
+```
+???
+When the parameter is given twice, bash will keep searching for the pattern until it can no longer find it.
+
+---
+# More parameters for expansion
+
+You can use two `/` to substitute parts of the variable:
+```bash
+$ foo="/home/thiseas/folder/subfolder/BBB.is.bae.txt"
+$ echo ${foo}                    # No parameters
+$ echo ${foo/BBB/BareBonesBash}  # Change BBB to BareBonesBash
+```
+```
+/home/thiseas/folder/subfolder/BBB.is.bae.txt
+/home/thiseas/folder/subfolder/BareBonesBash.is.bae.txt
+```
+--
+
+Leaving the second `/` out replaces the pattern with "an empty string".
+```bash
+$ echo ${foo/BBB}  # Remove BBB
+```
+???
+That is programmer speak for "nothing". i.e. it removes the pattern.
+--
+```
+/home/thiseas/folder/subfolder/.is.bae.txt
 ```
 
+---
+# The last parameter, I swear!
+
+Finally, you can check the length of a variable by using a `#` BEFORE the variable name.
+```bash
+$ foo="/home/thiseas/folder/subfolder/BBB.is.bae.txt"
+$ echo ${#foo}  # The length of the variable contents
+```
+--
+```
+45
+```
+So the filepath in `foo` is 45 characters long!
+
+--
+
+This parameter is more useful when dealing with **bash arrays** (i.e. lists of things).
 
 ---
 # Renaming files with piping (renaming shit)
