@@ -1385,8 +1385,21 @@ ls -l ## To check the `.jpg`s are now with you in `project_photos/`
 ---
 # Bringing our your broom: If/Else statements
 
-Moving stuff based on ranges
+_Moving stuff based on ranges into the directory folders something like_
 
+```bash
+for file in *.jpg; do
+  id=$(echo "$line" | sed -e s/DCIM// -e s/.jpg//)
+  if [[ $id -e ${2014971..2349818} ]]; then
+    mv "$line" Aquitaine/
+  elif [[ $id -e ${2817001..2840541,2921010..2932765} ]]; then
+    mv "$line" Midi-Pyrénées/
+  else; then
+    mv "$line" Auvergne
+fi
+```
+
+Thie codes are _id in data.csv and corresponds to column BG (stateProvince)
 ---
 #Modifying files
 ---
