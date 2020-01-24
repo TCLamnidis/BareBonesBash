@@ -21,13 +21,13 @@
         font-family: 'Roboto Slab', sans-serif;
         color: #7570b3;
         font-weight: 400;
-        font-size: 10px;
+        font-size: 40px;
       }
 
       h2 {
         font-family: 'Roboto Slab', sans-serif;
         font-weight: 400;
-        font-size: 12px;
+        font-size: 30px;
         color: #7570b3;
       }
 
@@ -444,7 +444,7 @@ me, at the workshop server. ~ means "my HOME directory" (user specific).
 
 class: middle, center
 
-# Always mind the `$` and `>`)!
+# Always mind the `$` and `>`!
 
 <p align="center">
   <img title="Source: https://giphy.com/gifs/studiosoriginals-gilphabet-3o84U72tKO389H2lI4" src="https://media.giphy.com/media/3o84U72tKO389H2lI4/giphy.gif" width = "54%">
@@ -1049,7 +1049,7 @@ You can already see from the syntax highlighting that $Arr is treated differentl
 
 - Lets clean this up!
 
-- Lets start by giving the file a _proper_ file suffix
+- Lets start by giving the file a _proper_ filetype suffix
 ]
 
 .right-column[
@@ -1106,7 +1106,7 @@ $ while read line; do
 
 ```bash
 $ while read line; do
->   echo $line | cut -d . 
+>   echo $line | cut -d . -f 1
 > done < photo_filepaths.txt
 
 ```
@@ -1115,7 +1115,7 @@ $ while read line; do
 .left-column-66[
 ```bash
 $ while read line; do
->   echo   echo $line | rev | cut -d . -f 2-9999 | rev 
+>   echo   echo $line | rev | cut -d . -f 2- | rev 
 > done < photo_filepaths.txt
 
 ```
@@ -1474,6 +1474,8 @@ ls -l ## To check the `.jpg`s are now with you in `project_photos/`
 ---
 # Bringing our your broom: If/Else statements
 
+**IDEA NOT ACTUAL CONTENT AIDA TO EXPAND**
+
 _Moving stuff based on ranges into the directory folders something like_
 
 ```bash
@@ -1490,13 +1492,13 @@ fi
 
 Thie codes are _id in data.csv and corresponds to column BG (stateProvince)
 ---
-#Modifying files
+# Modifying files
 ---
-#SED
+# SED
 ---
-#PASTE
+# PASTE
 ---
-#AWK
+# AWK
 
 
     </textarea>
