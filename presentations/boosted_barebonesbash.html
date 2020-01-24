@@ -1037,8 +1037,82 @@ You can already see from the syntax highlighting that $Arr is treated differentl
 
 ---
 # While loop: to infinity and beyond!
+ - For loops are finate, they go throw your list and stop
+ - A while loop keeps going until the statement is false
+```bash
+while [statment]; do     #means while statement is true do
+[whatever you want to do]
+done
+```
+--
+An easy example:
+
+.left-column[
+```bash
+n = 3
+while n > 0; do
+echo $n
+n = $n -1
+done
+```
+]
+.right-column[
+```
+$ 3
+$ 2
+$ 1
+``` 
+]
+
+
+
 
 > ???use while to move files out of horrible abba folder mess? 
+
+---
+# While loop infinite?
+Didn't you say while loop are infinite?
+.left-column[
+```bash
+n = 3
+while n < 5; do
+echo $n
+n = $n -1
+done
+```
+]
+.right-column[
+Gif of infinite loop
+]
+--
+
+
+- Always include a stop
+---
+# While read line
+
+A common way to use the while loop is:
+```bash
+cat file.txt
+```
+```
+I
+like
+ABBA
+```
+--
+.left-column[
+```bash
+while read line; do
+echo $line
+done
+```
+```
+$ I
+$ like
+$ ABBA
+```
+]
 
 ---
 # Renaming files with piping (shit-cleaning)
@@ -1401,7 +1475,7 @@ $ find abba_dancing_queen_1976/ -name '*JPG*' -type f | rename 's/.JPG/.jpg/'
 ```
 
 Explanation:
-1. Fnd the files we want to rename
+1. Find the files we want to rename
 2. Pipe into `rename`
 3. Use a _regular expression_ to search and replace in the file name
 
@@ -1488,7 +1562,7 @@ for file in *.jpg; do
 fi
 ```
 
-Thie codes are _id in data.csv and corresponds to column BG (stateProvince)
+The codes are _id in data.csv and corresponds to column BG (stateProvince)
 ---
 #Modifying files
 ---
