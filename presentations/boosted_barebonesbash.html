@@ -1047,36 +1047,34 @@ An easy example:
 
 .left-column[
 ```bash
-n = 3
-while n > 0; do
-echo $n
-n = $n -1
-done
+$ n = 3
+$ while n > 0; do
+> echo $n
+> n = $n -1
+> done
 ```
 ]
 .right-column[
 ```
-$ 3
-$ 2
-$ 1
+3
+2
+1
 ``` 
 ]
 
-
-
-
-> ???use while to move files out of horrible abba folder mess? 
+???
+use while to move files out of horrible abba folder mess? 
 
 ---
 # While loop infinite?
 Didn't you say while loop are infinite?
 .left-column[
 ```bash
-n = 3
-while n < 5; do
-echo $n
-n = $n -1
-done
+$ n = 3
+$ while n < 5; do
+> echo $n
+> n = $n -1
+> done
 ```
 ]
 .right-column[
@@ -1091,7 +1089,7 @@ Gif of infinite loop
 
 A common way to use the while loop is:
 ```bash
-cat file.txt
+$ cat file.txt
 ```
 ```
 I
@@ -1101,14 +1099,14 @@ ABBA
 --
 .left-column[
 ```bash
-while read line; do
-echo $line
-done
+$ while read line; do
+> echo $line
+> done
 ```
 ```
-$ I
-$ like
-$ ABBA
+I
+like
+ABBA
 ```
 ]
 
