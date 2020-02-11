@@ -1573,7 +1573,93 @@ class: center, middle
 ---
 # sed
 
-Maybe edit the metadata in a simple way. Scapula -> Shoulderblade. Same meaning so it will not confuse people much. 
+You can use `sed` to modify the contents of text files on the fly. 
+
+--
+
+`sed` is short for __s__tream __ed__itor. 
+```bash
+sed '<expression>' my_file.txt
+```
+
+To run sed you specify a regular expression, and the file you wish to apply it to. 
+???
+The expressions here are similar to the ones used with `rename`.
+
+--
+
+<br>
+<br>
+<br>
+<br>
+
+First off, let's have a look at the metadata table of the data:
+ - There is a column named `catalogueDescription` with a short description of each specimen. 
+
+--
+
+Let's edit the text in this column using `sed`!
+
+
+---
+# "It is easy", they sed...
+
+As a start, let's change the word `Scapula` with the words `Shoulder blade` in the entire file. 
+
+Let's find the Scapula:
+```bash
+$ grep --color=auto "Scapula" ~/BareBonesBash/data/NHM/data.csv
+```
+???
+`--color=auto` makes the word you are looking for be highlighted red. This can be useful when grepping in long lines of text.
+
+--
+
+Now, let's try replacing it!
+
+```bash
+$ sed 's/Scapula/Shoulder blade/'  ~/BareBonesBash/data/NHM/data.csv | grep --color=auto "Shoulder blade"
+```
+
+???
+`s/Scapula/Shoulder blade` means __s__ubstitute 'Scapula' for 'Shoulder blade'.
+
+--
+<p align="center">
+  <img src="https://tenor.com/view/magic-shia-labeouf-snl-skit-fingers-gif-4860090.gif" title="Source: https://tenor.com/view/magic-shia-labeouf-snl-skit-fingers-gif-4860090.gif" width="30%">
+</p>
+
+---
+# "You will love it", they sed
+
+`sed` can apply multiple expressions!
+
+Let's change:
+ - Scapula to Shoulder blade
+ - Phalange to Phalanx
+
+```bash
+$ sed -e 's/Scapula/Shoulder blade/' -e 's/phalange/phalanx/'  ~/BareBonesBash/data/NHM/data.csv | grep --colour=auto -e "phalanx" -e "Shoulder blade"
+```
+
+<p align="center">
+  <img src="https://media.giphy.com/media/6LIxq4ch515YY/giphy.gif" title="Source: https://media.giphy.com/media/6LIxq4ch515YY/giphy.gif" width="40%">
+</p>
+
+---
+# Saving the changes
+
+You can save the modified text using a redirect:
+
+```bash
+$ sed -e 's/Scapula/Shoulder blade/' -e 's/phalange/phalanx/'  ~/BareBonesBash/data/NHM/data.csv | grep --colour=auto -e "phalanx" -e "Shoulder blade" >my_file.txt
+```
+
+OR, you can have sed modify the file _in place_, by using the `-i` flag:
+
+```bash
+$ sed -i -e 's/Scapula/Shoulder blade/' -e 's/phalange/phalanx/'  ~/BareBonesBash/data/NHM/data.csv | grep --colour=auto -e "phalanx" -e "Shoulder blade"
+```
 
 ---
 # awk
