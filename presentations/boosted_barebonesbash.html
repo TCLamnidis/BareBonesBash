@@ -1101,7 +1101,7 @@ ABBA
 ```bash
 $ while read line; do
 > echo $line
-> done
+> done < file.txt
 ```
 ```
 I
@@ -1109,6 +1109,8 @@ like
 ABBA
 ```
 ]
+???
+This approach lets you save the contents of a line in a variable, that you can then use in your scripting.
 
 ---
 # Renaming files with piping (shit-cleaning)
@@ -1185,7 +1187,7 @@ $ while read line; do
 .left-column-66[
 ```bash
 $ while read line; do
->   echo   echo $line | rev | cut -d . -f 2- | rev 
+>   echo $line | rev | cut -d . -f 2- | rev 
 > done < photo_filepaths.txt
 
 ```
@@ -1491,18 +1493,18 @@ Explanation:
 - You have already used them!
 ---
 # Regex Basics
-- . : match any character
+- `.` : match any character
 
 --
 
-- []: match range of characters with in []
-- [^]: match range of characters except the ones in the bracket
-- *: match 0 or more of the preceding items
-- +: match 1 or more of the preceding items
-- ?: match 0 or 1 of the preceding items
-- \: skip character
-- ^: beginning line
-- $: end of the line
+- `[]`: match range of characters within []
+- `[^]`: match range of characters except the ones in the bracket
+- `*`: match 0 or more of the preceding items
+- `+`: match 1 or more of the preceding items
+- `?`: match 0 or 1 of the preceding items
+- `\`: skip character
+- `^`: beginning line
+- `$`: end of the line
 ---
 
 # More `find` stuff
@@ -1543,7 +1545,7 @@ ls -l ## To check the `.jpg`s are now with you in `project_photos/`
 ```
 
 ---
-# Bringing our your broom: If/Else statements
+# Bringing out your broom: If/Else statements
 
 **IDEA NOT ACTUAL CONTENT AIDA TO EXPAND**
 
@@ -1618,7 +1620,8 @@ $ grep --color=auto "Scapula" ~/BareBonesBash/data/NHM/data.csv
 Now, let's try replacing it!
 
 ```bash
-$ sed 's/Scapula/Shoulder blade/'  ~/BareBonesBash/data/NHM/data.csv | grep --color=auto "Shoulder blade"
+$ sed 's/Scapula/Shoulder blade/'  ~/BareBonesBash/data/NHM/data.csv |
+> grep --color=auto "Shoulder blade"
 ```
 
 ???
@@ -1632,19 +1635,24 @@ $ sed 's/Scapula/Shoulder blade/'  ~/BareBonesBash/data/NHM/data.csv | grep --co
 ---
 # "You will love it", they sed
 
-`sed` can apply multiple expressions!
+`sed` can apply multiple expressions, by using the `-e` option!
 
 Let's change:
  - Scapula to Shoulder blade
  - Phalange to Phalanx
 
 ```bash
-$ sed -e 's/Scapula/Shoulder blade/' -e 's/phalange/phalanx/'  ~/BareBonesBash/data/NHM/data.csv | grep --colour=auto -e "phalanx" -e "Shoulder blade"
+$ cd ~/BareBonesBash/data/NHM/
+$ sed -e 's/Scapula/Shoulder blade/' -e 's/phalange/phalanx/' data.csv |
+> grep --colour=auto -e "phalanx" -e "Shoulder blade"
 ```
 
 <p align="center">
   <img src="https://media.giphy.com/media/6LIxq4ch515YY/giphy.gif" title="Source: https://media.giphy.com/media/6LIxq4ch515YY/giphy.gif" width="40%">
 </p>
+???
+Notice how before each expression we now give the `-e` option. 
+sed assumes the first argument is an expression, so we didn't need to say so in the previous command.
 
 ---
 # Saving the changes
@@ -1652,14 +1660,22 @@ $ sed -e 's/Scapula/Shoulder blade/' -e 's/phalange/phalanx/'  ~/BareBonesBash/d
 You can save the modified text using a redirect:
 
 ```bash
-$ sed -e 's/Scapula/Shoulder blade/' -e 's/phalange/phalanx/'  ~/BareBonesBash/data/NHM/data.csv | grep --colour=auto -e "phalanx" -e "Shoulder blade" >my_file.txt
+$ sed -e 's/Scapula/Shoulder blade/' -e 's/phalange/phalanx/' data.csv |
+> grep --colour=auto -e "phalanx" -e "Shoulder blade" > my_file.txt
 ```
 
 OR, you can have sed modify the file _in place_, by using the `-i` flag:
 
 ```bash
-$ sed -i -e 's/Scapula/Shoulder blade/' -e 's/phalange/phalanx/'  ~/BareBonesBash/data/NHM/data.csv | grep --colour=auto -e "phalanx" -e "Shoulder blade"
+$ sed -i -e 's/Scapula/Shoulder blade/' -e 's/phalange/phalanx/' data.csv |
+> grep --colour=auto -e "phalanx" -e "Shoulder blade"
 ```
+
+--
+
+<p align="center">
+  <img src="https://media.giphy.com/media/pLxSg7Cn2i3Go/giphy.gif" title="Source: https://media.giphy.com/media/pLxSg7Cn2i3Go/giphy.gif" width="65%">
+</p>
 
 ---
 # awk
