@@ -1009,6 +1009,8 @@ You can already see from the syntax highlighting that $Arr is treated differentl
 # Cleaning up the filenames
 It seems your camera has the habit of adding ugly hashes at the end of all your vacation pictures! 
 
+We will need to clean up the filenames before sorting the pictures by destination.
+
 ???
 You can't upload them to Instagram like that! Let's clean up the filenames.
 
@@ -1168,6 +1170,8 @@ $ echo ${foo}
 ```
 ???
 This is actually what bash does behind the scenes when we type $Var thus far.
+It is a good idea to put all variables in `{}` so thre is never any confusion as to which is the variable name.
+
 --
 
 You can also add a **parameter** to expansions:
@@ -1275,16 +1279,16 @@ We can now rewrite this code:
 ```bash
 $ for file in *JPG; do
 >   new_name=$(echo $file | rev | cut -d "_" -f 2-999 | rev)
->   echo ${new_name}
->   # mv $file $new_name
+>   echo ${new_name}.JPG
+>   # mv $file $new_name.JGP
 > done
 ```
 
 To this:
 ```bash
 $ for file in *JPG; do
->   echo ${file%_*}
->   # mv ${file} ${file%_*}
+>   echo ${file%_*}.JGP
+>   # mv ${file} ${file%_*}.JGP
 > done
 ```
 
@@ -1292,12 +1296,705 @@ Try these to see that the result is the same!
 
 Did you notice a difference in runtime?
 
+???
+Notice that this time around, I added ".JPG" at the end of the new filenames manually, since out approach removes it. 
+This code should run considerably faster, even with just 40 filenames!
+
+It is much more efficient since parameter expansion is one command, instead of 4 commands strung together.
+
 --
 
-When you are satisfied that everything works, remove the comments to rename our files.
+When you are satisfied that everything works, remove the comments to rename your files.
 
 ---
 
+# Almost done!
+We now have all the files named similarly, but some things are still a bit off. The file suffix `JPG` is conventionally written in lowercase characters (`jpg`). 
+
+Let's change all filename suffixes to be in lowercase letters!
+
+--
+
+Can be done with parameter expansion, but we can use **reg**ular **ex**pressions to do without a for loop.
+
+???
+Remember, a string is fancy computer lingo for a sequence of characters and/or numbers. i.e. text
+
+--
+
+ - Regex are an imporant concept. You will find them in most programming languages. 
+
+ - Syntax can vary from language to language, but here's how they work in bash.
+
+---
+
+# Concept: Regular expressions
+- Strings that define a seach pattern
+- Used in 'Search' or 'Search/Replace' functions
+- You have already used them!
+
+???
+Technically, all the wildcards you have used are regex!
+
+---
+# Regex Basics
+- `.` : match any character
+
+--
+
+- `[]`: match range of characters within []
+- `[^]`: match range of characters except the ones in the bracket
+- `*`: match 0 or more of the preceding items
+- `+`: match 1 or more of the preceding items
+- `?`: match 0 or 1 of the preceding items
+- `\`: skip character
+- `^`: beginning line
+- `$`: end of the line
+
+???
+So if we want to match a specific set of characters, that always follow a `.` and precede the end of the line, which regex characters do we need?
+
+---
+# `rename`
+
+`rename` lets you apply a regex to the name of files to rename them. 
+
+To convert all suffixes in the directory to lowercase characters:
+```bash
+$ rename 's/\.JPG$/.jpg/' *
+```
+
+No for loop needed! 
+
+The expression given to `rename` has three parts, separated by `/`
+
+ - First, we define we want to **s**ubstitute the regex matches for another string
+ 
+--
+ 
+ - Second, we define the regex to query. `\.JPG$`
+
+???
+Why do we need the `\` before the `.`? 
+
+To interpret the `.` as a literal `.` and not "any character"
+
+--
+ 
+ - Finally, we specify what we want to substitute matches with. `.jpg`
+
+???
+The substitute string is NOT a regex, so we do not need to escape the `.`
+
+Optionally you can specify optiong after the final `/`. For e.g. putting a `g` there will lookfor multiple matches in each line instead.
+
+---
+# Onwards!
+
+Ok, so we can now use find to see all the new and pretty filepaths:
+```bash
+$ suffix="jpg"
+$ find Pictures_Summer_2020 -type f -name "*${suffix}"
+```
+<p align="center">
+  <img src="https://media.giphy.com/media/yJFeycRK2DB4c/giphy.gif
+" title="Source: https://media.giphy.com/media/yJFeycRK2DB4c/giphy.gif
+" width="40%">
+</p>
+--
+
+We can finally start sorting the pictures into categories!
+
+To do that, we need to keep track of all the file names. We can easily gather this information using a **redirect**!
+
+---
+# Concept: Datastreams
+Programs can take in and spit out data from different _streams_. By default there are 3 such data streams.
+
+???
+Before we talk about redirects, you need to understand datastreams.
+
+--
+.left-column[
+
+- `stdin`: the __st__an__d__ard __in__put
+- `stdout`: the __st__an__d__ard __out__put
+- `stderr`: the __st__an__d__ard __err__or
+]
+???
+stderr is what is usually printed on your screen, while stout is generally what ends up in output files, but it also goes to your screen by default.
+--
+.right.column[
+<p align="center">
+  <img src=".images/Datastreams.png" width="50%">
+</p>]
+???
+In the background, each program also broadcasts an `exit code` which tells you if the program encountered errors. You will never see these in the wild, but it's good to know they exist.
+--
+
+.left-column[
+<br><br><br>___A program is like the human body; One way in, two ways out!___
+]
+.right-column[<p align="center"><img src="https://media.giphy.com/media/4kg8IIClzvLtC/giphy.gif" title="Source: https://media.giphy.com/media/4kg8IIClzvLtC/" width="40%">
+</p>]
+???
+In this analogy exit codes would be how the person is _feeling_, I suppose.
+
+---
+# Pipes revisited
+In the first session you learned about piping. Here's how that works!
+<br>
+<br>
+--
+
+<p>
+  <img src=".images/Piping.png" width="100%">
+</p>
+<br>
+<br>
+The `stdout` of one script becomes the `stdin` of the other. 
+`stderr` is printed on your screen.
+
+---
+# Concept: Redirects
+
+Much like streams in the real world, datastreams can be redirected. 
+
+???
+This way you can save the stdout of a program (or even the stderr) into a file to save for later.
+
+--
+
+- `stdin` can be redirected with `<`.
+
+???
+An arrow pointing TO your program name!
+
+--
+
+- `stdout` can be redirected with `>`.
+
+???
+An arrow pointing AWAY your program name!
+
+--
+
+- `stderr` can be redirected with `2>`.
+
+???
+Because it is the secondary output stream.
+
+--
+
+It is also possible to combine streams, but we won't get into that here.
+<p align="center"><img src="https://media.giphy.com/media/3o72EWUgbRNfLegO1W/giphy.gif" title="Source: https://media.giphy.com/media/3o72EWUgbRNfLegO1W/" width="80%">
+</p>
+
+---
+# Let's redirect!
+
+We can get a list of all the file names by redirecting the `stdout` of the `find` command.
+
+```bash
+$ suffix="jpg"
+$ find Pictures_Summer_2020 -type f -name "*${suffix}" >File_names.txt
+```
+
+--
+
+This time, nothing was printed on your screen, because you redirected that output into a file. 
+
+You can `cat` the resulting file to see that everything worked. 
+
+<p align="center"><img src="https://media.giphy.com/media/JqDeI2yjpSRgdh35oe/giphy.gif" title="Source: https://media.giphy.com/media/JqDeI2yjpSRgdh35oe/" width="40%">
+</p>
+
+---
+# Location, location, location
+
+Along with your pictures from your summer, you also downloaded `Location_list.txt`, which groups the pictures by the country in which you took them.
+
+Have a look in the file!
+
+???
+You wanted to minimise the time you spend typing while on vacation, so you didnt type the country name, but codes A B C for each one. 
+
+--
+
+Now we want to put together a list that states in which country each picture was taken.
+
+???
+You have the names of the pictures, and you have the countries of each too.
+
+--
+
+You can use `paste` to paste the two lists together, and save the results!
+
+```bash
+$ paste File_names.txt Location_list.txt >Annotations.txt
+```
+```
+DCIM00001   A
+DCIM00002   A
+...
+DCIM00039   C
+DCIM00040   C
+```
+???
+You now have a meta-data sheet for each image
+
+---
+# Editing text with `sed`
+
+To share these pictures with your friends, you need to properly specify the country names.
+
+During your vacation, you went to the UK first, then to Spain, and finally to Greece. Let's add these names in the `Annotations.txt`.
+
+--
+
+You can use `sed`, short for **s**tream **ed**itor, with a regex to edit the contents of a datastream on-the-fly.
+```bash
+$ sed 's/C/Greece/' Annotations.txt
+```
+
+--
+.left-column-33[
+```
+DGreeceIM00001    A
+DGreeceIM00002    A
+...
+DGreeceIM00039    C
+DGreeceIM00040    C
+```
+
+Uh-oh!]
+.right-column-66[
+<p align="center"><img src="https://media.giphy.com/media/3ohzdYJK1wAdPWVk88/giphy.gif" title="Source: https://media.giphy.com/media/3ohzdYJK1wAdPWVk88/" width="60%">
+</p>]
+???
+What happened here? How can we fix it?
+
+Pattern matches the first C in a line. Change pattern to `C$` to only match the last charcter of the line.
+
+---
+# Editing text with `sed`
+
+```bash
+$ sed 's/C$/Greece/' Annotations.txt
+```
+```
+DCIM00001   A
+DCIM00002   A
+...
+DCIM00039   Greece
+DCIM00040   Greece
+```
+
+???
+Much better!
+
+--
+
+Use `-e` to provide multiple regular **e**xplressions to `sed`.
+```bash
+$ sed -e 's/A$/United Kingdom/' -e 's/B$/Spain/' -e 's/C$/Greece/' Annotations.txt
+```
+???
+Check the results for any erros.
+
+--
+
+When you are happy with the results, it is time to save the edits.
+
+`sed` can edit a file **i**n place, with the `-i` option.
+```bash
+$ sed -i -e 's/A$/United Kingdom/' -e 's/B$/Spain/' -e 's/C$/Greece/' Annotations.txt
+```
+
+---
+# Housekeeping
+Now that you have a good annotation for your images, let's sort them into different directories, one per country.
+
+To do this, we will need to introduce a two new concepts:
+ - `while` loops
+ - `if`/`else` conditionals
+
+--
+
+####From Basic_BBB:
+```bash
+for file in file1 file2 file3 file4; do
+  echo "${file}"
+done
+```
+
+For loops repeat a set of code for a set of items, by changing the value of a variable in each iteration.
+
+---
+
+# While loop: to infinity and beyond!
+ - For loops are finate, they go throw your list and stop
+ - A while loop keeps going until the statement is false
+```bash
+$ while [statment]; do     #means while statement is true do
+>   [whatever you want to do]
+> done
+```
+--
+An easy example:
+
+.left-column[
+```bash
+$ n = 3
+$ while n > 0; do
+> echo $n
+> n = $n -1
+> done
+```
+]
+.right-column[
+```
+3
+2
+1
+``` 
+]
+
+???
+use while to move files out of horrible abba folder mess? 
+
+---
+# While loop infinite?
+Didn't you say while loop are infinite?
+.left-column[
+```bash
+$ n = 3
+$ while n < 5; do
+> echo $n
+> n = $n -1
+> done
+```
+]
+.right-column[
+Gif of infinite loop
+]
+--
+
+
+- Always include a stop
+---
+# While read line
+
+A common way to use the while loop is:
+```bash
+$ cat file.txt
+```
+```
+I
+like
+ABBA
+```
+--
+.left-column[
+```bash
+$ while read line; do
+> echo $line
+> done < file.txt
+```
+```
+I
+like
+ABBA
+```
+]
+???
+This approach lets you save the contents of a line in a variable, that you can then use in your scripting.
+
+The input file is given to the loop after `done`, using a **redirect**. 
+
+The `read` function will stop once the file has been completely read, which kills the while loop. That's our exit plan!
+
+We will be using this for our first script!
+
+---
+# Your first script!
+
+Let's start writing your first script `sort_pictures.sh`. 
+```bash
+$ nano sort_pictures.sh
+```
+???
+This will open a nano viewer window in your terminal.
+
+--
+
+<p align="center"><img src="https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif" title="Source: https://media.giphy.com/media/26tn33aiTi1jkl6H6/" width="60%">
+</p>
+
+
+---
+# Your first script!
+
+First, you want to set the directory for the script, so add this to the file:
+<br>
+<br>
+<br>
+```bash
+cd ~/boosted_barebonesbash/Pictures_Summer_2020/
+```
+
+---
+# Your first script!
+
+Then you want to use a while loop to read the contents of your annotation file.
+
+To test this works as intended, we will simply `echo` the line.
+
+```bash
+cd ~/boosted_barebonesbash/Pictures_Summer_2020/
+
+while read line; do
+  echo "${line}"
+done < Annotations.txt
+```
+
+--
+
+Close `nano` while saving changes:
+  1. Initiate exit with `ctrl + x`
+  2. You will be prompted to 'Save modified buffer'.
+  3. Press `y` on your keyboard to agree
+  4. Press Enter
+  
+
+---
+# Your first script!
+
+You can run your script like this:
+```bash
+$ bash sort_pictures.sh
+```
+
+You should see the contents of `Annotations.txt` on your screen.
+
+???
+We've achieved what `cat` does, but in a more complicated way, but we know our while loop works properly. 
+
+Code should always be tested **as it is being written**. Never assume you won't make errors!
+
+--
+
+Now we can open the file again, and continue editing!
+```bash
+$ nano sort_pictures.sh
+```
+
+---
+# Your first script!
+
+The text of each line in the file is kept in the `line` variable.
+
+Let's extract the image name and country as two separate variables.
+
+```bash
+cd ~/boosted_barebonesbash/Pictures_Summer_2020/
+
+while read line; do
+  image_name=$(echo "${line}" | cut -f1)
+  country_taken=$(echo "${line}" | cut -f2)
+  echo "${image_name} was taken in ${country_taken}"
+done < Annotations.txt
+```
+
+--
+
+Once again, time to save changes, and rerun the script to see if we succeeded.
+```bash
+$ bash sort_pictures.sh
+```
+???
+You should now see the information printed in a nicer format, and the image names and countries of origins are now kept in separate variables.
+
+--
+
+Now it is time for conditionals!
+
+---
+# Conditionals (`if`/`else`)
+
+Let you run code depending on specific conditions.
+
+The basic syntax is like this:
+```bash
+$ if [[ ${my_variable} == "banana" ]]; then
+>   echo "The monkey takes the banana and runs away happily."
+> else
+>   echo "The monkey doesn't want that!"
+> fi
+```
+
+???
+If the code above is run while `my_variable` is set to "banana", then the top code will execute, esle the bottom will. 
+
+`then` is similar to `do` in for/while loops. 
+
+`fi` (`if` flipped around), is the equivalent of `done` in for/while loops
+
+Notice the double brackets `[[]]`. Single brackets will often fail.
+
+Notice the double equals `==`. In programming this is used to mean "test for equality", rather than variable assignment.
+
+Finally, the spaces between brackets and their contents are necessary.
+
+--
+
+You can have sequential conditions too with `elif`, short for **el**se **if**.
+```bash
+$ if [[ ${my_variable} == "banana" ]]; then
+>   echo "The monkey takes the banana and runs away happily."
+> elif [[ ${my_variable} == "mango" ]]; then
+>   echo "The monkey takes the mango and eats it while staring at you."
+> else
+>   echo "The monkey doesn't want that!"
+> fi
+```
+
+---
+# Notes on conditionals
+
+ - `[[` behaves different to `[`. Usually, `[[` is what you want.
+ - You can evaluate mathematic equations with `((`
+
+--
+
+```bash
+$ if (( 5 - 2 == 3)); then 
+>   echo "YES"
+> fi
+```
+```
+YES
+```
+
+---
+# Notes on conditionals
+
+ - `[[` behaves different to `[`. Usually, `[[` is what you want.
+ - You can evaluate mathematic equations with `((`
+ - `!` can be used as a "not". 
+
+???
+Making a TRUE a FALSE and vice versa.
+
+--
+
+```bash
+$ if ! (( 5 - 2 == 3)); then 
+>   echo "YES"
+> else
+>   echo "NO"
+> fi
+```
+```
+NO
+```
+???
+
+This works with square brackets as well. 
+
+---
+# Notes on conditionals
+
+ - `[[` behaves different to `[`. Usually, `[[` is what you want.
+ - You can evaluate mathematic equations with `((`
+ - `!` can be used as a "not". 
+ - Some options can be used to check if files exist, or is a variable has been set.
+
+--
+
+```bash
+$ if [[ -f Annotations.txt ]]; then 
+>   echo "File exists!"
+> fi
+$ if [[ -n ${banana} ]]; then
+>   echo "Variable is set!"
+> else
+>   echo "Varable is NOT set!"
+> fi```
+```
+File exists!
+Varable is NOT set!
+```
+
+--
+
+Now back to editing the script!
+
+---
+# Your first script!
+
+Here's what we had before.
+<br>
+<br>
+<br>
+
+```bash
+cd ~/boosted_barebonesbash/Pictures_Summer_2020/
+
+while read line; do
+  image_name=$(echo "${line}" | cut -f1)
+  country_taken=$(echo "${line}" | cut -f2)
+ 
+  echo "${image_name} was taken in ${country_taken}"
+done < Annotations.txt
+```
+
+---
+# Your first script!
+
+We now want to create a directory for each country, and move the pictures from that country in it.
+
+Let's add some conditionals!
+
+```bash
+cd ~/boosted_barebonesbash/Pictures_Summer_2020/
+
+while read line; do
+  image_name=$(echo "${line}" | cut -f1)
+  country_taken=$(echo "${line}" | cut -f2)
+  
+  ## Make a new directory for each country, if one doesn't exist.
+  mkdir -p ${country_name}
+  
+  ## If country_name matches one of the three countries, move the image.
+  if [[ ${country_name} == "United Kingdom" ]]; then
+    mv ${image_name} United\ Kingdom/
+  elif [[ ${country_name} == "Spain" ]]; then
+    mv ${image_name} Spain/
+  elif [[ ${country_name} == "Greece" ]]; then
+    mv ${image_name} Greece/
+  fi
+done < Annotations.txt
+```
+
+--
+Save changes, and rerun the script.
+```bash
+$ bash sort_pictures.sh
+```
+
+---
+# Housekeeping
+
+This time, we didn't have anything printed on the screen.
+
+Let's see if everything moved as we wanted.
+
+```bash
+$ find ~/boosted_barebonesbash/Pictures_Summer_2020/ -type f -name "*jpg"
+```
+
+Good! Everything moved into the subfolders!
 
     </textarea>
     <script src="https://remarkjs.com/downloads/remark-latest.min.js">
