@@ -1633,7 +1633,7 @@ For loops repeat a set of code for a set of items, by changing the value of a va
 ---
 
 # While loop: to infinity and beyond!
- - For loops are finate, they go throw your list and stop
+ - For loops are finite, they go throw your list and stop
  - A while loop keeps going until the statement is false
 ```bash
 $ while [statment]; do     #means while statement is true do
@@ -1670,8 +1670,8 @@ Didn't you say while loop are infinite?
 ```bash
 $ n = 3
 $ while n < 5; do
-> echo $n
-> n = $n -1
+> echo ${n}
+> n = ${n} -1
 > done
 ```
 ]
@@ -1698,7 +1698,7 @@ ABBA
 .left-column[
 ```bash
 $ while read line; do
-> echo $line
+> echo ${line}
 > done < file.txt
 ```
 ```
