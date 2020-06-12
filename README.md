@@ -1,4 +1,9 @@
 # (Bespoke)BareBonesBash(BroughtByBlissfullyBaffledBioinformaticians)
+
+**This page is outdated. The course material can now be found [here](https://barebonesbash.github.io/).**
+
+
+
 A basic Bash tutorial by [@jfy133](https://github.com/jfy133), [@TCLamnidis](https://github.com/TCLamnidis/) and [@aidaanva](https://github.com/aidaanva).
 <p align="center"><img title="Source: https://giphy.com/gifs/wwe-the-shield-dean-ambrose-seth-rollins-2ce2NqZPa04PZvT1Xn" src="https://media.giphy.com/media/2ce2NqZPa04PZvT1Xn/giphy.gif" width="40%"></p>
 
